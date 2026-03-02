@@ -210,24 +210,27 @@ const amenities = [
     </div>
   </section>
 
-  <!-- Section 6: Vimeo Video -->
+  <!-- Section 6: Drone Video -->
   <section class="section">
     <div class="container">
       <div class="section__header">
-        <h2>Lost on Purpose</h2>
-        <p>A short film about the beauty of the Lost Sierra.</p>
+        <h2>60 Acres on Beckwourth Peak</h2>
+        <p>Surrounded by Plumas National Forest, perched at 5,300 feet, with views that stretch to the Sierra crest. This is what earned comfort looks like.</p>
       </div>
       <div class="video-wrapper">
-        <iframe
-          src="https://player.vimeo.com/video/701357507"
+        <video
+          autoplay
+          controls
+          loop
+          playsinline
+          muted
           width="100%"
           height="450"
-          frameborder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen
-          title="Lost on Purpose - Lost Sierra short film"
-          loading="lazy"
-        ></iframe>
+          preload="metadata"
+        >
+          <source src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/03/High-Camp-on-mountain-Made-with-Clipchamp.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>
@@ -402,12 +405,14 @@ const amenities = [
     box-shadow: var(--shadow-card);
   }
 
-  .video-wrapper iframe {
+  .video-wrapper iframe,
+  .video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 
   /* Instagram */
