@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const units = [
+  {
+    name: 'North Cabin',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen basics, Starlink WiFi',
+    bookUrl: bookingUrl + '?roomClass=2',
+  },
+  {
+    name: 'South Cabin',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen basics, Starlink WiFi',
+    bookUrl: bookingUrl + '?roomClass=2',
+  },
+  {
+    name: 'Yurt',
+    sleeps: '5 guests',
+    beds: '1 queen + loft',
+    features: 'A/C, heat, cozy vibes, Starlink WiFi',
+    bookUrl: bookingUrl,
+  },
+  {
+    name: 'Campsite',
+    sleeps: '5 guests',
+    beds: 'Bring your tent',
+    features: '2 vehicles, picnic table, fire ring',
+    bookUrl: bookingUrl,
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Beckwourth Peak High Camp - Lost & Found Festival Lodging",
+  "description": "Stay at Beckwourth Peak High Camp during the Lost & Found Gravel Festival. Only a 4-minute ride to the festival.",
+  "url": "https://beckwourthpeakhighcamp.com/events/lost-found-glamping/"
+};
+---
+
+<BaseLayout
+  title="Stay at High Camp During the Lost & Found Gravel Festival"
+  description="Stay at Beckwourth Peak High Camp during the Lost & Found Gravel Festival. Only a 4-minute ride to the festival."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <p class="page-hero__label">Lost &amp; Found Gravel Festival</p>
+      <h1>Skip the Tent. Ride to the Start Line.</h1>
+      <p class="page-hero__subtitle">Stay at Beckwourth Peak High Camp during the Lost &amp; Found, just a 4-minute ride to the festival grounds.</p>
+      <a href={bookingUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book Your Stay
+      </a>
+    </div>
+  </section>
+
+  <!-- Why Stay Here -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Why Stay at High Camp for Lost &amp; Found?</h2>
+        <p>The Lost &amp; Found Gravel Festival is one of the biggest gravel events in California, drawing hundreds of riders to the Lost Sierra each year. And while the riding is incredible, the camping situation at the festival can be... less incredible.</p>
+        <p>High Camp is only a 4-minute ride from the festival grounds. That means you get a real bed, hot showers, and a quiet place to recover, without being 30 minutes down the road. Roll out of camp in the morning, ride to the start, and be back at High Camp before the dust settles.</p>
+        <h3>What You Get</h3>
+        <ul>
+          <li>A comfortable cabin, yurt, or campsite on 60 private acres</li>
+          <li>Hot showers in the shared bathhouse</li>
+          <li>Starlink WiFi to upload your Strava ride and call home</li>
+          <li>Communal fire pit with firewood included every night</li>
+          <li>20-basket disc golf course for rest-day fun</li>
+          <li>360-degree mountain views from the shaded deck</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lodging Options -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Choose Your Lodging</h2>
+        <p>Book early. Lost &amp; Found weekends fill fast.</p>
+      </div>
+      <div class="grid grid--4">
+        {units.map((unit) => (
+          <div class="card">
+            <div class="card__body">
+              <h3 class="card__title">{unit.name}</h3>
+              <div class="card__meta">
+                <span>{unit.sleeps}</span>
+                <span>{unit.beds}</span>
+              </div>
+              <p class="card__text">{unit.features}</p>
+              <a href={unit.bookUrl} class="btn btn--primary btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Just 4 Minutes Away</h2>
+        <p>High Camp sits right off the route to the festival. No detours, no long drives.</p>
+      </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d48700.0!2d-120.47!3d39.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x809c5e8a25b7e5d5%3A0xbeckwourthpeak!2sBeckwourth+Peak+High+Camp%2C+Portola%2C+CA!3m2!1d39.82!2d-120.47!4m5!1s0x809c5e00000000%3A0xlostfound!2sLost+and+Found+Gravel+Festival!3m2!1d39.81!2d-120.46!5e0!3m2!1sen!2sus!4v1709000000000!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style="border:0; border-radius: var(--border-radius);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing proximity from Beckwourth Peak High Camp to Lost and Found Festival"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Don't Wait on This One</h2>
+      <p>Lost &amp; Found weekend books up fast. Secure your spot at High Camp now.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/gravel-biking.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__label {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .content-block ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block li {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+  }
+
+  .map-wrapper {
+    box-shadow: var(--shadow-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

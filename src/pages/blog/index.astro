@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title="Blog"
+  description="Stories, guides, and trip reports from Beckwourth Peak High Camp in the Lost Sierra."
+>
+  <!-- Header -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h1>Blog</h1>
+        <p>Stories, guides, and trip reports from the Lost Sierra.</p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="grid grid--3 blog-grid">
+          {posts.map((post) => (
+            <a href={`/blog/${post.slug}/`} class="card blog-card">
+              {post.data.image && (
+                <img src={post.data.image} alt={post.data.title} class="card__image" loading="lazy" width="400" height="300" />
+              )}
+              <div class="card__body">
+                <p class="blog-card__date">
+                  {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+                <h2 class="card__title">{post.data.title}</h2>
+                <p class="card__text">{post.data.description}</p>
+                <span class="blog-card__link">Read More</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="empty-state">
+          <h2>New Stories Coming Soon</h2>
+          <p>Check back for trail guides, trip reports, and Lost Sierra adventures from Beckwourth Peak High Camp.</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card__date {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .blog-card__link {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .blog-card:hover .blog-card__link {
+    text-decoration: underline;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: var(--space-8) var(--space-3);
+    background: var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .empty-state h2 {
+    margin-bottom: var(--space-2);
+    font-size: 1.8rem;
+  }
+
+  .empty-state p {
+    color: var(--color-text-secondary);
+    margin: 0 auto;
+  }
+</style>

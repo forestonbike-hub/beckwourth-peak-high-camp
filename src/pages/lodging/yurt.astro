@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const unitAmenities = [
+  { icon: '🛏️', name: 'Queen Bed + Loft', description: '1 queen bed, 2 full beds in loft, 1 twin pullout (sleeps 5)' },
+  { icon: '❄️', name: 'A/C & Heat', description: 'Climate control for year-round comfort' },
+  { icon: '☕', name: 'Beverage Station', description: 'Microwave, coffee maker, and drinking water' },
+  { icon: '🔥', name: 'Propane BBQ', description: 'Available on request for outdoor cooking' },
+  { icon: '🪟', name: 'Panoramic Windows', description: 'Natural light and mountain views from every angle' },
+  { icon: '💡', name: 'Solar Power', description: 'Off-grid electricity with outlets for charging' },
+];
+
+const sharedAmenities = [
+  { icon: '🚿', name: 'Hot Showers', description: 'Modern bathhouse with two full bathrooms' },
+  { icon: '📶', name: 'Starlink WiFi', description: 'High-speed internet in the yurt and on the deck' },
+  { icon: '🔥', name: 'Communal Fire Pit', description: 'Firewood included every evening' },
+  { icon: '🏔️', name: 'Shaded Deck', description: '360-degree views from the communal deck' },
+  { icon: '🥏', name: 'Disc Golf', description: '20-basket course on the mountain' },
+  { icon: '🅿️', name: 'Free Parking', description: 'Ample parking near the yurt' },
+];
+
+const activities = [
+  { name: 'Gravel Biking', href: '/things-to-do/gravel-biking/', description: 'Ride stunning Lost Sierra gravel routes right from camp.' },
+  { name: 'Mountain Biking', href: '/things-to-do/mountain-biking/', description: 'Beckwourth Peak Trail, Mills Peak, and Mt. Hough systems.' },
+  { name: 'Hiking', href: '/things-to-do/hiking/', description: 'Summit Beckwourth Peak or explore waterfalls and fire lookouts.' },
+  { name: 'Disc Golf', href: '/things-to-do/disc-golf/', description: '20-basket mountain course with views at every hole.' },
+  { name: 'Stargazing', href: '/things-to-do/stargazing/', description: 'Minimal light pollution at 5,300 ft. The Milky Way on full display.' },
+  { name: 'OHV / Off-Road', href: '/things-to-do/ohv/', description: 'Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s.' },
+];
+
+const reviews = [
+  {
+    name: 'Christa',
+    text: 'Beckwourth Peak High Camp was an amazing spot to stay for a bikepacking trip. Forest the host was awesome and made routes for us to optimize our trip. We rode from Truckee up to Portola on single track he routed us on and had an amazing time. We stayed in the yurt and it was clean, spacious, well stocked and super comfy! It was truly a bikepacking glamping experience.',
+    rating: 5,
+  },
+  {
+    name: 'Sam',
+    text: 'The weekend we were there we went to the Graeagle 4th of July parade, fireworks show, and Civil War re-enactment. We also took a tour of the railroad museum in Portola and had the opportunity to take a train ride in a caboose. We really enjoyed our time, the yurt was very comfortable, the biking great, and the hosts very helpful! Even if biking isn\'t your thing, High Camp is perfect if you just want to get away from the daily grind but still have the convenience of a town just a few minutes away.',
+    rating: 5,
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Yurt at Beckwourth Peak High Camp",
+  "description": "Spacious yurt sleeping 5 with queen bed, loft sleeping area, A/C, heat, and mountain views in the Lost Sierra.",
+  "url": "https://beckwourthpeakhighcamp.com/lodging/yurt/",
+  "numberOfRooms": 1,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Heating", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+  ],
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 5
+  }
+};
+---
+
+<BaseLayout
+  title="Yurt"
+  description="Spacious yurt at Beckwourth Peak High Camp. Sleeps 5 with a queen bed, loft sleeping area, A/C, heat, and mountain views in the Lost Sierra."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="unit-hero">
+    <div class="unit-hero__overlay"></div>
+    <div class="unit-hero__content container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/lodging/">Lodging</a>
+        <span aria-hidden="true">/</span>
+        <span>Yurt</span>
+      </nav>
+      <h1>The Yurt</h1>
+      <p class="unit-hero__subtitle">Spacious glamping yurt for 5 with a queen bed, loft, and panoramic views</p>
+      <div class="unit-hero__meta">
+        <span>Sleeps 5</span>
+        <span>Queen + Loft</span>
+        <span>A/C & Heat</span>
+        <span>Panoramic Views</span>
+      </div>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book the Yurt
+      </a>
+    </div>
+  </section>
+
+  <!-- Description -->
+  <section class="section">
+    <div class="container">
+      <div class="unit-detail">
+        <div class="unit-detail__text">
+          <h2>Glamping, Elevated</h2>
+          <p>The yurt is the largest and most unique accommodation at High Camp. It is a spacious, round structure with panoramic windows that fill the space with natural light and frame the mountain views from every angle. The open floor plan makes it feel bigger than you would expect.</p>
+          <p>Downstairs, a queen bed anchors the main living area. Upstairs in the loft, two full-size beds give your group extra sleeping space, with a cozy nook feel that kids and adults both love. A twin pullout provides a fifth sleeping spot when you need it. The yurt sleeps up to 5 guests total.</p>
+          <p>Climate control (A/C and heat) keeps you comfortable whatever the weather. A beverage station with microwave, coffee maker, and drinking water handles the basics. For bigger meals, a propane BBQ is available on request. The shared bathhouse with hot showers is just a short walk away, along with the communal fire pit, the shaded deck, and the 20-basket disc golf course.</p>
+        </div>
+        <div class="unit-detail__image">
+          <img src="/images/lodging/yurt.jpg" alt="Interior of the yurt at Beckwourth Peak High Camp showing queen bed and loft sleeping area" loading="lazy" width="600" height="450" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unit Amenities -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Yurt Amenities</h2>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {unitAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Amenities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Shared Property Amenities</h2>
+        <p>Every guest at High Camp has access to these amenities.</p>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {sharedAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Guests Say About the Yurt</h2>
+      </div>
+
+      <div class="grid grid--2 reviews-grid">
+        {reviews.map((review) => (
+          <blockquote class="review">
+            <div class="review__stars" aria-label={`${review.rating} out of 5 stars`}>
+              {'★'.repeat(review.rating)}
+            </div>
+            <p class="review__text">"{review.text}"</p>
+            <cite class="review__author">{review.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Activities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Things to Do Nearby</h2>
+        <p>High Camp sits at the crossroads of some of the best outdoor recreation in the Sierra. Here is what you can do right from your door.</p>
+      </div>
+
+      <div class="grid grid--3 activities-grid">
+        {activities.map((activity) => (
+          <a href={activity.href} class="activity-link">
+            <h3>{activity.name}</h3>
+            <p>{activity.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book the Yurt</h2>
+      <p>Pick your dates and reserve the yurt at High Camp. It is our most popular unit, so plan ahead.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .unit-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-image: url('/images/lodging/yurt.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .unit-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .unit-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-2);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .breadcrumb a:hover {
+    color: #fff;
+  }
+
+  .breadcrumb span {
+    margin: 0 0.5rem;
+  }
+
+  .unit-hero__content h1 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .unit-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .unit-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .unit-hero__meta span {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Unit Detail */
+  .unit-detail {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .unit-detail__text h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .unit-detail__text p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .unit-detail__image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Amenities */
+  .amenity {
+    text-align: center;
+    padding: var(--space-3);
+  }
+
+  .amenity__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenity__name {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Reviews */
+  .review {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .review__stars {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .review__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .review__author {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Activities */
+  .activity-link {
+    display: block;
+    padding: var(--space-3);
+    background: var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all var(--transition);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .activity-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .activity-link h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .activity-link p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .unit-hero {
+      min-height: 40vh;
+    }
+
+    .unit-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .unit-detail__image {
+      order: -1;
+    }
+
+    .unit-hero__meta {
+      gap: 0.5rem;
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,426 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const unitAmenities = [
+  { icon: '🛏️', name: '2 Queen Bunk Beds', description: 'Sleeps up to 4 guests comfortably' },
+  { icon: '❄️', name: 'A/C & Heat', description: 'Climate control for year-round comfort' },
+  { icon: '🍳', name: 'Kitchen', description: 'Running water, sink, microwave, refrigerator, coffee maker' },
+  { icon: '🔥', name: 'Propane BBQ', description: 'Available on request for outdoor cooking' },
+  { icon: '🪑', name: 'Private Deck', description: 'Your own outdoor space with mountain views' },
+  { icon: '💡', name: 'Solar Power', description: 'Off-grid electricity with outlets for charging' },
+];
+
+const sharedAmenities = [
+  { icon: '🚿', name: 'Hot Showers', description: 'Modern bathhouse with two full bathrooms' },
+  { icon: '📶', name: 'Starlink WiFi', description: 'High-speed internet in the cabin and on the deck' },
+  { icon: '🔥', name: 'Communal Fire Pit', description: 'Firewood included every evening' },
+  { icon: '🏔️', name: 'Shaded Deck', description: '360-degree views from the communal deck' },
+  { icon: '🥏', name: 'Disc Golf', description: '20-basket course on the mountain' },
+  { icon: '🅿️', name: 'Free Parking', description: 'Park right next to your cabin' },
+];
+
+const activities = [
+  { name: 'Gravel Biking', href: '/things-to-do/gravel-biking/', description: 'Ride stunning Lost Sierra gravel routes right from camp.' },
+  { name: 'Mountain Biking', href: '/things-to-do/mountain-biking/', description: 'Beckwourth Peak Trail, Mills Peak, and Mt. Hough systems.' },
+  { name: 'Hiking', href: '/things-to-do/hiking/', description: 'Summit Beckwourth Peak or explore waterfalls and fire lookouts.' },
+  { name: 'Disc Golf', href: '/things-to-do/disc-golf/', description: '20-basket mountain course with views at every hole.' },
+  { name: 'Stargazing', href: '/things-to-do/stargazing/', description: 'Minimal light pollution at 5,300 ft. The Milky Way on full display.' },
+  { name: 'OHV / Off-Road', href: '/things-to-do/ohv/', description: 'Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s.' },
+];
+
+const reviews = [
+  {
+    name: 'Ria',
+    text: 'This cabin was the ideal escape! The mountain views were breathtaking, and the bed was super comfy. The bathrooms were spotless, and the whole place felt cozy and clean. A truly relaxing spot to unwind. We\'ve stayed here twice now. Highly recommend!',
+    rating: 5,
+  },
+  {
+    name: 'Tatsiana',
+    text: 'We absolutely loved our stay at this cozy cabin with kids! From the moment we arrived, we were impressed by the attention to detail. Everything was so well thought out and convenient. The mountain views were stunning, and the cabin itself felt like the perfect retreat.',
+    rating: 5,
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "North Cabin at Beckwourth Peak High Camp",
+  "description": "Cozy bunkhouse cabin sleeping 4 with two queen bunk beds, A/C, heat, kitchen, and mountain views in the Lost Sierra.",
+  "url": "https://beckwourthpeakhighcamp.com/lodging/north-cabin/",
+  "numberOfRooms": 1,
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Heating", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+  ],
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 4
+  }
+};
+---
+
+<BaseLayout
+  title="North Cabin"
+  description="Cozy bunkhouse cabin at Beckwourth Peak High Camp. Sleeps 4 with two queen bunk beds, A/C, heat, kitchen with running water, and stunning mountain views."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="unit-hero">
+    <div class="unit-hero__overlay"></div>
+    <div class="unit-hero__content container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/lodging/">Lodging</a>
+        <span aria-hidden="true">/</span>
+        <span>North Cabin</span>
+      </nav>
+      <h1>North Cabin</h1>
+      <p class="unit-hero__subtitle">Cozy bunkhouse for 4 with mountain views, A/C, and a kitchen</p>
+      <div class="unit-hero__meta">
+        <span>Sleeps 4</span>
+        <span>2 Queen Bunk Beds</span>
+        <span>A/C & Heat</span>
+        <span>Kitchen</span>
+      </div>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book North Cabin
+      </a>
+    </div>
+  </section>
+
+  <!-- Description -->
+  <section class="section">
+    <div class="container">
+      <div class="unit-detail">
+        <div class="unit-detail__text">
+          <h2>Your Home Base in the Sierra</h2>
+          <p>The North Cabin sits at the edge of our property with unobstructed views of the surrounding peaks. It is a compact, well-equipped bunkhouse designed for groups of up to four. Two queen-sized bunk beds give everyone their own sleeping space, and the cabin comes with climate control (both A/C and heat) so you stay comfortable no matter the weather.</p>
+          <p>The kitchen area has everything you need for simple meals: running water, a sink, microwave, full-size refrigerator, and a coffee maker to start your mornings right. Step outside to your private deck and take in the mountain views with your morning coffee. A propane BBQ is available on request for grilling after a long day on the trails.</p>
+          <p>The shared bathhouse is just a short walk away, with hot showers, flush toilets, and complimentary toiletries. You also have full access to the communal fire pit, the shaded deck with 360-degree views, the 20-basket disc golf course, and Starlink WiFi throughout the property.</p>
+        </div>
+        <div class="unit-detail__image">
+          <img src="/images/lodging/north-cabin.jpg" alt="Interior of the North Cabin at Beckwourth Peak High Camp showing queen bunk beds and kitchen area" loading="lazy" width="600" height="450" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unit Amenities -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Cabin Amenities</h2>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {unitAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Amenities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Shared Property Amenities</h2>
+        <p>Every guest at High Camp has access to these amenities.</p>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {sharedAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Guests Say About the Cabins</h2>
+      </div>
+
+      <div class="grid grid--2 reviews-grid">
+        {reviews.map((review) => (
+          <blockquote class="review">
+            <div class="review__stars" aria-label={`${review.rating} out of 5 stars`}>
+              {'★'.repeat(review.rating)}
+            </div>
+            <p class="review__text">"{review.text}"</p>
+            <cite class="review__author">{review.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Activities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Things to Do Nearby</h2>
+        <p>High Camp sits at the crossroads of some of the best outdoor recreation in the Sierra. Here is what you can do right from your cabin door.</p>
+      </div>
+
+      <div class="grid grid--3 activities-grid">
+        {activities.map((activity) => (
+          <a href={activity.href} class="activity-link">
+            <h3>{activity.name}</h3>
+            <p>{activity.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book the North Cabin</h2>
+      <p>Pick your dates and secure your stay. The North Cabin books up fast during peak season.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .unit-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-image: url('/images/lodging/north-cabin.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .unit-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .unit-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-2);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .breadcrumb a:hover {
+    color: #fff;
+  }
+
+  .breadcrumb span {
+    margin: 0 0.5rem;
+  }
+
+  .unit-hero__content h1 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .unit-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .unit-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .unit-hero__meta span {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Unit Detail */
+  .unit-detail {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .unit-detail__text h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .unit-detail__text p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .unit-detail__image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Amenities */
+  .amenity {
+    text-align: center;
+    padding: var(--space-3);
+  }
+
+  .amenity__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenity__name {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Reviews */
+  .review {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .review__stars {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .review__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .review__author {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Activities */
+  .activity-link {
+    display: block;
+    padding: var(--space-3);
+    background: var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: all var(--transition);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .activity-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .activity-link h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .activity-link p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* CTA */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .unit-hero {
+      min-height: 40vh;
+    }
+
+    .unit-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .unit-detail__image {
+      order: -1;
+    }
+
+    .unit-hero__meta {
+      gap: 0.5rem;
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

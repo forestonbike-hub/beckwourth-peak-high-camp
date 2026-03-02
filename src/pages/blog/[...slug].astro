@@ -1,0 +1,246 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return data.draft !== true;
+  });
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const formattedDate = post.data.date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "datePublished": post.data.date.toISOString(),
+  "author": {
+    "@type": "Person",
+    "name": post.data.author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Beckwourth Peak High Camp",
+    "url": "https://beckwourthpeakhighcamp.com"
+  }
+};
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={post.data.image}
+  schema={schema}
+>
+  <article class="section">
+    <div class="container">
+      <div class="blog-post">
+        <!-- Back Link -->
+        <a href="/blog/" class="back-link">&larr; Back to Blog</a>
+
+        <!-- Header -->
+        <header class="blog-post__header">
+          <p class="blog-post__date">{formattedDate}</p>
+          <h1>{post.data.title}</h1>
+          {post.data.author && (
+            <p class="blog-post__author">By {post.data.author}</p>
+          )}
+        </header>
+
+        <!-- Featured Image -->
+        {post.data.image && (
+          <img src={post.data.image} alt={post.data.title} class="blog-post__image" loading="lazy" />
+        )}
+
+        <!-- Content -->
+        <div class="blog-post__content prose">
+          <Content />
+        </div>
+
+        <!-- Tags -->
+        {post.data.tags.length > 0 && (
+          <div class="blog-post__tags">
+            {post.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <!-- CTA -->
+        <div class="blog-post__cta">
+          <h2>Plan Your Lost Sierra Trip</h2>
+          <p>Book a cabin, yurt, or campsite at Beckwourth Peak High Camp. Hot showers, campfires, and mountain views on 60 private acres.</p>
+          <a href={bookingUrl} class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+            Check Availability
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-bottom: var(--space-4);
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .blog-post__header {
+    margin-bottom: var(--space-4);
+  }
+
+  .blog-post__date {
+    font-size: 0.875rem;
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-post__header h1 {
+    margin-bottom: 0.75rem;
+    font-size: 2.6rem;
+  }
+
+  .blog-post__author {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .blog-post__image {
+    width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--space-4);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  /* Prose Styles for Markdown Content */
+  .prose {
+    margin-bottom: var(--space-5);
+  }
+
+  .prose :global(h2) {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+    font-size: 1.9rem;
+  }
+
+  .prose :global(h3) {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 4px solid var(--color-accent);
+    padding: var(--space-2) var(--space-3);
+    margin: var(--space-3) 0;
+    background: var(--color-bg-secondary);
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    font-style: italic;
+  }
+
+  .prose :global(img) {
+    border-radius: var(--border-radius);
+    margin: var(--space-3) 0;
+  }
+
+  .prose :global(a) {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  /* Tags */
+  .blog-post__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-5);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-bg-accent);
+  }
+
+  .tag {
+    background: var(--color-bg-accent);
+    color: var(--color-text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: lowercase;
+  }
+
+  /* CTA */
+  .blog-post__cta {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .blog-post__cta h2 {
+    font-size: 1.6rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .blog-post__cta p {
+    color: var(--color-text-secondary);
+    margin: 0 auto var(--space-3);
+    max-width: 500px;
+  }
+
+  @media (max-width: 768px) {
+    .blog-post__header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

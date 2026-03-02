@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "OHV Glamping in the Lost Sierra",
+  "description": "Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s. Glamping with hot showers after a day on the trails near Portola, CA.",
+};
+---
+
+<BaseLayout
+  title="OHV Glamping in the Lost Sierra"
+  description="Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s. Glamping with hot showers after a day on the trails near Portola, CA."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>OHV Riding in the Lost Sierra</h1>
+      <p class="page-header__subtitle">Plumas National Forest has hundreds of miles of OHV-legal trails and forest service roads. High Camp puts you right at the edge of it all, with a comfortable place to crash after a long day of riding.</p>
+    </div>
+  </section>
+
+  <!-- Why High Camp for OHV -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--2 feature-grid">
+        <div class="content-block">
+          <h2>Your OHV Base Camp</h2>
+          <p>Most OHV trips mean dusty campgrounds and cold outdoor showers. High Camp is different. You get real cabins (or a yurt) with air conditioning, a modern bathhouse with hot water, Starlink WiFi, and a shaded deck to relax on when the riding is done.</p>
+          <p>Whether you're running dirt bikes, ATVs, side-by-sides, or a 4x4, High Camp is a comfortable home base for exploring the endless trail network in Plumas National Forest.</p>
+          <p>We have room for trailers and rigs at the campsite, and parking for vehicles at the cabins and yurt.</p>
+        </div>
+        <div class="content-block">
+          <h2>The Riding</h2>
+          <p>The Lost Sierra is laced with forest service roads, singletrack, and OHV trails that range from easy cruising to technical rock crawling. You can ride for days without covering the same ground twice.</p>
+          <p>Terrain includes high-alpine meadows, dense pine forest, rocky ridgelines, and creek crossings. Elevations range from around 4,500 ft to over 7,000 ft, so the scenery changes constantly.</p>
+          <p>Portola and the surrounding area have been welcoming OHV riders for decades. Local gas stations, restaurants, and shops are used to seeing dusty riders roll through town.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Know -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>What to Know</h2>
+        <ul class="info-list">
+          <li><strong>OHV permits:</strong> California requires a Green Sticker or Red Sticker for OHV use on public lands. Make sure your vehicle is properly registered.</li>
+          <li><strong>Gas:</strong> Fill up in Portola before heading out. There are no gas stations on the trails.</li>
+          <li><strong>Season:</strong> Most trails are accessible from late May through October, depending on snowpack and fire conditions.</li>
+          <li><strong>Fire restrictions:</strong> Check current fire restrictions before your trip. Spark arrestors are required on all OHVs in the national forest.</li>
+          <li><strong>Noise:</strong> High Camp has quiet hours from 10pm to 8am. Plan your riding schedule accordingly.</li>
+          <li><strong>Trailer parking:</strong> The campsite can accommodate trailers. Contact us to discuss your setup before booking.</li>
+          <li><strong>CABDR-North:</strong> The California Adventure Bike Dual Sport Route (North) passes through this area. High Camp makes a great overnight stop for CABDR riders.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Ride Hard, Sleep Well</h2>
+      <p>Hot showers and a real bed after a day on the trails. That's glamping for OHV riders.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .feature-grid {
+    align-items: start;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .content-block p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

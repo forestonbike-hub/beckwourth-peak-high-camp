@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const galleryCategories = [
+  {
+    name: 'Property Views',
+    photos: [
+      { src: '/images/gallery/photo-1.jpg', alt: 'Panoramic view from Beckwourth Peak High Camp at sunset' },
+      { src: '/images/gallery/photo-2.jpg', alt: '360-degree mountain views from the main deck' },
+      { src: '/images/gallery/photo-3.jpg', alt: 'Morning light over the Lost Sierra from High Camp' },
+      { src: '/images/gallery/photo-4.jpg', alt: 'Starry night sky above Beckwourth Peak' },
+    ],
+  },
+  {
+    name: 'Cabins & Yurt',
+    photos: [
+      { src: '/images/gallery/photo-5.jpg', alt: 'North Cabin exterior with mountain backdrop' },
+      { src: '/images/gallery/photo-6.jpg', alt: 'Cabin interior with queen bunk beds and kitchen' },
+      { src: '/images/gallery/photo-7.jpg', alt: 'Yurt exterior surrounded by pines' },
+      { src: '/images/gallery/photo-8.jpg', alt: 'Yurt interior with queen bed and sleeping loft' },
+    ],
+  },
+  {
+    name: 'Activities',
+    photos: [
+      { src: '/images/gallery/photo-9.jpg', alt: 'Disc golf basket on the 20-hole mountain course' },
+      { src: '/images/gallery/photo-10.jpg', alt: 'Guests around the communal fire pit at night' },
+      { src: '/images/gallery/photo-11.jpg', alt: 'Gravel biking on Lost Sierra roads near High Camp' },
+      { src: '/images/gallery/photo-12.jpg', alt: 'Hikers on the Beckwourth Peak summit trail' },
+    ],
+  },
+  {
+    name: 'The Lost Sierra',
+    photos: [
+      { src: '/images/gallery/photo-13.jpg', alt: 'Wildflowers blooming in the Lost Sierra meadows' },
+      { src: '/images/gallery/photo-14.jpg', alt: 'Sierra Valley viewed from Beckwourth Peak' },
+      { src: '/images/gallery/photo-15.jpg', alt: 'Pine forest trail near Portola, California' },
+      { src: '/images/gallery/photo-16.jpg', alt: 'Golden hour light on the Lost Sierra ridgeline' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Photo Gallery"
+  description="Photos of Beckwourth Peak High Camp. Cabins, yurt, campsite, views, trails, and the Lost Sierra."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Photo Gallery</h1>
+      <p class="page-header__subtitle">A look at the property, the lodging, and the Lost Sierra landscape</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section">
+    <div class="container">
+      {galleryCategories.map((category) => (
+        <div class="gallery-category">
+          <h2 class="gallery-category__title">{category.name}</h2>
+          <div class="gallery-grid">
+            {category.photos.map((photo) => (
+              <div class="gallery-item">
+                <img src={photo.src} alt={photo.alt} width="600" height="450" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Ready to See It in Person?</h2>
+      <p>Photos only tell part of the story. Book your stay and experience it firsthand.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* Gallery Category */
+  .gallery-category {
+    margin-bottom: var(--space-6);
+  }
+
+  .gallery-category:last-child {
+    margin-bottom: 0;
+  }
+
+  .gallery-category__title {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-1);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+  }
+
+  .gallery-item {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition);
+  }
+
+  .gallery-item:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition);
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  /* CTA Section */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+# 301 Redirects: Old WordPress URLs to new Astro URLs
+# Format: old-path new-path status-code
+
+/trails/ /things-to-do/ 301
+/trails/gravel-biking/ /things-to-do/gravel-biking/ 301
+/trails/mountain-biking/ /things-to-do/mountain-biking/ 301
+/trails/hiking/ /things-to-do/hiking/ 301
+/trails/bikepacking-routes/ /things-to-do/bikepacking/ 301
+/trails/cabdr-north-alternate/ /cabdr-north-alternate/ 301
+/entire-property/ /lodging/entire-property/ 301
+/mountain-biking/ /mountain-biking-weekend/ 301
+/beckwourth-peak-high-camp-ohv-glamping-in-the-lost-sierra/ /things-to-do/ohv/ 301
+/things-to-do-families/ /things-to-do/ 301
+/gravel-biking-group-glamping-events/ /lodging/entire-property/ 301
+/gravel-social-june-2026/ /events/gravel-social-2026/ 301
+/lost-found-gravel-glamping/ /events/lost-found-glamping/ 301
+/mills-peak-bike-race-everstoke-enduro/ /events/mills-peak-race/ 301
+/sierra-valley-art-ag-trail/ /events/sierra-valley-art-trail/ 301
+/bikepack-social-aug-2024/ /things-to-do/bikepacking/ 301
+/gravel-social-june-2025/ /events/gravel-social-2026/ 301
+/gravel-social-may-2024/ /events/gravel-social-2026/ 301

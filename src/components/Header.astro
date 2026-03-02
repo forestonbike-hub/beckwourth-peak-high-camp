@@ -1,0 +1,309 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  {
+    label: 'Lodging',
+    href: '/lodging/',
+    children: [
+      { label: 'North Cabin', href: '/lodging/north-cabin/' },
+      { label: 'South Cabin', href: '/lodging/south-cabin/' },
+      { label: 'Yurt', href: '/lodging/yurt/' },
+      { label: 'Campsite', href: '/lodging/campsite/' },
+      { label: 'Entire Property', href: '/lodging/entire-property/' },
+    ],
+  },
+  {
+    label: 'Things to Do',
+    href: '/things-to-do/',
+    children: [
+      { label: 'Gravel Biking', href: '/things-to-do/gravel-biking/' },
+      { label: 'Mountain Biking', href: '/things-to-do/mountain-biking/' },
+      { label: 'Hiking', href: '/things-to-do/hiking/' },
+      { label: 'Bikepacking', href: '/things-to-do/bikepacking/' },
+      { label: 'OHV / Off-Road', href: '/things-to-do/ohv/' },
+      { label: 'Disc Golf', href: '/things-to-do/disc-golf/' },
+      { label: 'Stargazing', href: '/things-to-do/stargazing/' },
+      { label: 'Fishing', href: '/things-to-do/fishing/' },
+    ],
+  },
+  { label: 'About', href: '/about/' },
+  { label: 'Gallery', href: '/gallery/' },
+  { label: 'Getting Here', href: '/getting-here/' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo" aria-label="Beckwourth Peak High Camp - Home">
+      <img src="/images/logos/logo.png" alt="Beckwourth Peak High Camp" width="200" height="65" />
+    </a>
+
+    <nav class="header__nav" id="main-nav" aria-label="Main navigation">
+      <ul class="nav__list" role="menubar">
+        {navItems.map((item) => (
+          <li class={`nav__item ${item.children ? 'nav__item--dropdown' : ''}`} role="none">
+            <a
+              href={item.href}
+              class={`nav__link ${isActive(item.href) ? 'nav__link--active' : ''}`}
+              role="menuitem"
+              aria-haspopup={item.children ? 'true' : undefined}
+            >
+              {item.label}
+              {item.children && (
+                <svg class="nav__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              )}
+            </a>
+            {item.children && (
+              <ul class="nav__dropdown" role="menu">
+                {item.children.map((child) => (
+                  <li role="none">
+                    <a href={child.href} class={`nav__dropdown-link ${isActive(child.href) ? 'nav__dropdown-link--active' : ''}`} role="menuitem">
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--primary header__cta" target="_blank" rel="noopener noreferrer">
+      Book Now
+    </a>
+
+    <button class="header__toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-nav">
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+      <span class="header__toggle-bar"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-bg-accent);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .header__logo img {
+    display: block;
+    height: 50px;
+    width: auto;
+  }
+
+  /* Nav */
+  .nav__list {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav__link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: color var(--transition);
+    white-space: nowrap;
+  }
+
+  .nav__link:hover,
+  .nav__link--active {
+    color: var(--color-primary);
+  }
+
+  .nav__link--active {
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .nav__chevron {
+    transition: transform var(--transition);
+  }
+
+  /* Dropdowns */
+  .nav__item--dropdown {
+    position: relative;
+  }
+
+  .nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: var(--color-bg-primary);
+    border: 1px solid var(--color-bg-accent);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-card-hover);
+    list-style: none;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all var(--transition);
+  }
+
+  .nav__item--dropdown:hover .nav__dropdown,
+  .nav__item--dropdown:focus-within .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__item--dropdown:hover .nav__chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav__dropdown-link {
+    display: block;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    transition: all var(--transition);
+  }
+
+  .nav__dropdown-link:hover,
+  .nav__dropdown-link--active {
+    background: var(--color-bg-accent);
+    color: var(--color-primary);
+  }
+
+  /* CTA */
+  .header__cta {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+  }
+
+  /* Mobile Toggle */
+  .header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .header__toggle-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-text-primary);
+    border-radius: 2px;
+    transition: all var(--transition);
+  }
+
+  /* Mobile Nav */
+  @media (max-width: 1024px) {
+    .header__toggle {
+      display: flex;
+    }
+
+    .header__nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg-primary);
+      border-bottom: 1px solid var(--color-bg-accent);
+      box-shadow: var(--shadow-card);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .header__nav.is-open {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      padding: var(--space-2);
+    }
+
+    .nav__link {
+      padding: 0.875rem var(--space-2);
+      font-size: 1.0625rem;
+      border-bottom: 1px solid var(--color-bg-accent);
+    }
+
+    .nav__link--active {
+      border-bottom-color: var(--color-accent);
+    }
+
+    .nav__dropdown {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      border: none;
+      background: var(--color-bg-secondary);
+      border-radius: 0;
+      padding: 0;
+    }
+
+    .nav__dropdown-link {
+      padding-left: 2.5rem;
+    }
+
+    .header__cta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header__logo img {
+      height: 40px;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', function() {
+        const isOpen = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        // Animate hamburger
+        toggle.classList.toggle('is-active', isOpen);
+      });
+    }
+  });
+</script>

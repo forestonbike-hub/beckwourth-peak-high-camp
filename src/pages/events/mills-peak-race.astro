@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Beckwourth Peak High Camp - Mills Peak Race Lodging",
+  "description": "Stay at Beckwourth Peak High Camp during the Mills Peak Bike Race and Everstoke Enduro weekend. 21 minutes from Graeagle.",
+  "url": "https://beckwourthpeakhighcamp.com/events/mills-peak-race/"
+};
+---
+
+<BaseLayout
+  title="Stay at High Camp for the Mills Peak Bike Race"
+  description="Stay at Beckwourth Peak High Camp during the Mills Peak Bike Race and Everstoke Enduro weekend. 21 minutes from Graeagle."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <p class="page-hero__label">Mills Peak Bike Race &amp; Everstoke Enduro</p>
+      <h1>Race Hard. Recover Right.</h1>
+      <p class="page-hero__subtitle">Stay at Beckwourth Peak High Camp for the Mills Peak Bike Race weekend. Just 21 minutes from Graeagle.</p>
+      <a href={bookingUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book Your Stay
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Your Base Camp for Race Weekend</h2>
+        <p>The Mills Peak Bike Race and Everstoke Enduro draw mountain bikers from across the region to Graeagle for a weekend of racing on some of the best singletrack in the Lost Sierra. High Camp is 21 minutes from Graeagle, making it an easy drive to the start line and a welcome retreat when the racing is done.</p>
+        <p>Instead of cramming into a crowded campground or driving an hour back to Truckee, you can relax in a private cabin or yurt on 60 acres. Take a hot shower, throw some discs on the disc golf course, and sit around the fire pit reviewing your race runs.</p>
+
+        <h3>Why Riders Choose High Camp</h3>
+        <ul>
+          <li>21 minutes to Graeagle, an easy pre-race morning drive</li>
+          <li>Private cabins and yurt with real beds (your legs will thank you)</li>
+          <li>Hot showers in the shared bathhouse</li>
+          <li>Starlink WiFi to check results and upload your ride</li>
+          <li>Communal fire pit for post-race decompression</li>
+          <li>20-basket disc golf course for active recovery</li>
+          <li>60 private acres, not a packed parking lot</li>
+        </ul>
+
+        <h3>Lodging Options</h3>
+        <p>Two cabins (sleep 4 each), one yurt (sleeps 5), and one campsite (sleeps 5). All guests share access to the bathhouse, fire pit, deck, and disc golf course. Kitchen basics are provided in cabins and the yurt.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book Before It's Gone</h2>
+      <p>Race weekends fill up quickly. Lock in your stay at High Camp and focus on the trails.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/mountain-biking.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__label {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .content-block ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block li {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

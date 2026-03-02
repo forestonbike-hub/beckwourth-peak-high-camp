@@ -1,0 +1,242 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Policies"
+  description="House rules and cancellation policy for Beckwourth Peak High Camp."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Policies</h1>
+      <p class="page-header__subtitle">House rules and guidelines to help everyone have a great stay</p>
+    </div>
+  </section>
+
+  <!-- Policies Content -->
+  <section class="section">
+    <div class="container">
+      <div class="policies-container">
+
+        <!-- Cancellation -->
+        <div class="policy-block">
+          <h2>Cancellation Policy</h2>
+          <div class="policy-grid">
+            <div class="policy-card policy-card--highlight">
+              <h4>14+ Days Before Check-In</h4>
+              <p>Full refund minus a 5% processing fee.</p>
+            </div>
+            <div class="policy-card policy-card--highlight">
+              <h4>Under 14 Days Before Check-In</h4>
+              <p>Non-refundable. We recommend purchasing travel insurance for added protection.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Check-In / Check-Out -->
+        <div class="policy-block">
+          <h2>Check-In & Check-Out</h2>
+          <div class="policy-grid">
+            <div class="policy-card">
+              <h4>Check-In</h4>
+              <p>3:00 PM. If you arrive early, you are welcome to explore the property, play disc golf, or relax on the deck while we prepare your unit.</p>
+            </div>
+            <div class="policy-card">
+              <h4>Check-Out</h4>
+              <p>11:00 AM. Please leave your unit tidy and remove all personal belongings. Take out any trash and leave the door unlocked.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- House Rules -->
+        <div class="policy-block">
+          <h2>House Rules</h2>
+          <ul class="rules-list">
+            <li>
+              <strong>No Smoking</strong>
+              <span>Smoking is not permitted anywhere on the property. This includes cigarettes, vapes, and all other smoking devices. Fire safety in the forest is a top priority.</span>
+            </li>
+            <li>
+              <strong>No Pets</strong>
+              <span>We do not allow pets at High Camp. The property borders Plumas National Forest, and we want to protect local wildlife and ensure comfort for all guests.</span>
+            </li>
+            <li>
+              <strong>Quiet Hours</strong>
+              <span>Please keep noise to a minimum between 10:00 PM and 7:00 AM out of respect for other guests and the natural surroundings.</span>
+            </li>
+            <li>
+              <strong>Campfires</strong>
+              <span>Use only the communal fire pit. No ground fires. We will communicate any active burn bans or fire restrictions before your arrival.</span>
+            </li>
+            <li>
+              <strong>Maximum Occupancy</strong>
+              <span>Please do not exceed the listed guest count for your unit. Cabins sleep 4, the yurt sleeps 5, and the campsite accommodates 5.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Off-Grid Conservation -->
+        <div class="policy-block">
+          <h2>Off-Grid Conservation</h2>
+          <p class="policy-intro">
+            High Camp is 100% solar powered. We appreciate your help conserving energy so the property can continue to run smoothly for all guests.
+          </p>
+          <ul class="rules-list">
+            <li>
+              <strong>A/C & Heat</strong>
+              <span>Turn off air conditioning and heating when you leave your unit and at night when possible.</span>
+            </li>
+            <li>
+              <strong>Lights</strong>
+              <span>Turn off lights when not in use, especially when leaving your cabin, yurt, or the bathhouse.</span>
+            </li>
+            <li>
+              <strong>Water</strong>
+              <span>Our water system is shared across the property. Be mindful of water use, especially in the showers.</span>
+            </li>
+            <li>
+              <strong>Leave No Trace</strong>
+              <span>Pack out everything you bring in. Use the provided trash and recycling bins. Respect the land and wildlife around you.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions CTA -->
+  <section class="section section--alt">
+    <div class="container text-center">
+      <h2>Questions About Our Policies?</h2>
+      <p>We're happy to clarify anything before you book.</p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--primary">Contact Us</a>
+        <a href="/faq/" class="btn btn--ghost">View FAQ</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* Policies Container */
+  .policies-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Policy Block */
+  .policy-block {
+    margin-bottom: var(--space-6);
+  }
+
+  .policy-block h2 {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-1);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  .policy-intro {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+
+  /* Policy Grid */
+  .policy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .policy-card {
+    background: var(--color-bg-secondary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .policy-card--highlight {
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .policy-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  .policy-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* Rules List */
+  .rules-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .rules-list li {
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .rules-list li:last-child {
+    border-bottom: none;
+  }
+
+  .rules-list strong {
+    font-size: 1.0625rem;
+    color: var(--color-text-primary);
+  }
+
+  .rules-list span {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    font-size: 0.9375rem;
+  }
+
+  /* CTA */
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .policy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

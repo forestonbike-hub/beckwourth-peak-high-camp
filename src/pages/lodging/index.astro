@@ -1,0 +1,364 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const units = [
+  {
+    name: 'North Cabin',
+    image: '/images/lodging/north-cabin.jpg',
+    alt: 'North Cabin at Beckwourth Peak High Camp with mountain views',
+    sleeps: '4 guests',
+    beds: '2 queen bunk beds',
+    features: 'A/C, heat, kitchen with running water',
+    href: '/lodging/north-cabin/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2',
+  },
+  {
+    name: 'South Cabin',
+    image: '/images/lodging/south-cabin.jpg',
+    alt: 'South Cabin at Beckwourth Peak High Camp surrounded by forest',
+    sleeps: '4 guests',
+    beds: '2 queen bunk beds',
+    features: 'A/C, heat, kitchen with running water',
+    href: '/lodging/south-cabin/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2',
+  },
+  {
+    name: 'Yurt',
+    image: '/images/lodging/yurt.jpg',
+    alt: 'Spacious yurt at Beckwourth Peak High Camp with mountain backdrop',
+    sleeps: '5 guests',
+    beds: '1 queen + loft sleeping',
+    features: 'A/C, heat, cozy retreat',
+    href: '/lodging/yurt/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/',
+  },
+  {
+    name: 'Campsite',
+    image: '/images/lodging/campsite.jpg',
+    alt: 'Campsite at Beckwourth Peak High Camp with picnic area',
+    sleeps: '5 guests',
+    beds: 'Bring your tent',
+    features: '2 vehicles, picnic table',
+    href: '/lodging/campsite/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/',
+  },
+];
+
+const sharedAmenities = [
+  { icon: '🚿', name: 'Hot Showers', description: 'Modern bathhouse with two full bathrooms, hot water, and complimentary toiletries' },
+  { icon: '🔥', name: 'Communal Fire Pit', description: 'Firewood included every evening for campfire cooking and stargazing' },
+  { icon: '🏔️', name: 'Shaded Deck', description: '360-degree mountain views from the communal deck with Adirondack chairs' },
+  { icon: '📶', name: 'Starlink WiFi', description: 'High-speed internet throughout the property' },
+  { icon: '🥏', name: 'Disc Golf', description: '20-basket mountain course with views at every hole' },
+  { icon: '🅿️', name: 'Free Parking', description: 'Ample parking for cars, trucks, and trailers' },
+];
+---
+
+<BaseLayout
+  title="Lodging"
+  description="Cabins, yurt, and campsite on 60 acres at Beckwourth Peak. Hot showers, Starlink WiFi, A/C, and 360-degree mountain views in California's Lost Sierra."
+>
+  <!-- Hero -->
+  <section class="lodging-hero">
+    <div class="lodging-hero__overlay"></div>
+    <div class="lodging-hero__content container">
+      <h1>Lodging at High Camp</h1>
+      <p>Two cabins, a yurt, and a campsite on 60 private acres at 5,300 feet. Every unit comes with hot showers, Starlink WiFi, and views that make you forget about everything else.</p>
+    </div>
+  </section>
+
+  <!-- Unit Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Choose Your Stay</h2>
+        <p>Each accommodation has its own character, but they all share one thing: a front-row seat to the Lost Sierra.</p>
+      </div>
+
+      <div class="grid grid--2 unit-grid">
+        {units.map((unit) => (
+          <div class="card unit-card">
+            <img src={unit.image} alt={unit.alt} class="card__image" loading="lazy" width="600" height="450" />
+            <div class="card__body">
+              <h3 class="card__title">{unit.name}</h3>
+              <div class="card__meta">
+                <span>{unit.sleeps}</span>
+                <span>{unit.beds}</span>
+              </div>
+              <p class="card__text">{unit.features}</p>
+              <div class="card__actions">
+                <a href={unit.href} class="btn btn--ghost btn--small">View Details</a>
+                <a href={unit.bookUrl} class="btn btn--primary btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Entire Property -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="entire-property">
+        <div class="entire-property__text">
+          <h2>Rent the Entire Property</h2>
+          <p>Planning a group trip, family reunion, or club outing? Book all four units and get the entire 60-acre property to yourselves. Up to 30 guests across the cabins, yurt, and campsite.</p>
+          <div class="entire-property__actions">
+            <a href="/lodging/entire-property/" class="btn btn--ghost">Learn More</a>
+            <a href="mailto:info@beckwourthpeakhighcamp.com" class="btn btn--primary">Contact for Group Rates</a>
+          </div>
+        </div>
+        <div class="entire-property__image">
+          <img src="/images/property/high-camp-hero.jpg" alt="Aerial view of the entire Beckwourth Peak High Camp property" loading="lazy" width="600" height="400" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Amenities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Shared Amenities</h2>
+        <p>Every guest at High Camp has access to these amenities, regardless of which unit you book.</p>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {sharedAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Policies</h2>
+      </div>
+
+      <div class="grid grid--2 policies-grid">
+        <div class="policy-card">
+          <h3>Check-in & Check-out</h3>
+          <ul>
+            <li><strong>Check-in:</strong> 3:00 PM</li>
+            <li><strong>Check-out:</strong> 11:00 AM</li>
+            <li>Self check-in with lockbox code provided before arrival</li>
+          </ul>
+        </div>
+        <div class="policy-card">
+          <h3>House Rules</h3>
+          <ul>
+            <li>No smoking anywhere on the property</li>
+            <li>No pets allowed</li>
+            <li>Quiet hours: 10:00 PM to 8:00 AM</li>
+          </ul>
+        </div>
+        <div class="policy-card">
+          <h3>Cancellation</h3>
+          <ul>
+            <li>Free cancellation up to 14 days before check-in</li>
+            <li>Full refund minus service fees if canceled within policy window</li>
+          </ul>
+        </div>
+        <div class="policy-card">
+          <h3>Safety</h3>
+          <ul>
+            <li>Off-grid property accessed via dirt road (high-clearance vehicle recommended)</li>
+            <li>Cell service available on property</li>
+            <li>Fire extinguishers and first-aid kits in all units</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Ready to Book Your Stay?</h2>
+      <p>Pick your dates and reserve your spot at High Camp. The Lost Sierra is waiting.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .lodging-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-image: url('/images/property/high-camp-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .lodging-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .lodging-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .lodging-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .lodging-hero__content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+  }
+
+  /* Unit Grid */
+  .unit-grid {
+    gap: var(--space-4);
+  }
+
+  .unit-card .card__meta {
+    gap: var(--space-2);
+  }
+
+  /* Entire Property */
+  .entire-property {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .entire-property__text h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .entire-property__text p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .entire-property__actions {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .entire-property__image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Amenities */
+  .amenity {
+    text-align: center;
+    padding: var(--space-3);
+  }
+
+  .amenity__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenity__name {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Policies */
+  .policy-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .policy-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2);
+    color: var(--color-primary);
+  }
+
+  .policy-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .policy-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+
+  .policy-card li:last-child {
+    border-bottom: none;
+  }
+
+  /* CTA */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .lodging-hero {
+      min-height: 40vh;
+    }
+
+    .entire-property {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .entire-property__image {
+      order: -1;
+    }
+  }
+</style>

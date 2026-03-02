@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "CABDR-North Alternate Route through Beckwourth Peak",
+  "description": "Alternate route for Northern California Backcountry Discovery Route (CABDR-North) through Beckwourth Peak and Portola. Includes Smith Peak Lookout.",
+  "touristType": "Adventure Motorcycling",
+  "url": "https://beckwourthpeakhighcamp.com/cabdr-north-alternate/"
+};
+---
+
+<BaseLayout
+  title="CABDR-North Alternate Route"
+  description="Alternate route for Northern California Backcountry Discovery Route (CABDR-North) through Beckwourth Peak and Portola. Includes Smith Peak Lookout."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <p class="page-hero__label">CABDR-North Section 6 Alternate</p>
+      <h1>CABDR-North Alternate Route</h1>
+      <p class="page-hero__subtitle">A scenic alternate through Beckwourth Peak and Portola, with a stop at Smith Peak Lookout and a real bed at High Camp.</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>A Better Way Through Section 6</h2>
+        <p>If you're riding the CABDR-North (California Backcountry Discovery Route, Northern Section), this alternate route takes you through some of the best terrain in the Lost Sierra. Instead of the standard Section 6 routing, this variant swings through Beckwourth Peak and Portola, adding Smith Peak Lookout and connecting you with roads that are arguably more scenic and less trafficked than the original route.</p>
+        <p>The route passes directly through Beckwourth Peak High Camp, which means you can stop for the night in a real cabin or yurt instead of camping on the side of the road. Hot showers, a fire pit, and Starlink WiFi are a welcome upgrade after days on the trail.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Details -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="content-block">
+        <h2>Route Details</h2>
+        <h3>What's Different</h3>
+        <p>This alternate diverges from the standard CABDR-North Section 6 routing and takes you on a more direct path through the Plumas National Forest. Key highlights include:</p>
+        <ul>
+          <li>Smith Peak Lookout, a fire lookout tower with panoramic views of the Lost Sierra</li>
+          <li>Beckwourth Peak, riding right along the ridgeline at 5,300 feet</li>
+          <li>Portola, a small mountain town for fuel, food, and supplies</li>
+          <li>A mix of graded forest roads and more technical sections</li>
+        </ul>
+
+        <h3>GPX Download</h3>
+        <p>Download the GPX file for this alternate route and load it into your GPS or navigation app before you ride.</p>
+        <a href="/downloads/cabdr-portola-alternative.zip" class="btn btn--primary" download>
+          Download GPX File
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Route Map -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Route Map</h2>
+        <p>View the full alternate route on RideWithGPS.</p>
+      </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://ridewithgps.com/embeds?type=route&id=49026101&sampleGraph=true"
+          style="width: 100%; height: 500px; border: none; border-radius: var(--border-radius);"
+          scrolling="no"
+          title="CABDR-North Alternate Route via Beckwourth Peak on RideWithGPS"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stay at High Camp -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="content-block">
+        <h2>Stay at High Camp</h2>
+        <p>Beckwourth Peak High Camp sits right on the alternate route, making it the ideal overnight stop. After days of riding dirt, a real bed and a hot shower go a long way. Here's what's waiting for you:</p>
+        <ul>
+          <li>Cabins (sleep 4) and yurt (sleeps 5) with real beds and climate control</li>
+          <li>Campsite option if you prefer to keep it simple</li>
+          <li>Hot showers in the shared bathhouse</li>
+          <li>Starlink WiFi for route planning and weather checks</li>
+          <li>Secure parking for bikes and vehicles</li>
+          <li>Communal fire pit with firewood included</li>
+          <li>Portola is 15 minutes away for fuel, groceries, and restaurants</li>
+        </ul>
+        <p>Whether you're on a dual sport, adventure bike, or running the route on a 4x4, High Camp is built for travelers who need a comfortable stop between long days on the trail.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book Your CABDR Stop</h2>
+      <p>Reserve a cabin, yurt, or campsite at High Camp. Your best night on the CABDR is waiting.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/ohv.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__label {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .content-block ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block li {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+  }
+
+  .map-wrapper {
+    box-shadow: var(--shadow-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

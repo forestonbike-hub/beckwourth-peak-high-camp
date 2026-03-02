@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const spots = [
+  {
+    name: 'Middle Fork Feather River',
+    driveTime: '7 min from High Camp',
+    description: 'The river runs right through Portola and offers good trout fishing in a scenic, accessible setting. Wade fishing along several easy access points. Rainbow and brown trout.',
+  },
+  {
+    name: 'Frenchman Lake',
+    driveTime: '30 min from High Camp',
+    description: 'A popular reservoir with rainbow trout, brown trout, and smallmouth bass. Bank fishing and boat access available. The lake is surrounded by sagebrush and pine, with mountain views in every direction.',
+  },
+  {
+    name: 'Lake Davis',
+    driveTime: '25 min from High Camp',
+    description: 'One of the best trout lakes in the region. Known for quality rainbow trout fishing from shore or boat. The lake also offers good camping and picnic areas if you want to make a full day of it.',
+  },
+  {
+    name: 'Gold Lake',
+    driveTime: '40 min from High Camp',
+    description: 'A stunning alpine lake in the Lakes Basin area near Graeagle. Trout fishing in a beautiful high-elevation setting. The drive alone is worth it, passing through some of the best scenery in the Lost Sierra.',
+  },
+  {
+    name: 'Graeagle Mill Pond',
+    driveTime: '25 min from High Camp',
+    description: 'A calm, family-friendly spot for fishing, swimming, and paddling. Stocked with trout during the season. Great option for families with younger kids who want to wet a line.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Fishing near Beckwourth Peak High Camp",
+  "description": "Trout fishing in the Lost Sierra. Lakes, rivers, and streams near Portola, CA. Stay at High Camp for the best fishing weekend.",
+};
+---
+
+<BaseLayout
+  title="Fishing near Beckwourth Peak High Camp"
+  description="Trout fishing in the Lost Sierra. Lakes, rivers, and streams near Portola, CA. Stay at High Camp for the best fishing weekend."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Fishing in the Lost Sierra</h1>
+      <p class="page-header__subtitle">The Lost Sierra has some of Northern California's best trout fishing. Lakes, rivers, and streams are all within a short drive of High Camp, and you'll come back to a comfortable cabin and hot shower instead of a damp tent.</p>
+    </div>
+  </section>
+
+  <!-- Fishing Spots -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Nearby Fishing Spots</h2>
+        <p>All of these are within 40 minutes of camp.</p>
+      </div>
+
+      <div class="spots-list">
+        {spots.map((spot) => (
+          <div class="spot-card">
+            <div class="spot-card__header">
+              <h3>{spot.name}</h3>
+              <span class="spot-card__drive">{spot.driveTime}</span>
+            </div>
+            <p>{spot.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Know -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>What to Know</h2>
+        <ul class="info-list">
+          <li><strong>License:</strong> A valid California fishing license is required for anyone 16 and older. You can purchase one online or at sporting goods stores in the area.</li>
+          <li><strong>Season:</strong> General trout season runs from late April through mid-November. Some waters have special regulations, so check current rules for your specific destination.</li>
+          <li><strong>Gear:</strong> Bring your own gear. There are no tackle shops in Portola, but Reno and Truckee have full sporting goods stores.</li>
+          <li><strong>Best times:</strong> Early morning and late evening produce the best results, especially in summer when midday temperatures warm the water.</li>
+          <li><strong>Species:</strong> Rainbow trout and brown trout are the most common catches. Some lakes also have bass and other species.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Plan Your Fishing Trip</h2>
+      <p>A comfortable base camp for your Lost Sierra fishing weekend. Book a cabin, yurt, or campsite.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .spots-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .spot-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent-blue);
+  }
+
+  .spot-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+  }
+
+  .spot-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .spot-card__drive {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  .spot-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

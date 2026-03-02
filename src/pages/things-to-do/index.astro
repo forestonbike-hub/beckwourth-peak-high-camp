@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const activities = [
+  {
+    name: 'Gravel Biking',
+    image: '/images/activities/gravel-biking.jpg',
+    description: 'Ride stunning Lost Sierra gravel routes right from camp. Home of the Lost and Found Gravel Festival.',
+    href: '/things-to-do/gravel-biking/',
+  },
+  {
+    name: 'Mountain Biking',
+    image: '/images/activities/mountain-biking.jpg',
+    description: 'Beckwourth Peak Trail starts at your door. Mills Peak and Mt. Hough are a short drive away.',
+    href: '/things-to-do/mountain-biking/',
+  },
+  {
+    name: 'Hiking',
+    image: '/images/activities/hiking.jpg',
+    description: 'Summit Beckwourth Peak, chase waterfalls, or stroll the Portola Riverwalk. Trails for every level.',
+    href: '/things-to-do/hiking/',
+  },
+  {
+    name: 'OHV / Off-Road',
+    image: '/images/activities/ohv.jpg',
+    description: 'Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s in Plumas National Forest.',
+    href: '/things-to-do/ohv/',
+  },
+  {
+    name: 'Bikepacking',
+    image: '/images/activities/bikepacking.jpg',
+    description: 'Ride overnight routes from Truckee, Reno, or Sierra Valley and finish at a cabin with hot showers.',
+    href: '/things-to-do/bikepacking/',
+  },
+  {
+    name: 'Stargazing',
+    image: '/images/activities/stargazing.jpg',
+    description: 'Minimal light pollution at 5,300 ft. See the Milky Way from your cabin porch.',
+    href: '/things-to-do/stargazing/',
+  },
+  {
+    name: 'Fishing',
+    image: '/images/activities/fishing.jpg',
+    description: 'Trout fishing in lakes, rivers, and streams throughout the Lost Sierra.',
+    href: '/things-to-do/fishing/',
+  },
+  {
+    name: 'Disc Golf',
+    image: '/images/activities/disc-golf.jpg',
+    description: '20-basket mountain course on-site. Beginner-friendly lower 10, advanced upper 10 with views.',
+    href: '/things-to-do/disc-golf/',
+  },
+];
+
+const moreActivities = [
+  {
+    name: 'Swimming & Paddling',
+    description: 'Graeagle Mill Pond offers swimming and boat rentals just 25 minutes from camp. Several natural hot springs are within driving distance for a post-adventure soak.',
+  },
+  {
+    name: 'Golf',
+    description: 'Graeagle Meadows Golf Course and Plumas Pines Golf Resort are both within 30 minutes, set against stunning mountain backdrops.',
+  },
+  {
+    name: 'History & Trains',
+    description: 'The Portola Railroad Museum (Western Pacific Railroad Museum) in Portola lets you operate a real diesel locomotive. A great stop for families and history buffs, just 7 minutes from camp.',
+  },
+  {
+    name: 'Eat & Drink',
+    description: 'Portola has local restaurants and a brewery for post-adventure meals. Graeagle and Blairsden add more dining options within a short drive.',
+  },
+  {
+    name: 'Birding & Wildlife',
+    description: 'The Lost Sierra is home to bald eagles, osprey, red-tailed hawks, and dozens of songbird species. Keep an eye out for deer, black bears, and the occasional fox on the property.',
+  },
+];
+---
+
+<BaseLayout
+  title="Things to Do near Portola, in the Lost Sierra"
+  description="Gravel biking, mountain biking, hiking, OHV, disc golf, fishing, and stargazing near Beckwourth Peak High Camp in Portola, CA."
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Things to Do in the Lost Sierra</h1>
+      <p class="page-header__subtitle">Ride, hike, fish, or just sit on the deck and watch the sunset. The Lost Sierra has enough adventure to fill a week, and enough quiet to make one evening feel like a real escape.</p>
+    </div>
+  </section>
+
+  <!-- Primary Activities Grid -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Adventures from Your Doorstep</h2>
+        <p>Most of these start right at camp or within a short drive on scenic mountain roads.</p>
+      </div>
+
+      <div class="grid grid--3 activities-grid">
+        {activities.map((activity) => (
+          <a href={activity.href} class="card activity-card">
+            <img src={activity.image} alt={`${activity.name} near Beckwourth Peak High Camp`} class="card__image" loading="lazy" width="400" height="300" />
+            <div class="card__body">
+              <h3 class="card__title">{activity.name}</h3>
+              <p class="card__text">{activity.description}</p>
+              <span class="card__link">Learn more</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- More Activities -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>More to Explore Nearby</h2>
+        <p>Beyond biking and hiking, the Lost Sierra has plenty to keep you busy.</p>
+      </div>
+
+      <div class="grid grid--2 more-grid">
+        {moreActivities.map((item) => (
+          <div class="more-card">
+            <h3>{item.name}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Family-Friendly Section -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>Family-Friendly Activities</h2>
+        <p>High Camp is a great fit for families with kids of all ages. Here are the highlights.</p>
+      </div>
+
+      <div class="grid grid--3 family-grid">
+        <div class="family-item">
+          <h4>Disc Golf</h4>
+          <p>The lower 10 baskets on our on-site course are beginner-friendly and fun for all ages. Free for guests.</p>
+        </div>
+        <div class="family-item">
+          <h4>Portola Riverwalk</h4>
+          <p>A flat, paved path along the river in Portola. Perfect for strollers, scooters, and easy family walks. 7 minutes from camp.</p>
+        </div>
+        <div class="family-item">
+          <h4>Railroad Museum</h4>
+          <p>Kids love the Portola Railroad Museum. You can actually climb into the cab of a locomotive. 7 minutes away.</p>
+        </div>
+        <div class="family-item">
+          <h4>Swimming & Paddling</h4>
+          <p>Graeagle Mill Pond has calm water for swimming plus paddleboard and kayak rentals. 25 minutes from camp.</p>
+        </div>
+        <div class="family-item">
+          <h4>Stargazing</h4>
+          <p>No screens, no streetlights. The Milky Way puts on a show most clear nights from May through October.</p>
+        </div>
+        <div class="family-item">
+          <h4>Hiking</h4>
+          <p>The Portola Riverwalk and Beckwourth Peak Trail South Side are both manageable for older kids who like to explore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Plan Your Lost Sierra Trip</h2>
+      <p>Book a cabin, yurt, or campsite and make High Camp your base for adventure.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .activity-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card__link {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+
+  .more-card {
+    background: var(--color-bg-secondary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .more-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .more-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .family-item {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+  }
+
+  .family-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .family-item p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

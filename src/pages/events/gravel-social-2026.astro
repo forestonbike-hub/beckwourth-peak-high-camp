@@ -1,0 +1,227 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const ticketUrl = 'https://secure.lglforms.com/form_engine/s/5k8bSml2nsbH_xYChErXdw';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "High Camp Gravel Social",
+  "description": "3-day gravel bike ride in the Lost Sierra. Stay at Beckwourth Peak High Camp with amazing dinners and campfires with other riders.",
+  "startDate": "2026-06-01",
+  "endDate": "2026-06-03",
+  "location": {
+    "@type": "Place",
+    "name": "Beckwourth Peak High Camp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Portola",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Beckwourth Peak High Camp",
+    "url": "https://beckwourthpeakhighcamp.com"
+  }
+};
+---
+
+<BaseLayout
+  title="High Camp Gravel Social | June 2026"
+  description="3-day gravel bike ride in the Lost Sierra. Stay at Beckwourth Peak High Camp with amazing dinners and campfires with other riders."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <p class="page-hero__label">June 2026</p>
+      <h1>High Camp Gravel Social</h1>
+      <p class="page-hero__subtitle">3 days of gravel riding, good food, and campfire conversations in the Lost Sierra.</p>
+      <a href={ticketUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Get Your Ticket
+      </a>
+    </div>
+  </section>
+
+  <!-- What It Is -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Ride Gravel. Eat Well. Sleep Under the Stars.</h2>
+        <p>The High Camp Gravel Social is a small, laid-back gathering for gravel riders who want to explore the Lost Sierra without the crowds of a big event. Think of it as a weekend with friends you haven't met yet.</p>
+        <p>You'll ride stunning gravel routes through national forest, come back to prepared dinners at camp, and spend your evenings around the fire swapping stories. Lodging at High Camp is included, so all you need to bring is your bike and your appetite.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>What's Included</h2>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <h3>Lodging</h3>
+          <p>3 nights at Beckwourth Peak High Camp in a cabin, yurt, or campsite. Hot showers, Starlink WiFi, and 360-degree mountain views.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Meals</h3>
+          <p>Dinner each evening, prepared on-site. Think hearty, satisfying food after a long day on the bike. Breakfast and lunch are on your own (kitchen basics provided).</p>
+        </div>
+        <div class="feature-card">
+          <h3>Routes</h3>
+          <p>Curated gravel routes for each day, ranging from mellow to adventurous. GPX files provided so you can ride at your own pace.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Campfires</h3>
+          <p>Every evening ends around the communal fire pit. Firewood included. Bring your own beverage of choice.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Small Group</h3>
+          <p>Limited to 18 riders. This is intentionally small so you can actually get to know the people you're riding with.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Disc Golf</h3>
+          <p>Take a rest day spin around the 20-basket mountain disc golf course. Discs available at camp if you don't have your own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logistics -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Getting Here</h2>
+        <p>High Camp is about 45 minutes north of Truckee and 90 minutes from Reno. If you're coming from the Bay Area or Sacramento, plan on a 3.5 to 4-hour drive.</p>
+        <h3>Carpool from Truckee</h3>
+        <p>We encourage carpooling. If you're flying into Reno or driving from the Tahoe area, Truckee is a natural meetup point. We have a private Facebook group for coordinating rides, sharing route info, and connecting with other attendees before the event.</p>
+        <p>Once you purchase your ticket, you'll get an invite to the Facebook group where you can find a carpool buddy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Spots Are Limited</h2>
+      <p>Only 18 riders. Once they're gone, they're gone.</p>
+      <a href={ticketUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Get Your Ticket
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/gravel-biking.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__label {
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .feature-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

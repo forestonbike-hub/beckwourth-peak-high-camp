@@ -1,0 +1,225 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with Beckwourth Peak High Camp. Email, phone, or directions to our off-grid glamping property near Portola, CA."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p class="page-header__subtitle">Questions, booking help, or just want to say hello? We'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- Contact Info + Form -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Contact Details -->
+        <div class="contact-info">
+          <h2>Get in Touch</h2>
+          <p>We're a small, family-run operation and happy to help with any questions about your stay. Reach out by email or phone, and we'll get back to you as soon as we can.</p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <h4>Email</h4>
+              <a href="mailto:info@beckwourthpeakhighcamp.com">info@beckwourthpeakhighcamp.com</a>
+            </div>
+            <div class="contact-method">
+              <h4>Phone</h4>
+              <a href="tel:530-322-0322">530-322-0322</a>
+            </div>
+            <div class="contact-method">
+              <h4>Location</h4>
+              <p>Near Portola, CA 96122<br>Plumas County, California</p>
+            </div>
+          </div>
+
+          <div class="contact-links">
+            <a href="/getting-here/" class="btn btn--ghost btn--small">Getting Here &amp; Directions</a>
+            <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--primary btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <h2>Send Us a Message</h2>
+          <form class="contact-form" action="" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="First and last name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Find Us</h2>
+        <p>Beckwourth Peak High Camp is located near Portola, CA in the heart of the Lost Sierra.</p>
+      </div>
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12300!2d-120.47!3d39.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ5JzEyLjAiTiAxMjDCsDI4JzEyLjAiVw!5e0!3m2!1sen!2sus!4v1"
+          width="100%"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Beckwourth Peak High Camp location near Portola, CA"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* Contact Layout */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .contact-info h2,
+  .contact-form-wrapper h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-info > p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+
+  /* Contact Methods */
+  .contact-methods {
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-method {
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-method h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-method a {
+    font-size: 1.0625rem;
+  }
+
+  .contact-method p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  /* Form */
+  .contact-form {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-3);
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid var(--color-bg-accent);
+    border-radius: var(--border-radius-sm);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-primary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  /* Map */
+  .map-wrapper {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .map-wrapper iframe {
+    display: block;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
+</style>

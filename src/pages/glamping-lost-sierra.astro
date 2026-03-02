@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const units = [
+  {
+    name: 'North Cabin',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen basics',
+    bookUrl: bookingUrl + '?roomClass=2',
+  },
+  {
+    name: 'South Cabin',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen basics',
+    bookUrl: bookingUrl + '?roomClass=2',
+  },
+  {
+    name: 'Yurt',
+    sleeps: '5 guests',
+    beds: '1 queen + loft',
+    features: 'A/C, heat, cozy vibes',
+    bookUrl: bookingUrl,
+  },
+  {
+    name: 'Campsite',
+    sleeps: '5 guests',
+    beds: 'Bring your tent',
+    features: '2 vehicles, picnic table',
+    bookUrl: bookingUrl,
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Glamping in the Lost Sierra - Beckwourth Peak High Camp",
+  "description": "Cabins, yurt, and campsite with hot showers. Kid-friendly hikes, lakes, and local attractions. Campfires, s'mores, and stargazing nights near Portola, CA.",
+  "url": "https://beckwourthpeakhighcamp.com/glamping-lost-sierra/"
+};
+---
+
+<BaseLayout
+  title="Glamping in the Lost Sierra"
+  description="Cabins, yurt, and campsite with hot showers. Kid-friendly hikes, lakes, and local attractions. Campfires, s'mores, and stargazing nights near Portola, CA."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <h1>Glamping in the Lost Sierra</h1>
+      <p class="page-hero__subtitle">Cabins, a yurt, and a campsite on 60 acres near Portola, CA. Hot showers, campfires, and mountain views without roughing it.</p>
+      <a href={bookingUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Camping Comfort in the Mountains</h2>
+        <p>Beckwourth Peak High Camp is an off-grid glamping property perched at 5,300 feet in California's Lost Sierra. It's the kind of place where you wake up to mountain views, take a hot shower, and still feel like you're in the middle of nowhere.</p>
+        <p>Whether you're looking for a family getaway, a couple's retreat, or a group trip with friends, High Camp offers a comfortable base surrounded by national forest. No neighbors, no traffic, just 60 acres of mountain land and access to some of the best hiking, biking, and stargazing in the Sierra.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Family Activities -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Things to Do with the Family</h2>
+        <p>From easy hikes to campfire s'mores, there's plenty to keep everyone busy (or happily lazy).</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <h3>Kid-Friendly Hikes</h3>
+          <p>Short trails right from camp lead to ridgeline views and wildflower meadows. The Beckwourth Peak summit is a manageable hike for older kids, and easier loops keep little ones moving without meltdowns.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Lakes and Swimming</h3>
+          <p>Several lakes sit within a short drive of camp. Pack a picnic and spend the afternoon swimming, skipping rocks, or just sitting on the shore watching the kids splash around.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Portola Railroad Museum</h3>
+          <p>The Western Pacific Railroad Museum in Portola is a hit with kids of all ages. They can actually drive a real locomotive. It's about 15 minutes from camp and worth the visit.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Campfires and S'mores</h3>
+          <p>Every evening, the communal fire pit is ready to go with firewood included. Bring your own marshmallows and chocolate, and let the kids (and adults) roast away.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Stargazing</h3>
+          <p>At 5,300 feet with minimal light pollution, the night sky here is extraordinary. On a clear night, the Milky Way stretches across the sky in a way you rarely see elsewhere.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Disc Golf</h3>
+          <p>The 20-basket disc golf course winds through the mountain terrain with views at every hole. Discs are available at camp, so no need to bring your own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lodging -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Where You'll Stay</h2>
+        <p>Comfortable, clean, and surrounded by nature. Every option includes access to the bathhouse, fire pit, deck, and disc golf course.</p>
+      </div>
+      <div class="grid grid--4">
+        {units.map((unit) => (
+          <div class="card">
+            <div class="card__body">
+              <h3 class="card__title">{unit.name}</h3>
+              <div class="card__meta">
+                <span>{unit.sleeps}</span>
+                <span>{unit.beds}</span>
+              </div>
+              <p class="card__text">{unit.features}</p>
+              <a href={unit.bookUrl} class="btn btn--primary btn--small" target="_blank" rel="noopener noreferrer">Book Now</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes It Special -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="content-block">
+        <h2>Why the Lost Sierra?</h2>
+        <p>The Lost Sierra is the uncrowded side of the Northern Sierra Nevada. While Lake Tahoe draws millions of visitors each year, the Lost Sierra stays quiet, wild, and genuinely beautiful. National forest stretches in every direction. Small towns like Portola and Graeagle offer local restaurants and supplies without the tourist rush.</p>
+        <p>High Camp sits right in the middle of it all. You're 45 minutes from Truckee, 90 minutes from Reno, and a world away from crowds. It's the kind of place that feels like a secret, even though it's right off the highway.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Plan Your Glamping Trip</h2>
+      <p>Book a cabin, yurt, or campsite at Beckwourth Peak High Camp. Your Lost Sierra adventure starts here.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/property/high-camp-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .feature-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .feature-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

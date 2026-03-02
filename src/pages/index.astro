@@ -1,0 +1,465 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const reviews = [
+  {
+    name: 'Ollie',
+    text: 'You owe it to yourself to experience this place! Camp is remote but close enough to a town for supplies. Site and facilities are immaculate, with everything you\'d need. Views from top of ridge and from cabins are magic. Best camp experience we\'ve had in CA.',
+    rating: 5,
+  },
+  {
+    name: 'Matt',
+    text: 'This off-grid tiny-home was exactly what we were looking for to be comfortable but have access to amazing trails and be immersed outdoors. At night, the sky took center stage. There\'s little light pollution up here, so the Milky Way was on full display.',
+    rating: 5,
+  },
+  {
+    name: 'Christa',
+    text: 'Beckwourth Peak High Camp was an amazing spot to stay for a bikepacking trip. Forest the host was awesome and made routes for us to optimize our trip. The yurt was clean, spacious, well stocked and super comfy! Truly a bikepacking glamping experience.',
+    rating: 5,
+  },
+  {
+    name: 'Ria',
+    text: 'This cabin was the ideal escape! The mountain views were breathtaking, and the bed was super comfy. The bathrooms were spotless, and the whole place felt cozy and clean. We\'ve stayed here twice now. Highly recommend!',
+    rating: 5,
+  },
+];
+
+const units = [
+  {
+    name: 'North Cabin',
+    image: '/images/lodging/north-cabin.jpg',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen',
+    href: '/lodging/north-cabin/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2',
+  },
+  {
+    name: 'South Cabin',
+    image: '/images/lodging/south-cabin.jpg',
+    sleeps: '4 guests',
+    beds: '2 queen bunks',
+    features: 'A/C, heat, kitchen',
+    href: '/lodging/south-cabin/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?roomClass=2',
+  },
+  {
+    name: 'Yurt',
+    image: '/images/lodging/yurt.jpg',
+    sleeps: '5 guests',
+    beds: '1 queen + loft',
+    features: 'A/C, heat, cozy',
+    href: '/lodging/yurt/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/',
+  },
+  {
+    name: 'Campsite',
+    image: '/images/lodging/campsite.jpg',
+    sleeps: '5 guests',
+    beds: 'Bring your tent',
+    features: '2 vehicles, picnic table',
+    href: '/lodging/campsite/',
+    bookUrl: 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/',
+  },
+];
+
+const activities = [
+  { name: 'Gravel Biking', image: '/images/activities/gravel-biking.jpg', description: 'Ride stunning Lost Sierra gravel routes right from camp.', href: '/things-to-do/gravel-biking/' },
+  { name: 'Mountain Biking', image: '/images/activities/mountain-biking.jpg', description: 'Beckwourth Peak Trail, Mills Peak, and Mt. Hough trail systems.', href: '/things-to-do/mountain-biking/' },
+  { name: 'Hiking', image: '/images/activities/hiking.jpg', description: 'Summit Beckwourth Peak or explore waterfalls and fire lookouts.', href: '/things-to-do/hiking/' },
+  { name: 'OHV / Off-Road', image: '/images/activities/ohv.jpg', description: 'Base camp for dirt bikes, ATVs, side-by-sides, and 4x4s.', href: '/things-to-do/ohv/' },
+  { name: 'Stargazing', image: '/images/activities/stargazing.jpg', description: 'Minimal light pollution at 5,300 ft. The Milky Way on full display.', href: '/things-to-do/stargazing/' },
+  { name: 'Disc Golf', image: '/images/activities/disc-golf.jpg', description: '20-basket mountain course with stunning views at every hole.', href: '/things-to-do/disc-golf/' },
+];
+
+const amenities = [
+  { icon: '🚿', name: 'Hot Showers', description: 'Modern bathhouse with two full bathrooms' },
+  { icon: '📶', name: 'Starlink WiFi', description: 'High-speed internet in cabins, yurt, and deck' },
+  { icon: '🔥', name: 'Communal Fire Pit', description: 'Firewood included every night' },
+  { icon: '🏔️', name: '360° Views', description: 'Shaded deck overlooking the Sierra' },
+  { icon: '🥏', name: 'Disc Golf', description: '20-basket course on the mountain' },
+  { icon: '❄️', name: 'A/C & Heat', description: 'Climate control in all cabins and yurt' },
+];
+---
+
+<BaseLayout
+  title="Home"
+  description="60-acre off-grid glamping on Beckwourth Peak in the Lost Sierra. Cabins, yurt, and campsite with hot showers, Starlink WiFi, and 360-degree mountain views. Hiking, mountain biking, and gravel biking from your doorstep."
+>
+  <!-- Section 1: Hero -->
+  <section class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content container">
+      <h1 class="hero__title">Glamping for Bikers, Hikers, and Families</h1>
+      <p class="hero__subtitle">Off-grid comfort in California's Lost Sierra. Cabins, yurt, and campsite at 5,300 ft on Beckwourth Peak.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 2: Quick Stats + Lodging Cards -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat__number">60</span>
+          <span class="stat__label">Acres</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">5,300</span>
+          <span class="stat__label">Feet Elevation</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">20</span>
+          <span class="stat__label">Disc Golf Baskets</span>
+        </div>
+        <div class="stat">
+          <span class="stat__number">360°</span>
+          <span class="stat__label">Mountain Views</span>
+        </div>
+      </div>
+
+      <div class="section__header">
+        <h2>Where You'll Stay</h2>
+        <p>Two cabins, a yurt, and a campsite. All with access to hot showers, WiFi, and the best views in the Lost Sierra.</p>
+      </div>
+
+      <div class="grid grid--4 lodging-grid">
+        {units.map((unit) => (
+          <div class="card">
+            <img src={unit.image} alt={`${unit.name} at Beckwourth Peak High Camp`} class="card__image" loading="lazy" width="400" height="300" />
+            <div class="card__body">
+              <h3 class="card__title">{unit.name}</h3>
+              <div class="card__meta">
+                <span>{unit.sleeps}</span>
+                <span>{unit.beds}</span>
+              </div>
+              <p class="card__text">{unit.features}</p>
+              <div class="card__actions">
+                <a href={unit.href} class="btn btn--ghost btn--small">View Details</a>
+                <a href={unit.bookUrl} class="btn btn--primary btn--small" target="_blank" rel="noopener noreferrer">Book</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Activities Grid -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Things to Do</h2>
+        <p>Ride, hike, or just sit on the deck and watch the sunset. Adventure and relaxation live side by side here.</p>
+      </div>
+
+      <div class="grid grid--3 activities-grid">
+        {activities.map((activity) => (
+          <a href={activity.href} class="card activity-card">
+            <img src={activity.image} alt={`${activity.name} near Beckwourth Peak High Camp`} class="card__image" loading="lazy" width="400" height="300" />
+            <div class="card__body">
+              <h3 class="card__title">{activity.name}</h3>
+              <p class="card__text">{activity.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Guest Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Our Guests Say</h2>
+      </div>
+
+      <div class="grid grid--2 reviews-grid">
+        {reviews.map((review) => (
+          <blockquote class="review">
+            <div class="review__stars" aria-label={`${review.rating} out of 5 stars`}>
+              {'★'.repeat(review.rating)}
+            </div>
+            <p class="review__text">"{review.text}"</p>
+            <cite class="review__author">— {review.name}</cite>
+          </blockquote>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Amenities -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>Amenities</h2>
+        <p>Off-grid doesn't mean roughing it. Hot showers, WiFi, and everything you need for a comfortable stay.</p>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {amenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Vimeo Video -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Lost on Purpose</h2>
+        <p>A short film about the beauty of the Lost Sierra.</p>
+      </div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://player.vimeo.com/video/701357507"
+          width="100%"
+          height="450"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Lost on Purpose - Lost Sierra short film"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Instagram -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Follow the Adventure</h2>
+        <p>See what's happening at High Camp on <a href="https://www.instagram.com/highcamp_beckwourthpeak/" target="_blank" rel="noopener noreferrer">Instagram</a>.</p>
+      </div>
+      <div class="instagram-feed" id="instagram-feed">
+        <div class="instagram-placeholder">
+          <a href="https://www.instagram.com/highcamp_beckwourthpeak/" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+            Follow @highcamp_beckwourthpeak on Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Final CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Ready to Escape?</h2>
+      <p>Your Lost Sierra adventure starts here. Book a cabin, yurt, or campsite on Beckwourth Peak.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-image: url('/images/property/high-camp-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-10);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .hero__title {
+    color: #fff;
+    font-size: 3.5rem;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-4);
+    max-width: 500px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Stats Bar */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat__number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+  }
+
+  .stat__label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.25rem;
+  }
+
+  /* Activity Cards */
+  .activity-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Reviews */
+  .review {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .review__stars {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .review__text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .review__author {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Amenities */
+  .amenity {
+    text-align: center;
+    padding: var(--space-3);
+  }
+
+  .amenity__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenity__name {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Video */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Instagram */
+  .instagram-placeholder {
+    text-align: center;
+    padding: var(--space-6) 0;
+  }
+
+  /* CTA Section */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 60vh;
+    }
+
+    .hero__title {
+      font-size: 2.25rem;
+    }
+
+    .stats-bar {
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .stat__number {
+      font-size: 1.8rem;
+    }
+
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

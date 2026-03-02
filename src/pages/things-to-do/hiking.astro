@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const trails = [
+  {
+    name: 'Beckwourth Peak Trail South Side',
+    difficulty: 'Moderate',
+    distance: 'Varies',
+    driveTime: 'Departs from High Camp',
+    highlight: 'New trail by Sierra Buttes Trail Stewardship',
+    description: 'A new trail built by the Sierra Buttes Trail Stewardship on the south side of Beckwourth Peak. Well-graded singletrack through pine forest with beautiful views as you gain elevation. Starts right from camp, so no driving required.',
+  },
+  {
+    name: 'Beckwourth Peak Summit',
+    difficulty: 'Challenging',
+    distance: '~8 miles round trip',
+    driveTime: 'Departs from High Camp',
+    highlight: '4-5 hours, 360-degree summit views',
+    description: 'The full summit hike from High Camp. A steady climb through forest that opens to panoramic views of the Sierra Valley, Plumas National Forest, and distant peaks. Plan 4 to 5 hours for the round trip. Best in the morning before afternoon heat.',
+  },
+  {
+    name: 'Portola Riverwalk',
+    difficulty: 'Easy',
+    distance: '~2 miles',
+    driveTime: '7 min from High Camp',
+    highlight: 'Flat, paved, family-friendly',
+    description: 'A flat, paved path along the Middle Fork Feather River in Portola. Great for families, morning walks, or stretching your legs after a long drive in. Benches and shade along the way.',
+  },
+  {
+    name: 'Little Jamison Falls',
+    difficulty: 'Moderate',
+    distance: '~2 miles round trip',
+    driveTime: '32 min from High Camp',
+    highlight: 'Waterfall destination',
+    description: 'A short but rewarding hike to a beautiful waterfall near Graeagle. The trail follows Jamison Creek through a shaded canyon. Best flow in early summer when snowmelt is still feeding the falls.',
+  },
+  {
+    name: 'Calpine Fire Lookout',
+    difficulty: 'Moderate',
+    distance: '~3 miles round trip',
+    driveTime: '33 min from High Camp',
+    highlight: 'Historic fire lookout, scenic views',
+    description: 'Hike to a historic fire lookout with commanding views of the Sierra Valley and surrounding mountains. A steady climb on a well-maintained trail. The lookout itself is a great spot for photos and a snack break.',
+  },
+  {
+    name: 'Mills Peak Trail',
+    difficulty: 'Challenging',
+    distance: '~7 miles (primarily downhill)',
+    driveTime: '24 min from High Camp',
+    highlight: 'Long descent through old-growth forest',
+    description: 'Primarily known as a mountain bike trail, Mills Peak also makes for an excellent hike. A long descent through old-growth forest with diverse terrain. Arrange a shuttle or plan for a steep return climb.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Hiking Trails near Beckwourth Peak High Camp",
+  "description": "Hike Beckwourth Peak, waterfalls, fire lookouts, and riverwalks near Portola, CA. Family-friendly to challenging trails.",
+};
+---
+
+<BaseLayout
+  title="Hiking Trails near Beckwourth Peak High Camp"
+  description="Hike Beckwourth Peak, waterfalls, fire lookouts, and riverwalks near Portola, CA. Family-friendly to challenging trails."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Hiking near Beckwourth Peak</h1>
+      <p class="page-header__subtitle">From a flat riverwalk in town to a full-day summit push, the Lost Sierra has trails for every pace. Two of our favorite hikes start right at camp. The rest are all within a 35-minute drive.</p>
+    </div>
+  </section>
+
+  <!-- Trail List -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Hiking Trails</h2>
+      </div>
+
+      <div class="trails-list">
+        {trails.map((trail) => (
+          <div class="trail-card">
+            <div class="trail-card__header">
+              <h3>{trail.name}</h3>
+              <div class="trail-card__meta">
+                <span class="trail-tag">{trail.difficulty}</span>
+                <span>{trail.distance}</span>
+                <span>{trail.driveTime}</span>
+              </div>
+              {trail.highlight && (
+                <p class="trail-highlight">{trail.highlight}</p>
+              )}
+            </div>
+            <p>{trail.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Hiking Tips -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Hiking Tips</h2>
+        <ul class="info-list">
+          <li><strong>Water:</strong> Carry more than you think you need, especially on summit hikes. There are few reliable water sources on the trails.</li>
+          <li><strong>Sun protection:</strong> At 5,300 ft and above, the sun is strong. Bring a hat, sunscreen, and sunglasses.</li>
+          <li><strong>Wildlife:</strong> Black bears live in the area. Make noise on the trail and store food properly at camp.</li>
+          <li><strong>Season:</strong> Most trails are accessible from late May through October. Early season may have snow patches at higher elevations.</li>
+          <li><strong>Dogs:</strong> Dogs are not allowed at High Camp, but many trails in the area are dog-friendly if you're making a day trip.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Hike by Day, Rest Easy at Night</h2>
+      <p>Come back from the trail to hot showers, a real bed, and stars you can actually see.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .trails-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .trail-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .trail-card__header {
+    margin-bottom: var(--space-2);
+  }
+
+  .trail-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .trail-card__meta {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .trail-tag {
+    background: var(--color-bg-accent);
+    padding: 0.125rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .trail-highlight {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0;
+  }
+
+  .trail-card > p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

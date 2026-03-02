@@ -1,0 +1,498 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const units = [
+  { name: 'North Cabin', sleeps: 4, description: '2 queen bunk beds, A/C, heat, kitchen', href: '/lodging/north-cabin/' },
+  { name: 'South Cabin', sleeps: 4, description: '2 queen bunk beds, A/C, heat, kitchen', href: '/lodging/south-cabin/' },
+  { name: 'Yurt', sleeps: 5, description: 'Queen bed, loft with 2 full beds, twin pullout, A/C, heat', href: '/lodging/yurt/' },
+  { name: 'Campsite', sleeps: 5, description: '2 vehicles, picnic table, bring your gear', href: '/lodging/campsite/' },
+];
+
+const idealFor = [
+  { title: 'Family Reunions', description: 'Spread across multiple units with shared gathering spaces. The fire pit and deck become your family living room.' },
+  { title: 'Cycling Clubs & Teams', description: 'World-class gravel and mountain biking right from the property. Park your bikes, fuel up, and ride all day.' },
+  { title: 'Corporate Retreats', description: 'Disconnect from screens and reconnect with your team. Starlink WiFi for when you need it, 60 acres of space for when you do not.' },
+  { title: 'Friend Groups', description: 'Split up across cabins and the yurt, then come together at the fire pit every evening. The ultimate group getaway.' },
+  { title: 'Weddings & Events', description: 'An intimate, one-of-a-kind venue with 360-degree mountain views. Contact us to discuss event possibilities.' },
+  { title: 'OHV & Moto Groups', description: 'Base camp for dirt bikes, ATVs, and side-by-sides. Trailheads nearby and room for all your rigs at the campsite.' },
+];
+
+const sharedAmenities = [
+  { icon: '🚿', name: 'Hot Showers', description: 'Modern bathhouse with two full bathrooms' },
+  { icon: '🔥', name: 'Communal Fire Pit', description: 'Firewood included every evening' },
+  { icon: '🏔️', name: 'Shaded Deck', description: '360-degree views with Adirondack chairs' },
+  { icon: '📶', name: 'Starlink WiFi', description: 'High-speed internet across the property' },
+  { icon: '🥏', name: 'Disc Golf', description: '20-basket course on the mountain' },
+  { icon: '🅿️', name: 'Ample Parking', description: 'Room for cars, trucks, trailers, and rigs' },
+];
+
+const review = {
+  name: 'Ollie',
+  text: 'You owe it to yourself to experience this place! Camp is remote but close enough to a town for supplies. Site and facilities are immaculate (cabins and bathrooms), with everything you\'d need. Views from top of ridge (10 min hike) and from cabins are magic. Best camp experience we\'ve had in CA.',
+  rating: 5,
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Beckwourth Peak High Camp - Entire Property Rental",
+  "description": "Book the entire Beckwourth Peak High Camp property for your group. Up to 30 people across cabins, yurt, and campsite on 60 private acres in the Lost Sierra.",
+  "url": "https://beckwourthpeakhighcamp.com/lodging/entire-property/",
+  "numberOfRooms": 4,
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 30
+  }
+};
+---
+
+<BaseLayout
+  title="Rent the Entire Property"
+  description="Book the entire Beckwourth Peak High Camp property for your group. Max 30 people across cabins, yurt, and campsite."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="unit-hero">
+    <div class="unit-hero__overlay"></div>
+    <div class="unit-hero__content container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/lodging/">Lodging</a>
+        <span aria-hidden="true">/</span>
+        <span>Entire Property</span>
+      </nav>
+      <h1>Rent the Entire Property</h1>
+      <p class="unit-hero__subtitle">60 private acres, all to yourselves. Up to 30 guests across cabins, yurt, and campsite.</p>
+      <div class="unit-hero__meta">
+        <span>Up to 30 Guests</span>
+        <span>60 Acres</span>
+        <span>4 Units</span>
+        <span>All Amenities</span>
+      </div>
+      <a href="mailto:info@beckwourthpeakhighcamp.com" class="btn btn--primary btn--large">
+        Contact for Group Rates
+      </a>
+    </div>
+  </section>
+
+  <!-- Description -->
+  <section class="section">
+    <div class="container">
+      <div class="unit-detail">
+        <div class="unit-detail__text">
+          <h2>The Whole Mountain, Just for Your Group</h2>
+          <p>When you book the entire property, you get all four accommodations and 60 acres of private land on Beckwourth Peak. No strangers, no shared spaces, no compromises. Just your group, the mountain, and everything High Camp has to offer.</p>
+          <p>Your group will have exclusive use of both cabins (sleeping 8 total), the yurt (sleeping 5), and the campsite (up to 5 more guests with 2 vehicles). The communal fire pit, the shaded deck with 360-degree views, the 20-basket disc golf course, and the bathhouse are all yours. Add tents at the campsite, and you can accommodate up to 30 people.</p>
+          <p>Whether you are planning a family reunion, a cycling club trip, a corporate retreat, or a group adventure, High Camp gives you the space and the setting to make it memorable. Contact us directly for group rates and availability.</p>
+        </div>
+        <div class="unit-detail__image">
+          <img src="/images/property/high-camp-hero.jpg" alt="Aerial view of the entire Beckwourth Peak High Camp property with mountain views" loading="lazy" width="600" height="450" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>What You Get</h2>
+        <p>Every unit and amenity on the property is included in a full-property booking.</p>
+      </div>
+
+      <div class="grid grid--2 units-included">
+        {units.map((unit) => (
+          <div class="unit-included-card">
+            <div class="unit-included-card__header">
+              <h3>{unit.name}</h3>
+              <span class="unit-included-card__sleeps">Sleeps {unit.sleeps}</span>
+            </div>
+            <p>{unit.description}</p>
+            <a href={unit.href} class="unit-included-card__link">View details</a>
+          </div>
+        ))}
+      </div>
+
+      <div class="total-capacity">
+        <p class="total-capacity__number">Up to 30 guests total</p>
+        <p class="total-capacity__note">18 in structures, additional guests in tents at the campsite</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideal For -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Ideal For</h2>
+      </div>
+
+      <div class="grid grid--3 ideal-grid">
+        {idealFor.map((item) => (
+          <div class="ideal-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Shared Amenities -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Property Amenities</h2>
+        <p>All of these are exclusively yours when you book the full property.</p>
+      </div>
+
+      <div class="grid grid--3 amenities-grid">
+        {sharedAmenities.map((amenity) => (
+          <div class="amenity">
+            <span class="amenity__icon" aria-hidden="true">{amenity.icon}</span>
+            <h3 class="amenity__name">{amenity.name}</h3>
+            <p class="amenity__description">{amenity.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Review -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>What Guests Say</h2>
+      </div>
+
+      <div class="review-featured">
+        <blockquote class="review">
+          <div class="review__stars" aria-label={`${review.rating} out of 5 stars`}>
+            {'★'.repeat(review.rating)}
+          </div>
+          <p class="review__text">"{review.text}"</p>
+          <cite class="review__author">{review.name}</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Plan Your Group Trip</h2>
+      <p>Contact us to discuss dates, group rates, and how we can make your event or trip at High Camp special.</p>
+      <div class="cta-actions">
+        <a href="mailto:info@beckwourthpeakhighcamp.com" class="btn btn--ghost btn--large cta-btn">
+          Email Us
+        </a>
+        <a href="tel:530-322-0322" class="btn btn--ghost btn--large cta-btn">
+          Call 530-322-0322
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .unit-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background-image: url('/images/property/high-camp-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .unit-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .unit-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-2);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color var(--transition);
+  }
+
+  .breadcrumb a:hover {
+    color: #fff;
+  }
+
+  .breadcrumb span {
+    margin: 0 0.5rem;
+  }
+
+  .unit-hero__content h1 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .unit-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    max-width: 550px;
+  }
+
+  .unit-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .unit-hero__meta span {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  /* Unit Detail */
+  .unit-detail {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .unit-detail__text h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .unit-detail__text p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .unit-detail__image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Units Included */
+  .unit-included-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .unit-included-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .unit-included-card__header h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+
+  .unit-included-card__sleeps {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .unit-included-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .unit-included-card__link {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .total-capacity {
+    text-align: center;
+    margin-top: var(--space-5);
+    padding: var(--space-4);
+    background: var(--color-bg-primary);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--color-primary);
+  }
+
+  .total-capacity__number {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .total-capacity__note {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* Ideal For */
+  .ideal-card {
+    padding: var(--space-3);
+    background: var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .ideal-card h3 {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .ideal-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  /* Amenities */
+  .amenity {
+    text-align: center;
+    padding: var(--space-3);
+  }
+
+  .amenity__icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .amenity__name {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity__description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Review */
+  .review-featured {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .review {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .review__stars {
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+  }
+
+  .review__text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .review__author {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* CTA */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 550px;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-2);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .unit-hero {
+      min-height: 40vh;
+    }
+
+    .unit-detail {
+      grid-template-columns: 1fr;
+    }
+
+    .unit-detail__image {
+      order: -1;
+    }
+
+    .unit-hero__meta {
+      gap: 0.5rem;
+    }
+
+    .unit-included-card__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .total-capacity__number {
+      font-size: 1.4rem;
+    }
+  }
+</style>

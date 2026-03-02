@@ -1,0 +1,396 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const nearbyTowns = [
+  {
+    name: 'Portola',
+    distance: '6 minutes',
+    description: 'Your closest town and supply stop. Portola has a grocery store, gas stations, restaurants, a hardware store, and the Western Pacific Railroad Museum. Small-town charm with everything you need for your stay.',
+  },
+  {
+    name: 'Graeagle',
+    distance: '20 minutes',
+    description: 'A picturesque mountain village with restaurants, a golf course, and access to several lakes. The Graeagle Millpond is a popular summer swimming spot, and the general store is worth a visit.',
+  },
+  {
+    name: 'Quincy',
+    distance: '45 minutes',
+    description: 'The Plumas County seat and the largest town in the area. Quincy has a charming downtown with restaurants, a brewery, shops, and the Plumas County Museum. It feels like a mountain town should.',
+  },
+  {
+    name: 'Truckee',
+    distance: '1 hour',
+    description: 'A vibrant mountain town with upscale dining, craft breweries, boutique shopping, and easy access to I-80. Truckee sits at the gateway between Tahoe and the Lost Sierra.',
+  },
+];
+
+const seasonalHighlights = [
+  {
+    months: 'May - June',
+    title: 'Spring Awakening',
+    details: 'Wildflowers bloom across the meadows, snowmelt feeds the creeks, and the trails are quiet. Nights are cool, days are warm, and the landscape is lush and green. Perfect for hiking, gravel riding, and exploring before the summer crowds arrive.',
+  },
+  {
+    months: 'July - August',
+    title: 'Peak Summer',
+    details: 'Long days, warm temperatures, and prime riding conditions. This is the heart of the season: ideal for mountain biking, swimming in nearby lakes, and evening campfires under clear skies. The Lost and Found Gravel Festival typically takes place in June or July.',
+  },
+  {
+    months: 'September - October',
+    title: 'Fall Colors',
+    details: 'The aspens and willows turn gold across the Sierra Valley. Trails are in prime condition, temperatures are comfortable, and the light is incredible for photography. Fall is many locals\' favorite time in the Lost Sierra, and for good reason.',
+  },
+];
+---
+
+<BaseLayout
+  title="Area Guide: The Lost Sierra"
+  description="Discover the Lost Sierra region near Portola, CA. Nearby towns, dining, attractions, and why it's the uncrowded alternative to Tahoe."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Area Guide: The Lost Sierra</h1>
+      <p class="page-header__subtitle">The uncrowded, authentic mountain region you've been looking for</p>
+    </div>
+  </section>
+
+  <!-- What Makes It Special -->
+  <section class="section">
+    <div class="container">
+      <div class="intro-layout">
+        <div class="intro-content">
+          <h2>Why the Lost Sierra?</h2>
+          <p>
+            The Lost Sierra is a stretch of the northern Sierra Nevada between Tahoe and Lassen that most Californians have never heard of. That's what makes it special. Where Tahoe has traffic and crowds, the Lost Sierra has empty gravel roads, uncrowded trails, and small mountain towns where people still wave from their porches.
+          </p>
+          <p>
+            This is real mountain country. No resort villages, no lift lines, no parking hassles. Just pine forests, wildflower meadows, granite peaks, and some of the best riding and hiking in the state. The Lost Sierra offers the kind of outdoor experience people assume doesn't exist in California anymore.
+          </p>
+          <p>
+            Beckwourth Peak High Camp sits right in the heart of it, on 60 acres at 5,300 feet, with Plumas National Forest on all sides. It's a base camp for exploring everything the region has to offer.
+          </p>
+        </div>
+        <div class="intro-image">
+          <img src="/images/area-guide/lost-sierra-landscape.jpg" alt="Panoramic view of the Lost Sierra landscape from Beckwourth Peak" width="600" height="450" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nearby Towns -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Nearby Towns</h2>
+        <p>Small towns, local character, and everything you need within reach</p>
+      </div>
+      <div class="grid grid--2 towns-grid">
+        {nearbyTowns.map((town) => (
+          <div class="town-card">
+            <div class="town-card__header">
+              <h3>{town.name}</h3>
+              <span class="town-card__distance">{town.distance}</span>
+            </div>
+            <p>{town.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Local Dining</h2>
+        <p>Good food is closer than you think</p>
+      </div>
+      <div class="dining-content">
+        <p>
+          The Lost Sierra may be remote, but you won't go hungry. Portola (6 minutes away) has several solid options for breakfast, lunch, and dinner. For a wider selection, Graeagle and Quincy offer everything from casual pub fare to sit-down restaurants with fresh, locally sourced menus.
+        </p>
+        <p>
+          That said, most of our guests enjoy cooking at camp. Your cabin or yurt comes with kitchen basics (pots, pans, utensils, plates), and grilling on the deck with mountain views is hard to beat. Stock up at the Portola grocery store on your way in, or bring provisions from home.
+        </p>
+        <p>
+          Don't forget to grab firewood from our supply. Evening campfires with snacks and drinks from the communal fire pit are a nightly tradition at High Camp.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seasonal Highlights -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>Seasonal Highlights</h2>
+        <p>High Camp operates May through October. Each part of the season has its own character.</p>
+      </div>
+      <div class="grid grid--3 seasons-grid">
+        {seasonalHighlights.map((season) => (
+          <div class="season-card">
+            <span class="season-card__months">{season.months}</span>
+            <h3>{season.title}</h3>
+            <p>{season.details}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Around -->
+  <section class="section">
+    <div class="container">
+      <div class="getting-around-layout">
+        <div class="getting-around-content">
+          <h2>Getting Around the Region</h2>
+          <p>
+            A car is essential for exploring the Lost Sierra. Most of the roads are two-lane highways that wind through forests, along rivers, and across open valleys. The driving itself is part of the experience.
+          </p>
+          <p>
+            The Feather River Canyon (Highway 70 from Oroville) is one of the most scenic drives in the Sierra. Highway 89 connects Truckee to Portola through forests and along the edge of Sierra Valley. Both are spectacular.
+          </p>
+          <p>
+            For mountain bikers and gravel riders, many of the best routes start right from camp or within a short drive. We're happy to share route recommendations and GPX files before your arrival.
+          </p>
+        </div>
+        <div class="getting-around-highlights">
+          <div class="highlight-box">
+            <h4>Key Distances from Camp</h4>
+            <ul>
+              <li>Portola grocery store: 6 min</li>
+              <li>Lakes Basin Recreation Area: 30 min</li>
+              <li>Downieville (MTB trails): 1 hr</li>
+              <li>Lake Tahoe: 1 hr</li>
+              <li>Reno airport: 1.5 hrs</li>
+              <li>Sacramento airport: 2.5 hrs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Discover the Lost Sierra for Yourself</h2>
+      <p>Book your stay at High Camp and use it as your base for exploring the region.</p>
+      <div class="cta-actions">
+        <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">Check Availability</a>
+        <a href="/getting-here/" class="btn btn--ghost btn--large cta-btn">Getting Here</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* Intro Layout */
+  .intro-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .intro-content h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .intro-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .intro-image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Town Cards */
+  .town-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+    box-shadow: var(--shadow-card);
+  }
+
+  .town-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-2);
+    gap: var(--space-2);
+  }
+
+  .town-card__header h3 {
+    font-size: 1.5rem;
+  }
+
+  .town-card__distance {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.9375rem;
+    white-space: nowrap;
+  }
+
+  .town-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* Dining */
+  .dining-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .dining-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Season Cards */
+  .season-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+    box-shadow: var(--shadow-card);
+  }
+
+  .season-card__months {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary);
+    background: var(--color-bg-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.75rem;
+  }
+
+  .season-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-1);
+  }
+
+  .season-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+  }
+
+  /* Getting Around */
+  .getting-around-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .getting-around-content h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .getting-around-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .highlight-box {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .highlight-box h4 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .highlight-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .highlight-box li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+  }
+
+  .highlight-box li:last-child {
+    border-bottom: none;
+  }
+
+  /* CTA Section */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 550px;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .intro-layout,
+    .getting-around-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
+</style>

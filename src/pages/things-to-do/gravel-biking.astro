@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const routes = [
+  {
+    name: 'Beckwourth Peak Loop',
+    difficulty: 'Intermediate',
+    distance: '~25 miles',
+    elevation: '~2,500 ft gain',
+    description: 'A classic loop departing right from High Camp. Mixed gravel roads and forest service roads through ponderosa pine and open meadows. This is the ride that makes you fall in love with Lost Sierra gravel.',
+  },
+  {
+    name: 'Sierra Valley Explorer',
+    difficulty: 'Beginner to Intermediate',
+    distance: '~30 miles',
+    elevation: '~1,200 ft gain',
+    description: 'Roll through the wide-open Sierra Valley on smooth gravel ranch roads. Flat enough for newer gravel riders, scenic enough for anyone. Great views of the surrounding peaks.',
+  },
+  {
+    name: 'Plumas National Forest Epic',
+    difficulty: 'Advanced',
+    distance: '~50+ miles',
+    elevation: '~4,000+ ft gain',
+    description: 'A full-day adventure deep into Plumas National Forest on remote forest service roads. Long climbs, fast descents, and the kind of solitude you came to the Lost Sierra to find.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gravel Biking Routes in the Lost Sierra",
+  "description": "Ride stunning gravel routes from Beckwourth Peak High Camp. Routes for all levels in California's Lost Sierra.",
+};
+---
+
+<BaseLayout
+  title="Gravel Biking Routes in the Lost Sierra"
+  description="Ride stunning gravel routes from Beckwourth Peak High Camp. Routes for all levels in California's Lost Sierra."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Gravel Biking in the Lost Sierra</h1>
+      <p class="page-header__subtitle">The Lost Sierra is one of California's best-kept secrets for gravel riding. Hundreds of miles of forest service roads, ranch roads, and dirt tracks wind through open meadows, pine forests, and mountain passes, and most of them are empty. High Camp sits right in the middle of it all.</p>
+    </div>
+  </section>
+
+  <!-- Lost and Found Connection -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="content-block">
+        <h2>Home of the Lost and Found Gravel Festival</h2>
+        <p>The Lost Sierra gained national recognition through the <a href="/events/">Lost and Found Gravel Festival</a>, one of the original gravel events in the country. The routes that put this region on the map run right past High Camp. Whether you're here for the festival or riding on your own schedule, you'll understand why gravel riders keep coming back.</p>
+        <p>We also host a <a href="/events/">Gravel Social</a> during the season, a casual group ride and gathering for guests and locals. Check our events page for dates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Featured Routes</h2>
+        <p>These are some of our favorite rides from camp. We're happy to help you plan routes based on your ability and how much time you have.</p>
+      </div>
+
+      <div class="routes-list">
+        {routes.map((route) => (
+          <div class="route-card">
+            <div class="route-card__header">
+              <h3>{route.name}</h3>
+              <div class="route-card__meta">
+                <span class="route-tag">{route.difficulty}</span>
+                <span>{route.distance}</span>
+                <span>{route.elevation}</span>
+              </div>
+            </div>
+            <p>{route.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RideWithGPS Embeds -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Route Maps</h2>
+        <p>View and download detailed routes on RideWithGPS. More routes available on request.</p>
+      </div>
+
+      <div class="route-embeds">
+        <div class="route-embed">
+          <iframe class="ridewithgps-embed" src="about:blank" data-src="https://ridewithgps.com/embeds?type=route&id=placeholder" title="Gravel route map from Beckwourth Peak High Camp" loading="lazy" allowfullscreen></iframe>
+          <p class="embed-note">Route maps will be loaded from RideWithGPS. <a href="https://ridewithgps.com/" target="_blank" rel="noopener noreferrer">Visit RideWithGPS</a> for full route details and GPS downloads.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to Know -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>What to Know Before You Ride</h2>
+        <ul class="info-list">
+          <li><strong>Season:</strong> Gravel roads are typically rideable from late May through October, depending on snowpack.</li>
+          <li><strong>Tires:</strong> 40mm+ gravel tires recommended. Some routes have loose sections and washboard.</li>
+          <li><strong>Water:</strong> Carry plenty. There are few reliable water sources on most routes.</li>
+          <li><strong>Navigation:</strong> Cell service is spotty on remote routes. Download your GPS files before you ride.</li>
+          <li><strong>Bike wash:</strong> We have a hose at camp to clean your bike after dusty rides.</li>
+          <li><strong>Route help:</strong> Forest (your host) is a gravel rider and happy to suggest routes based on your fitness and time.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book Your Gravel Getaway</h2>
+      <p>Hot showers, a comfortable bed, and hundreds of miles of gravel. That's the deal.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .content-block p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .routes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .route-card {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .route-card__header {
+    margin-bottom: var(--space-2);
+  }
+
+  .route-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .route-card__meta {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .route-tag {
+    background: var(--color-bg-accent);
+    padding: 0.125rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .route-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .route-embeds {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .ridewithgps-embed {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: var(--border-radius);
+  }
+
+  .embed-note {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--space-2);
+    text-align: center;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

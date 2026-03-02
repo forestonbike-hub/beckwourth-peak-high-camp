@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Disc Golf at Beckwourth Peak High Camp",
+  "description": "Play our 20-basket disc golf course on Beckwourth Peak. Lower 10 baskets are beginner-friendly, upper 10 are advanced with mountain views.",
+};
+---
+
+<BaseLayout
+  title="Disc Golf at Beckwourth Peak High Camp"
+  description="Play our 20-basket disc golf course on Beckwourth Peak. Lower 10 baskets are beginner-friendly, upper 10 are advanced with mountain views."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Disc Golf at High Camp</h1>
+      <p class="page-header__subtitle">We built a 20-basket disc golf course right here on the mountain. It winds through pine trees, across open meadows, and up the ridge with views that make you forget your score. Free for all guests.</p>
+    </div>
+  </section>
+
+  <!-- Course Overview -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--2 course-grid">
+        <div class="course-section">
+          <h2>Lower 10: Beginner-Friendly</h2>
+          <p>The lower half of the course winds through relatively flat terrain near the cabins and common areas. Shorter throws, open fairways, and forgiving lines make it a great starting point for beginners, families, and casual players.</p>
+          <p>This section is perfect for a quick round before dinner or introducing someone to disc golf for the first time. Most players finish the lower 10 in about 30 to 45 minutes.</p>
+        </div>
+        <div class="course-section">
+          <h2>Upper 10: Advanced</h2>
+          <p>The upper half climbs up the mountain into the trees and along the ridge. Tighter lines, elevation changes, and longer throws make it a real challenge for experienced players. The views from the upper holes are some of the best on the property.</p>
+          <p>Plan about an hour for the upper 10. The elevation gain is noticeable, so bring water and enjoy the scenery between throws.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest Quote -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="featured-quote">
+        <p>"The disc golf course is awesome. Great way to explore the property and get some exercise with mountain views at every basket."</p>
+        <cite>Mike, High Camp guest</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Details -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>Course Details</h2>
+      </div>
+
+      <div class="grid grid--3 details-grid">
+        <div class="detail-item">
+          <h4>20 Baskets</h4>
+          <p>A full course with permanent baskets set into the natural terrain of Beckwourth Peak.</p>
+        </div>
+        <div class="detail-item">
+          <h4>Free for Guests</h4>
+          <p>The course is included with your stay. No extra fees, no tee times, no reservations needed.</p>
+        </div>
+        <div class="detail-item">
+          <h4>Bring Your Discs</h4>
+          <p>We recommend bringing your own discs. A driver, midrange, and putter will cover most holes.</p>
+        </div>
+        <div class="detail-item">
+          <h4>Mountain Terrain</h4>
+          <p>The course follows natural terrain, so wear shoes with good traction. The upper holes have some steep sections.</p>
+        </div>
+        <div class="detail-item">
+          <h4>All Skill Levels</h4>
+          <p>First-timers can enjoy the lower 10, while experienced players will find a challenge on the upper 10.</p>
+        </div>
+        <div class="detail-item">
+          <h4>Best Light</h4>
+          <p>Morning and late afternoon offer the best conditions. Midday can be warm in July and August.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Disc Golf with a View</h2>
+      <p>Book your stay and play the most scenic course in the Lost Sierra.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .course-grid {
+    align-items: start;
+  }
+
+  .course-section h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .course-section p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .featured-quote {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .featured-quote p {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    font-style: italic;
+    margin-bottom: var(--space-2);
+    max-width: none;
+  }
+
+  .featured-quote cite {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.0625rem;
+  }
+
+  .detail-item {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+  }
+
+  .detail-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .detail-item p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .featured-quote p {
+      font-size: 1.375rem;
+    }
+  }
+</style>

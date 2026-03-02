@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const driveTimes = [
+  { city: 'Reno, NV', time: '~1.5 hours', route: 'I-80 W to CA-70 N' },
+  { city: 'Truckee, CA', time: '~1 hour', route: 'CA-89 N to Portola' },
+  { city: 'Sacramento, CA', time: '~2.5 hours', route: 'I-80 E to CA-70 N' },
+  { city: 'Bay Area', time: '~4 hours', route: 'I-80 E to CA-70 N' },
+  { city: 'Chico, CA', time: '~2 hours', route: 'CA-70 E through the Feather River Canyon' },
+];
+---
+
+<BaseLayout
+  title="Getting Here"
+  description="Directions to Beckwourth Peak High Camp near Portola, CA. Drive times, road conditions, and EV charging stations."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Getting Here</h1>
+      <p class="page-header__subtitle">Directions, drive times, and what to expect on the road to High Camp</p>
+    </div>
+  </section>
+
+  <!-- Map + Drive Times -->
+  <section class="section">
+    <div class="container">
+      <div class="directions-layout">
+        <div class="directions-map">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12300!2d-120.47!3d39.82!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ5JzEyLjAiTiAxMjDCsDI4JzEyLjAiVw!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map showing Beckwourth Peak High Camp location"
+            ></iframe>
+          </div>
+        </div>
+        <div class="directions-info">
+          <h2>Drive Times</h2>
+          <p>High Camp is located near Portola, CA in the Lost Sierra region of Plumas County. Most guests drive in from Reno, Sacramento, or the Tahoe area.</p>
+          <div class="drive-times">
+            {driveTimes.map((item) => (
+              <div class="drive-time">
+                <div class="drive-time__city">{item.city}</div>
+                <div class="drive-time__details">
+                  <span class="drive-time__duration">{item.time}</span>
+                  <span class="drive-time__route">{item.route}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Forest Road Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="road-section">
+        <div class="road-section__content">
+          <h2>The Forest Road to High Camp</h2>
+          <p>
+            The last mile to High Camp is a dirt forest road that turns off a paved county road just outside Portola. Most vehicles handle it fine, including standard SUVs, trucks, and all-wheel-drive cars.
+          </p>
+          <p>
+            Low-clearance vehicles (sports cars, sedans riding low) may scrape in a few spots. If you're unsure about your vehicle, reach out and we'll help you figure it out.
+          </p>
+          <div class="road-tips">
+            <h4>Road Tips</h4>
+            <ul>
+              <li>Drive slowly and watch for washboard sections</li>
+              <li>The road is about 1 mile from the paved county road to camp</li>
+              <li>Allow an extra 5 minutes for the dirt road portion</li>
+              <li>We'll send detailed turn-by-turn directions before your arrival</li>
+            </ul>
+          </div>
+        </div>
+        <div class="road-section__video">
+          <h3>Road Preview</h3>
+          <p>Watch this short video to see exactly what the road looks like before you arrive.</p>
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/8APOBchLg5k"
+              width="100%"
+              height="315"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              title="Road to Beckwourth Peak High Camp preview"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EV Charging -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>EV Charging</h2>
+        <p>Driving electric? Charging stations are available nearby.</p>
+      </div>
+      <div class="grid grid--2 ev-grid">
+        <div class="ev-station">
+          <h3>Portola Charging Station</h3>
+          <p class="ev-station__distance">1.5 miles from camp</p>
+          <p>8 charging spots available in downtown Portola. Convenient for topping off while you grab groceries or dinner.</p>
+        </div>
+        <div class="ev-station">
+          <h3>Sierra Valley Preserve Nature Center</h3>
+          <p class="ev-station__distance">7 miles from camp</p>
+          <p>4 charging stations available. A scenic drive through Sierra Valley with views of the surrounding mountains.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Questions About Getting Here?</h2>
+      <p>We'll send detailed directions before your arrival. For specific questions, reach out anytime.</p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn--ghost btn--large cta-btn">Contact Us</a>
+        <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">Check Availability</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* Directions Layout */
+  .directions-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .map-wrapper {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .map-wrapper iframe {
+    display: block;
+  }
+
+  .directions-info h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .directions-info > p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+  }
+
+  /* Drive Times */
+  .drive-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+  }
+
+  .drive-time:last-child {
+    border-bottom: none;
+  }
+
+  .drive-time__city {
+    font-weight: 600;
+    font-size: 1.0625rem;
+    min-width: 140px;
+  }
+
+  .drive-time__details {
+    text-align: right;
+  }
+
+  .drive-time__duration {
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+  }
+
+  .drive-time__route {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Road Section */
+  .road-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .road-section__content h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .road-section__content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .road-tips {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--color-accent);
+    margin-top: var(--space-3);
+  }
+
+  .road-tips h4 {
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .road-tips ul {
+    margin-bottom: 0;
+  }
+
+  .road-tips li {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .road-section__video h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .road-section__video > p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+  }
+
+  /* Video */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* EV Stations */
+  .ev-station {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .ev-station h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ev-station__distance {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-2);
+  }
+
+  .ev-station p:last-child {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* CTA Section */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 550px;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .directions-layout,
+    .road-section {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .drive-time {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .drive-time__details {
+      text-align: left;
+    }
+  }
+</style>

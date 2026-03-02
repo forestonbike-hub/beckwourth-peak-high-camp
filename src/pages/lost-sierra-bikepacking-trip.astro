@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Lost Sierra Bikepacking Trip",
+  "description": "Plan a 2 or 3-day bikepacking ride in the Lost Sierra. Routes from Truckee, Reno, and Sierra Valley. Cabin, yurt, and hot showers at Beckwourth Peak High Camp.",
+  "touristType": "Bikepacking",
+  "url": "https://beckwourthpeakhighcamp.com/lost-sierra-bikepacking-trip/"
+};
+---
+
+<BaseLayout
+  title="Lost Sierra Bikepacking Trip - Overnight Routes"
+  description="Plan a 2 or 3-day bikepacking ride in the Lost Sierra. Routes from Truckee, Reno, and Sierra Valley. Cabin, yurt, and hot showers at Beckwourth Peak High Camp."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <h1>Lost Sierra Bikepacking Trip</h1>
+      <p class="page-hero__subtitle">Multi-day gravel and dirt routes with a real bed, hot showers, and a campfire waiting at the midpoint.</p>
+      <a href={bookingUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book Your Stay
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Bikepacking with a Reward at the Halfway Point</h2>
+        <p>The Lost Sierra is one of the best bikepacking destinations in California. Miles of gravel roads, forest service tracks, and singletrack wind through national forest with almost no traffic. The scenery is world-class, the riding is varied, and the region is still uncrowded compared to the Tahoe corridor.</p>
+        <p>Beckwourth Peak High Camp sits at the intersection of several natural route corridors, making it the perfect overnight stop on a multi-day bikepacking trip. Instead of sleeping in a ditch, you sleep in a cabin or yurt, take a hot shower, and eat a real meal. Then you saddle up the next morning and keep riding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Route Ideas</h2>
+        <p>These are starting points, not rigid itineraries. Every route can be adjusted to your fitness level and timeline.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <h3>From Truckee</h3>
+          <p class="route-stats">~60 miles, 2 days</p>
+          <p>Head north out of Truckee on a mix of gravel and forest roads. Ride through Stampede Reservoir country and into the Sierra Valley before climbing up to High Camp on Beckwourth Peak. Reverse it the next day or loop back via a different route.</p>
+        </div>
+        <div class="feature-card">
+          <h3>From Reno</h3>
+          <p class="route-stats">~75 miles, 2-3 days</p>
+          <p>Cross the state line and climb into the Sierra Nevada via Verdi and Dog Valley. Follow forest service roads north through Loyalton and into the Sierra Valley. From there, it's a scenic climb to High Camp. Consider a rest day at camp before riding back.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Sierra Valley Loop</h3>
+          <p class="route-stats">~45 miles, 2 days</p>
+          <p>A shorter option that loops through the Sierra Valley, one of California's largest alpine valleys. Mix ranch roads, county gravel, and forest service tracks for a route that's as scenic as it is rideable. High Camp makes the perfect overnight midpoint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why High Camp -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>What Awaits You at High Camp</h2>
+        <p>After a long day of riding, the last thing you want is to pitch a tent in the dark and eat cold food. At High Camp, you ride straight to a real bed and a hot shower. Here's what makes it the best bikepacking stop in the Lost Sierra:</p>
+        <ul>
+          <li>Cabins and yurt with real beds (your body will thank you on day two)</li>
+          <li>Hot showers in the shared bathhouse</li>
+          <li>Kitchen basics so you can cook a proper meal</li>
+          <li>Starlink WiFi to download GPX files and check weather</li>
+          <li>Bike-friendly property with secure storage</li>
+          <li>Communal fire pit with firewood included</li>
+          <li>20-basket disc golf course for active recovery</li>
+        </ul>
+
+        <h3>Custom Route Help</h3>
+        <p>Forest, the host at High Camp, is an avid gravel and bikepacking rider who knows these roads inside and out. If you reach out before your trip, he can help you plan a route, suggest alternatives based on conditions, and make sure you don't miss the best sections.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Plan Your Bikepacking Trip</h2>
+      <p>Book a cabin or yurt at High Camp and make your Lost Sierra bikepacking trip unforgettable.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/gravel-biking.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .content-block ul {
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block li {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .feature-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .route-stats {
+    font-weight: 600;
+    color: var(--color-accent) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

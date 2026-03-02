@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": "Mt. Hough and Beckwourth Peak Mountain Bike Weekend",
+  "description": "Book an amazing mountain bike weekend. Ride Mt. Hough, Mills Peak, and the Beckwourth Peak Trail. Relax in a comfy cabin or yurt with campfire and disc golf.",
+  "touristType": "Mountain Biking",
+  "url": "https://beckwourthpeakhighcamp.com/mountain-biking-weekend/"
+};
+---
+
+<BaseLayout
+  title="Mt. Hough and Beckwourth Peak Mountain Bike Weekend"
+  description="Book an amazing mountain bike weekend. Ride Mt. Hough, Mills Peak, and the Beckwourth Peak Trail. Relax in a comfy cabin or yurt with campfire and disc golf."
+  schema={schema}
+>
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content container">
+      <h1>Mountain Bike Weekend in the Lost Sierra</h1>
+      <p class="page-hero__subtitle">Ride Mt. Hough, Mills Peak, and Beckwourth Peak. Come back to a cabin, hot shower, and campfire.</p>
+      <a href={bookingUrl} class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">
+        Book Your Weekend
+      </a>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Three Trail Systems. One Weekend. Zero Crowds.</h2>
+        <p>The Lost Sierra has some of the best mountain biking in Northern California, and almost nobody knows about it. While Downieville draws the crowds, trails like Mt. Hough, Mills Peak, and the Beckwourth Peak Trail offer world-class riding with a fraction of the traffic.</p>
+        <p>High Camp puts you right in the middle of all three. Ride a different trail system each day, then come back to camp and relax. No cooler full of lukewarm food. No cramped tent. Just a real bed, a hot shower, and a fire pit with a view.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerary -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__header">
+        <h2>Suggested Weekend Itinerary</h2>
+        <p>A sample plan to help you make the most of your time. Adjust to your pace and preferences.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <h3>Friday: Arrive and Explore</h3>
+          <p>Drive up and get settled in your cabin or yurt. If you arrive with daylight to spare, hit the Beckwourth Peak Trail right from camp for a warm-up ride with ridgeline views. End the evening with a campfire and some disc golf.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Saturday: Mt. Hough</h3>
+          <p>The Mt. Hough trail system near Quincy is about 45 minutes from camp. It's a big day of riding with flowy singletrack, challenging climbs, and views of the Indian Valley. Grab lunch in Quincy, then head back to camp for a recovery fire and stargazing.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Sunday: Mills Peak</h3>
+          <p>Head to Graeagle (21 minutes away) and ride the Mills Peak trail. It's one of the most iconic descents in the Lost Sierra, with technical features, fast sections, and stunning alpine scenery. Pack up after the ride or add one more night at camp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trail Highlights -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Trail Highlights</h2>
+
+        <h3>Beckwourth Peak Trail</h3>
+        <p>Starts right at camp. A ridgeline trail with 360-degree views of the Sierra Valley and surrounding peaks. Great for a shorter ride or an early morning session before heading out to other trails.</p>
+
+        <h3>Mt. Hough Trail System</h3>
+        <p>A network of trails above Quincy with options for all ability levels. The flagship descent from the summit is a must-ride, with tight switchbacks, fast traverses, and wildflower meadows in early summer.</p>
+
+        <h3>Mills Peak</h3>
+        <p>Near Graeagle, Mills Peak offers one of the best top-to-bottom descents in the region. The climb is honest and the descent rewards every pedal stroke. Pair it with other nearby trails for a full day of riding.</p>
+
+        <h3>More Trails Nearby</h3>
+        <p>The Lost Sierra has dozens of additional trails within an hour of camp. From mellow forest loops to technical enduro-style descents, there's always another ride to discover. Ask Forest (the host) for recommendations tailored to your skill level.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>After the Ride</h2>
+        <p>The best part of a mountain bike weekend is what happens after the bikes go on the rack.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="feature-card">
+          <h3>Hot Showers</h3>
+          <p>The shared bathhouse has two full bathrooms with hot water. Wash off the trail dust and feel human again.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Campfire</h3>
+          <p>Firewood included every night. Pull up a chair, crack open a cold one, and swap trail stories with your crew.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Disc Golf</h3>
+          <p>The 20-basket mountain course is perfect for active recovery. Walk the course with a drink in hand, or get competitive.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Starlink WiFi</h3>
+          <p>Upload your ride to Strava, check tomorrow's trail conditions, or just zone out scrolling through trail videos.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Real Beds</h3>
+          <p>Queen bunks in the cabins, queen bed and loft in the yurt. Your legs will recover faster in a real bed than on the ground.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Kitchen Basics</h3>
+          <p>Cook a real meal after your ride. Cabins and yurt have basics like a stove, pots, pans, and utensils.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book Your Mountain Bike Weekend</h2>
+      <p>Grab a cabin or yurt and ride the best trails in the Lost Sierra. Your legs and your soul will thank you.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
+    background-image: url('/images/activities/mountain-biking.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: var(--space-8);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.15) 60%, transparent 100%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+  }
+
+  .page-hero__content h1 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-hero__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .content-block h3 {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-2);
+    font-size: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-primary);
+  }
+
+  .feature-card p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-hero {
+      min-height: 40vh;
+    }
+  }
+</style>

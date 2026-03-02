@@ -1,0 +1,164 @@
+---
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/lato/400.css';
+import '@fontsource/lato/700.css';
+import '@fontsource/lato/900.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  schema?: object;
+}
+
+const {
+  title,
+  description = '60-acre off-grid glamping property on Beckwourth Peak in the Lost Sierra. Cabins, yurt, and campsite with hot showers, Starlink WiFi, and 360-degree views.',
+  ogImage = '/images/property/high-camp-hero.jpg',
+  canonicalUrl,
+  schema,
+} = Astro.props;
+
+const siteTitle = title === 'Home' ? 'Beckwourth Peak High Camp | Off-Grid Glamping in the Lost Sierra' : `${title} | Beckwourth Peak High Camp`;
+const canonical = canonicalUrl || Astro.url.href;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{siteTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Beckwourth Peak High Camp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={siteTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logos/favicon.png" />
+
+  <!-- Google Tag Manager -->
+  <script is:inline>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WW8FD2SH');
+  </script>
+
+  <!-- Google Analytics (GA4) + Google Ads -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=GT-KDBFW85"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GT-KDBFW85');
+    gtag('config', 'AW-17384301511');
+  </script>
+
+  <!-- Facebook Pixel -->
+  <script is:inline>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1403749613613407');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1403749613613407&ev=PageView&noscript=1" />
+  </noscript>
+
+  <!-- Maze Analytics -->
+  <script is:inline>
+    (function (m, a, z, e) {
+      var s, t;
+      try {
+        t = m.sessionStorage.getItem('maze-us');
+      } catch (err) {}
+      if (!t) {
+        t = new Date().getTime();
+        try {
+          m.sessionStorage.setItem('maze-us', t);
+        } catch (err) {}
+      }
+      s = a.createElement('script');
+      s.src = z + '?apiKey=' + e;
+      s.async = true;
+      a.getElementsByTagName('head')[0].appendChild(s);
+      m.mazeUniversalSnippetApiKey = e;
+    })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', 'd36a929f-5b85-4614-b6c3-2e52abfc30dd');
+  </script>
+
+  <!-- Schema Markup -->
+  {schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )}
+
+  <!-- LocalBusiness Schema (all pages) -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Beckwourth Peak High Camp",
+    "description": "Off-grid glamping on 60 acres in the Lost Sierra. Cabins, yurt, and campsite near Portola, CA.",
+    "url": "https://beckwourthpeakhighcamp.com",
+    "telephone": "530-322-0322",
+    "email": "info@beckwourthpeakhighcamp.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Portola",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.82,
+      "longitude": -120.47,
+      "elevation": "5300 ft"
+    },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Starlink WiFi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Hot Showers", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Disc Golf Course", "value": true }
+    ],
+    "checkinTime": "15:00",
+    "checkoutTime": "11:00",
+    "numberOfRooms": 4
+  })} />
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW8FD2SH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+  <Header />
+  <main id="main-content">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

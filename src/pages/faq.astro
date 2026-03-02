@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const faqCategories = [
+  {
+    name: 'Booking & Availability',
+    faqs: [
+      {
+        question: 'When is High Camp open?',
+        answer: 'Our season runs from May through October. Exact opening and closing dates vary by year depending on weather and road conditions. Check our booking calendar for current availability.',
+      },
+      {
+        question: 'How do I book a stay?',
+        answer: 'You can book directly through our website by clicking "Check Availability" or "Book Now." We use ResNexus for reservations. You can also reach us at info@beckwourthpeakhighcamp.com or 530-322-0322 if you need help.',
+      },
+      {
+        question: "What's the cancellation policy?",
+        answer: 'Cancellations made 14 or more days before check-in receive a full refund minus a 5% processing fee. Cancellations within 14 days of check-in are non-refundable. We recommend travel insurance for added peace of mind.',
+      },
+    ],
+  },
+  {
+    name: 'Arrival & Check-In',
+    faqs: [
+      {
+        question: 'What are the check-in and check-out times?',
+        answer: 'Check-in is at 3:00 PM and check-out is at 11:00 AM. If you arrive early, you are welcome to explore the property and enjoy the deck, disc golf course, and trails while we prepare your unit.',
+      },
+      {
+        question: "What's the road like getting to High Camp?",
+        answer: "The last mile to High Camp is a dirt forest road off a paved county road from Portola. Most vehicles handle it fine, but it is not ideal for low-clearance cars. SUVs, trucks, and vehicles with moderate clearance do great. We have a video preview of the road on our Getting Here page.",
+      },
+      {
+        question: 'How far is the nearest town?',
+        answer: 'Portola is just 6 minutes away and has a grocery store, gas stations, restaurants, and a hardware store. Graeagle is about 20 minutes away with additional dining and shops.',
+      },
+    ],
+  },
+  {
+    name: 'Amenities & Comfort',
+    faqs: [
+      {
+        question: 'Is High Camp really off-grid?',
+        answer: 'Yes, we are 100% solar powered and not connected to the electrical grid. But off-grid does not mean uncomfortable. Our cabins and yurt have A/C, heat, hot showers (in the shared bathhouse), Starlink WiFi, and comfortable bedding. You will not be roughing it.',
+      },
+      {
+        question: 'Is there cell service?',
+        answer: 'Cell service is limited at camp. Some carriers get a signal, others do not. We provide Starlink WiFi in the cabins, yurt, and on the main deck, so you can stay connected when you need to.',
+      },
+      {
+        question: 'What should I bring?',
+        answer: 'Cabins and the yurt come with bedding, towels, and kitchen basics (pots, pans, plates, utensils). Bring your own food and drinks. The campsite is more of a traditional setup, so bring your tent and sleeping gear. A headlamp is handy for walking around at night.',
+      },
+      {
+        question: "What's the elevation?",
+        answer: "High Camp sits at approximately 5,300 feet. Nights can be cool even in summer, so bring a jacket or layers. The elevation also means the sun is strong, so sunscreen and hydration are important.",
+      },
+    ],
+  },
+  {
+    name: 'Activities & Recreation',
+    faqs: [
+      {
+        question: 'Can I have a campfire?',
+        answer: 'Yes, we have a communal fire pit with firewood provided. We ask that you only use the designated fire pit (no ground fires) and follow any active fire restrictions, which we will communicate before your arrival.',
+      },
+      {
+        question: 'Is High Camp family friendly?',
+        answer: 'Absolutely. Families love the disc golf course, the open space, and the chance for kids to explore nature. Just keep in mind that this is a mountain property with natural terrain, so standard outdoor supervision applies.',
+      },
+      {
+        question: 'Is there a disc golf course?',
+        answer: 'Yes! We have a 20-basket disc golf course on the property with mountain views at every hole. We have a few loaner discs available, but we recommend bringing your own.',
+      },
+    ],
+  },
+  {
+    name: 'Policies',
+    faqs: [
+      {
+        question: 'Do you allow pets?',
+        answer: 'No, we do not allow pets at High Camp. The property borders Plumas National Forest, and we want to protect the local wildlife and ensure a comfortable stay for all guests.',
+      },
+      {
+        question: 'Is smoking allowed?',
+        answer: 'No. Smoking is not permitted anywhere on the property. This includes cigarettes, vapes, and any other smoking devices. Fire safety in the forest is a top priority.',
+      },
+      {
+        question: 'Are there quiet hours?',
+        answer: 'Yes. We ask guests to keep noise to a minimum between 10:00 PM and 7:00 AM out of respect for other guests and the natural setting.',
+      },
+    ],
+  },
+];
+
+// Build FAQPage schema
+const schemaFaqs = faqCategories.flatMap(cat => cat.faqs);
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: schemaFaqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Common questions about staying at Beckwourth Peak High Camp. Booking, amenities, directions, pets, and cancellation policies."
+  schema={faqSchema}
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p class="page-header__subtitle">Everything you need to know before your stay at High Camp</p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="section">
+    <div class="container">
+      <div class="faq-container">
+        {faqCategories.map((category) => (
+          <div class="faq-category">
+            <h2 class="faq-category__title">{category.name}</h2>
+            <div class="faq-list">
+              {category.faqs.map((faq) => (
+                <details class="faq-item">
+                  <summary class="faq-item__question">
+                    <span>{faq.question}</span>
+                    <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                  </summary>
+                  <div class="faq-item__answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="faq-cta">
+        <h3>Still have questions?</h3>
+        <p>We're happy to help. Reach out anytime.</p>
+        <div class="faq-cta__actions">
+          <a href="mailto:info@beckwourthpeakhighcamp.com" class="btn btn--primary btn--small">Email Us</a>
+          <a href="/contact/" class="btn btn--ghost btn--small">Contact Page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* FAQ Container */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Category */
+  .faq-category {
+    margin-bottom: var(--space-6);
+  }
+
+  .faq-category__title {
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    padding-bottom: var(--space-1);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  /* FAQ Item */
+  .faq-item {
+    border: 1px solid var(--color-bg-accent);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.75rem;
+    background: var(--color-bg-primary);
+    overflow: hidden;
+  }
+
+  .faq-item__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.125rem var(--space-3);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    cursor: pointer;
+    list-style: none;
+    gap: var(--space-2);
+  }
+
+  .faq-item__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question::marker {
+    display: none;
+    content: '';
+  }
+
+  .faq-item__icon {
+    flex-shrink: 0;
+    transition: transform var(--transition);
+    color: var(--color-accent);
+  }
+
+  .faq-item[open] .faq-item__icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item[open] {
+    border-color: var(--color-accent);
+  }
+
+  .faq-item__answer {
+    padding: 0 var(--space-3) var(--space-3);
+  }
+
+  .faq-item__answer p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* FAQ CTA */
+  .faq-cta {
+    max-width: 800px;
+    margin: var(--space-6) auto 0;
+    text-align: center;
+    padding: var(--space-5);
+    background: var(--color-bg-secondary);
+    border-radius: var(--border-radius);
+  }
+
+  .faq-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-cta p {
+    color: var(--color-text-secondary);
+    margin: 0 auto var(--space-3);
+  }
+
+  .faq-cta__actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const routes = [
+  {
+    name: 'Truckee to High Camp',
+    days: '2 days',
+    distance: '~80 miles',
+    terrain: 'Mixed gravel and dirt roads',
+    description: 'Start in Truckee and ride north through Stampede Reservoir, Loyalton, and Sierra Valley on a mix of gravel and forest service roads. Two days of stunning riding with High Camp as your reward at the finish. Arrange a shuttle back or make it a point-to-point trip.',
+  },
+  {
+    name: 'Reno to High Camp',
+    days: '2-3 days',
+    distance: '~90 miles',
+    terrain: 'Paved, gravel, and dirt roads',
+    description: 'Leave the city behind and ride northwest into the Sierra. This route takes you through Verdi, up into the mountains, and across Sierra Valley before climbing to High Camp. Split it into two or three days depending on your pace.',
+  },
+  {
+    name: 'Sierra Valley Loop',
+    days: '1-2 days',
+    distance: '~50 miles',
+    terrain: 'Gravel ranch roads and forest service roads',
+    description: 'A shorter option that loops through Sierra Valley from High Camp and back. Flat valley roads with mountain scenery on all sides. Works well as an overnight out-and-back or a long day ride with a night at camp on either end.',
+  },
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Bikepacking to High Camp",
+  "description": "Plan an overnight bikepacking or gravel ride to Beckwourth Peak High Camp. Routes from Truckee, Reno, and Sierra Valley.",
+};
+---
+
+<BaseLayout
+  title="Bikepacking to High Camp"
+  description="Plan an overnight bikepacking or gravel ride to Beckwourth Peak High Camp. Routes from Truckee, Reno, and Sierra Valley."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Bikepacking to High Camp</h1>
+      <p class="page-header__subtitle">Most bikepacking trips end at a tent in the dirt. This one ends at a cabin on a mountain with hot showers, a real bed, and the Milky Way overhead. High Camp is the kind of destination that makes the miles worth it.</p>
+    </div>
+  </section>
+
+  <!-- The Concept -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="content-block">
+        <h2>The Reward at the End of the Ride</h2>
+        <p>Bikepacking is about the journey, but it's hard to argue with the destination when it includes air conditioning, a bathhouse with hot water, Starlink WiFi to upload your ride, and a communal fire pit to swap stories around.</p>
+        <p>High Camp sits at 5,300 ft on Beckwourth Peak, surrounded by 60 acres of forest and meadow. After days of gravel roads and mountain passes, you'll roll in to a place that feels earned and genuinely comfortable.</p>
+        <p>One of our guests, Christa, put it perfectly: "Beckwourth Peak High Camp was an amazing spot to stay for a bikepacking trip. Forest the host was awesome and made routes for us to optimize our trip. The yurt was clean, spacious, well stocked, and super comfy. Truly a bikepacking glamping experience."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Routes -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Route Ideas</h2>
+        <p>These are starting points. Forest (your host) is a gravel rider and can help you plan a custom route based on your group, timeline, and ability.</p>
+      </div>
+
+      <div class="routes-list">
+        {routes.map((route) => (
+          <div class="route-card">
+            <div class="route-card__header">
+              <h3>{route.name}</h3>
+              <div class="route-card__meta">
+                <span class="route-tag">{route.days}</span>
+                <span>{route.distance}</span>
+                <span>{route.terrain}</span>
+              </div>
+            </div>
+            <p>{route.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Planning Tips -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="content-block">
+        <h2>Planning Your Trip</h2>
+        <ul class="info-list">
+          <li><strong>Best months:</strong> June through September offer the best conditions. May and October are possible but can be unpredictable.</li>
+          <li><strong>Water:</strong> Plan your water stops carefully. Long stretches of some routes have no reliable water sources.</li>
+          <li><strong>Navigation:</strong> Download GPS routes before you leave. Cell service is spotty on backcountry roads.</li>
+          <li><strong>Resupply:</strong> Portola has a grocery store and restaurants, 7 minutes from camp. Truckee and Reno have full bike shops.</li>
+          <li><strong>Group rides:</strong> We can accommodate groups of up to 18 guests across our cabins, yurt, and campsite. Great for club trips and bikepacking meetups.</li>
+          <li><strong>Route planning:</strong> Contact us before your trip and we'll help you build a route that fits your schedule and skill level.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Earn Your Comfort</h2>
+      <p>Ride all day, then sleep in a real bed with hot showers and mountain views. Book your bikepacking destination.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .content-block p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .routes-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .route-card {
+    background: var(--color-bg-secondary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .route-card__header {
+    margin-bottom: var(--space-2);
+  }
+
+  .route-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .route-card__meta {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  .route-tag {
+    background: var(--color-bg-accent);
+    padding: 0.125rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .route-card p {
+    color: var(--color-text-secondary);
+    margin-bottom: 0;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+</style>

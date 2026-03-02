@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Stargazing at Beckwourth Peak High Camp",
+  "description": "Minimal light pollution at 5,300 ft elevation. See the Milky Way from your cabin porch at Beckwourth Peak High Camp.",
+};
+---
+
+<BaseLayout
+  title="Stargazing at Beckwourth Peak High Camp"
+  description="Minimal light pollution at 5,300 ft elevation. See the Milky Way from your cabin porch at Beckwourth Peak High Camp."
+  schema={schema}
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Stargazing at High Camp</h1>
+      <p class="page-header__subtitle">At 5,300 ft on Beckwourth Peak, far from city lights, the night sky is one of the best things about staying here. You don't need a telescope or any special gear. Just step outside your cabin and look up.</p>
+    </div>
+  </section>
+
+  <!-- Dark Sky Quality -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--2 feature-grid">
+        <div class="content-block">
+          <h2>Why the Sky Is So Good Here</h2>
+          <p>High Camp sits in one of the least light-polluted areas of Northern California. Portola is a small town with minimal streetlighting, and the property is up a dirt road on the mountain, surrounded by national forest on all sides.</p>
+          <p>The combination of elevation, dry mountain air, and distance from major cities means the sky gets genuinely dark here. On clear nights, you can see the Milky Way stretching overhead without binoculars or any enhancement. Satellites, shooting stars, and the occasional meteor are regular sights.</p>
+        </div>
+        <div class="content-block">
+          <h2>Best Viewing Months</h2>
+          <p>The sky is good all season long (May through October), but the Milky Way core is most visible from June through September. July and August tend to have the clearest, warmest nights for extended stargazing.</p>
+          <p>New moon weekends are the darkest and best for deep sky viewing. Check a moon calendar when you book if stargazing is a priority for your trip.</p>
+          <p>The shaded deck, the communal fire pit area, and the cabin porches are all great viewing spots. You won't need to hike anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guest Quote -->
+  <section class="section">
+    <div class="container">
+      <blockquote class="featured-quote">
+        <p>"At night, the sky took center stage. There's little light pollution up here, so the Milky Way was on full display."</p>
+        <cite>Matt, High Camp guest</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- What You'll See -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>What You Might See</h2>
+      </div>
+
+      <div class="grid grid--3 sky-grid">
+        <div class="sky-item">
+          <h4>The Milky Way</h4>
+          <p>The galactic core is visible to the naked eye from June through September. Best viewed after 10pm when the sky is fully dark.</p>
+        </div>
+        <div class="sky-item">
+          <h4>Shooting Stars</h4>
+          <p>Sporadic meteors are common on any clear night. Major meteor showers (Perseids in August, for example) are spectacular from here.</p>
+        </div>
+        <div class="sky-item">
+          <h4>Planets</h4>
+          <p>Jupiter, Saturn, Mars, and Venus are all visible at various times during the season, often bright enough to cast faint shadows.</p>
+        </div>
+        <div class="sky-item">
+          <h4>Satellites</h4>
+          <p>You'll spot satellites crossing the sky regularly after dusk. The ISS is especially bright and easy to track.</p>
+        </div>
+        <div class="sky-item">
+          <h4>Constellations</h4>
+          <p>With low light pollution, you can trace dozens of constellations that are invisible from urban and suburban areas.</p>
+        </div>
+        <div class="sky-item">
+          <h4>Sunsets & Sunrises</h4>
+          <p>The 360-degree views from the deck make sunrise and sunset spectacular. Golden hour lasts a long time at this elevation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="section">
+    <div class="container">
+      <div class="content-block">
+        <h2>Stargazing Tips</h2>
+        <ul class="info-list">
+          <li><strong>Let your eyes adjust:</strong> Give your eyes 15 to 20 minutes in the dark to fully adapt. Avoid looking at phone screens during this time.</li>
+          <li><strong>Bring a red light:</strong> A red-filtered headlamp or flashlight preserves your night vision while letting you move around safely.</li>
+          <li><strong>Dress warm:</strong> Even in summer, mountain nights at 5,300 ft can drop into the 40s. Bring a jacket or blanket.</li>
+          <li><strong>Apps:</strong> Star map apps like SkyView or Stellarium help identify what you're seeing.</li>
+          <li><strong>Camera:</strong> Modern phones can capture decent night sky photos in night mode. A tripod helps.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Sleep Under the Stars (or Just Near Them)</h2>
+      <p>Book a cabin, yurt, or campsite and see the sky the way it's supposed to look.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .feature-grid {
+    align-items: start;
+  }
+
+  .content-block {
+    max-width: 800px;
+  }
+
+  .content-block h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .content-block p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .featured-quote {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .featured-quote p {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    font-style: italic;
+    margin-bottom: var(--space-2);
+    max-width: none;
+  }
+
+  .featured-quote cite {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.0625rem;
+  }
+
+  .sky-item {
+    background: var(--color-bg-primary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+  }
+
+  .sky-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .sky-item p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .info-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-bg-accent);
+    font-size: 1.0625rem;
+  }
+
+  .info-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .featured-quote p {
+      font-size: 1.375rem;
+    }
+  }
+</style>

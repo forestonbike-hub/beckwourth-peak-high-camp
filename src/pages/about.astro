@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Us"
+  description="Meet Forest and Annie, the family behind Beckwourth Peak High Camp. A passion project in California's Lost Sierra."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p class="page-header__subtitle">The family and the story behind Beckwourth Peak High Camp</p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section">
+    <div class="container">
+      <div class="about-story">
+        <div class="about-story__image">
+          <img src="/images/about/forest-and-annie.jpg" alt="Forest and Annie, founders of Beckwourth Peak High Camp" width="600" height="450" loading="lazy" />
+        </div>
+        <div class="about-story__content">
+          <h2>Our Story</h2>
+          <p>
+            Beckwourth Peak High Camp is a family passion project. We're Forest and Annie, and along with our two boys, we created High Camp because we believe the best memories happen outdoors, around a fire, under a sky full of stars.
+          </p>
+          <p>
+            We've always loved the outdoors and had dreamed of creating a special, off-grid getaway in the mountains where people could connect with nature and each other. When we found 60 acres on Beckwourth Peak, surrounded by Plumas National Forest and overlooking the Lost Sierra, we knew we'd found the right place.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adventure Background -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="about-story about-story--reverse">
+        <div class="about-story__image">
+          <img src="/images/about/adventure-background.jpg" alt="Forest and Annie on a bikepacking adventure" width="600" height="450" loading="lazy" />
+        </div>
+        <div class="about-story__content">
+          <h2>Built by Adventurers</h2>
+          <p>
+            Before having kids, Forest was an avid bikepacker who raced the Tour Divide from Canada to Mexico twice. Forest and Annie went on many biking adventures together, including riding across the entire United States.
+          </p>
+          <p>
+            Annie was a trip leader for Backroads and served as a Peace Corps volunteer in Africa. Those experiences shaped how we think about hospitality: genuine, personal, and rooted in a love of wild places.
+          </p>
+          <p>
+            We built High Camp to be the kind of place we'd want to stay ourselves. Comfortable enough to recharge after a long ride, remote enough to feel like you've truly escaped, and welcoming enough to feel like home.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Our Philosophy</h2>
+        <p>What guides everything we do at High Camp</p>
+      </div>
+      <div class="grid grid--3 philosophy-grid">
+        <div class="philosophy-card">
+          <h3>Earned Comfort</h3>
+          <p>
+            Off-grid doesn't mean roughing it. After a day on the trails, you deserve hot showers, a comfortable bed, and a cold drink on the deck. We've designed High Camp so you can push your limits during the day and recover in comfort at night.
+          </p>
+        </div>
+        <div class="philosophy-card">
+          <h3>Connection</h3>
+          <p>
+            We built High Camp to bring people together. The communal fire pit, the shared deck with 360-degree views, the disc golf course. These spaces are designed for conversation, laughter, and the kind of moments that stick with you long after you leave.
+          </p>
+        </div>
+        <div class="philosophy-card">
+          <h3>Respect for the Land</h3>
+          <p>
+            We're solar-powered and off-grid by choice. Living lightly on 60 acres of mountain terrain means protecting the very thing that makes this place special. We ask our guests to join us in conserving energy and leaving no trace.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Property -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="section__header">
+        <h2>The Property</h2>
+        <p>60 acres on Beckwourth Peak, surrounded by Plumas National Forest</p>
+      </div>
+      <div class="grid grid--2 property-details">
+        <div class="property-detail">
+          <h4>Lodging</h4>
+          <p>Two cabins (4 guests each), one yurt (5 guests), and one campsite (5 guests). Maximum 18 guests at a time, so it never feels crowded.</p>
+        </div>
+        <div class="property-detail">
+          <h4>Amenities</h4>
+          <p>Shared bathhouse with hot showers, Starlink WiFi, kitchen basics in every unit, A/C and heat in cabins and yurt, and firewood included nightly.</p>
+        </div>
+        <div class="property-detail">
+          <h4>Recreation</h4>
+          <p>20-basket disc golf course, communal fire pit, shaded deck with panoramic views, and trail access right from camp.</p>
+        </div>
+        <div class="property-detail">
+          <h4>Location</h4>
+          <p>Elevation 5,300 feet. Six minutes from Portola, CA. Surrounded by hundreds of miles of gravel roads, singletrack, and hiking trails.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Come See It for Yourself</h2>
+      <p>Book a cabin, yurt, or campsite on Beckwourth Peak.</p>
+      <a href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/" class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-8) 0 var(--space-6);
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: var(--color-white);
+    margin-bottom: var(--space-1);
+  }
+
+  .page-header__subtitle {
+    color: rgba(250, 250, 247, 0.85);
+    font-size: 1.125rem;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* About Story Layout */
+  .about-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .about-story--reverse .about-story__image {
+    order: 2;
+  }
+
+  .about-story__image img {
+    border-radius: var(--border-radius);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .about-story__content h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .about-story__content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  /* Philosophy Cards */
+  .philosophy-card {
+    background: var(--color-bg-primary);
+    padding: var(--space-4);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-bg-accent);
+    box-shadow: var(--shadow-card);
+  }
+
+  .philosophy-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+    color: var(--color-primary);
+  }
+
+  .philosophy-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* Property Details */
+  .property-detail {
+    padding: var(--space-3);
+  }
+
+  .property-detail h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .property-detail p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* CTA Section */
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .about-story {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    .about-story--reverse .about-story__image {
+      order: 0;
+    }
+  }
+</style>
