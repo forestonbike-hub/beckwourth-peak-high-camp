@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const bookingUrl = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const events = [
+  {
+    name: 'High Camp Gravel Social',
+    date: 'June 1-3, 2026',
+    image: '/images/activities/gravel-biking.jpg',
+    description: 'A 3-day gravel riding weekend with curated routes, prepared dinners, campfires, and a small group capped at 18 riders. Stay at High Camp and ride the best gravel in the Lost Sierra.',
+    href: '/events/gravel-social-2026/',
+    cta: 'View Event Details',
+  },
+  {
+    name: 'Lost & Found Festival Glamping',
+    date: 'Summer 2026',
+    image: '/images/activities/gravel-biking.jpg',
+    description: 'Skip the tent and stay at High Camp during the Lost & Found Gravel Festival. Hot showers, real beds, and a 4-minute ride to the festival grounds in Lost Sierra.',
+    href: '/events/lost-found-glamping/',
+    cta: 'Learn More',
+  },
+  {
+    name: 'Mills Peak Bike Race',
+    date: 'Summer 2026',
+    image: '/images/activities/mountain-biking.jpg',
+    description: 'Base camp for the Mills Peak Bike Race and Everstoke Enduro weekend. Race hard, then recover right with hot showers and a real bed just 21 minutes from Graeagle.',
+    href: '/events/mills-peak-race/',
+    cta: 'Learn More',
+  },
+  {
+    name: 'Sierra Valley Art & Ag Trail',
+    date: 'Fall 2026',
+    image: '/images/area-guide/lost-sierra-landscape.jpg',
+    description: 'Make the Sierra Valley Art & Ag Trail a full weekend. Tour farms, studios, and galleries by day, then retreat to High Camp for mountain quiet and stargazing.',
+    href: '/events/sierra-valley-art-trail/',
+    cta: 'Learn More',
+  },
+];
+---
+
+<BaseLayout
+  title="Events"
+  description="Upcoming events near Beckwourth Peak High Camp in the Lost Sierra. Gravel rides, bike races, festivals, and art trails with comfortable glamping lodging."
+>
+  <!-- Page Header -->
+  <section class="section page-header">
+    <div class="container">
+      <h1>Events in the Lost Sierra</h1>
+      <p class="page-header__subtitle">The Lost Sierra hosts some of the best cycling, outdoor, and cultural events in Northern California. Stay at High Camp and turn any event into a full weekend getaway.</p>
+    </div>
+  </section>
+
+  <!-- Events List -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="events-list">
+        {events.map((event) => (
+          <a href={event.href} class="event-card">
+            <div class="event-card__image-wrap">
+              <img src={event.image} alt={event.name} class="event-card__image" loading="lazy" width="600" height="400" />
+              <span class="event-card__date">{event.date}</span>
+            </div>
+            <div class="event-card__body">
+              <h2 class="event-card__title">{event.name}</h2>
+              <p class="event-card__text">{event.description}</p>
+              <span class="event-card__cta">{event.cta} &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Host Your Own -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <h2>Host Your Own Event at High Camp</h2>
+        <p>With 60 private acres, lodging for up to 18 guests, and a 20-basket disc golf course, High Camp is a unique venue for group rides, retreats, team events, and private gatherings.</p>
+      </div>
+
+      <div class="grid grid--3 hosting-grid">
+        <div class="hosting-item">
+          <h3>Group Gravel Rides</h3>
+          <p>Bring your riding crew for a weekend of curated routes, shared meals, and campfire stories. We handle the logistics so you can focus on the ride.</p>
+        </div>
+        <div class="hosting-item">
+          <h3>Corporate Retreats</h3>
+          <p>Disconnect from screens and reconnect as a team. Off-grid lodging, outdoor activities, and communal meals create a retreat people actually remember.</p>
+        </div>
+        <div class="hosting-item">
+          <h3>Private Gatherings</h3>
+          <p>Birthdays, reunions, bachelor/bachelorette weekends. Rent the entire property and have 60 acres to yourselves.</p>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--space-4);">
+        <a href="/lodging/entire-property/" class="btn btn--secondary">Rent the Entire Property</a>
+        <a href="/contact/" class="btn btn--ghost" style="margin-left: var(--space-2);">Contact Us About Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--dark cta-section">
+    <div class="container text-center">
+      <h2>Book Your Stay for an Upcoming Event</h2>
+      <p>Spots fill fast during event weekends. Reserve your cabin, yurt, or campsite early.</p>
+      <a href={bookingUrl} class="btn btn--ghost btn--large cta-btn" target="_blank" rel="noopener noreferrer">
+        Check Availability
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .page-header__subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+  }
+
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .event-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    background: var(--color-bg-primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow var(--transition), transform var(--transition);
+  }
+
+  .event-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  .event-card__image-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .event-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .event-card__date {
+    position: absolute;
+    top: var(--space-2);
+    left: var(--space-2);
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .event-card__body {
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .event-card__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+    color: var(--color-primary);
+  }
+
+  .event-card__text {
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    margin-bottom: var(--space-2);
+  }
+
+  .event-card__cta {
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .hosting-item {
+    background: var(--color-bg-secondary);
+    padding: var(--space-3);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .hosting-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hosting-item p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section h2 {
+    color: #fff;
+    margin-bottom: var(--space-2);
+  }
+
+  .cta-section p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.125rem;
+    margin: 0 auto var(--space-4);
+    max-width: 500px;
+  }
+
+  .cta-btn {
+    border-color: var(--color-accent);
+    color: #fff;
+  }
+
+  .cta-btn:hover {
+    background: var(--color-accent);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .event-card {
+      grid-template-columns: 1fr;
+    }
+
+    .event-card__image-wrap {
+      max-height: 250px;
+    }
+
+    .event-card__body {
+      padding: var(--space-3);
+    }
+  }
+</style>
