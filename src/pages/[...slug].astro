@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import pagesData from '../data/pages.json';
+
+export function getStaticPaths() {
+  return Object.keys(pagesData).map((path) => ({
+    params: { slug: path },
+    props: { path },
+  }));
+}
+
+const { path } = Astro.props;
+const page = (pagesData as Record<string, { title: string; content: string }>)[path];
+const { title, content } = page;
+---
+
+<BaseLayout title={title}>
+  <div class="max-w-5xl mx-auto px-4 py-8 wp-content" set:html={content} />
+</BaseLayout>

@@ -1,0 +1,71 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#94a3b8] text-slate-900 mt-16">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
+      <!-- Contact -->
+      <div>
+        <h3 class="font-heading font-bold text-lg mb-3">Contact</h3>
+        <p class="text-sm mb-1">
+          <a href="mailto:contact@beckwourthpeakhighcamp.com" class="hover:underline">
+            contact@beckwourthpeakhighcamp.com
+          </a>
+        </p>
+        <p class="text-sm mb-1">
+          <a href="tel:5303220322" class="hover:underline">530-322-0322</a>
+        </p>
+        <p class="text-sm mt-2">
+          <a
+            href="https://maps.app.goo.gl/MSkfn5p7jGKK6w6e8"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline"
+          >
+            Get directions on Google Maps
+          </a>
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-heading font-bold text-lg mb-3">Quick Links</h3>
+        <ul class="text-sm space-y-1">
+          <li><a href="/lodging/" class="hover:underline">Lodging</a></li>
+          <li><a href="/trails/" class="hover:underline">Trails &amp; Routes</a></li>
+          <li><a href="/things-to-do/" class="hover:underline">Things To Do</a></li>
+          <li><a href="/getting-here/" class="hover:underline">Getting Here</a></li>
+          <li><a href="/policies/" class="hover:underline">Policies</a></li>
+        </ul>
+      </div>
+
+      <!-- Social / Booking -->
+      <div>
+        <h3 class="font-heading font-bold text-lg mb-3">Book Your Stay</h3>
+        <a
+          href="https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?NewSearch=1&nights=2&adults=2&startdate=5%2F1%2F2024"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-[#046bd2] hover:bg-blue-700 text-white font-heading font-semibold px-5 py-2 rounded-md transition-colors text-sm"
+        >
+          Book Now
+        </a>
+        <p class="text-sm mt-3">
+          <a
+            href="https://www.instagram.com/beckwourthpeakhighcamp/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline"
+          >
+            @beckwourthpeakhighcamp on Instagram
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-400 mt-8 pt-4 text-center text-sm text-slate-700">
+      &copy; {currentYear} Beckwourth Peak High Camp. All rights reserved.
+    </div>
+  </div>
+</footer>
