@@ -11,12 +11,12 @@ interface Props {
 
 const {
   title,
-  description = "60-acre glampsite on Beckwourth Peak, in the heart of the Lost Sierra. Hiking, mountain bike trails, and gravel rides. Cabins and yurt with amazing views, A/C and hot showers.",
+  description = "Off-grid glamping on Beckwourth Peak (5,300 ft) in the Lost Sierra. Cabins, yurt, and campsite with hot showers, Starlink WiFi, and 360-degree mountain views. Gravel biking, hiking, mountain biking.",
   image = "https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2.jpg",
 } = Astro.props;
 
 const siteTitle = title === "Home"
-  ? "High Camp | Beckwourth Peak Trail & The Lost Sierra"
+  ? "Beckwourth Peak High Camp | Off-Grid Glamping with Starlink in the Lost Sierra"
   : `${title} | Beckwourth Peak High Camp`;
 ---
 
@@ -33,10 +33,10 @@ const siteTitle = title === "Home"
     <meta property="og:type" content="website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Lato:wght@400;700;900&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/png" href="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/cropped-Symbol-525x525-1-32x32.png" />
   </head>
-  <body class="bg-white">
+  <body class="bg-brand-offwhite text-brand-black">
     <Header />
     <main>
       <slot />

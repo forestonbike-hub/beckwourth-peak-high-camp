@@ -3,6 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const BOOK_NOW_URL = "https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/?NewSearch=1&nights=2&adults=2&startdate=5%2F1%2F2024";
 const BOOK_NORTH_CABIN = BOOK_NOW_URL + "&unit=11";
+
+const testimonials = [
+  {
+    name: "Ollie",
+    quote: "Best camp experience we've had in CA. The facilities are top-notch and the views are incredible.",
+    focus: "Facilities & Views",
+  },
+  {
+    name: "Matt",
+    quote: "Amazing trails and we were totally immersed in the outdoors. The Milky Way was on full display.",
+    focus: "Trails & Stargazing",
+  },
+  {
+    name: "Ria",
+    quote: "Mountain views are breathtaking. We loved it so much we've already stayed twice.",
+    focus: "Repeat Guest",
+  },
+  {
+    name: "Mike",
+    quote: "The perfect balance of wilderness and creature comforts. And the disc golf course is a blast!",
+    focus: "Amenities",
+  },
+  {
+    name: "Tatsiana",
+    quote: "The attention to detail is wonderful, especially with kids. Everything was comfortable and well thought out.",
+    focus: "Family-Friendly",
+  },
+];
 ---
 
 <BaseLayout title="Home">
@@ -11,235 +39,356 @@ const BOOK_NORTH_CABIN = BOOK_NOW_URL + "&unit=11";
   <section class="relative w-full" style="min-height: 85vh;">
     <img
       src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2.jpg"
-      alt="Beckwourth Peak High Camp aerial view"
+      alt="Aerial view of Beckwourth Peak High Camp glamping property in the Lost Sierra"
       class="absolute inset-0 w-full h-full object-cover"
       style="object-position: 61% 53%;"
     />
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50"></div>
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-24" style="min-height: 85vh;">
-      <h1 class="font-heading text-white text-4xl md:text-5xl font-extrabold drop-shadow-lg">
-        GLAMPING FOR BIKERS, HIKERS &amp; FAMILIES
+      <h1 class="font-heading text-white text-4xl md:text-6xl font-bold drop-shadow-lg max-w-3xl leading-tight">
+        Escape the Grid, Connect with Nature
       </h1>
+      <p class="text-white/90 text-xl md:text-2xl mt-6 max-w-2xl font-sans">
+        Off-grid glamping for bikers, hikers, and families in California's Lost Sierra
+      </p>
+      <a
+        href={BOOK_NOW_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-8 bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-lg px-10 py-4 rounded-md transition-colors shadow-lg"
+      >
+        Book Your Stay
+      </a>
+    </div>
+  </section>
+
+  <!-- Quick Stats Bar -->
+  <section class="bg-brand-black text-white py-5">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-3 text-center text-sm md:text-base font-sans tracking-wide">
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" /></svg>
+        60 Acres
+      </span>
+      <span class="text-white/30">|</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+        5,300 ft Elevation
+      </span>
+      <span class="text-white/30">|</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 3v1m0 16v1M5.636 5.636l.707.707M18.364 5.636l-.707.707M3 12h1m16 0h1M5.636 18.364l.707-.707M18.364 18.364l-.707-.707" /></svg>
+        Hot Showers
+      </span>
+      <span class="text-white/30">|</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0" /></svg>
+        Starlink WiFi
+      </span>
+      <span class="text-white/30">|</span>
+      <span class="flex items-center gap-2">
+        <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+        360&deg; Views
+      </span>
     </div>
   </section>
 
   <!-- Taglines + Book Now -->
-  <section class="py-12 px-4 text-center max-w-3xl mx-auto">
-    <p class="text-2xl leading-relaxed mb-2">Comfort, convenience, and the best of the Lost Sierra</p>
-    <p class="text-2xl leading-relaxed mb-2">Amazing mountain bike and gravel routes</p>
-    <p class="text-2xl leading-relaxed mb-8">Fun family hikes and campfires</p>
+  <section class="py-14 px-4 text-center max-w-3xl mx-auto">
+    <p class="text-xl md:text-2xl leading-relaxed mb-2 text-brand-charcoal">Comfort, convenience, and the best of the Lost Sierra</p>
+    <p class="text-xl md:text-2xl leading-relaxed mb-2 text-brand-charcoal">Amazing mountain bike and gravel routes</p>
+    <p class="text-xl md:text-2xl leading-relaxed mb-8 text-brand-charcoal">Fun family hikes and campfires</p>
     <a
       href={BOOK_NOW_URL}
       target="_blank"
       rel="noopener noreferrer"
-      class="block w-full max-w-lg mx-auto bg-[#046bd2] hover:bg-blue-700 text-white font-heading font-semibold text-2xl py-4 rounded-md transition-colors"
+      class="block w-full max-w-lg mx-auto bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-xl py-4 rounded-md transition-colors"
     >
       Book Now
     </a>
   </section>
 
   <!-- Video -->
-  <section class="px-4 max-w-5xl mx-auto mb-12">
+  <section class="px-4 max-w-5xl mx-auto mb-14">
     <video
       autoplay
       controls
       loop
       playsinline
-      class="w-full rounded-lg shadow-lg"
+      class="w-full rounded-xl shadow-xl"
     >
       <source src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/03/High-Camp-on-mountain-Made-with-Clipchamp.mp4" type="video/mp4" />
     </video>
   </section>
 
   <!-- Three image columns -->
-  <section class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-12">
-    <div class="relative h-72 overflow-hidden">
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-0 mb-0">
+    <div class="relative h-72 md:h-80 overflow-hidden group">
       <img
         src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3348-ig_53695421374_o-2.jpg"
-        alt="Airy cabins and yurt"
-        class="absolute inset-0 w-full h-full object-cover"
+        alt="Airy cabins and yurt at Beckwourth Peak High Camp"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         style="object-position: 48% 40%;"
+        loading="lazy"
       />
-      <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-        <p class="text-center font-heading font-extrabold text-3xl" style="color: #f7f315;">Airy cabins &amp; yurt</p>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+        <p class="text-center font-heading font-bold text-2xl md:text-3xl text-brand-gold drop-shadow-lg">Airy cabins &amp; yurt</p>
       </div>
     </div>
-    <div class="relative h-72 overflow-hidden">
+    <div class="relative h-72 md:h-80 overflow-hidden group">
       <img
         src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/5-bucks-gravel-24-3434-ig_53695515155_o-2.jpg"
-        alt="Ride and relax"
-        class="absolute inset-0 w-full h-full object-cover"
+        alt="Gravel biking in the Lost Sierra near Beckwourth Peak"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
       />
-      <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-        <p class="text-center font-heading font-extrabold text-3xl text-pink-200" style="line-height: 1.5;">Ride &amp; relax</p>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+        <p class="text-center font-heading font-bold text-2xl md:text-3xl text-white drop-shadow-lg">Ride &amp; relax</p>
       </div>
     </div>
-    <div class="relative h-72 overflow-hidden">
+    <div class="relative h-72 md:h-80 overflow-hidden group">
       <img
         src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3394-ig_53694184967_o.jpg"
-        alt="Enjoy the views"
-        class="absolute inset-0 w-full h-full object-cover"
+        alt="360-degree mountain views from Beckwourth Peak High Camp"
+        class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
       />
-      <div class="absolute bottom-0 left-0 right-0 p-4 z-10">
-        <p class="text-center font-heading font-extrabold text-3xl text-green-300">Enjoy the views</p>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-5 z-10">
+        <p class="text-center font-heading font-bold text-2xl md:text-3xl text-white drop-shadow-lg">Enjoy the views</p>
       </div>
     </div>
   </section>
 
   <!-- About / Property description -->
-  <section class="bg-slate-100 py-16 px-4">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+  <section class="bg-brand-cream py-20 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
       <div class="md:col-span-1">
-        <p class="text-2xl leading-snug mb-4">High Camp is an off-grid, 60-acre property, perched on the lower reaches of Beckwourth Peak.</p>
-        <p class="text-2xl leading-snug mb-4">Hiking, mountain biking, and Lost Sierra gravel biking are all right outside your cabin or yurt.</p>
-        <p class="text-2xl leading-snug">Surrounded by the Plumas National Forest, but only a 6-minute drive to Portola, CA.</p>
+        <h2 class="font-heading font-bold text-3xl text-brand-black mb-6">Your Lost Sierra Base Camp</h2>
+        <p class="text-lg leading-relaxed mb-4 text-brand-charcoal">High Camp is an off-grid, 60-acre property, perched on the lower reaches of Beckwourth Peak.</p>
+        <p class="text-lg leading-relaxed mb-4 text-brand-charcoal">Hiking, mountain biking, and Lost Sierra gravel biking are all right outside your cabin or yurt.</p>
+        <p class="text-lg leading-relaxed text-brand-charcoal">Surrounded by the Plumas National Forest, but only a 6-minute drive to Portola, CA.</p>
       </div>
       <div class="md:col-span-2">
         <img
           src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3545-ig_53695282558_o-1-1024x1024.jpg"
-          alt="High Camp property view"
-          class="w-full rounded-lg"
+          alt="Beckwourth Peak High Camp property surrounded by Plumas National Forest"
+          class="w-full rounded-xl shadow-lg"
           style="object-position: 52% 31%;"
+          loading="lazy"
         />
       </div>
     </div>
   </section>
 
   <!-- Lodging section -->
-  <section class="py-16 px-4 max-w-7xl mx-auto">
-    <h2 class="font-heading font-extrabold text-center text-4xl mb-12">Lodging</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <h2 class="font-heading font-bold text-center text-4xl mb-4 text-brand-black">Lodging</h2>
+    <p class="text-center text-lg text-brand-charcoal/70 max-w-2xl mx-auto mb-12">Choose your comfort level. Every option includes access to our shared amenities, hot showers, and Starlink WiFi.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
       <!-- North Cabin -->
-      <div>
-        <h3 class="font-heading font-bold text-2xl text-center mb-4">North Cabin</h3>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3401-ig_53695282643_o-1-1024x1024.jpg" alt="North Cabin" class="w-full rounded-lg mb-4" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <ul class="list-disc ml-6 space-y-1 text-base">
-          <li>2 queen beds (bunks), 4 people max</li>
-          <li>Air conditioning &amp; heat</li>
-          <li>Kitchen: Running water, sink, microwave, refrigerator, coffee</li>
-          <li>Propane BBQ available upon request</li>
-          <li>Shared bathhouse</li>
-          <li>Shared fire pit</li>
-        </ul>
+      <div class="bg-white rounded-xl border border-brand-sage shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3401-ig_53695282643_o-1-1024x1024.jpg" alt="North Cabin at Beckwourth Peak High Camp with queen bunk beds" class="w-full" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-2xl text-brand-black mb-3">North Cabin</h3>
+          <ul class="space-y-1.5 text-base text-brand-charcoal">
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> 2 queen beds (bunks), 4 people max</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Air conditioning &amp; heat</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Kitchen: Running water, sink, microwave, refrigerator, coffee</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Propane BBQ available upon request</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Shared bathhouse &amp; fire pit</li>
+          </ul>
+          <a href="/lodging/" class="mt-5 inline-block bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-sm px-6 py-2.5 rounded-md transition-colors">View Details</a>
+        </div>
       </div>
 
       <!-- South Cabin -->
-      <div>
-        <h3 class="font-heading font-bold text-2xl text-center mb-4">South Cabin</h3>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/20240504_062758-EDIT-1024x768.jpg" alt="South Cabin" class="w-full rounded-lg mb-4" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <ul class="list-disc ml-6 space-y-1 text-base">
-          <li>2 queen beds (bunks), 4 people max</li>
-          <li>Air conditioning &amp; heat</li>
-          <li>Kitchen: Running water, sink, microwave, refrigerator, coffee</li>
-          <li>Propane BBQ available upon request</li>
-          <li>Shared bathhouse</li>
-          <li>Shared fire pit</li>
-        </ul>
+      <div class="bg-white rounded-xl border border-brand-sage shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/20240504_062758-EDIT-1024x768.jpg" alt="South Cabin at Beckwourth Peak High Camp" class="w-full" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-2xl text-brand-black mb-3">South Cabin</h3>
+          <ul class="space-y-1.5 text-base text-brand-charcoal">
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> 2 queen beds (bunks), 4 people max</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Air conditioning &amp; heat</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Kitchen: Running water, sink, microwave, refrigerator, coffee</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Propane BBQ available upon request</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Shared bathhouse &amp; fire pit</li>
+          </ul>
+          <a href="/lodging/" class="mt-5 inline-block bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-sm px-6 py-2.5 rounded-md transition-colors">View Details</a>
+        </div>
       </div>
 
       <!-- Yurt -->
-      <div>
-        <h3 class="font-heading font-bold text-2xl text-center mb-4">Yurt</h3>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250608_090013-EDIT-1024x768.jpg" alt="Yurt" class="w-full rounded-lg mb-4" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <ul class="list-disc ml-6 space-y-1 text-base">
-          <li>1 queen, 2 full (in loft), and 1 twin pullout bed, 5 people max</li>
-          <li>Air conditioning &amp; heat</li>
-          <li>Microwave, coffee, drinking water</li>
-          <li>Propane BBQ available upon request</li>
-          <li>Shared bathhouse</li>
-          <li>Shared fire pit</li>
-        </ul>
+      <div class="bg-white rounded-xl border border-brand-sage shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250608_090013-EDIT-1024x768.jpg" alt="Yurt accommodation at Beckwourth Peak High Camp" class="w-full" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-2xl text-brand-black mb-3">Yurt</h3>
+          <ul class="space-y-1.5 text-base text-brand-charcoal">
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> 1 queen, 2 full (in loft), and 1 twin pullout bed, 5 people max</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Air conditioning &amp; heat</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Microwave, coffee, drinking water</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Propane BBQ available upon request</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Shared bathhouse &amp; fire pit</li>
+          </ul>
+          <a href="/lodging/" class="mt-5 inline-block bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-sm px-6 py-2.5 rounded-md transition-colors">View Details</a>
+        </div>
       </div>
 
       <!-- Campsite -->
-      <div>
-        <h3 class="font-heading font-bold text-2xl text-center mb-4">Campsite</h3>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240608_143013-1024x768.jpg" alt="Campsite" class="w-full rounded-lg mb-4" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <ul class="list-disc ml-6 space-y-1 text-base">
-          <li>2 vehicles, 5 people max</li>
-          <li>Picnic table</li>
-          <li>Access to potable water</li>
-          <li>Shared bathhouse</li>
-          <li>Shared fire pit</li>
-        </ul>
+      <div class="bg-white rounded-xl border border-brand-sage shadow-sm hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240608_143013-1024x768.jpg" alt="Campsite at Beckwourth Peak High Camp" class="w-full" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <div class="p-6">
+          <h3 class="font-heading font-bold text-2xl text-brand-black mb-3">Campsite</h3>
+          <ul class="space-y-1.5 text-base text-brand-charcoal">
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> 2 vehicles, 5 people max</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Picnic table</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Access to potable water</li>
+            <li class="flex items-start gap-2"><span class="text-brand-green mt-0.5">&#10003;</span> Shared bathhouse &amp; fire pit</li>
+          </ul>
+          <a href="/lodging/" class="mt-5 inline-block bg-brand-green hover:bg-brand-green-dark text-white font-sans font-bold text-sm px-6 py-2.5 rounded-md transition-colors">View Details</a>
+        </div>
       </div>
     </div>
   </section>
-
-  <hr class="border-slate-200 max-w-7xl mx-auto" />
 
   <!-- Shared Amenities -->
-  <section class="bg-slate-100 py-16 px-4">
+  <section class="bg-brand-cream py-20 px-4">
     <div class="max-w-7xl mx-auto">
-      <h2 class="font-heading font-extrabold text-center text-4xl mb-10">Shared Amenities</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-10">
-        <div class="space-y-4 text-xl">
-          <p>All guests have access to our <strong>large, shaded deck</strong> that offers picnic tables and 360-degree views.</p>
-          <p>At night, enjoy our <strong>communal fire pit</strong> that has great views of the stars (firewood included).</p>
-          <p>Explore the property while enjoying our 20-basket, <strong>disc-golf course</strong>.</p>
-          <p>Our centrally-located, <strong>modern bathhouse</strong> has two bathrooms and showers with hot water.</p>
-          <p>Fast, <strong>Starlink wifi</strong> is available in the cabins, yurt, and picnic area.</p>
-          <p>Great-tasting, potable water from our well.</p>
+      <h2 class="font-heading font-bold text-center text-4xl mb-12 text-brand-black">Shared Amenities</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-12">
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">All guests have access to our <strong>large, shaded deck</strong> that offers picnic tables and 360-degree views.</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">At night, enjoy our <strong>communal fire pit</strong> that has great views of the stars (firewood included).</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">Explore the property while enjoying our 20-basket, <strong>disc-golf course</strong>.</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h.01M12 3v1m0 16v1M5.636 5.636l.707.707M18.364 5.636l-.707.707M3 12h1m16 0h1M5.636 18.364l.707-.707M18.364 18.364l-.707-.707" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">Our centrally-located, <strong>modern bathhouse</strong> has two bathrooms and showers with hot water.</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">Fast, <strong>Starlink wifi</strong> is available in the cabins, yurt, and picnic area.</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+            </div>
+            <p class="text-lg text-brand-charcoal">Great-tasting, potable water from our well.</p>
+          </div>
         </div>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240531_200336-1024x597.jpg" alt="Shared amenities" class="w-full rounded-lg" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240531_200336-1024x597.jpg" alt="Shared amenities deck at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-lg" loading="lazy" />
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/deck88-1024x769.jpg" alt="Deck" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240606_112747-EDIT-1024x768.jpg" alt="Bathhouse" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_175804-1-1024x937.jpg" alt="Fire pit" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_103639-edited-2-1024x768.jpg" alt="Views" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/deck88-1024x769.jpg" alt="Shaded deck with 360-degree views at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240606_112747-EDIT-1024x768.jpg" alt="Modern bathhouse with hot showers at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_175804-1-1024x937.jpg" alt="Communal fire pit at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_103639-edited-2-1024x768.jpg" alt="Mountain views from Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
       </div>
     </div>
   </section>
-
-  <hr class="border-slate-200 max-w-7xl mx-auto" />
 
   <!-- Disc Golf -->
-  <section class="py-16 px-4 max-w-7xl mx-auto">
-    <h2 class="font-heading font-extrabold text-center text-4xl mb-4">Disc Golf Course</h2>
-    <p class="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-10">Enjoy our 20-pin, mountain course. The lower 10 baskets are an "easier" course, while the upper 10 baskets are for advanced play.</p>
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <h2 class="font-heading font-bold text-center text-4xl mb-4 text-brand-black">Disc Golf Course</h2>
+    <p class="text-center text-lg text-brand-charcoal/70 max-w-2xl mx-auto mb-10">Enjoy our 20-basket, mountain course. The lower 10 baskets are an "easier" course, while the upper 10 baskets are for advanced play.</p>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250531_202804-1024x768.jpg" alt="Disc golf course" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250607_194226-1024x768.jpg" alt="Disc golf course" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250607_200829-1024x768.jpg" alt="Disc golf course" class="w-full rounded-lg" style="aspect-ratio: 4/3; object-fit: cover;" />
+      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250531_202804-1024x768.jpg" alt="Disc golf course at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250607_194226-1024x768.jpg" alt="Disc golf basket on mountain course at High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
+      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/07/20250607_200829-1024x768.jpg" alt="Playing disc golf at Beckwourth Peak High Camp" class="w-full rounded-xl shadow-sm" style="aspect-ratio: 4/3; object-fit: cover;" loading="lazy" />
     </div>
   </section>
 
-  <hr class="border-slate-200 max-w-7xl mx-auto" />
+  <!-- Guest Testimonials -->
+  <section class="bg-brand-sage py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading font-bold text-center text-4xl mb-4 text-brand-black">What Our Guests Say</h2>
+      <p class="text-center text-lg text-brand-charcoal/70 mb-12">Real reviews from real adventurers</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-brand-sage">
+            <div class="flex items-center gap-1 mb-3">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              ))}
+            </div>
+            <p class="text-brand-charcoal text-base leading-relaxed mb-4 italic">"{t.quote}"</p>
+            <div class="flex items-center justify-between">
+              <p class="font-sans font-bold text-brand-black">{t.name}</p>
+              <span class="text-xs bg-brand-sage text-brand-green px-2 py-1 rounded-full font-sans">{t.focus}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- Trails & Routes -->
-  <section class="py-16 px-4 max-w-7xl mx-auto">
-    <h2 class="font-heading font-extrabold text-center text-4xl mb-4">Trails &amp; Routes</h2>
-    <p class="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-4">With the Beckwourth Peak Trail and the Lost Sierra as your playground, enjoy miles of hiking, singletrack and gravel routes.</p>
-    <p class="text-center text-lg text-slate-600 max-w-2xl mx-auto mb-10">Northern California Backcountry Discovery Route (CABDR-North section 6) riders can visit High Camp by taking a <a href="/trails/cabdr-north-alternate/" class="text-[#046bd2] underline">scenic alternate</a>.</p>
-    <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/10/20220512_171221-1024x557.jpg" alt="Trail view" class="w-full rounded-lg mb-10" />
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <h2 class="font-heading font-bold text-center text-4xl mb-4 text-brand-black">Trails &amp; Routes</h2>
+    <p class="text-center text-lg text-brand-charcoal/70 max-w-2xl mx-auto mb-4">With the Beckwourth Peak Trail and the Lost Sierra as your playground, enjoy miles of hiking, singletrack and gravel routes.</p>
+    <p class="text-center text-lg text-brand-charcoal/70 max-w-2xl mx-auto mb-10">Northern California Backcountry Discovery Route (CABDR-North section 6) riders can visit High Camp by taking a <a href="/trails/cabdr-north-alternate/" class="text-brand-green underline hover:text-brand-green-dark">scenic alternate</a>.</p>
+    <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/10/20220512_171221-1024x557.jpg" alt="Trail view from Beckwourth Peak looking over the Lost Sierra" class="w-full rounded-xl shadow-lg mb-10" loading="lazy" />
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
-        <h2 class="font-heading font-bold text-2xl mb-3">Mountain Biking &amp; Hiking</h2>
-        <p class="text-lg mb-4">The <a href="https://sierratrails.org/beckwourth-peak-recreation-project/" target="_blank" rel="noopener noreferrer" class="text-[#046bd2] underline">Beckwourth Peak Trail</a> is a stone's throw from High Camp. The trail loops around Beckwourth Peak, offering amazing views and solitude.</p>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/FB_IMG_1706013991925-1024x662.jpg" alt="Mountain biking trail" class="w-full rounded-lg mb-3" />
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2022/11/High-Camp-map-next-to-Beckwourth-Peak-Trail-1024x576.jpg" alt="Trail map" class="w-full rounded-lg" />
+      <div class="bg-white p-7 rounded-xl shadow-sm border border-brand-sage">
+        <h3 class="font-heading font-bold text-2xl mb-3 text-brand-black">Mountain Biking &amp; Hiking</h3>
+        <p class="text-lg mb-5 text-brand-charcoal">The <a href="https://sierratrails.org/beckwourth-peak-recreation-project/" target="_blank" rel="noopener noreferrer" class="text-brand-green underline hover:text-brand-green-dark">Beckwourth Peak Trail</a> is a stone's throw from High Camp. The trail loops around Beckwourth Peak, offering amazing views and solitude.</p>
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/FB_IMG_1706013991925-1024x662.jpg" alt="Mountain biking on Beckwourth Peak Trail" class="w-full rounded-lg mb-4" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2022/11/High-Camp-map-next-to-Beckwourth-Peak-Trail-1024x576.jpg" alt="Map showing High Camp location next to Beckwourth Peak Trail" class="w-full rounded-lg" loading="lazy" />
       </div>
-      <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
-        <h2 class="font-heading font-bold text-2xl mb-3">Gravel Biking</h2>
-        <p class="text-lg mb-4">High Camp is surrounded by endless miles of beautiful gravel routes. The beer tents for the annual <a href="https://lostandfoundbikeride.com/index.php" target="_blank" rel="noopener noreferrer" class="text-[#046bd2] underline">Lost and Found Gravel Festival</a> are just 1 mile down the hill from High Camp.</p>
-        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/10/20230603_084637-1024x768.jpg" alt="Gravel biking" class="w-full rounded-lg" />
+      <div class="bg-white p-7 rounded-xl shadow-sm border border-brand-sage">
+        <h3 class="font-heading font-bold text-2xl mb-3 text-brand-black">Gravel Biking</h3>
+        <p class="text-lg mb-5 text-brand-charcoal">High Camp is surrounded by endless miles of beautiful gravel routes. The beer tents for the annual <a href="https://lostandfoundbikeride.com/index.php" target="_blank" rel="noopener noreferrer" class="text-brand-green underline hover:text-brand-green-dark">Lost and Found Gravel Festival</a> are just 1 mile down the hill from High Camp.</p>
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/10/20230603_084637-1024x768.jpg" alt="Gravel biking routes near Beckwourth Peak High Camp" class="w-full rounded-lg" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <hr class="border-slate-200 max-w-7xl mx-auto" />
-
   <!-- Partner logos -->
-  <section class="py-16 px-4 max-w-5xl mx-auto">
-    <h2 class="font-heading font-bold text-center text-2xl mb-10">We Proudly Support</h2>
-    <div class="grid grid-cols-3 md:grid-cols-5 gap-6 items-center justify-items-center">
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/sierra-buttes-trail-stewardship.png" alt="Sierra Buttes Trail Stewardship" class="max-h-24 object-contain" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/BPR_proud_partner-1.avif" alt="Beckwourth Peak Recreation proud partner" class="max-h-24 object-contain" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/BDR-Symbol.png" alt="Backcountry Discovery Routes" class="max-h-24 object-contain" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/LostSierraMTB.avif" alt="Lost Sierra MTB" class="max-h-24 object-contain" />
-      <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ACA-1.png" alt="Adventure Cycling Association" class="max-h-24 object-contain" />
+  <section class="bg-brand-cream py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-heading font-bold text-center text-2xl mb-10 text-brand-black">We Proudly Support</h2>
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center">
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/sierra-buttes-trail-stewardship.png" alt="Sierra Buttes Trail Stewardship" class="max-h-24 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/BPR_proud_partner-1.avif" alt="Beckwourth Peak Recreation proud partner" class="max-h-24 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/BDR-Symbol.png" alt="Backcountry Discovery Routes" class="max-h-24 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/LostSierraMTB.avif" alt="Lost Sierra MTB" class="max-h-24 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+        <img src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ACA-1.png" alt="Adventure Cycling Association" class="max-h-24 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" />
+      </div>
     </div>
+  </section>
+
+  <!-- Final CTA Bar -->
+  <section class="bg-brand-green py-16 px-4 text-center">
+    <h2 class="font-heading font-bold text-3xl md:text-4xl text-white mb-4">Ready to Escape?</h2>
+    <p class="text-white/80 text-lg max-w-xl mx-auto mb-8">Your Lost Sierra adventure awaits. Book your cabin, yurt, or campsite today.</p>
+    <a
+      href={BOOK_NOW_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-brand-gold hover:bg-brand-gold-dark text-brand-black font-sans font-bold text-lg px-10 py-4 rounded-md transition-colors shadow-lg"
+    >
+      Check Availability
+    </a>
   </section>
 
 </BaseLayout>
