@@ -1,15 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#046bd2',
-        'brand-dark': '#010000',
+        charcoal: '#3E3E3E',
+        cobalt: '#0E75D8',
+        gold: '#D4A574',
+        cream: '#FAFAF7',
+        'dark-nav': '#1C1C1C',
       },
       fontFamily: {
-        sans: ['Roboto', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+        heading: ['"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['Lato', 'system-ui', 'sans-serif'],
+      },
+      maxWidth: {
+        '8xl': '1200px',
       },
     },
   },
