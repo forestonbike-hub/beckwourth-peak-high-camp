@@ -11,7 +11,7 @@ export default {
         'dark-nav': '#1C1C1C',
       },
       fontFamily: {
-        heading: ['"Playfair Display"', 'Georgia', 'serif'],
+        heading: ['Oswald', 'Impact', 'sans-serif'],
         sans: ['Lato', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
