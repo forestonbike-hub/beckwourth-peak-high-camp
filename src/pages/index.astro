@@ -153,11 +153,11 @@ const testimonials = [
 ];
 
 const partners = [
-  'Sierra Buttes Trail Stewardship',
-  'Beckwourth Peak Recreation',
-  'Backcountry Discovery Routes',
-  'Lost Sierra MTB',
-  'Adventure Cycling Association',
+  { name: 'Sierra Buttes Trail Stewardship', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/02/SBTS-Logo-Jpg-BIg.avif' },
+  { name: 'Backcountry Discovery Routes', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/backcountry-discovery-routes-sm.avif' },
+  { name: 'Lost Sierra MTB', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/LostSierraMTB.avif' },
+  { name: 'Adventure Cycling Association', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ACA-1.png' },
+  { name: 'Ride with GPS', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ambassador_160.png' },
 ];
 
 const editorialPanels = [
@@ -446,9 +446,13 @@ const instagramPhotos = [
   <section class="py-12 bg-cream border-t border-charcoal/10">
     <div class="max-w-8xl mx-auto px-6">
       <p class="text-center text-charcoal/40 text-xs font-bold uppercase tracking-widest mb-7 font-sans">We Proudly Support</p>
-      <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
         {partners.map((p) => (
-          <span class="text-charcoal/40 text-sm font-bold uppercase tracking-wide text-center font-sans">{p}</span>
+          <img
+            src={p.img}
+            alt={p.name}
+            class="h-10 w-auto object-contain opacity-50 hover:opacity-80 transition-opacity"
+          />
         ))}
       </div>
     </div>
