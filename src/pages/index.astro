@@ -356,6 +356,26 @@ const instagramPhotos = [
     </div>
   </section>
 
+  <!-- EDITORIAL PANELS -->
+  <section class="bg-charcoal">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      {editorialPanels.map((panel) => (
+        <div class="relative h-96 overflow-hidden group">
+          <img
+            src={panel.img}
+            alt={panel.label}
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+            <p class="text-gold text-xs font-bold uppercase tracking-widest mb-2 font-sans">{panel.label}</p>
+            <p class="font-heading text-2xl font-bold uppercase tracking-wide leading-tight">{panel.headline}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
   <!-- ACTIVITIES -->
   <section id="activities" class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
@@ -390,26 +410,6 @@ const instagramPhotos = [
           </div>
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- EDITORIAL PANELS -->
-  <section class="bg-charcoal">
-    <div class="grid grid-cols-1 md:grid-cols-3">
-      {editorialPanels.map((panel) => (
-        <div class="relative h-96 overflow-hidden group">
-          <img
-            src={panel.img}
-            alt={panel.label}
-            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-            <p class="text-gold text-xs font-bold uppercase tracking-widest mb-2 font-sans">{panel.label}</p>
-            <p class="font-heading text-2xl font-bold uppercase tracking-wide leading-tight">{panel.headline}</p>
-          </div>
-        </div>
-      ))}
     </div>
   </section>
 
