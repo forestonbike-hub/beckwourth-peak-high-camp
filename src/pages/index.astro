@@ -90,18 +90,6 @@ const activities = [
     bg: '',
   },
   {
-    name: 'Quiet Time',
-    desc: 'Find your corner of the property and simply be still. 60 acres of pines, birdsong, and open sky.',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/20240512_131452-1.jpg',
-    bg: '',
-  },
-  {
-    name: 'Time to Connect',
-    desc: 'Disconnect and spend time with your tribe.',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/20240512_112418.jpg',
-    bg: '',
-  },
-  {
     name: 'Events',
     desc: 'From biking getaways to family reunions to microweddings and elopements, High Camp is a great place to connect.',
     img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/events.jpg',
@@ -410,7 +398,7 @@ const instagramPhotos = [
       <div class="flex flex-wrap justify-center gap-5">
         {activities.map((activity) => (
           <div
-            class={`relative overflow-hidden w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] min-w-[220px] max-w-[300px] h-64 group cursor-default flex-shrink-0 ${activity.bg}`}
+            class={`relative overflow-hidden w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-w-[280px] max-w-[480px] h-80 group cursor-default flex-shrink-0 ${activity.bg}`}
           >
             {activity.img && (
               <img
