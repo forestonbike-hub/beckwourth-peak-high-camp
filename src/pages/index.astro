@@ -201,10 +201,12 @@ const editorialPanels = [
 ];
 
 const instagramPhotos = [
-  { img: `${WP}/2024/05/beckwourth-high-camp-3380-ig_53695072201_o-1024x1024.jpg`, alt: 'High Camp cabin in the pines' },
-  { img: `${WP}/2024/05/beckwourth-high-camp-3394-ig_53694184967_o-1024x1024.jpg`, alt: 'High Camp mountain views' },
-  { img: `${WP}/2024/05/beckwourth-high-camp-3545-ig_53695282558_o-1-1024x1024.jpg`, alt: 'High Camp glamping' },
-  { img: `${WP}/2024/05/5-bucks-gravel-24-3434-ig_53695515155_o-2-1024x1024.jpg`, alt: 'Gravel riding from High Camp' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.56.21-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DQz6V7gEfEl/' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.55.45-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DOguXT5gdlo/' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.54.05-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DKnfNMnM7Xq/' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-11.01.06-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/p/DKKS4Oxx4RJ/' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-11.02.02-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/p/DS50gEcDgMf/' },
+  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-11.04.50-AM.jpg', alt: 'High Camp on Instagram', url: 'https://www.instagram.com/beckwourthpeakhighcamp/reel/DKxeefaKy84/' },
 ];
 ---
 
@@ -504,10 +506,10 @@ const instagramPhotos = [
           @beckwourthpeakhighcamp
         </a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
         {instagramPhotos.map((post) => (
           <a
-            href="https://www.instagram.com/beckwourthpeakhighcamp/"
+            href={post.url}
             target="_blank"
             rel="noopener"
             class="block aspect-square overflow-hidden group"
