@@ -421,28 +421,6 @@ const instagramPhotos = [
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="py-20 bg-cream">
-    <div class="max-w-8xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">What Guests Are Saying</h2>
-        <div class="flex justify-center gap-1 text-gold text-xl">★★★★★</div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((t) => (
-          <div class="bg-white border border-charcoal/10 p-7 flex flex-col gap-4">
-            <div class="text-gold text-lg">★★★★★</div>
-            <p class="text-charcoal/80 leading-relaxed italic flex-1 font-sans">"{t.text}"</p>
-            <div class="border-t border-charcoal/10 pt-4">
-              <p class="font-heading text-lg font-bold uppercase tracking-wide text-charcoal">{t.name}</p>
-              <p class="text-charcoal/50 text-sm font-sans">{t.unit}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- NEARBY ATTRACTIONS -->
   <section id="nearby" class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
@@ -471,6 +449,28 @@ const instagramPhotos = [
       <p class="text-center text-charcoal/30 text-xs mt-4 font-sans">
         Photo credits: Dan Nevill / CC BY 2.0, Jengod / CC BY-SA 4.0, Ken Lund / CC BY-SA 2.0, Annette Teng / CC BY 3.0, Mark Hogan / CC BY-SA 2.0
       </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">What Guests Are Saying</h2>
+        <div class="flex justify-center gap-1 text-gold text-xl">★★★★★</div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="bg-white border border-charcoal/10 p-7 flex flex-col gap-4">
+            <div class="text-gold text-lg">★★★★★</div>
+            <p class="text-charcoal/80 leading-relaxed italic flex-1 font-sans">"{t.text}"</p>
+            <div class="border-t border-charcoal/10 pt-4">
+              <p class="font-heading text-lg font-bold uppercase tracking-wide text-charcoal">{t.name}</p>
+              <p class="text-charcoal/50 text-sm font-sans">{t.unit}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
