@@ -94,7 +94,7 @@ const amenities = [
           </p>
 
           <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-5">What's Included</h3>
-          <ul class="grid grid-cols-2 gap-3">
+          <ul class="grid grid-cols-2 gap-3 mb-6">
             {amenities.map((item) => (
               <li class="flex items-center gap-3 font-sans text-charcoal/70">
                 <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0"></span>
@@ -102,6 +102,60 @@ const amenities = [
               </li>
             ))}
           </ul>
+
+          <details class="border border-charcoal/15 rounded group">
+            <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-heading text-sm font-bold uppercase tracking-widest text-charcoal/60 hover:text-charcoal transition-colors select-none">
+              Full supply list
+              <span class="text-cobalt text-lg leading-none group-open:rotate-45 transition-transform duration-200">+</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Bedding &amp; Linens</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Sheets</li>
+                  <li>Duvets</li>
+                  <li>Pillows</li>
+                  <li>Throw blanket</li>
+                  <li>Towels</li>
+                  <li>Washcloths</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Kitchen &amp; Dining</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Coffee, creamer &amp; sugar</li>
+                  <li>Salt &amp; pepper</li>
+                  <li>Dishes, bowls &amp; cups</li>
+                  <li>Coffee mugs</li>
+                  <li>Utensils</li>
+                  <li>Dish soap &amp; dish towel</li>
+                  <li>Bottle opener</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Around the Cabin</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Games</li>
+                  <li>Mini lantern</li>
+                  <li>Lighter</li>
+                  <li>Paper towels</li>
+                  <li>Cleaning products</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Available for Purchase</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>S'mores kit</li>
+                  <li>Disc golf discs</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
         </div>
 
         <!-- Right: Stats + Book CTA -->
