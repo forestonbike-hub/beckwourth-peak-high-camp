@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
@@ -233,60 +235,7 @@ const instagramPhotos = [
 
 <Layout title="Beckwourth Peak High Camp | Off-Grid Glamping in the Lost Sierra">
 
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 bg-dark-nav shadow-lg">
-    <div class="max-w-8xl mx-auto px-6 flex items-center justify-between h-16">
-      <a href="/" class="flex-shrink-0">
-        <img
-          src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/Color-logo-no-background-180x58-1.png"
-          alt="Beckwourth Peak High Camp"
-          class="h-9 w-auto"
-        />
-      </a>
-      <nav class="hidden md:flex items-center gap-8 font-sans text-white/80">
-
-        <!-- Lodging dropdown -->
-        <div class="relative group">
-          <a href="#lodging" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
-            Lodging <span class="text-xs opacity-60">▾</span>
-          </a>
-          <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
-            <a href="#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">North Cabin</a>
-            <a href="#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">South Cabin</a>
-            <a href="#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">The Yurt</a>
-            <a href="#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campsite</a>
-            <a href="#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Entire Property</a>
-          </div>
-        </div>
-
-        <!-- Explore High Camp dropdown -->
-        <div class="relative group">
-          <a href="#activities" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
-            Explore High Camp <span class="text-xs opacity-60">▾</span>
-          </a>
-          <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Gravel Biking</a>
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Mountain Biking</a>
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Hiking</a>
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Disc Golf</a>
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Stargazing</a>
-            <a href="#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campfires</a>
-          </div>
-        </div>
-
-        <a href="#nearby" class="text-base hover:text-white transition-colors">Explore</a>
-        <a href="https://beckwourthpeakhighcamp.com/getting-here/" class="text-base hover:text-white transition-colors">Getting Here</a>
-      </nav>
-      <a
-        href={BOOK_URL}
-        target="_blank"
-        rel="noopener"
-        class="bg-cobalt hover:bg-blue-600 text-white text-sm font-bold px-5 py-2 rounded transition-colors"
-      >
-        Book Now
-      </a>
-    </div>
-  </header>
+  <Nav />
 
   <!-- HERO -->
   <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -553,58 +502,6 @@ const instagramPhotos = [
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark-nav text-white py-14">
-    <div class="max-w-8xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between gap-10 mb-10">
-        <div class="max-w-xs">
-          <img
-            src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/Color-logo-no-background-180x58-1.png"
-            alt="Beckwourth Peak High Camp"
-            class="h-10 w-auto mb-4"
-          />
-          <p class="text-white/60 text-sm leading-relaxed font-sans">
-            Off-grid glamping on 65 acres in California's Lost Sierra. Seasonal operation, May through October.
-          </p>
-        </div>
-        <div class="grid grid-cols-2 gap-10 text-sm">
-          <div>
-            <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Stay</p>
-            <ul class="space-y-2 text-white/70 font-sans">
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">North Cabin</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">South Cabin</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">The Yurt</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">Campsite</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Visit</p>
-            <ul class="space-y-2 text-white/70 font-sans">
-              <li><a href="https://beckwourthpeakhighcamp.com/getting-here/" class="hover:text-white transition-colors">Getting Here</a></li>
-              <li><a href="https://beckwourthpeakhighcamp.com/policies/" class="hover:text-white transition-colors">Policies</a></li>
-              <li><a href="https://www.instagram.com/beckwourthpeakhighcamp/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a></li>
-              <li><a href="mailto:highcampbeckwourth@gmail.com" class="hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="max-w-xs">
-          <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Ready to Book?</p>
-          <p class="text-white/60 text-sm mb-4 font-sans">Check availability across all four units and reserve your dates.</p>
-          <a
-            href={BOOK_URL}
-            target="_blank"
-            rel="noopener"
-            class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading"
-          >
-            Check Availability
-          </a>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/30 font-sans">
-        <p>&copy; {new Date().getFullYear()} Beckwourth Peak High Camp. All rights reserved.</p>
-        <p>Near Portola, CA &bull; Plumas National Forest &bull; Lost Sierra</p>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 
 </Layout>

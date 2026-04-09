@@ -1,0 +1,57 @@
+---
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+---
+
+<header class="sticky top-0 z-50 bg-dark-nav shadow-lg">
+  <div class="max-w-8xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href="/" class="flex-shrink-0">
+      <img
+        src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/Color-logo-no-background-180x58-1.png"
+        alt="Beckwourth Peak High Camp"
+        class="h-9 w-auto"
+      />
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-sans text-white/80">
+
+      <!-- Lodging dropdown -->
+      <div class="relative group">
+        <a href="/#lodging" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
+          Lodging <span class="text-xs opacity-60">▾</span>
+        </a>
+        <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
+          <a href="/#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">North Cabin</a>
+          <a href="/#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">South Cabin</a>
+          <a href="/#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">The Yurt</a>
+          <a href="/#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campsite</a>
+          <a href="/#lodging" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Entire Property</a>
+        </div>
+      </div>
+
+      <!-- Explore High Camp dropdown -->
+      <div class="relative group">
+        <a href="/#activities" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
+          Explore High Camp <span class="text-xs opacity-60">▾</span>
+        </a>
+        <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Gravel Biking</a>
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Mountain Biking</a>
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Hiking</a>
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Disc Golf</a>
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Stargazing</a>
+          <a href="/#activities" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campfires</a>
+        </div>
+      </div>
+
+      <a href="/#nearby" class="text-base hover:text-white transition-colors">Explore</a>
+      <a href="https://beckwourthpeakhighcamp.com/getting-here/" class="text-base hover:text-white transition-colors">Getting Here</a>
+    </nav>
+    <a
+      href={BOOK_URL}
+      target="_blank"
+      rel="noopener"
+      class="bg-cobalt hover:bg-blue-600 text-white text-sm font-bold px-5 py-2 rounded transition-colors"
+    >
+      Book Now
+    </a>
+  </div>
+</header>
