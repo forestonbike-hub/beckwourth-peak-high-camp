@@ -11,6 +11,7 @@ const photos = [
   { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2.jpg', alt: 'North Cabin at Beckwourth Peak High Camp, Plumas National Forest' },
   { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3401-ig_53695282643_o.jpg', alt: 'North Cabin interior and sleeping area, Beckwourth Peak High Camp' },
   { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3348-ig_53695421374_o.jpg', alt: 'North Cabin private deck with valley views, Beckwourth Peak High Camp' },
+  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3353-fb_53695514790_o-1.jpg', alt: 'Adirondack chairs on the deck at Beckwourth Peak High Camp, Lost Sierra' },
 ];
 
 const amenities = [
@@ -49,7 +50,7 @@ const amenities = [
 
   <!-- PHOTO GRID -->
   <section class="bg-charcoal py-2 px-2">
-    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-8xl mx-auto">
       {photos.slice(1).map((photo) => (
         <div class="overflow-hidden h-48">
           <img
