@@ -6,11 +6,9 @@ import Footer from '../components/Footer.astro';
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 
-// TODO: Replace with actual Google Maps directions URL
 const MAPS_URL = 'https://www.google.com/maps?cid=5483882946058167542&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA&hl=en&gl=MX&source=embed';
 
-// TODO: Replace with dirt road video URL
-const DIRT_ROAD_VIDEO = '';
+const DIRT_ROAD_VIDEO_ID = '8APOBchLg5k';
 
 const evStations = [
   {
@@ -81,16 +79,18 @@ const evStations = [
             <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
               From Portola, you'll leave the pavement and drive up a one-mile dirt road to reach High Camp. The road is generally well-maintained, but low-clearance vehicles may scrape on one dip in the road. Most passenger cars make it without issue.
             </p>
-            {DIRT_ROAD_VIDEO && (
-              <div class="mt-6">
-                <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/50 mb-3">Preview the road</p>
-                <video
-                  src={DIRT_ROAD_VIDEO}
-                  controls
-                  class="w-full rounded shadow-md max-h-[400px] object-cover bg-black"
-                ></video>
+            <div class="mt-6">
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/50 mb-3">Preview the road</p>
+              <div class="relative w-full rounded shadow-md overflow-hidden" style="padding-top: 56.25%">
+                <iframe
+                  src={`https://www.youtube.com/embed/${DIRT_ROAD_VIDEO_ID}`}
+                  title="Dirt road to Beckwourth Peak High Camp"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  class="absolute inset-0 w-full h-full"
+                ></iframe>
               </div>
-            )}
+            </div>
           </div>
 
           <!-- EV Charging -->
