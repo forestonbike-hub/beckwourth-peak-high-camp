@@ -23,6 +23,8 @@ const evStations = [
     distance: '7 miles from High Camp',
     maps: 'https://maps.google.com/?q=Sierra+Valley+Preserve+Nature+Center+CA',
     note: 'A great stop on the way home — easy bird and wildlife walks, information about the Sierra Valley.',
+    photo: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/05/20250518_092650-240x300.jpg',
+    photoAlt: 'EV charging stations at Sierra Valley Preserve Nature Center',
   },
 ];
 ---
@@ -58,7 +60,7 @@ const evStations = [
           <div>
             <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Driving to High Camp</h2>
             <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-6">
-              High Camp is located inside the Plumas National Forest, just outside Portola, California. You'll leave the pavement and drive up a one-mile dirt road to reach the property.
+              High Camp is located inside the Plumas National Forest, just outside Portola, California. You'll leave the pavement and drive up a one-mile gravel road to reach the property.
             </p>
             <a
               href={MAPS_URL}
@@ -77,7 +79,7 @@ const evStations = [
           <div>
             <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Forest Road to High Camp</h2>
             <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
-              High Camp is located inside the Plumas National Forest. From Portola, you'll leave the pavement and drive up a one-mile dirt road. Low-clearance vehicles could scrape on one dip in the road. For a preview, watch this video of the dirt road up to High Camp.
+              High Camp is located inside the Plumas National Forest. From Portola, you'll leave the pavement and drive up a one-mile gravel road. Low-clearance vehicles could scrape on one dip in the road. For a preview, watch this video of the gravel road up to High Camp.
             </p>
             <div class="mt-6">
               <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/50 mb-3">Preview the road</p>
@@ -101,7 +103,11 @@ const evStations = [
             </p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {evStations.map((station) => (
-                <div class="bg-white shadow-sm border border-charcoal/10 p-6 rounded">
+                <div class="bg-white shadow-sm border border-charcoal/10 rounded overflow-hidden">
+                  {station.photo && (
+                    <img src={station.photo} alt={station.photoAlt} class="w-full h-48 object-cover" />
+                  )}
+                  <div class="p-6">
                   <p class="font-heading text-lg font-bold uppercase tracking-wide text-charcoal mb-1">{station.name}</p>
                   <p class="font-sans text-sm text-cobalt font-bold mb-1">{station.spots}</p>
                   <p class="font-sans text-sm text-charcoal/60 mb-3">{station.distance}</p>
@@ -119,6 +125,7 @@ const evStations = [
                     </svg>
                     Google Maps directions
                   </a>
+                  </div>
                 </div>
               ))}
             </div>
@@ -145,7 +152,7 @@ const evStations = [
               </li>
               <li class="flex justify-between border-b border-charcoal/10 pb-3">
                 <span class="text-charcoal/50">Road</span>
-                <span class="font-bold text-right">1 mi dirt road</span>
+                <span class="font-bold text-right">1 mi gravel road</span>
               </li>
               <li class="flex justify-between pb-3">
                 <span class="text-charcoal/50">Season</span>
