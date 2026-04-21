@@ -1,0 +1,227 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
+const RWGPS = 'https://ridewithgps.com/collections/3689940';
+
+const photos = [
+  { src: `${WP}/2025/03/474210364_122206422182086559_3899931610294297086_n-3.jpg`, alt: 'Bikepackers riding a gravel road through Sierra Valley toward Beckwourth Peak High Camp' },
+  { src: `${WP}/2024/07/20240602_111125-1.jpg`, alt: 'Bikepackers stopped outside a cafe in Loyalton, CA' },
+  { src: `${WP}/2024/07/20240602_095017.jpg`, alt: 'Riders on a pine forest road heading to Beckwourth Peak High Camp' },
+];
+
+const routes = [
+  {
+    label: 'Route A',
+    name: 'Loyalton',
+    tag: 'Shortest & Easiest',
+    desc: 'The most accessible option. Mostly paved through the open ranchlands of Sierra Valley, with the town of Loyalton as your starting point.',
+    directions: [
+      { name: 'Loyalton to High Camp', distance: '24 mi', elevation: '512 ft', surface: 'Mostly Paved' },
+      { name: 'High Camp to Loyalton', distance: '23.7 mi', elevation: '680 ft', surface: 'Mixed Surfaces' },
+    ],
+  },
+  {
+    label: 'Route B',
+    name: 'Sierraville',
+    tag: 'Mid-Length',
+    desc: 'Starting from Sierraville in the southern Sierra Valley. Mixed surfaces through the valley and into the Lost Sierra, with an alternate return option.',
+    directions: [
+      { name: 'Sierraville to High Camp', distance: '43.2 mi', elevation: '2,180 ft', surface: 'Mixed Surfaces' },
+      { name: 'High Camp to Sierraville', distance: '27.4 mi', elevation: '2,454 ft', surface: 'Mixed Surfaces' },
+      { name: 'High Camp to Sierraville (Alt)', distance: '32.5 mi', elevation: '2,190 ft', surface: 'Mixed Surfaces' },
+    ],
+  },
+  {
+    label: 'Route C',
+    name: 'Little Truckee Summit',
+    tag: 'Mountain Route',
+    desc: 'From the Tahoe National Forest over Little Truckee Summit and down into the Lost Sierra. The return is mostly unpaved with significant climbing.',
+    directions: [
+      { name: 'Little Truckee Summit to High Camp', distance: '40.5 mi', elevation: '1,392 ft', surface: 'Mixed Surfaces' },
+      { name: 'High Camp to Little Truckee Summit', distance: '39.4 mi', elevation: '3,943 ft', surface: 'Mostly Unpaved' },
+    ],
+  },
+  {
+    label: 'Route D',
+    name: 'Truckee',
+    tag: 'Longest Option',
+    desc: 'The full adventure, starting from Truckee. An alternate via the Tahoe Pacific Trail and Verdi adds distance and singletrack for those who want more.',
+    directions: [
+      { name: 'Truckee to High Camp', distance: '64.7 mi', elevation: '2,975 ft', surface: 'Mixed Surfaces' },
+      { name: 'Truckee to High Camp (via TPT & Verdi)', distance: '75.7 mi', elevation: '4,110 ft', surface: 'Mixed Surfaces' },
+      { name: 'High Camp to Truckee', distance: '62.4 mi', elevation: '4,933 ft', surface: 'Mostly Unpaved' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Bikepacking to High Camp | Beckwourth Peak High Camp"
+  description="Plan an overnight bikepacking trip to Beckwourth Peak High Camp in the Lost Sierra. Four routes from Loyalton, Sierraville, Little Truckee Summit, and Truckee."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('${WP}/2024/03/IMG_0925-EDIT.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Routes at High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">Bikepacking to High Camp</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Lost Sierra &bull; Portola, CA</p>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
+      {photos.map((photo) => (
+        <div class="overflow-hidden h-52">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: main content -->
+        <div class="lg:col-span-2 space-y-16">
+
+          <!-- Intro -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">An Overnight Adventure</h2>
+            <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+              Beckwourth Peak High Camp is a great destination for an overnight bikepacking trip. In fact, a bikepacking trip along the San Juan Hut System sparked the idea for creating High Camp in the Lost Sierra.
+            </p>
+            <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-10">
+              We've done extensive scouting and refining of these routes. They consist of forest roads, quiet highways, and some singletrack (not technical). We recommend a gravel bike with 45mm wide tires or a hardtail mountain bike. Depending on your bike's range, an ebike could be an option too.
+            </p>
+            <div class="rounded overflow-hidden shadow-md">
+              <img
+                src={`${WP}/2025/08/Overview-of-Bikepacking-routes-to-Beckwourth-Peak-High-Camp.jpg`}
+                alt="Overview map of bikepacking routes to Beckwourth Peak High Camp"
+                class="w-full"
+              />
+            </div>
+          </div>
+
+          <!-- Routes -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-2">The Routes</h2>
+            <p class="text-charcoal/60 font-sans text-base mb-12">
+              All routes are available in the{' '}
+              <a href={RWGPS} target="_blank" rel="noopener" class="text-cobalt hover:underline font-bold">Ride with GPS collection</a>.
+            </p>
+
+            <div class="space-y-14">
+              {routes.map((route) => (
+                <div>
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class="font-heading text-xs font-bold uppercase tracking-widest text-cobalt">{route.label}</span>
+                    <span class="text-charcoal/30">|</span>
+                    <span class="font-sans text-xs text-charcoal/50 font-bold uppercase tracking-wider">{route.tag}</span>
+                  </div>
+                  <h3 class="font-heading text-3xl font-bold uppercase tracking-wide text-charcoal mb-3">{route.name}</h3>
+                  <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{route.desc}</p>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {route.directions.map((dir) => (
+                      <div class="bg-white border border-charcoal/10 p-5 rounded shadow-sm">
+                        <p class="font-heading text-sm font-bold uppercase tracking-wide text-charcoal mb-5 leading-snug">{dir.name}</p>
+                        <div class="space-y-2.5">
+                          <div class="flex justify-between items-center font-sans text-sm border-b border-charcoal/8 pb-2">
+                            <span class="text-charcoal/50">Distance</span>
+                            <span class="font-bold text-charcoal">{dir.distance}</span>
+                          </div>
+                          <div class="flex justify-between items-center font-sans text-sm border-b border-charcoal/8 pb-2">
+                            <span class="text-charcoal/50">Elevation</span>
+                            <span class="font-bold text-charcoal">{dir.elevation}</span>
+                          </div>
+                          <div class="flex justify-between items-center font-sans text-sm">
+                            <span class="text-charcoal/50">Surface</span>
+                            <span class={`font-bold text-sm ${dir.surface === 'Mostly Paved' ? 'text-green-600' : dir.surface === 'Mostly Unpaved' ? 'text-gold' : 'text-cobalt'}`}>{dir.surface}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: sidebar -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24 space-y-8">
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">Routes</p>
+              <a
+                href={RWGPS}
+                target="_blank"
+                rel="noopener"
+                class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+              >
+                View on Ride with GPS
+              </a>
+            </div>
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">Recommended Bike</p>
+              <ul class="space-y-2.5">
+                <li class="flex items-start gap-2.5 font-sans text-sm text-charcoal/70">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-1.5"></span>
+                  Gravel bike with 45mm+ tires
+                </li>
+                <li class="flex items-start gap-2.5 font-sans text-sm text-charcoal/70">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-1.5"></span>
+                  Hardtail mountain bike
+                </li>
+                <li class="flex items-start gap-2.5 font-sans text-sm text-charcoal/70">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-1.5"></span>
+                  Ebike (range dependent)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-3">Questions?</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">
+                Reach out if you have any questions about bikepacking to High Camp.
+              </p>
+            </div>
+
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Book Your Stay
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
