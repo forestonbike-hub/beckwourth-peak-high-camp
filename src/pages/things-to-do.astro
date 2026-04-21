@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
+
+const water = [
+  { name: 'Lake Davis', distance: '18 min', desc: 'Camping, picnicking, fishing, boating, swimming, mountain biking, and wildlife viewing.' },
+  { name: 'Lakes Basin Recreation Area', distance: '34 min', desc: 'More than 20 lakes, 30+ miles of trails, waterfalls, and historic facilities.' },
+  { name: 'Frazier Point Falls', distance: '36 min', desc: 'An accessible waterfall trail typically flowing May through June, suitable for families and limited-ability hikers.' },
+  { name: 'Sierra Valley Hot Springs', distance: '36 min', desc: 'Natural hot springs with day-use and evening soak passes. Reservation required, Thursday through Sunday.' },
+  { name: 'Portola Public Pool', distance: '5 min', desc: 'Memorial Day through Labor Day, Tuesday through Saturday, noon to 5pm.' },
+];
+
+const discgolf = [
+  { name: 'Portola Riverwalk Disc Golf', distance: '5 min', desc: 'Award-winning course along the Feather River.' },
+  { name: 'Nakoma Resort', distance: '14 min', desc: 'Golf course at the Nakoma Resort.' },
+  { name: 'Grizzly Ranch Golf Club', distance: '15 min', desc: 'Championship golf in the Sierra Nevada foothills.' },
+  { name: 'Plumas Pines Golf Course', distance: '23 min', desc: 'Scenic mountain golf course.' },
+];
+
+const history = [
+  { name: 'Western Pacific Railroad Museum', distance: '8 min', desc: 'Interactive museum with boardable locomotives and historic train cars.' },
+  { name: 'Plumas-Eureka State Park', distance: '26 min', desc: 'Gold Rush mining museum with historic structures and equipment.' },
+];
+
+const dining = [
+  { name: 'Headwaters Cafe', distance: '8 min', desc: 'Fresh food with river views.' },
+  { name: "Rico's Mexican", distance: '8 min', desc: 'Family Mexican restaurant.' },
+  { name: 'Frosty', distance: '8 min', desc: 'Casual outdoor burgers and ice cream.' },
+  { name: 'Eureka Peak Lodge', distance: '12 min', desc: 'Pizza and tapas.' },
+  { name: 'Grizzly Ranch Lake House', distance: '14 min', desc: 'Lunch and bar service.' },
+  { name: 'The Brewing Lair', distance: '17 min', desc: 'Outdoor brewery.' },
+  { name: 'Cuccias', distance: '20 min', desc: 'Italian cuisine.' },
+];
+
+const more = [
+  { name: 'Fishing', desc: 'Lost Sierra Fly Guide and Plumas National Forest resources are available for guided and self-guided fishing in the area.' },
+  { name: 'Birding', desc: 'Sierra Valley is one of the best birding destinations in the Sierra Nevada. The Sierra Valley Preserve has a nature center, trails, and guided tours (15 minutes).' },
+  { name: 'Off-Road', desc: 'Plumas National Forest motor vehicle maps and fire lookout locations available for off-road exploration.' },
+];
+---
+
+<Layout
+  title="Things to Do | Beckwourth Peak High Camp"
+  description="Outdoor activities, dining, history, and more near Beckwourth Peak High Camp in the Lost Sierra near Portola, CA."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[40vh] min-h-[300px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('${WP}/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Beckwourth Peak High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">Things to Do</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Near Portola, CA &bull; Lost Sierra</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6 space-y-20">
+
+      <!-- At High Camp -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">At High Camp</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Right outside your door</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: 'Disc Golf', desc: 'A 20-basket disc golf course winds through the pines on the property. Discs available for purchase.' },
+            { name: 'Mountain Biking', desc: 'Singletrack trails leave directly from the property into Plumas National Forest.' },
+            { name: 'Gravel Cycling', desc: 'High Camp sits at the intersection of some of the best gravel roads in the Lost Sierra, including sections of the Lost and Found Gravel Festival route.' },
+            { name: 'Hiking', desc: 'Trails on the 65-acre property connect to Plumas National Forest hiking routes.' },
+            { name: 'Campfire', desc: 'A communal fire pit with firewood is available for guests each evening.' },
+            { name: 'Stargazing', desc: 'At 5,300 feet with no light pollution, the night sky at High Camp is exceptional.' },
+          ].map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Water -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Water</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Lakes, hot springs, and waterfalls within an hour</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {water.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Disc Golf & Golf -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Disc Golf &amp; Golf</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">On the property and nearby</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {discgolf.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- History -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">History</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Gold Rush history and railroads within 30 minutes</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {history.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Dining -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Dining</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Restaurants and breweries nearby</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {dining.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- More -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">More to Explore</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Fishing, birding, and off-road adventures</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {more.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center pt-4">
+        <p class="font-sans text-charcoal/60 mb-6">Ready to plan your trip?</p>
+        <a
+          href={BOOK_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+        >
+          Check Availability
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
