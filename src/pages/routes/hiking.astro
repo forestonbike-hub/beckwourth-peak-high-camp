@@ -50,16 +50,64 @@ const trails = [
     mapUrl: 'https://www.theoutbound.com/lake-tahoe/hiking/hike-to-little-jamison-falls',
   },
   {
-    name: 'Mills Peak Trail',
-    tag: '24 min from High Camp',
+    name: 'Mills Peak Trail & Fire Lookout',
+    tag: '20 min from High Camp',
     difficulty: 'Moderate',
     stats: [
       { label: 'Distance', value: '7 mi' },
       { label: 'Surface', value: 'Singletrack' },
     ],
-    desc: 'A scenic ridge trail in Plumas National Forest with views across the Lost Sierra. The route winds through dense conifer forest before opening up to wide views near the peak. Often quiet and uncrowded.',
-    mapLabel: 'View on USFS',
-    mapUrl: 'https://www.fs.usda.gov/recarea/plumas/recreation/recarea/?recid=80791&actid=50',
+    desc: 'Hike or bike to an active fire lookout at 7,340 feet with sweeping views of Mohawk Valley, Beckwourth Peak, Sierra Valley, Sierra Buttes, and Mt. Lassen on a clear day. A great one for adventurous guests.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/mills-peak-lookout',
+  },
+  {
+    name: 'Smith Peak',
+    tag: '15 min from High Camp',
+    difficulty: 'Strenuous',
+    stats: [
+      { label: 'Distance', value: '8.5 mi' },
+      { label: 'Elevation Gain', value: '1,814 ft' },
+    ],
+    desc: 'The longest trail close to High Camp — secluded, quiet, and worth the effort. A good option for guests looking to earn their views without the crowds.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/smith-peak-via-24n07',
+  },
+  {
+    name: 'Portola "P" Trail',
+    tag: '5 min from High Camp',
+    difficulty: 'Easy–Moderate',
+    stats: [
+      { label: 'Format', value: 'Out-and-Back' },
+      { label: 'Surface', value: 'Dirt Trail' },
+    ],
+    desc: 'A popular trail right in town, good in almost any season. A quick option for guests who want solid views without a long drive or serious climb.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/portola-p-trail',
+  },
+  {
+    name: 'Sierra Buttes Lookout Trail',
+    tag: '45 min from High Camp',
+    difficulty: 'Strenuous',
+    stats: [
+      { label: 'Distance', value: '4.9 mi round trip' },
+      { label: 'Elevation Gain', value: '1,752 ft' },
+    ],
+    desc: 'One of the most dramatic hikes in the Sierra Nevada. The summit features a historic fire lookout with a steel staircase and sweeping views of Upper and Lower Sardine Lakes. Near Sierra City — plan for a half-day trip.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/sierra-buttes-lookout-trail',
+  },
+  {
+    name: 'Pacific Crest Trail',
+    tag: '45 min from High Camp',
+    difficulty: 'Moderate–Strenuous',
+    stats: [
+      { label: 'Access Point', value: 'Near Sierra City' },
+      { label: 'Surface', value: 'Singletrack' },
+    ],
+    desc: 'The PCT passes through this stretch of the Sierra Nevada with stunning mountain views, crystal-clear lakes, and striking rock formations. Pick up the trail near Sierra City for a day section without committing to a thru-hike.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/pct-ca-section-m-highway-49-to-belden',
   },
   {
     name: 'Portola Riverwalk Trail',
@@ -201,12 +249,44 @@ const trails = [
                   Little Jamison Falls
                 </a>
                 <a
-                  href="https://www.fs.usda.gov/recarea/plumas/recreation/recarea/?recid=80791&actid=50"
+                  href="https://www.alltrails.com/trail/us/california/mills-peak-lookout"
                   target="_blank"
                   rel="noopener"
                   class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
                 >
                   Mills Peak Trail
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/smith-peak-via-24n07"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Smith Peak
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/portola-p-trail"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Portola "P" Trail
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/sierra-buttes-lookout-trail"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Sierra Buttes
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/pct-ca-section-m-highway-49-to-belden"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Pacific Crest Trail
                 </a>
               </div>
             </div>
