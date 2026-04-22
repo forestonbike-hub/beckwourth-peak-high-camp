@@ -187,7 +187,9 @@ const trails = [
                 <span class="text-charcoal/30">|</span>
                 <span class="font-sans text-xs text-charcoal/50 font-bold uppercase tracking-wider">{trail.difficulty}</span>
               </div>
-              <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              <a href={trail.mapUrl} target="_blank" rel="noopener" class="hover:text-cobalt transition-colors">
+                <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              </a>
               <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{trail.desc}</p>
 
               <!-- Stats -->
