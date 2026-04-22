@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
+
+const sections = [
+  {
+    title: 'Getting Here & Access',
+    faqs: [
+      {
+        q: 'How do I get to High Camp?',
+        a: 'High Camp is located in Plumas National Forest, just outside Portola, California. From Portola, you\'ll leave the pavement and drive approximately one mile up a gravel forest road to reach the property. Full directions and a map are on our <a href="/getting-here" class="text-cobalt hover:underline">Getting Here</a> page.',
+      },
+      {
+        q: 'What is the road like? Is it suitable for all vehicles?',
+        a: 'The access road is a gravel forest road, generally suitable for most vehicles. There is one dip in the road where low-clearance vehicles could scrape. High-clearance vehicles and trucks have no issues. We recommend watching the road preview video on our <a href="/getting-here" class="text-cobalt hover:underline">Getting Here</a> page before you arrive.',
+      },
+      {
+        q: 'Is there parking on-site?',
+        a: 'Yes. Free parking is available at the property.',
+      },
+      {
+        q: 'Is there cell service?',
+        a: 'Yes. Cell service is generally good in the area.',
+      },
+      {
+        q: 'Is there EV charging at High Camp?',
+        a: 'There is no on-site EV charging. The nearest options are in downtown Portola (8 charging spots, about 1.5 miles away) and at the Sierra Valley Preserve Nature Center (4 charging stations, about 7 miles away). See our <a href="/getting-here" class="text-cobalt hover:underline">Getting Here</a> page for details.',
+      },
+    ],
+  },
+  {
+    title: 'Check-in & Check-out',
+    faqs: [
+      {
+        q: 'What are check-in and check-out times?',
+        a: 'Check-in is at 3pm. Check-out is at 11am. If you need a different arrangement, reach out in advance and we\'ll do our best to accommodate.',
+      },
+      {
+        q: 'Is there a minimum stay requirement?',
+        a: 'Minimum stay requirements vary by season and unit. Check our <a href="' + BOOK_URL + '" target="_blank" rel="noopener" class="text-cobalt hover:underline">booking page</a> for current availability and minimums.',
+      },
+    ],
+  },
+  {
+    title: 'The Units',
+    faqs: [
+      {
+        q: 'How many guests can each unit accommodate?',
+        a: 'The North Cabin sleeps up to 4. The South Cabin sleeps up to 4. The Yurt sleeps up to 5. The Campsite accommodates up to 5. The maximum across all units combined is 18 guests.',
+      },
+      {
+        q: 'What are the sleeping arrangements?',
+        a: 'The North and South Cabins each have 2 queen bunk beds (4 guests). The Yurt has a loft with 2 full beds plus additional sleeping for up to 5 guests total. The Campsite includes tent pads and access to all shared amenities.',
+      },
+      {
+        q: 'Do the units have private bathrooms?',
+        a: 'No. All units share a central bathhouse with private shower stalls, changing rooms, and plenty of hot water. The bathhouse is kept clean and well-stocked.',
+      },
+      {
+        q: 'Do the cabins and yurt have heat and air conditioning?',
+        a: 'Yes. The cabins and yurt have both heat and air conditioning.',
+      },
+      {
+        q: 'Is there electricity in the units?',
+        a: 'Yes. The units have electricity for lighting and charging devices.',
+      },
+    ],
+  },
+  {
+    title: 'WiFi & Connectivity',
+    faqs: [
+      {
+        q: 'Is there WiFi?',
+        a: 'Yes. High Camp has Starlink WiFi available for all guests.',
+      },
+      {
+        q: 'Can I work remotely from High Camp?',
+        a: 'Starlink provides reliable high-speed internet. Many guests use it for remote work, video calls, and streaming. That said, you\'re in the mountains — come prepared to unplug a little too.',
+      },
+    ],
+  },
+  {
+    title: 'Kitchen & Cooking',
+    faqs: [
+      {
+        q: 'What cooking facilities are in the units?',
+        a: 'The cabins and yurt each have a kitchenette with a refrigerator and basic cooking setup. The campsite has access to shared kitchen basics.',
+      },
+      {
+        q: 'What kitchen supplies are provided?',
+        a: 'Units are stocked with: coffee, creamer, and sugar; salt and pepper; dishes, bowls, cups, and mugs; utensils; a bottle opener; dish soap and a dish towel. Bring your own food and any specialty cooking equipment.',
+      },
+      {
+        q: 'What should I bring for meals?',
+        a: 'Bring all the food and beverages you\'ll need for your stay. Portola has a grocery store and the Feather River Food Co-op if you need to pick up supplies on the way in. A cooler is handy for day trips.',
+      },
+    ],
+  },
+  {
+    title: 'What\'s Included & What to Bring',
+    faqs: [
+      {
+        q: 'Is bedding provided?',
+        a: 'Yes. All units include sheets, duvets, pillows, a throw blanket, towels, and washcloths.',
+      },
+      {
+        q: 'Are toiletries provided?',
+        a: 'Basic toiletries (shampoo, conditioner, body wash, etc.) are not provided. Bring your own.',
+      },
+      {
+        q: 'What should I bring?',
+        a: 'All food and beverages; toiletries; sunscreen and bug spray; layers for cool evenings (it can drop significantly at 5,300 feet after sunset); any specialized gear for activities you have planned. S\'mores kits and disc golf discs are available for purchase on-site.',
+      },
+    ],
+  },
+  {
+    title: 'Campfire & Outdoor Activities',
+    faqs: [
+      {
+        q: 'Is there a campfire?',
+        a: 'Yes. There is a communal fire pit with firewood provided for all guests. Open fires may be restricted during periods of high fire danger. We follow all current Plumas National Forest fire restrictions and will notify guests of any limitations before arrival.',
+      },
+      {
+        q: 'What outdoor activities are available on the property?',
+        a: 'High Camp has a 20-basket disc golf course winding through the pines. Singletrack mountain bike trails and gravel roads leave directly from the property. Hiking trails connect to Plumas National Forest. There\'s also a shaded picnic area with 360° views and a communal fire pit for evenings.',
+      },
+      {
+        q: 'Are there trails and rides right from the property?',
+        a: 'Yes. Mountain bike singletrack and gravel cycling routes leave directly from High Camp. Hiking trails on the 65-acre property connect to the national forest. See our <a href="/routes/gravel-biking" class="text-cobalt hover:underline">routes pages</a> for details.',
+      },
+    ],
+  },
+  {
+    title: 'Rules & Policies',
+    faqs: [
+      {
+        q: 'Are pets allowed?',
+        a: 'No. Pets are not permitted at High Camp.',
+      },
+      {
+        q: 'Is smoking allowed?',
+        a: 'No smoking anywhere on the property.',
+      },
+      {
+        q: 'What are quiet hours?',
+        a: 'Quiet hours are 10pm to 8am. Other guests and neighboring properties are nearby — please be respectful.',
+      },
+      {
+        q: 'What is the cancellation policy?',
+        a: 'Cancellations made 14 or more days before check-in receive a full refund minus a 5% processing fee. Cancellations within 14 days of check-in are non-refundable.',
+      },
+    ],
+  },
+  {
+    title: 'Groups & Events',
+    faqs: [
+      {
+        q: 'Can I book High Camp for a group or event?',
+        a: 'Yes. High Camp can accommodate groups of up to 18 guests across all four units. To coordinate a group booking or ask about event possibilities, email us at <a href="mailto:contact@beckwourthpeakhighcamp.com" class="text-cobalt hover:underline">contact@beckwourthpeakhighcamp.com</a>.',
+      },
+      {
+        q: 'Are there age restrictions?',
+        a: 'All ages are welcome at High Camp.',
+      },
+    ],
+  },
+  {
+    title: 'Weather & What to Pack',
+    faqs: [
+      {
+        q: 'What is the weather like?',
+        a: 'High Camp sits at 5,300 feet in elevation in the Sierra Nevada. Summers are warm and sunny with cool nights — temperatures can drop into the 40s after sunset even in July and August. Afternoon thunderstorms are possible in July and August. Spring and fall can be cold. Always check the forecast and pack layers.',
+      },
+      {
+        q: 'What should I pack?',
+        a: 'Layers for cool mornings and evenings; a rain jacket or windbreaker; sunscreen and sunglasses (the altitude means stronger UV); sturdy shoes for trails; any gear for biking, hiking, or other activities; food and beverages for your stay; and your own toiletries.',
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="FAQ | Beckwourth Peak High Camp"
+  description="Frequently asked questions about staying at Beckwourth Peak High Camp — parking, WiFi, bathrooms, check-in, cancellations, and more."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[40vh] min-h-[300px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('${WP}/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Beckwourth Peak High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">FAQ</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Common questions about staying at High Camp</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-16">
+
+        <!-- Left: Sticky nav -->
+        <div class="hidden lg:block">
+          <div class="sticky top-24 space-y-1">
+            <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-4">Jump to</p>
+            {sections.map((section) => (
+              <a
+                href={`#${section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                class="block font-sans text-sm text-charcoal/60 hover:text-charcoal transition-colors py-1"
+              >
+                {section.title}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: FAQ content -->
+        <div class="lg:col-span-3 space-y-16">
+          {sections.map((section) => (
+            <div id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>
+              <h2 class="font-heading text-3xl font-bold uppercase tracking-wide text-charcoal mb-6 pb-4 border-b border-charcoal/10">
+                {section.title}
+              </h2>
+              <div class="space-y-3">
+                {section.faqs.map((item) => (
+                  <details class="border border-charcoal/15 rounded group bg-white">
+                    <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none font-heading text-sm font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors select-none gap-4">
+                      <span>{item.q}</span>
+                      <span class="text-cobalt text-lg leading-none flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+                    </summary>
+                    <div class="px-6 pb-5 pt-1 font-sans text-sm text-charcoal/70 leading-relaxed" set:html={item.a} />
+                  </details>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          <!-- CTA -->
+          <div class="text-center pt-4 border-t border-charcoal/10">
+            <p class="font-sans text-charcoal/60 mb-2">Still have a question?</p>
+            <p class="font-sans text-charcoal/60 mb-6">Email us at <a href="mailto:contact@beckwourthpeakhighcamp.com" class="text-cobalt hover:underline">contact@beckwourthpeakhighcamp.com</a></p>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+            >
+              Check Availability
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
