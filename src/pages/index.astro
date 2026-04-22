@@ -4,7 +4,6 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
-const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 
 const lodging = [
   {
@@ -12,28 +11,28 @@ const lodging = [
     sleeps: 4,
     desc: 'A modern cabin with a kitchen, private deck, Adirondack chairs, and sweeping valley views. 100 yards and out of sight from the South Cabin.',
     alt: 'Modern cabin rental for mountain bikers at Beckwourth Peak High Camp, Lost Sierra',
-    img: `${WP}/2024/05/beckwourth-high-camp-3401-ig_53695282643_o-1-1024x1024.jpg`,
+    img: `/images/lodging/north-cabin-valley-views.jpg`,
   },
   {
     name: 'South Cabin',
     sleeps: 4,
     desc: 'A modern cabin with a kitchen, private deck, Adirondack chairs, and sweeping valley views. 100 yards and out of sight from the North Cabin.',
     alt: 'Off-grid cabin rental near gravel biking trails at Beckwourth Peak High Camp',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3348-ig_53695421374_o-2.jpg',
+    img: '/images/lodging/south-cabin-mountain-retreat.jpg',
   },
   {
     name: 'The Yurt',
     sleeps: 5,
     desc: 'Hardwood floors, 4 beds, private deck and a skylight window for stargazing. More than 100 yards from other units.',
     alt: 'Yurt rental with stargazing skylight at Beckwourth Peak High Camp, Portola CA',
-    img: `${WP}/2025/07/20250608_090013-EDIT-1-1024x768.jpg`,
+    img: `/images/lodging/yurt-private-deck-mountains.jpg`,
   },
   {
     name: 'Campsite',
     sleeps: 5,
     desc: 'Your own private site with a picnic table and full access to our bathhouse, campfire, shaded picnic area and other amenities.',
     alt: 'Private campsite with bathhouse access at Beckwourth Peak High Camp, Lost Sierra',
-    img: `${WP}/2024/06/20240608_143013-1024x768.jpg`,
+    img: `/images/lodging/campsite-tent-platform-lost-sierra.jpg`,
   },
 ];
 
@@ -69,42 +68,42 @@ const activities = [
     name: 'Biking',
     desc: 'Gravel routes and mountain bike trails leave right from High Camp. Mt. Hough and Mills Peak are nearby.',
     alt: 'Mountain biking and gravel cycling at Beckwourth Peak High Camp, Lost Sierra California',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-11.02.02-AM.jpg',
+    img: '/images/activities/mountain-biking-lost-sierra.jpg',
     bg: '',
   },
   {
     name: 'Campfires',
     desc: "Gather around the fire pit under the stars. We'll bring the chairs!",
     alt: 'Campfire under the stars at Beckwourth Peak High Camp glamping, Portola CA',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/campfire1-300x225.jpg',
+    img: '/images/activities/campfire-under-stars.jpg',
     bg: '',
   },
   {
     name: 'Hiking',
     desc: 'Our trails connect to Beckwourth Peak Recreation Project, offering 19 miles of trail and 360° views.',
     alt: 'Hiking trails at Beckwourth Peak Recreation Project near Portola, California',
-    img: `${WP}/2023/10/20220512_171221-1024x557.jpg`,
+    img: `/images/activities/beckwourth-peak-hiking-trail.jpg`,
     bg: '',
   },
   {
     name: 'Disc Golf',
     desc: 'Play our on-property 20-basket disc golf course winding through the pines.',
     alt: '20-basket disc golf course at Beckwourth Peak High Camp, Lost Sierra',
-    img: `${WP}/2025/07/20250607_200829.jpg`,
+    img: `/images/activities/disc-golf-course-pines.jpg`,
     bg: '',
   },
   {
     name: 'Stargazing',
     desc: 'Dark Sky Community. 5,300 feet. Minimal light pollution. The rest is up to the sky.',
     alt: 'Dark sky stargazing at Beckwourth Peak High Camp, Lost Sierra California',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/stars1-300x300.jpg',
+    img: '/images/activities/dark-sky-stargazing.jpg',
     bg: '',
   },
   {
     name: 'Events',
     desc: 'From biking getaways to family reunions to microweddings and elopements, High Camp is a great place to connect.',
     alt: 'Group retreats and events at Beckwourth Peak High Camp, Plumas County California',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/events.jpg',
+    img: '/images/activities/group-events-retreat.jpg',
     bg: '',
   },
 ];
@@ -116,7 +115,7 @@ const attractions = [
     desc: '50+ miles of singletrack, with 3,800 vertical feet of flowy, fast descent.',
     alt: 'Mt. Hough mountain biking singletrack trails near Quincy, California Lost Sierra',
     color: 'from-[#2a4a1a] to-[#1a3010]',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/my-hogh.jpg',
+    img: '/images/nearby/mt-hough-singletrack-trails.jpg',
   },
   {
     name: 'Lakes Basin',
@@ -124,7 +123,7 @@ const attractions = [
     desc: 'Gold Lake, Sardine Lakes & countless places to swim, boat or hike.',
     alt: 'Lakes Basin Gold Lake swimming and hiking near Portola, California',
     color: 'from-[#1a4a6b] to-[#0e3050]',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Upper_Sardine_Lake_and_the_Sierra_Buttes%2C_California.jpg',
+    img: '/images/nearby/lakes-basin-sardine-lake-sierra-buttes.jpg',
   },
   {
     name: 'Graeagle',
@@ -132,7 +131,7 @@ const attractions = [
     desc: 'A charming mountain village with golf, fishing, minigolf and dining.',
     alt: 'Graeagle mountain village near Beckwourth Peak High Camp, Lost Sierra California',
     color: 'from-[#4a5c2a] to-[#3a4a20]',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Graeagle-1500x430-1.jpg',
+    img: '/images/nearby/graeagle-mountain-village.jpg',
   },
   {
     name: 'Frazier Falls',
@@ -140,7 +139,7 @@ const attractions = [
     desc: 'A 2-mile trail leads to a 176-foot waterfall in Plumas National Forest.',
     alt: 'Frazier Falls 176-foot waterfall hike in Plumas National Forest near Portola',
     color: 'from-[#1a5a4a] to-[#0e3a30]',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/5/54/Frazier_Creek_Falls_-_Plumas_National_Forest_-_California.jpg',
+    img: '/images/nearby/frazier-falls-plumas-national-forest.jpg',
   },
   {
     name: 'Golf',
@@ -148,7 +147,7 @@ const attractions = [
     desc: 'World-class courses at Grizzly Ranch, Nakoma, & Graeagle Meadows.',
     alt: 'Grizzly Ranch golf course near Beckwourth Peak High Camp, Plumas County',
     color: 'from-[#2a5c2a] to-[#1a3a1a]',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Grizzly-Ranch-GC-1.jpg',
+    img: '/images/nearby/grizzly-ranch-golf-course.jpg',
   },
   {
     name: 'Sierra Valley Preserve',
@@ -156,7 +155,7 @@ const attractions = [
     desc: 'Interactive exhibits, interpretive trails, birding, and picnic areas.',
     alt: 'Sierra Valley wildlife preserve mountain meadow near Portola, California',
     color: 'from-[#2a5c3a] to-[#1a3a25]',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/images-4.jpeg',
+    img: '/images/nearby/sierra-valley-preserve-meadow.jpeg',
   },
   {
     name: 'Portola Railroad Museum',
@@ -164,7 +163,7 @@ const attractions = [
     desc: 'Climb aboard and drive historic locomotives.',
     alt: 'Portola Railroad Museum historic locomotives near Beckwourth Peak High Camp',
     color: 'from-[#4a2a5c] to-[#2a1a3a]',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/The_Western_Pacific_Railroad_Museum_in_Portola%2C_CA_%2810143267775%29.jpg',
+    img: '/images/nearby/portola-railroad-museum-locomotives.jpg',
   },
   {
     name: 'The Brewing Lair',
@@ -172,7 +171,7 @@ const attractions = [
     desc: 'A craft brewery tucked in the forest with games, music and plenty of room to relax.',
     alt: 'The Brewing Lair craft brewery near Graeagle and Beckwourth Peak High Camp',
     color: 'from-[#5c4a1a] to-[#3a2e10]',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/brewering-liar-patio.jpg',
+    img: '/images/nearby/brewing-lair-beer-garden.jpg',
   },
 ];
 
@@ -195,11 +194,11 @@ const testimonials = [
 ];
 
 const partners = [
-  { name: 'Sierra Buttes Trail Stewardship', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/02/SBTS-Logo-Jpg-BIg.avif' },
-  { name: 'Backcountry Discovery Routes', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/backcountry-discovery-routes-sm.avif' },
-  { name: 'Lost Sierra MTB', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/LostSierraMTB.avif' },
-  { name: 'Adventure Cycling Association', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ACA-1.png' },
-  { name: 'Ride with GPS', img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/12/ambassador_160.png' },
+  { name: 'Sierra Buttes Trail Stewardship', img: '/images/logos/sierra-buttes-trail-stewardship.avif' },
+  { name: 'Backcountry Discovery Routes', img: '/images/logos/backcountry-discovery-routes.avif' },
+  { name: 'Lost Sierra MTB', img: '/images/logos/lost-sierra-mtb.avif' },
+  { name: 'Adventure Cycling Association', img: '/images/logos/adventure-cycling-association.png' },
+  { name: 'Ride with GPS', img: '/images/logos/ride-with-gps-ambassador.png' },
 ];
 
 const editorialPanels = [
@@ -207,29 +206,29 @@ const editorialPanels = [
     label: 'Comfort',
     headline: 'Unwind in Comfort',
     alt: 'Comfortable off-grid glamping accommodations at Beckwourth Peak High Camp, Lost Sierra',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3348-ig_53695421374_o-2-768x768.jpg',
+    img: '/images/lodging/glamping-cabin-comfort.jpg',
   },
   {
     label: 'Adventure',
     headline: 'trails outside your door',
     alt: 'Mountain biking and gravel cycling trails at Beckwourth Peak High Camp, Lost Sierra',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/5-bucks-gravel-24-3434-ig_53695515155_o-2-768x768.jpg',
+    img: '/images/lodging/gravel-trail-adventure.jpg',
   },
   {
     label: 'Solitude',
     headline: 'Room to Breathe',
     alt: 'Off-grid retreat in Plumas National Forest near Portola, California',
-    img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/05/beckwourth-high-camp-3394-ig_53694184967_o-768x768.jpg',
+    img: '/images/lodging/mountain-solitude-retreat.jpg',
   },
 ];
 
 const instagramPhotos = [
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/09/PXL_20241006_212152820-EDIT.jpg', alt: 'Off-grid glamping at Beckwourth Peak High Camp, Lost Sierra California', url: 'https://www.instagram.com/p/DW4oqLEgasv/' },
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.55.45-AM.jpg', alt: 'Gravel cycling base camp at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DOguXT5gdlo/' },
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.54.05-AM.jpg', alt: 'Mountain biking trails near Beckwourth Peak High Camp, Lost Sierra', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DKnfNMnM7Xq/' },
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-11.01.06-AM.jpg', alt: 'Cabin glamping at Beckwourth Peak High Camp, Plumas National Forest', url: 'https://www.instagram.com/p/DKKS4Oxx4RJ/' },
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-12.23.02-PM.jpg', alt: 'Beckwourth Peak High Camp outdoor retreat, Lost Sierra California', url: 'https://www.instagram.com/p/DEN1aYJvvAw/' },
-  { img: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/Screenshot-2026-04-08-10.56.21-AM.jpg', alt: 'Gravel biking and glamping at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DQz6V7gEfEl/' },
+  { img: '/images/instagram/glamping-off-grid-lost-sierra.jpg', alt: 'Off-grid glamping at Beckwourth Peak High Camp, Lost Sierra California', url: 'https://www.instagram.com/p/DW4oqLEgasv/' },
+  { img: '/images/instagram/gravel-cycling-base-camp.jpg', alt: 'Gravel cycling base camp at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DOguXT5gdlo/' },
+  { img: '/images/instagram/mountain-biking-trails-portola.jpg', alt: 'Mountain biking trails near Beckwourth Peak High Camp, Lost Sierra', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DKnfNMnM7Xq/' },
+  { img: '/images/instagram/cabin-glamping-plumas-forest.jpg', alt: 'Cabin glamping at Beckwourth Peak High Camp, Plumas National Forest', url: 'https://www.instagram.com/p/DKKS4Oxx4RJ/' },
+  { img: '/images/instagram/outdoor-retreat-lost-sierra.jpg', alt: 'Beckwourth Peak High Camp outdoor retreat, Lost Sierra California', url: 'https://www.instagram.com/p/DEN1aYJvvAw/' },
+  { img: '/images/instagram/gravel-biking-portola.jpg', alt: 'Gravel biking and glamping at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DQz6V7gEfEl/' },
 ];
 ---
 
@@ -241,7 +240,7 @@ const instagramPhotos = [
   <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={`background-image: url('${WP}/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2-1024x1024.jpg')`}
+      style={`background-image: url('/images/hero/beckwourth-peak-high-camp-panorama.jpg')`}
     ></div>
     <div class="absolute inset-0 bg-black/45"></div>
     <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
@@ -315,7 +314,7 @@ const instagramPhotos = [
       <div class="mt-8 grid grid-cols-1 md:grid-cols-3 overflow-hidden shadow-md h-48">
         <div class="hidden md:block overflow-hidden">
           <img
-            src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_103639.jpg"
+            src="/images/lodging/bathhouse-exterior-showers.jpg"
             alt="Shared bathhouse with private shower stalls at Beckwourth Peak High Camp"
             class="w-full h-full object-cover"
           />
@@ -329,7 +328,7 @@ const instagramPhotos = [
         </div>
         <div class="hidden md:block overflow-hidden">
           <img
-            src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/01/20230925_103526-edited-1.jpg"
+            src="/images/lodging/bathhouse-interior-private-stalls.jpg"
             alt="Bathhouse interior at Beckwourth Peak High Camp"
             class="w-full h-full object-cover"
           />
@@ -450,7 +449,7 @@ const instagramPhotos = [
   <!-- VIDEO -->
   <section class="bg-charcoal">
     <video
-      src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/03/High-Camp-on-mountain-Made-with-Clipchamp.mp4"
+      src="/videos/high-camp-aerial-view.mp4"
       autoplay
       muted
       loop

@@ -4,14 +4,13 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
-const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 
 const photos = [
-  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/07/20240626_144218-EFFECTS.jpg', alt: 'The Yurt at Beckwourth Peak High Camp, Lost Sierra' },
-  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/20240530_185418.jpg', alt: 'Yurt interior at Beckwourth Peak High Camp, Plumas National Forest' },
-  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/06/yurt1.jpg', alt: 'Yurt loft sleeping area at Beckwourth Peak High Camp' },
-  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/20240530_185104.jpg', alt: 'Yurt deck with mountain views at Beckwourth Peak High Camp' },
-  { src: 'https://beckwourthpeakhighcamp.com/wp-content/uploads/2026/04/20240530_185004-1.jpg', alt: 'Yurt exterior at Beckwourth Peak High Camp, Lost Sierra' },
+  { src: '/images/lodging/yurt-exterior-pines.jpg', alt: 'The Yurt at Beckwourth Peak High Camp, Lost Sierra' },
+  { src: '/images/lodging/yurt-interior-main-floor.jpg', alt: 'Yurt interior at Beckwourth Peak High Camp, Plumas National Forest' },
+  { src: '/images/lodging/yurt-loft-sleeping-area.jpg', alt: 'Yurt loft sleeping area at Beckwourth Peak High Camp' },
+  { src: '/images/lodging/yurt-deck-mountain-views.jpg', alt: 'Yurt deck with mountain views at Beckwourth Peak High Camp' },
+  { src: '/images/lodging/yurt-exterior-lost-sierra.jpg', alt: 'Yurt exterior at Beckwourth Peak High Camp, Lost Sierra' },
 ];
 
 const amenities = [
@@ -35,7 +34,7 @@ const amenities = [
   <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('https://beckwourthpeakhighcamp.com/wp-content/uploads/2024/07/20240626_144218-EFFECTS.jpg')"
+      style="background-image: url('/images/lodging/yurt-exterior-pines.jpg')"
     ></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
     <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
@@ -63,7 +62,7 @@ const amenities = [
   <!-- VIDEO -->
   <section class="bg-charcoal">
     <video
-      src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2025/03/Yurt.mp4"
+      src="/videos/yurt-tour.mp4"
       autoplay
       muted
       loop

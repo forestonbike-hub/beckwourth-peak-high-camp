@@ -4,13 +4,12 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
-const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 const RWGPS = 'https://ridewithgps.com/collections/3689940';
 
 const photos = [
-  { src: `${WP}/2025/03/474210364_122206422182086559_3899931610294297086_n-3.jpg`, alt: 'Bikepackers riding a gravel road through Sierra Valley toward Beckwourth Peak High Camp' },
-  { src: `${WP}/2024/07/20240602_111125-1.jpg`, alt: 'Bikepackers stopped outside a cafe in Loyalton, CA' },
-  { src: `${WP}/2024/07/20240602_095017.jpg`, alt: 'Riders on a pine forest road heading to Beckwourth Peak High Camp' },
+  { src: `/images/routes/bikepackers-gravel-road-mountains.jpg`, alt: 'Bikepackers riding a gravel road through Sierra Valley toward Beckwourth Peak High Camp' },
+  { src: `/images/routes/riders-cafe-stop-loyalton.jpg`, alt: 'Bikepackers stopped outside a cafe in Loyalton, CA' },
+  { src: `/images/routes/bikepackers-pine-forest-road.jpg`, alt: 'Riders on a pine forest road heading to Beckwourth Peak High Camp' },
 ];
 
 const routes = [
@@ -69,7 +68,7 @@ const routes = [
   <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style={`background-image: url('${WP}/2024/03/IMG_0925-EDIT.jpg')`}
+      style={`background-image: url('/images/routes/gravel-riders-sierra-valley-road.jpg')`}
     ></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
     <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
@@ -113,7 +112,7 @@ const routes = [
             </p>
             <div class="rounded overflow-hidden shadow-md">
               <img
-                src={`${WP}/2025/08/Overview-of-Bikepacking-routes-to-Beckwourth-Peak-High-Camp.jpg`}
+                src={`/images/routes/bikepacking-routes-overview-map.jpg`}
                 alt="Overview map of bikepacking routes to Beckwourth Peak High Camp"
                 class="w-full"
               />
