@@ -7,42 +7,42 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
 const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 
 const water = [
-  { name: 'Lake Davis', distance: '18 min', desc: 'Camping, picnicking, fishing, boating, swimming, mountain biking, and wildlife viewing.' },
-  { name: 'Lakes Basin Recreation Area', distance: '34 min', desc: 'More than 20 lakes, 30+ miles of trails, waterfalls, and historic facilities.' },
-  { name: 'Frazier Point Falls', distance: '36 min', desc: 'An accessible waterfall trail typically flowing May through June, suitable for families and limited-ability hikers.' },
-  { name: 'Sierra Valley Hot Springs', distance: '36 min', desc: 'Natural hot springs with day-use and evening soak passes. Reservation required, Thursday through Sunday.' },
-  { name: 'Portola Public Pool', distance: '5 min', desc: 'Memorial Day through Labor Day, Tuesday through Saturday, noon to 5pm.' },
+  { name: 'Lake Davis', distance: '18 min', desc: 'Camping, picnicking, fishing, boating, swimming, mountain biking, and wildlife viewing.', url: 'https://www.fs.usda.gov/recarea/plumas/recarea/?recid=71113' },
+  { name: 'Lakes Basin Recreation Area', distance: '34 min', desc: 'More than 20 lakes, 30+ miles of trails, waterfalls, and historic facilities.', url: 'https://plumascounty.org/get-outside/places-to-visit/lakes-basin-recreation-area/' },
+  { name: 'Frazier Point Falls', distance: '36 min', desc: 'An accessible waterfall trail typically flowing May through June, suitable for families and limited-ability hikers.', url: 'https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd706813.pdf' },
+  { name: 'Sierra Valley Hot Springs', distance: '36 min', desc: 'Natural hot springs with day-use and evening soak passes. Reservation required, Thursday through Sunday.', url: 'https://sierrahotsprings.org/' },
+  { name: 'Portola Public Pool', distance: '5 min', desc: 'Memorial Day through Labor Day, Tuesday through Saturday, noon to 5pm.', url: 'https://www.cityofportola.com/portola-pool' },
   { name: 'Graeagle Mill Pond', distance: '12 min', desc: 'A scenic swimming pond in the center of Graeagle village. Popular for swimming, paddleboarding, and picnicking.' },
 ];
 
 const discgolf = [
-  { name: 'Portola Riverwalk Disc Golf', distance: '5 min', desc: 'Award-winning course along the Feather River.' },
-  { name: 'Nakoma Resort', distance: '14 min', desc: 'Golf course at the Nakoma Resort.' },
-  { name: 'Grizzly Ranch Golf Club', distance: '15 min', desc: 'Championship golf in the Sierra Nevada foothills.' },
-  { name: 'Plumas Pines Golf Course', distance: '23 min', desc: 'Scenic mountain golf course.' },
+  { name: 'Portola Riverwalk Disc Golf', distance: '5 min', desc: 'Award-winning course along the Feather River.', url: 'https://portolariverwalkdgc.com/' },
+  { name: 'Nakoma Resort', distance: '14 min', desc: 'Golf course at the Nakoma Resort.', url: 'https://nakomaresort.com/golf/' },
+  { name: 'Grizzly Ranch Golf Club', distance: '15 min', desc: 'Championship golf in the Sierra Nevada foothills.', url: 'https://www.grizzlyranchliving.com/golf' },
+  { name: 'Plumas Pines Golf Course', distance: '23 min', desc: 'Scenic mountain golf course.', url: 'https://plumaspinesgolf.com/' },
 ];
 
 const history = [
-  { name: 'Western Pacific Railroad Museum', distance: '8 min', desc: 'Interactive museum with boardable locomotives and historic train cars.' },
-  { name: 'Plumas-Eureka State Park', distance: '26 min', desc: 'Gold Rush mining museum with historic structures and equipment.' },
+  { name: 'Western Pacific Railroad Museum', distance: '8 min', desc: 'Interactive museum with boardable locomotives and historic train cars.', url: 'https://www.wplives.org/' },
+  { name: 'Plumas-Eureka State Park', distance: '26 min', desc: 'Gold Rush mining museum with historic structures and equipment.', url: 'https://www.parks.ca.gov/?page_id=507' },
 ];
 
 const dining = [
   { name: 'Blue Door Cafe', distance: '8 min', desc: 'Fresh-baked pastries, hot coffee, and hearty home cooked meals. Dine in or grab and go.' },
   { name: 'Box Car Taphouse', distance: '8 min', desc: 'Craft taproom in downtown Portola with 20 taps, house beers, wine, and food.' },
-  { name: "Rico's Mexican", distance: '8 min', desc: 'Family Mexican restaurant.' },
-  { name: 'Frosty', distance: '8 min', desc: 'Casual outdoor burgers and ice cream.' },
-  { name: 'Eureka Peak Lodge', distance: '12 min', desc: 'Pizza and tapas.' },
-  { name: 'Grizzly Ranch Lake House', distance: '14 min', desc: 'Lunch and bar service.' },
-  { name: 'The Brewing Lair', distance: '17 min', desc: 'Large, rustic outdoor beer garden with picnic tables, a 9-hole disc golf course, lawn games, and fire pits.' },
-  { name: 'Cuccias', distance: '20 min', desc: 'Italian cuisine.' },
+  { name: "Rico's Mexican", distance: '8 min', desc: 'Family Mexican restaurant.', url: 'https://bit.ly/ricosmexicanfood' },
+  { name: 'Frosty', distance: '8 min', desc: 'Casual outdoor burgers and ice cream.', url: 'https://m.facebook.com/111870988850163/' },
+  { name: 'Eureka Peak Lodge', distance: '12 min', desc: 'Pizza and tapas.', url: 'https://www.chaletviewlodge.com/dining' },
+  { name: 'Grizzly Ranch Lake House', distance: '14 min', desc: 'Lunch and bar service.', url: 'http://grizzlyranchgolfclub.com/lake-house/' },
+  { name: 'The Brewing Lair', distance: '17 min', desc: 'Large, rustic outdoor beer garden with picnic tables, a 9-hole disc golf course, lawn games, and fire pits.', url: 'https://www.thebrewinglair.com/' },
+  { name: 'Cuccias', distance: '20 min', desc: 'Italian cuisine.', url: 'https://www.ilovecuccias.com/' },
   { name: 'Ronin Fermentation Project', distance: '20 min', desc: 'Award-winning craft brewery in Graeagle specializing in lagers and koji fermentation. Taproom and patio.' },
 ];
 
 const more = [
-  { name: 'Fishing', desc: 'Lost Sierra Fly Guide and Plumas National Forest resources are available for guided and self-guided fishing in the area.' },
-  { name: 'Birding', desc: 'Sierra Valley is one of the best birding destinations in the Sierra Nevada. The Sierra Valley Preserve has a nature center, trails, and guided tours (15 minutes).' },
-  { name: 'Off-Road', desc: 'Plumas National Forest motor vehicle maps and fire lookout locations available for off-road exploration.' },
+  { name: 'Fishing', desc: 'Lost Sierra Fly Guide and Plumas National Forest resources are available for guided and self-guided fishing in the area.', url: 'https://www.lostsierraflyguide.com/' },
+  { name: 'Birding', desc: 'Sierra Valley is one of the best birding destinations in the Sierra Nevada. The Sierra Valley Preserve has a nature center, trails, and guided tours (15 minutes).', url: 'https://www.frlt.org/outdoor-adventures-lost-sierra/sierra-valley-preserve/' },
+  { name: 'Off-Road', desc: 'Plumas National Forest motor vehicle maps and fire lookout locations available for off-road exploration.', url: 'https://www.fs.usda.gov/detail/plumas/maps-pubs/?cid=fseprd637332' },
 ];
 ---
 
@@ -99,7 +99,11 @@ const more = [
           {water.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
               <div class="flex items-start justify-between gap-4 mb-2">
-                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
                 <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
               </div>
               <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
@@ -116,7 +120,11 @@ const more = [
           {discgolf.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
               <div class="flex items-start justify-between gap-4 mb-2">
-                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
                 <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
               </div>
               <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
@@ -133,7 +141,11 @@ const more = [
           {history.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
               <div class="flex items-start justify-between gap-4 mb-2">
-                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
                 <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
               </div>
               <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
@@ -150,7 +162,11 @@ const more = [
           {dining.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
               <div class="flex items-start justify-between gap-4 mb-2">
-                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
                 <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
               </div>
               <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
@@ -166,7 +182,11 @@ const more = [
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {more.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
-              <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              {item.url ? (
+                <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors mb-2 block">{item.name}</a>
+              ) : (
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              )}
               <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
             </div>
           ))}
