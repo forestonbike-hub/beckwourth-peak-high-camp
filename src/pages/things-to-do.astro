@@ -38,6 +38,8 @@ const dining = [
   { name: 'The Brewing Lair', distance: '17 min', desc: 'Large, rustic outdoor beer garden with picnic tables, a 9-hole disc golf course, lawn games, and fire pits.', url: 'https://www.thebrewinglair.com/' },
   { name: 'Cuccias', distance: '20 min', desc: 'Italian cuisine.', url: 'https://www.ilovecuccias.com/' },
   { name: 'Ronin Fermentation Project', distance: '20 min', desc: 'Award-winning craft brewery in Graeagle specializing in lagers and koji fermentation. Taproom and patio.', url: 'https://www.roninfermentationproject.com/' },
+  { name: 'Sierra Valley Farms', distance: '10 min', desc: 'Certified organic farm in Beckwourth with a weekly farmers market (late May through early October) and seasonal farm-to-table Dinners in the Barn featuring guest chefs, a farm tour, and wine.', url: 'https://www.sierravalleyfarms.com/dinner-in-the-barn/' },
+  { name: 'Feather River Food Co-op', distance: '5 min', desc: "Portola's community-owned grocery with locally sourced produce, local meats, artisan breads, bulk goods, and a deli.", url: 'https://featherriver.coop/' },
 ];
 
 const more = [
@@ -158,7 +160,7 @@ const more = [
       <!-- Dining -->
       <div>
         <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Dining</h2>
-        <p class="text-charcoal/60 font-sans text-base mb-10">Restaurants and breweries nearby</p>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Restaurants, breweries, farm dinners, and local markets nearby</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dining.map((item) => (
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
