@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const photos = [
+  { src: `/images/lodging/campsite-tent-platform-lost-sierra.jpg`, alt: 'Campsite at Beckwourth Peak High Camp, Lost Sierra' },
+  { src: `/images/hero/beckwourth-peak-high-camp-panorama.jpg`, alt: 'Views from the campsite at Beckwourth Peak High Camp, Plumas National Forest' },
+  { src: `/images/activities/campfire-under-stars.jpg`, alt: 'Communal campfire at Beckwourth Peak High Camp' },
+  { src: `/images/lodging/campsite-stargazing-night.jpg`, alt: 'Stargazing at Beckwourth Peak High Camp, Lost Sierra' },
+];
+
+const amenities = [
+  'Starlink WiFi',
+  'Shared bathhouse',
+  'Communal fire pit',
+  'Potable water on-site',
+  'Shaded picnic area',
+  '20-basket disc golf',
+];
+---
+
+<Layout
+  title="Campsite | Beckwourth Peak High Camp"
+  description="Sleeps 5. Private campsite for tents or campervans with bathhouse access, communal fire pit, and 360° mountain views in the Lost Sierra near Portola, CA."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('/images/lodging/campsite-tent-platform-lost-sierra.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Lodging at High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">The Campsite</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Sleeps 5 &bull; Lost Sierra, Portola CA</p>
+    </div>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 max-w-8xl mx-auto">
+      {photos.slice(1).map((photo) => (
+        <div class="overflow-hidden h-48">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: Description + Amenities -->
+        <div class="lg:col-span-2">
+          <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">About the Campsite</h2>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+            The campsite at High Camp is a private spot for tent campers and campervans, set on 65 acres in Plumas National Forest with the same views, access, and amenities as the rest of the property.
+          </p>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+            You get your own space — up to two vehicles and five guests — with full access to the shared bathhouse, communal fire pit, potable water, shaded picnic area, and 20-basket disc golf course. Gravel routes, mountain bike singletrack, and hiking trails leave right from the property.
+          </p>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-12">
+            It's camping with a hot shower waiting at the end of the day.
+          </p>
+
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-5">What's Included</h3>
+          <ul class="grid grid-cols-2 gap-3 mb-10">
+            {amenities.map((item) => (
+              <li class="flex items-center gap-3 font-sans text-charcoal/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <!-- Bathhouse section -->
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-4">The Shared Bathhouse</h3>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-10">
+            The central bathhouse is a short walk from the campsite and shared by all guests on the property. It has private shower stalls, changing rooms, and plenty of hot water. No waiting for a single shower — it's built to handle a full camp.
+          </p>
+
+          <!-- Rules section -->
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-5">Campsite Rules</h3>
+          <ul class="space-y-3 font-sans text-charcoal/70 text-base leading-relaxed">
+            <li class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+              <span>Maximum 2 vehicles and 5 guests per site.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+              <span>No fires at the campsite. Use the communal fire pit, which is available for all guests each evening.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+              <span>Store all food and trash in your vehicle to avoid attracting bears. This is bear country — please take it seriously.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+              <span>No pets.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+              <span>Quiet hours: 10pm – 8am.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Stats + Book CTA -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24">
+            <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-5">The Details</p>
+            <ul class="space-y-3 font-sans text-charcoal/80 mb-6">
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Guests</span>
+                <span class="font-bold">Up to 5</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Vehicles</span>
+                <span class="font-bold">Max 2</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Bathroom</span>
+                <span class="font-bold">Shared bathhouse</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Elevation</span>
+                <span class="font-bold">5,300 ft</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Pets</span>
+                <span class="font-bold">Not allowed</span>
+              </li>
+              <li class="flex justify-between pb-3">
+                <span class="text-charcoal/50">Season</span>
+                <span class="font-bold">May – October</span>
+              </li>
+            </ul>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Check Availability
+            </a>
+            <p class="text-charcoal/40 text-xs font-sans text-center mt-3">Book direct for best availability</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

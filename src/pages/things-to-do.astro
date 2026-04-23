@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const water = [
+  { name: 'Lake Davis', distance: '18 min', desc: 'Camping, picnicking, fishing, boating, swimming, mountain biking, and wildlife viewing.', url: 'https://www.fs.usda.gov/recarea/plumas/recarea/?recid=71113' },
+  { name: 'Lakes Basin Recreation Area', distance: '34 min', desc: 'More than 20 lakes, 30+ miles of trails, waterfalls, and historic facilities.', url: 'https://plumascounty.org/get-outside/places-to-visit/lakes-basin-recreation-area/' },
+  { name: 'Frazier Point Falls', distance: '36 min', desc: 'An accessible waterfall trail typically flowing May through June, suitable for families and limited-ability hikers.', url: 'https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd706813.pdf' },
+  { name: 'Sierra Valley Hot Springs', distance: '36 min', desc: 'Natural hot springs with day-use and evening soak passes. Reservation required, Thursday through Sunday.', url: 'https://sierrahotsprings.org/' },
+  { name: 'Portola Public Pool', distance: '5 min', desc: 'Memorial Day through Labor Day, Tuesday through Saturday, noon to 5pm.', url: 'https://www.cityofportola.com/portola-pool' },
+  { name: 'Graeagle Mill Pond', distance: '12 min', desc: 'A scenic swimming pond in the center of Graeagle village. Popular for swimming, paddleboarding, and picnicking.', url: 'https://www.google.com/maps?rlz=1CAJYXH_enUS1179US1179&um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=KXWidZnga5yAMQn9VFu2sX-X&daddr=1261+Maricopa+Trail,+Graeagle,+CA+96103' },
+  { name: 'Middle Fork Feather River', distance: '10 min', desc: 'A classic summer spot for swimming and tubing. The Middle Fork runs through the canyon below Portola with calm sections perfect for a lazy float.', url: 'https://plumascounty.org/get-outside/activities/kayaking-and-rafting-in-northern-california/' },
+  { name: 'Mills Peak Trail & Fire Lookout', distance: '20 min', desc: 'Hike or bike to an active fire lookout at 7,340 feet with sweeping views of Mohawk Valley, Beckwourth Peak, Sierra Valley, Sierra Buttes, and Mt. Lassen on a clear day. A great one for adventurous guests.', url: 'https://www.alltrails.com/trail/us/california/mills-peak-lookout' },
+  { name: 'Sierra Buttes Lookout Trail', distance: '45 min', desc: 'One of the most dramatic hikes in the Sierra Nevada. A fire lookout staircase at the summit, with Upper and Lower Sardine Lakes spread out below. Near Sierra City.', url: 'https://www.alltrails.com/trail/us/california/sierra-buttes-lookout-trail' },
+  { name: 'Smith Peak', distance: '15 min', desc: 'The longest trail near Portola at 8.5 miles with 1,814 feet of elevation gain. Secluded and quiet — a good option for guests who want to earn their views.', url: 'https://www.alltrails.com/trail/us/california/smith-peak-via-24n07' },
+  { name: 'Portola "P" Trail', distance: '5 min', desc: 'A popular out-and-back right in town, good in almost any season. Great for guests who want something quick and manageable with solid views.', url: 'https://www.alltrails.com/trail/us/california/portola-p-trail' },
+  { name: 'Pacific Crest Trail', distance: '45 min', desc: 'The PCT passes through this stretch of the Sierra Nevada with stunning mountain views, crystal-clear lakes, and striking rock formations. Guests can pick up the trail near Sierra City for a day section without committing to a thru-hike.', url: 'https://www.alltrails.com/trail/us/california/pct-ca-section-m-highway-49-to-belden' },
+];
+
+const discgolf = [
+  { name: 'Portola Riverwalk Disc Golf', distance: '5 min', desc: 'Award-winning course along the Feather River.', url: 'https://portolariverwalkdgc.com/' },
+  { name: 'Nakoma Resort', distance: '14 min', desc: 'Golf course at the Nakoma Resort.', url: 'https://nakomaresort.com/golf/' },
+  { name: 'Grizzly Ranch Golf Club', distance: '15 min', desc: 'Championship golf in the Sierra Nevada foothills.', url: 'https://www.grizzlyranchliving.com/golf' },
+  { name: 'Plumas Pines Golf Course', distance: '23 min', desc: 'Scenic mountain golf course.', url: 'https://plumaspinesgolf.com/' },
+];
+
+const history = [
+  { name: 'Western Pacific Railroad Museum', distance: '8 min', desc: 'Interactive museum with boardable locomotives and historic train cars.', url: 'https://www.wplives.org/' },
+  { name: 'Plumas-Eureka State Park', distance: '26 min', desc: 'Gold Rush mining museum with historic structures and equipment.', url: 'https://www.parks.ca.gov/?page_id=507' },
+];
+
+const dining = [
+  { name: 'Blue Door Cafe', distance: '8 min', desc: 'Fresh-baked pastries, hot coffee, and hearty home cooked meals. Dine in or grab and go.', url: 'https://bluedoorcafeportola.com/' },
+  { name: 'Box Car Taphouse', distance: '8 min', desc: 'Craft taproom in downtown Portola with 20 taps, house beers, wine, and food.', url: 'https://www.boxcarportola.com/' },
+  { name: "Rico's Mexican", distance: '8 min', desc: 'Family Mexican restaurant.', url: 'https://bit.ly/ricosmexicanfood' },
+  { name: 'Frosty', distance: '8 min', desc: 'Casual outdoor burgers and ice cream.', url: 'https://m.facebook.com/111870988850163/' },
+  { name: 'Eureka Peak Lodge', distance: '12 min', desc: 'Pizza and tapas.', url: 'https://www.chaletviewlodge.com/dining' },
+  { name: 'Grizzly Ranch Lake House', distance: '14 min', desc: 'Lunch and bar service.', url: 'http://grizzlyranchgolfclub.com/lake-house/' },
+  { name: 'The Brewing Lair', distance: '17 min', desc: 'Large, rustic outdoor beer garden with picnic tables, a 9-hole disc golf course, lawn games, and fire pits.', url: 'https://www.thebrewinglair.com/' },
+  { name: 'Cuccias', distance: '20 min', desc: 'Italian cuisine.', url: 'https://www.ilovecuccias.com/' },
+  { name: 'Ronin Fermentation Project', distance: '20 min', desc: 'Award-winning craft brewery in Graeagle specializing in lagers and koji fermentation. Taproom and patio.', url: 'https://www.roninfermentationproject.com/' },
+  { name: 'Sierra Valley Farms', distance: '10 min', desc: 'Certified organic farm in Beckwourth with a weekly farmers market (late May through early October) and seasonal farm-to-table Dinners in the Barn featuring guest chefs, a farm tour, and wine.', url: 'https://www.sierravalleyfarms.com/dinner-in-the-barn/' },
+  { name: 'Feather River Food Co-op', distance: '5 min', desc: "Portola's community-owned grocery with locally sourced produce, local meats, artisan breads, bulk goods, and a deli.", url: 'https://featherriver.coop/' },
+];
+
+const more = [
+  { name: 'Fishing', desc: 'Lost Sierra Fly Guide and Plumas National Forest resources are available for guided and self-guided fishing in the area.', url: 'https://www.lostsierraflyguide.com/' },
+  { name: 'Birding', desc: 'Sierra Valley is one of the best birding destinations in the Sierra Nevada. The Sierra Valley Preserve has a nature center, trails, and guided tours (15 minutes).', url: 'https://www.frlt.org/outdoor-adventures-lost-sierra/sierra-valley-preserve/' },
+  { name: 'Off-Road', desc: 'Plumas National Forest motor vehicle maps and fire lookout locations available for off-road exploration.', url: 'https://www.fs.usda.gov/detail/plumas/maps-pubs/?cid=fseprd637332' },
+];
+---
+
+<Layout
+  title="Things to Do | Beckwourth Peak High Camp"
+  description="Outdoor activities, dining, history, and more near Beckwourth Peak High Camp in the Lost Sierra near Portola, CA."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[40vh] min-h-[300px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('/images/hero/beckwourth-peak-high-camp-panorama.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Beckwourth Peak High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">Things to Do</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Near Portola, CA &bull; Lost Sierra</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6 space-y-20">
+
+      <!-- At High Camp -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">At High Camp</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Right outside your door</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { name: 'Disc Golf', desc: 'A 20-basket disc golf course winds through the pines on the property. Discs available for purchase.' },
+            { name: 'Mountain Biking', desc: 'Singletrack trails leave directly from the property into Plumas National Forest.' },
+            { name: 'Gravel Cycling', desc: 'High Camp sits at the intersection of some of the best gravel roads in the Lost Sierra, including sections of the Lost and Found Gravel Festival route.' },
+            { name: 'Hiking', desc: 'Trails on the 65-acre property connect to Plumas National Forest hiking routes.' },
+            { name: 'Campfire', desc: 'A communal fire pit with firewood is available for guests each evening.' },
+            { name: 'Stargazing', desc: 'At 5,300 feet with no light pollution, the night sky at High Camp is exceptional.' },
+          ].map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Water -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Hiking, Swimming, Exploring</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Lakes, hot springs, and waterfalls within an hour</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {water.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Disc Golf & Golf -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Disc Golf &amp; Golf</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">On the property and nearby</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {discgolf.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- History -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">History</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Gold Rush history and railroads within 30 minutes</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {history.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Dining -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Dining</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Restaurants, breweries, farm dinners, and local markets nearby</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {dining.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              <div class="flex items-start justify-between gap-4 mb-2">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
+                ) : (
+                  <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
+                )}
+                <span class="text-cobalt font-sans text-xs font-bold whitespace-nowrap">{item.distance}</span>
+              </div>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- More -->
+      <div>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">More to Explore</h2>
+        <p class="text-charcoal/60 font-sans text-base mb-10">Fishing, birding, and off-road adventures</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {more.map((item) => (
+            <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
+              {item.url ? (
+                <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors mb-2 block">{item.name}</a>
+              ) : (
+                <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal mb-2">{item.name}</p>
+              )}
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center pt-4">
+        <p class="font-sans text-charcoal/60 mb-6">Ready to plan your trip?</p>
+        <a
+          href={BOOK_URL}
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+        >
+          Check Availability
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

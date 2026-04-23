@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const photos = [
+  { src: '/images/lodging/north-cabin-exterior-plumas-forest.jpg', alt: 'North Cabin exterior at Beckwourth Peak High Camp, Lost Sierra' },
+  { src: '/images/hero/beckwourth-peak-high-camp-panorama.jpg', alt: 'North Cabin at Beckwourth Peak High Camp, Plumas National Forest' },
+  { src: '/images/lodging/north-cabin-interior-beds.jpg', alt: 'North Cabin interior and sleeping area, Beckwourth Peak High Camp' },
+  { src: '/images/lodging/north-cabin-deck-mountain-views.jpg', alt: 'North Cabin private deck with mountain views, Beckwourth Peak High Camp' },
+  { src: '/images/lodging/north-cabin-adirondack-chairs.jpg', alt: 'Adirondack chairs on the deck at Beckwourth Peak High Camp, Lost Sierra' },
+];
+
+const amenities = [
+  'Private deck',
+  'Starlink WiFi',
+  'Heat',
+  'Air conditioning',
+  'Shared bathhouse',
+  'Fridge',
+  'Kitchen',
+];
+---
+
+<Layout
+  title="North Cabin | Beckwourth Peak High Camp"
+  description="Sleeps 4. Modern cabin with a private deck, full kitchen, and sweeping valley views in the Lost Sierra near Portola, CA."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/lodging/north-cabin-exterior-plumas-forest.jpg')"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Lodging at High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">North Cabin</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Sleeps 4 &bull; Lost Sierra, Portola CA</p>
+    </div>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-8xl mx-auto">
+      {photos.slice(1).map((photo) => (
+        <div class="overflow-hidden h-48">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-charcoal">
+    <video
+      src="/videos/north-cabin-tour.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full max-h-[70vh] object-cover"
+    ></video>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: Description + Amenities -->
+        <div class="lg:col-span-2">
+          <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">About the Cabin</h2>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+            The North Cabin is a modern retreat tucked into the pines on 65 acres of Beckwourth Peak. Step out onto your private deck and take in sweeping mountain views across Plumas National Forest, with no neighbors in sight.
+          </p>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+            The cabin is set up for the kind of trip where you actually unwind: a kitchenette, comfortable beds, heat and air conditioning and plenty of outdoor space.
+          </p>
+          <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-12">
+            Gravel routes, mountain bike singletrack, and hiking trails leave right from the property. Come back to a hot shower in the shared bathhouse, then end the night around the fire pit under a sky packed with stars.
+          </p>
+
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-5">What's Included</h3>
+          <ul class="grid grid-cols-2 gap-3 mb-6">
+            {amenities.map((item) => (
+              <li class="flex items-center gap-3 font-sans text-charcoal/70">
+                <span class="w-1.5 h-1.5 rounded-full bg-cobalt flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <details class="border border-charcoal/15 rounded group">
+            <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none font-heading text-sm font-bold uppercase tracking-widest text-charcoal/60 hover:text-charcoal transition-colors select-none">
+              Full supply list
+              <span class="text-cobalt text-lg leading-none group-open:rotate-45 transition-transform duration-200">+</span>
+            </summary>
+            <div class="px-5 pb-6 pt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Bedding &amp; Linens</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Sheets</li>
+                  <li>Duvets</li>
+                  <li>Pillows</li>
+                  <li>Throw blanket</li>
+                  <li>Towels</li>
+                  <li>Washcloths</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Kitchen &amp; Dining</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Coffee, creamer &amp; sugar</li>
+                  <li>Salt &amp; pepper</li>
+                  <li>Dishes, bowls &amp; cups</li>
+                  <li>Coffee mugs</li>
+                  <li>Utensils</li>
+                  <li>Dish soap &amp; dish towel</li>
+                  <li>Bottle opener</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Around the Cabin</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>Games</li>
+                  <li>Mini lantern</li>
+                  <li>Lighter</li>
+                  <li>Paper towels</li>
+                  <li>Cleaning products</li>
+                </ul>
+              </div>
+
+              <div>
+                <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-3">Available for Purchase</p>
+                <ul class="space-y-1.5 font-sans text-sm text-charcoal/70">
+                  <li>S'mores kit</li>
+                  <li>Disc golf discs</li>
+                </ul>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+        <!-- Right: Stats + Book CTA -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24">
+            <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-5">The Details</p>
+            <ul class="space-y-3 font-sans text-charcoal/80 mb-6">
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Guests</span>
+                <span class="font-bold">Up to 4</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Beds</span>
+                <span class="font-bold">2 queen bunks</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Bathroom</span>
+                <span class="font-bold">Shared bathhouse</span>
+              </li>
+              <li class="flex justify-between border-b border-charcoal/10 pb-3">
+                <span class="text-charcoal/50">Elevation</span>
+                <span class="font-bold">5,300 ft</span>
+              </li>
+              <li class="flex justify-between pb-3">
+                <span class="text-charcoal/50">Season</span>
+                <span class="font-bold">May – October</span>
+              </li>
+            </ul>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Check Availability
+            </a>
+            <p class="text-charcoal/40 text-xs font-sans text-center mt-3">Book direct for best availability</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,57 @@
+---
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+---
+
+<footer class="bg-dark-nav text-white py-14">
+  <div class="max-w-8xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between gap-10 mb-10">
+      <div class="max-w-xs">
+        <img
+          src="/images/logos/beckwourth-peak-high-camp-logo.png"
+          alt="Beckwourth Peak High Camp"
+          class="h-10 w-auto mb-4"
+        />
+        <p class="text-white/60 text-sm leading-relaxed font-sans mb-5">
+          Off-grid glamping on 65 acres in California's Lost Sierra. Seasonal operation, May through October.
+        </p>
+        <ul class="space-y-1.5 text-white/60 text-sm font-sans">
+          <li><a href="mailto:contact@beckwourthpeakhighcamp.com" class="hover:text-white transition-colors">contact@beckwourthpeakhighcamp.com</a></li>
+          <li><a href="tel:5303220322" class="hover:text-white transition-colors">530-322-0322</a></li>
+          <li><a href="/getting-here" class="hover:text-white transition-colors">Directions</a></li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-2 gap-10 text-sm">
+        <div>
+          <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Stay</p>
+          <ul class="space-y-2 text-white/70 font-sans">
+            <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">North Cabin</a></li>
+            <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">South Cabin</a></li>
+            <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">The Yurt</a></li>
+            <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">Campsite</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Visit</p>
+          <ul class="space-y-2 text-white/70 font-sans">
+            <li><a href="/getting-here" class="hover:text-white transition-colors">Getting Here</a></li>
+            <li><a href="/policies" class="hover:text-white transition-colors">Policies</a></li>
+            <li><a href="https://www.instagram.com/beckwourthpeakhighcamp/" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="max-w-xs text-sm">
+        <p class="font-heading font-bold uppercase tracking-widest text-white/40 text-xs mb-4">Policies</p>
+        <ul class="space-y-2 text-white/60 font-sans">
+          <li>Check-in: 3pm &bull; Check-out: 11am</li>
+          <li>Cancellations: 14+ days out: refund minus 5% fee. Under 14 days: no refund.</li>
+          <li>No smoking</li>
+          <li>No pets</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/30 font-sans">
+      <p>&copy; {new Date().getFullYear()} Beckwourth Peak High Camp. All rights reserved.</p>
+      <p>Near Portola, CA &bull; Plumas National Forest &bull; Lost Sierra</p>
+    </div>
+  </div>
+</footer>

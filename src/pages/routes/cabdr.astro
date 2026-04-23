@@ -1,0 +1,163 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const GPX_URL = '/downloads/cabdr-portola-alternate-gpx.zip';
+
+const photos = [
+  { src: `/images/routes/cabdr-riders-high-camp.jpg`, alt: 'CABDR-North riders at Beckwourth Peak High Camp in the Lost Sierra' },
+  { src: `/images/routes/norcal-bdr-riders-lost-sierra.jpg`, alt: 'NorCal BDR riders at Beckwourth Peak High Camp on the CABDR-North alternate' },
+  { src: `/images/routes/cabdr-section-6-alternate.jpg`, alt: 'CABDR riders on the Section 6 alternate through the Lost Sierra' },
+];
+
+const highlights = [
+  'Beckwourth Peak and the singletrack surrounding High Camp',
+  'The town of Portola for resupply and a meal',
+  'Smith Peak Lookout with panoramic views of the Lost Sierra',
+  'Quiet forest roads and gravel through Plumas National Forest',
+];
+---
+
+<Layout
+  title="CABDR-North Alternate Route | Beckwourth Peak High Camp"
+  description="A better alternate for CABDR-North Section 6 through the Lost Sierra. Passes through Beckwourth Peak High Camp, the town of Portola, and Smith Peak Lookout."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/routes/cabdr-hero-sunset-lost-sierra.jpg')"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Routes at High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">CABDR-North Alternate</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Section 6 &bull; Portola, CA</p>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
+      {photos.map((photo) => (
+        <div class="overflow-hidden h-52">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: main content -->
+        <div class="lg:col-span-2 space-y-16">
+
+          <!-- Intro -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">A Better Way Through Section 6</h2>
+            <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+              The Northern California Backcountry Discovery Route (CABDR-North) passes through some spectacular terrain -- but the standard Section 6 routing runs west of Portola, bypassing some of the best riding in the region around Beckwourth Peak and the Smith Peak Lookout.
+            </p>
+            <p class="text-charcoal/80 font-sans text-lg leading-relaxed mb-4">
+              This alternate keeps you on gravel and forest roads through the heart of the Lost Sierra, with a stop in Portola for resupply and the option to ride through or stay the night at High Camp.
+            </p>
+            <p class="text-charcoal/80 font-sans text-lg leading-relaxed">
+              High Camp makes an ideal overnight stop on this route -- hot shower, real bed, and you're back on the trail the next morning.
+            </p>
+          </div>
+
+          <!-- Route Highlights -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-8">What the Alternate Adds</h2>
+            <ul class="space-y-4">
+              {highlights.map((item) => (
+                <li class="flex items-start gap-3 font-sans text-base text-charcoal/80">
+                  <span class="w-2 h-2 rounded-full bg-cobalt flex-shrink-0 mt-2"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Route Map -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Route Overview</h2>
+            <div class="rounded overflow-hidden shadow-md">
+              <img
+                src={`/images/routes/cabdr-portola-alternate-route-map.jpg`}
+                alt="Map of the CABDR-North Section 6 Portola alternate route"
+                class="w-full"
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: sidebar -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24 space-y-8">
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">Download GPX</p>
+              <a
+                href={GPX_URL}
+                class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+              >
+                CABDR Section 6 Alternate
+              </a>
+            </div>
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-3">Official CABDR-North</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed mb-2">
+                Full route information and resources on the official BDR site.
+              </p>
+              <a
+                href="https://ridebdr.com/cabdr-north/"
+                target="_blank"
+                rel="noopener"
+                class="text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+              >
+                ridebdr.com/cabdr-north
+              </a>
+            </div>
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-3">Questions?</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed mb-2">
+                Reach out with any questions about riding the CABDR alternate through High Camp.
+              </p>
+              <a href="mailto:contact@beckwourthpeakhighcamp.com" class="text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors">
+                contact@beckwourthpeakhighcamp.com
+              </a>
+            </div>
+
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Book Your Stay
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

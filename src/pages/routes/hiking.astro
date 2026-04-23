@@ -1,0 +1,322 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const photos = [
+  { src: `/images/routes/hiking-trail-forest-beckwourth.jpg`, alt: 'Hiking trail through the forest near Beckwourth Peak High Camp' },
+  { src: `/images/routes/trail-views-beckwourth-peak.jpg`, alt: 'Trail views from the Beckwourth Peak area in the Lost Sierra' },
+  { src: `/images/routes/hikers-trail-lost-sierra.jpg`, alt: 'Hikers on a trail near Beckwourth Peak High Camp in the Lost Sierra' },
+];
+
+const trails = [
+  {
+    name: 'Beckwourth Peak Trail',
+    tag: 'At High Camp',
+    difficulty: 'Moderate',
+    stats: [
+      { label: 'Format', value: 'Out-and-Back' },
+      { label: 'Surface', value: 'Singletrack' },
+    ],
+    desc: 'A new singletrack trail built by the Sierra Buttes Trail Stewardship, leaving directly from High Camp. The trail climbs through open terrain with sweeping views of the Lost Sierra. A loop completion is planned for 2025 -- check the RWGPS link for the latest route.',
+    mapLabel: 'View on Ride with GPS',
+    mapUrl: 'https://ridewithgps.com/routes/52460523',
+  },
+  {
+    name: 'Beckwourth Peak Summit',
+    tag: 'At High Camp',
+    difficulty: 'Strenuous',
+    stats: [
+      { label: 'Time', value: '4–5 hrs round trip' },
+      { label: 'Surface', value: 'Trail & Dirt Road' },
+    ],
+    desc: 'The full summit hike for fit hikers. The lower section follows the Beckwourth Peak Trail before joining a dirt service road to the top. Bring plenty of water -- there\'s none on the route. The views from the summit are worth every step.',
+    mapLabel: 'View on Ride with GPS',
+    mapUrl: 'https://ridewithgps.com/routes/52460636',
+  },
+  {
+    name: 'Little Jamison Falls',
+    tag: '32 min from High Camp',
+    difficulty: 'Easy',
+    stats: [
+      { label: 'Distance', value: '2 mi round trip' },
+      { label: 'Surface', value: 'Dirt Trail' },
+    ],
+    desc: 'A short, accessible hike to a year-round waterfall in Plumas National Forest. The trail follows Little Jamison Creek and stays manageable for most fitness levels. An optional extension continues to Grass Lake for those who want more.',
+    mapLabel: 'View on The Outbound',
+    mapUrl: 'https://www.theoutbound.com/lake-tahoe/hiking/hike-to-little-jamison-falls',
+  },
+  {
+    name: 'Mills Peak Trail & Fire Lookout',
+    tag: '20 min from High Camp',
+    difficulty: 'Moderate',
+    stats: [
+      { label: 'Distance', value: '7 mi' },
+      { label: 'Surface', value: 'Singletrack' },
+    ],
+    desc: 'Hike or bike to an active fire lookout at 7,340 feet with sweeping views of Mohawk Valley, Beckwourth Peak, Sierra Valley, Sierra Buttes, and Mt. Lassen on a clear day. A great one for adventurous guests.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/mills-peak-lookout',
+  },
+  {
+    name: 'Smith Peak',
+    tag: '15 min from High Camp',
+    difficulty: 'Strenuous',
+    stats: [
+      { label: 'Distance', value: '8.5 mi' },
+      { label: 'Elevation Gain', value: '1,814 ft' },
+    ],
+    desc: 'The longest trail close to High Camp — secluded, quiet, and worth the effort. A good option for guests looking to earn their views without the crowds.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/smith-peak-via-24n07',
+  },
+  {
+    name: 'Portola "P" Trail',
+    tag: '5 min from High Camp',
+    difficulty: 'Easy–Moderate',
+    stats: [
+      { label: 'Format', value: 'Out-and-Back' },
+      { label: 'Surface', value: 'Dirt Trail' },
+    ],
+    desc: 'A popular trail right in town, good in almost any season. A quick option for guests who want solid views without a long drive or serious climb.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/portola-p-trail',
+  },
+  {
+    name: 'Sierra Buttes Lookout Trail',
+    tag: '45 min from High Camp',
+    difficulty: 'Strenuous',
+    stats: [
+      { label: 'Distance', value: '4.9 mi round trip' },
+      { label: 'Elevation Gain', value: '1,752 ft' },
+    ],
+    desc: 'One of the most dramatic hikes in the Sierra Nevada. The summit features a historic fire lookout with a steel staircase and sweeping views of Upper and Lower Sardine Lakes. Near Sierra City — plan for a half-day trip.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/sierra-buttes-lookout-trail',
+  },
+  {
+    name: 'Pacific Crest Trail',
+    tag: '45 min from High Camp',
+    difficulty: 'Moderate–Strenuous',
+    stats: [
+      { label: 'Access Point', value: 'Near Sierra City' },
+      { label: 'Surface', value: 'Singletrack' },
+    ],
+    desc: 'The PCT passes through this stretch of the Sierra Nevada with stunning mountain views, crystal-clear lakes, and striking rock formations. Pick up the trail near Sierra City for a day section without committing to a thru-hike.',
+    mapLabel: 'View on AllTrails',
+    mapUrl: 'https://www.alltrails.com/trail/us/california/pct-ca-section-m-highway-49-to-belden',
+  },
+  {
+    name: 'Portola Riverwalk Trail',
+    tag: '7 min from High Camp',
+    difficulty: 'Easy',
+    stats: [
+      { label: 'Surface', value: 'Paved' },
+      { label: 'Terrain', value: 'Flat' },
+    ],
+    desc: 'A flat, paved trail that follows the river through downtown Portola. A good option for a casual morning walk or a post-ride stretch. The trail connects to the town\'s disc golf course as well.',
+    mapLabel: 'City of Portola',
+    mapUrl: 'https://www.cityofportola.com/riverwalk-and-disc-golf-course',
+  },
+  {
+    name: 'Calpine Fire Lookout',
+    tag: '33 min from High Camp',
+    difficulty: 'Easy–Moderate',
+    stats: [
+      { label: 'Access', value: 'Road & Trail' },
+      { label: 'Note', value: 'Weather dependent' },
+    ],
+    desc: 'A scenic fire lookout accessible via Calpine Road. The lower portion is drivable; conditions vary by season and weather. Worth the trip for the views -- bring layers.',
+    mapLabel: 'View on The Outbound',
+    mapUrl: 'https://www.theoutbound.com/lake-tahoe/camping/camp-at-the-calpine-fire-lookout',
+  },
+];
+---
+
+<Layout
+  title="Hiking Trails | Beckwourth Peak High Camp"
+  description="Hiking trails near Beckwourth Peak High Camp in the Lost Sierra. Trails start directly on the property and extend to waterfalls, fire lookouts, and ridge views nearby."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('/images/routes/hiking-beckwourth-peak-overlook.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Trails at High Camp</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">Hiking Trails</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">Lost Sierra &bull; Portola, CA</p>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
+      {photos.map((photo) => (
+        <div class="overflow-hidden h-52">
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: trail sections -->
+        <div class="lg:col-span-2 space-y-20">
+
+          {trails.map((trail) => (
+            <div>
+              <!-- Header -->
+              <div class="flex items-center gap-3 mb-2">
+                <span class="font-sans text-xs font-bold uppercase tracking-widest text-cobalt">{trail.tag}</span>
+                <span class="text-charcoal/30">|</span>
+                <span class="font-sans text-xs text-charcoal/50 font-bold uppercase tracking-wider">{trail.difficulty}</span>
+              </div>
+              <a href={trail.mapUrl} target="_blank" rel="noopener" class="hover:text-cobalt transition-colors">
+                <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              </a>
+              <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{trail.desc}</p>
+
+              <!-- Stats -->
+              <div class="flex flex-wrap gap-6 mb-8">
+                {trail.stats.map((stat) => (
+                  <div class="bg-white border border-charcoal/10 px-5 py-3 rounded shadow-sm">
+                    <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">{stat.label}</p>
+                    <p class="font-sans text-sm font-bold text-charcoal">{stat.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Trail map link -->
+              <a
+                href={trail.mapUrl}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                {trail.mapLabel}
+              </a>
+            </div>
+          ))}
+
+        </div>
+
+        <!-- Right: sidebar -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24 space-y-8">
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">Trail Maps</p>
+              <div class="space-y-3">
+                <a
+                  href="https://ridewithgps.com/routes/52460523"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Beckwourth Peak Trail
+                </a>
+                <a
+                  href="https://ridewithgps.com/routes/52460636"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Beckwourth Peak Summit
+                </a>
+                <a
+                  href="https://www.theoutbound.com/lake-tahoe/hiking/hike-to-little-jamison-falls"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Little Jamison Falls
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/mills-peak-lookout"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Mills Peak Trail
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/smith-peak-via-24n07"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Smith Peak
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/portola-p-trail"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Portola "P" Trail
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/sierra-buttes-lookout-trail"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Sierra Buttes
+                </a>
+                <a
+                  href="https://www.alltrails.com/trail/us/california/pct-ca-section-m-highway-49-to-belden"
+                  target="_blank"
+                  rel="noopener"
+                  class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+                >
+                  Pacific Crest Trail
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-3">Questions?</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed mb-2">
+                Reach out with any questions about hiking near High Camp.
+              </p>
+              <a href="mailto:contact@beckwourthpeakhighcamp.com" class="text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors">
+                contact@beckwourthpeakhighcamp.com
+              </a>
+            </div>
+
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Book Your Stay
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

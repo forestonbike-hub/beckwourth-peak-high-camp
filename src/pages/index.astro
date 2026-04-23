@@ -1,133 +1,189 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
-const WP = 'https://beckwourthpeakhighcamp.com/wp-content/uploads';
 
 const lodging = [
   {
     name: 'North Cabin',
     sleeps: 4,
-    desc: 'A modern cabin tucked into the pines with a wraparound deck and sweeping valley views.',
-    img: `${WP}/2024/01/20230917_072055-edited.jpg`,
+    desc: 'A modern cabin with a kitchen, private deck, Adirondack chairs, and sweeping valley views. 100 yards and out of sight from the South Cabin.',
+    alt: 'Modern cabin rental for mountain bikers at Beckwourth Peak High Camp, Lost Sierra',
+    img: `/images/lodging/north-cabin-valley-views.jpg`,
   },
   {
     name: 'South Cabin',
     sleeps: 4,
-    desc: 'Wake up to panoramic mountain views. Adirondack chairs wait on the private deck.',
-    img: `${WP}/2024/05/beckwourth-high-camp-3401-ig_53695282643_o-1-1024x1024.jpg`,
+    desc: 'A modern cabin with a kitchen, private deck, Adirondack chairs, and sweeping valley views. 100 yards and out of sight from the North Cabin.',
+    alt: 'Off-grid cabin rental near gravel biking trails at Beckwourth Peak High Camp',
+    img: '/images/lodging/south-cabin-mountain-retreat.jpg',
   },
   {
     name: 'The Yurt',
     sleeps: 5,
-    desc: 'Hardwood floors, a queen bed, and a stargazing skylight — glamping at its best.',
-    img: `${WP}/2025/07/20250608_090013-EDIT-1-1024x768.jpg`,
+    desc: 'Hardwood floors, 4 beds, private deck and a skylight window for stargazing. More than 100 yards from other units.',
+    alt: 'Yurt rental with stargazing skylight at Beckwourth Peak High Camp, Portola CA',
+    img: `/images/lodging/yurt-private-deck-mountains.jpg`,
   },
   {
     name: 'Campsite',
     sleeps: 5,
-    desc: 'Your own sheltered site with a fire ring, picnic table, and full access to all amenities.',
-    img: `${WP}/2024/06/20240608_143013-1024x768.jpg`,
+    desc: 'Your own private site with a picnic table and full access to our bathhouse, campfire, shaded picnic area and other amenities.',
+    alt: 'Private campsite with bathhouse access at Beckwourth Peak High Camp, Lost Sierra',
+    img: `/images/lodging/campsite-tent-platform-lost-sierra.jpg`,
+  },
+];
+
+const amenities = [
+  {
+    label: 'Luxury Bathhouse',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />',
+  },
+  {
+    label: 'Cozy Campfire',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />',
+  },
+  {
+    label: 'Starlink WiFi',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z" />',
+  },
+  {
+    label: 'Disc Golf & Games',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />',
+  },
+  {
+    label: 'Trail System',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />',
+  },
+  {
+    label: 'Shaded Picnic Area',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />',
   },
 ];
 
 const activities = [
   {
-    name: 'Hiking',
-    desc: 'On-property trails connect to miles of Forest Service singletrack. Summit Beckwourth Peak for 360° views.',
-    img: `${WP}/2023/10/20220512_171221-1024x557.jpg`,
+    name: 'Biking',
+    desc: 'Gravel routes and mountain bike trails leave right from High Camp. Mt. Hough and Mills Peak are nearby.',
+    alt: 'Mountain biking and gravel cycling at Beckwourth Peak High Camp, Lost Sierra California',
+    img: '/images/activities/mountain-biking-lost-sierra.jpg',
     bg: '',
   },
   {
-    name: 'Biking',
-    desc: 'Gravel routes and mountain bike trails leave right from camp. World-class terrain in every direction.',
-    img: `${WP}/2024/05/5-bucks-gravel-24-3434-ig_53695515155_o-2-1024x1024.jpg`,
+    name: 'Campfires',
+    desc: "Gather around the fire pit under the stars. We'll bring the chairs!",
+    alt: 'Campfire under the stars at Beckwourth Peak High Camp glamping, Portola CA',
+    img: '/images/activities/campfire-under-stars.jpg',
+    bg: '',
+  },
+  {
+    name: 'Hiking',
+    desc: 'Our trails connect to Beckwourth Peak Recreation Project, offering 19 miles of trail and 360° views.',
+    alt: 'Hiking trails at Beckwourth Peak Recreation Project near Portola, California',
+    img: `/images/activities/beckwourth-peak-hiking-trail.jpg`,
     bg: '',
   },
   {
     name: 'Disc Golf',
     desc: 'Play our on-property 20-basket disc golf course winding through the pines.',
-    img: '',
-    bg: 'bg-gradient-to-br from-charcoal to-[#2a2a2a]',
-    icon: '🥏',
-  },
-  {
-    name: 'Stargazing',
-    desc: 'Far from city lights at 5,300 feet, the Milky Way puts on a show every clear night.',
-    img: '',
-    bg: 'bg-gradient-to-br from-[#0a0f2e] to-[#1a2550]',
-    icon: '✦',
-  },
-  {
-    name: 'Deck Time',
-    desc: 'The shaded communal deck has picnic tables, string lights, and unobstructed mountain views.',
-    img: `${WP}/2024/06/deck88-1024x769.jpg`,
+    alt: '20-basket disc golf course at Beckwourth Peak High Camp, Lost Sierra',
+    img: `/images/activities/disc-golf-course-pines.jpg`,
     bg: '',
   },
   {
-    name: 'Golf',
-    desc: 'Championship courses at Graeagle Meadows and Plumas Pines are just 8 miles away.',
-    img: '',
-    bg: 'bg-gradient-to-br from-[#3a5c2a] to-[#2d4a20]',
-    icon: '⛳',
+    name: 'Stargazing',
+    desc: 'Dark Sky Community. 5,300 feet. Minimal light pollution. The rest is up to the sky.',
+    alt: 'Dark sky stargazing at Beckwourth Peak High Camp, Lost Sierra California',
+    img: '/images/activities/dark-sky-stargazing.jpg',
+    bg: '',
   },
   {
-    name: 'Campfires',
-    desc: 'Gather around the communal fire pit under the stars. S\'mores provided.',
-    img: '',
-    bg: 'bg-gradient-to-br from-[#8B3A0F] to-[#5c2208]',
-    icon: '🔥',
+    name: 'Events',
+    desc: 'From biking getaways to family reunions to microweddings and elopements, High Camp is a great place to connect.',
+    alt: 'Group retreats and events at Beckwourth Peak High Camp, Plumas County California',
+    img: '/images/activities/group-events-retreat.jpg',
+    bg: '',
   },
 ];
 
 const attractions = [
   {
+    name: 'Mt. Hough Trails',
+    distance: '20 miles',
+    desc: '50+ miles of singletrack, with 3,800 vertical feet of flowy, fast descent.',
+    alt: 'Mt. Hough mountain biking singletrack trails near Quincy, California Lost Sierra',
+    color: 'from-[#2a4a1a] to-[#1a3010]',
+    img: '/images/nearby/mt-hough-singletrack-trails.jpg',
+  },
+  {
     name: 'Lakes Basin',
-    distance: '30 miles',
-    desc: 'Crystal alpine lakes surrounded by granite peaks — one of the Sierra\'s best-kept secrets.',
+    distance: '22 miles',
+    desc: 'Gold Lake, Sardine Lakes & countless places to swim, boat or hike.',
+    alt: 'Lakes Basin Gold Lake swimming and hiking near Portola, California',
     color: 'from-[#1a4a6b] to-[#0e3050]',
+    img: '/images/nearby/lakes-basin-sardine-lake-sierra-buttes.jpg',
   },
   {
     name: 'Graeagle',
     distance: '8 miles',
-    desc: 'A charming mountain village with golf, fishing, dining, and the famous Graeagle Flea Market.',
+    desc: 'A charming mountain village with golf, fishing, minigolf and dining.',
+    alt: 'Graeagle mountain village near Beckwourth Peak High Camp, Lost Sierra California',
     color: 'from-[#4a5c2a] to-[#3a4a20]',
+    img: '/images/nearby/graeagle-mountain-village.jpg',
   },
   {
     name: 'Frazier Falls',
     distance: '25 miles',
-    desc: 'A 2-mile trail leads to a stunning 176-foot waterfall deep in Plumas National Forest.',
+    desc: 'A 2-mile trail leads to a 176-foot waterfall in Plumas National Forest.',
+    alt: 'Frazier Falls 176-foot waterfall hike in Plumas National Forest near Portola',
     color: 'from-[#1a5a4a] to-[#0e3a30]',
+    img: '/images/nearby/frazier-falls-plumas-national-forest.jpg',
   },
   {
-    name: 'Downieville',
-    distance: '45 miles',
-    desc: 'A historic Gold Rush town and world-renowned destination for mountain biking.',
-    color: 'from-[#5c3a1a] to-[#3a2010]',
+    name: 'Golf',
+    distance: '5 miles',
+    desc: 'World-class courses at Grizzly Ranch, Nakoma, & Graeagle Meadows.',
+    alt: 'Grizzly Ranch golf course near Beckwourth Peak High Camp, Plumas County',
+    color: 'from-[#2a5c2a] to-[#1a3a1a]',
+    img: '/images/nearby/grizzly-ranch-golf-course.jpg',
   },
   {
     name: 'Sierra Valley Preserve',
-    distance: '20 miles',
-    desc: 'One of the largest mountain meadows in the Sierra Nevada — a birding and wildlife paradise.',
+    distance: '7 miles',
+    desc: 'Interactive exhibits, interpretive trails, birding, and picnic areas.',
+    alt: 'Sierra Valley wildlife preserve mountain meadow near Portola, California',
     color: 'from-[#2a5c3a] to-[#1a3a25]',
+    img: '/images/nearby/sierra-valley-preserve-meadow.jpeg',
   },
   {
     name: 'Portola Railroad Museum',
-    distance: '6 miles',
-    desc: 'Climb aboard and drive historic locomotives at the world\'s largest operating railroad museum.',
+    distance: '2 miles',
+    desc: 'Climb aboard and drive historic locomotives.',
+    alt: 'Portola Railroad Museum historic locomotives near Beckwourth Peak High Camp',
     color: 'from-[#4a2a5c] to-[#2a1a3a]',
+    img: '/images/nearby/portola-railroad-museum-locomotives.jpg',
+  },
+  {
+    name: 'The Brewing Lair',
+    distance: '8 miles',
+    desc: 'A craft brewery tucked in the forest with games, music and plenty of room to relax.',
+    alt: 'The Brewing Lair craft brewery near Graeagle and Beckwourth Peak High Camp',
+    color: 'from-[#5c4a1a] to-[#3a2e10]',
+    img: '/images/nearby/brewing-lair-beer-garden.jpg',
   },
 ];
 
 const testimonials = [
   {
     name: 'Ollie',
-    text: 'You owe it to yourself to experience this place! Site and facilities are immaculate, with everything you\'d need. Views from the top of the ridge and from the cabins are magic. Best camp experience we\'ve had in CA.',
+    text: "You owe it to yourself to experience this place! Site and facilities are immaculate, with everything you'd need. Views from the top of the ridge and from the cabins are magic. Best camp experience we've had in CA.",
     unit: 'Cabin Guest',
   },
   {
     name: 'Matt',
-    text: 'This off-grid tiny-home was exactly what we were looking for — comfortable with access to amazing trails. At night, the sky took center stage. There\'s little light pollution up here, so the Milky Way was on full display.',
+    text: "This off-grid tiny-home was exactly what we were looking for — comfortable with access to amazing trails. At night, the sky took center stage. There's little light pollution up here, so the Milky Way was on full display.",
     unit: 'Cabin Guest',
   },
   {
@@ -138,70 +194,68 @@ const testimonials = [
 ];
 
 const partners = [
-  'Sierra Buttes Trail Stewardship',
-  'Beckwourth Peak Recreation',
-  'Backcountry Discovery Routes',
-  'Lost Sierra MTB',
-  'Adventure Cycling Association',
+  { name: 'Sierra Buttes Trail Stewardship', img: '/images/logos/sierra-buttes-trail-stewardship.avif' },
+  { name: 'Backcountry Discovery Routes', img: '/images/logos/backcountry-discovery-routes.avif' },
+  { name: 'Lost Sierra MTB', img: '/images/logos/lost-sierra-mtb.avif' },
+  { name: 'Adventure Cycling Association', img: '/images/logos/adventure-cycling-association.png' },
+  { name: 'Ride with GPS', img: '/images/logos/ride-with-gps-ambassador.png' },
+];
+
+const editorialPanels = [
+  {
+    label: 'Comfort',
+    headline: 'Unwind in Comfort',
+    alt: 'Comfortable off-grid glamping accommodations at Beckwourth Peak High Camp, Lost Sierra',
+    img: '/images/lodging/glamping-cabin-comfort.jpg',
+  },
+  {
+    label: 'Adventure',
+    headline: 'trails outside your door',
+    alt: 'Mountain biking and gravel cycling trails at Beckwourth Peak High Camp, Lost Sierra',
+    img: '/images/lodging/gravel-trail-adventure.jpg',
+  },
+  {
+    label: 'Solitude',
+    headline: 'Room to Breathe',
+    alt: 'Off-grid retreat in Plumas National Forest near Portola, California',
+    img: '/images/lodging/mountain-solitude-retreat.jpg',
+  },
 ];
 
 const instagramPhotos = [
-  { img: `${WP}/2024/05/beckwourth-high-camp-3380-ig_53695072201_o-1024x1024.jpg`, alt: 'High Camp cabin in the pines' },
-  { img: `${WP}/2024/05/beckwourth-high-camp-3394-ig_53694184967_o-1024x1024.jpg`, alt: 'High Camp mountain views' },
-  { img: `${WP}/2024/05/beckwourth-high-camp-3545-ig_53695282558_o-1-1024x1024.jpg`, alt: 'High Camp glamping' },
-  { img: `${WP}/2024/05/5-bucks-gravel-24-3434-ig_53695515155_o-2-1024x1024.jpg`, alt: 'Gravel riding from High Camp' },
+  { img: '/images/instagram/glamping-off-grid-lost-sierra.jpg', alt: 'Off-grid glamping at Beckwourth Peak High Camp, Lost Sierra California', url: 'https://www.instagram.com/p/DW4oqLEgasv/' },
+  { img: '/images/instagram/gravel-cycling-base-camp.jpg', alt: 'Gravel cycling base camp at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DOguXT5gdlo/' },
+  { img: '/images/instagram/mountain-biking-trails-portola.jpg', alt: 'Mountain biking trails near Beckwourth Peak High Camp, Lost Sierra', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DKnfNMnM7Xq/' },
+  { img: '/images/instagram/cabin-glamping-plumas-forest.jpg', alt: 'Cabin glamping at Beckwourth Peak High Camp, Plumas National Forest', url: 'https://www.instagram.com/p/DKKS4Oxx4RJ/' },
+  { img: '/images/instagram/outdoor-retreat-lost-sierra.jpg', alt: 'Beckwourth Peak High Camp outdoor retreat, Lost Sierra California', url: 'https://www.instagram.com/p/DEN1aYJvvAw/' },
+  { img: '/images/instagram/gravel-biking-portola.jpg', alt: 'Gravel biking and glamping at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DQz6V7gEfEl/' },
 ];
 ---
 
 <Layout title="Beckwourth Peak High Camp | Off-Grid Glamping in the Lost Sierra">
 
-  <!-- NAV -->
-  <header class="sticky top-0 z-50 bg-dark-nav shadow-lg">
-    <div class="max-w-8xl mx-auto px-6 flex items-center justify-between h-16">
-      <a href="/" class="flex-shrink-0">
-        <img
-          src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/Color-logo-no-background-stretched-png-250x81.jpg"
-          alt="Beckwourth Peak High Camp"
-          class="h-9 w-auto"
-        />
-      </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-sans text-white/80">
-        <a href="#lodging" class="hover:text-white transition-colors">Lodging</a>
-        <a href="#activities" class="hover:text-white transition-colors">Things To Do</a>
-        <a href="#nearby" class="hover:text-white transition-colors">Explore</a>
-        <a href="https://beckwourthpeakhighcamp.com/getting-here/" class="hover:text-white transition-colors">Getting Here</a>
-      </nav>
-      <a
-        href={BOOK_URL}
-        target="_blank"
-        rel="noopener"
-        class="bg-cobalt hover:bg-blue-600 text-white text-sm font-bold px-5 py-2 rounded-full transition-colors"
-      >
-        Book Now
-      </a>
-    </div>
-  </header>
+  <Nav />
 
   <!-- HERO -->
   <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style={`background-image: url('${WP}/2024/05/beckwourth-high-camp-3379-ig_53695514700_o-2-1024x1024.jpg')`}
+      style={`background-image: url('/images/hero/beckwourth-peak-high-camp-panorama.jpg')`}
     ></div>
     <div class="absolute inset-0 bg-black/45"></div>
-    <div class="relative z-10 text-center text-white px-6 max-w-3xl mx-auto">
-      <p class="text-gold text-sm font-sans font-bold uppercase tracking-widest mb-4">Lost Sierra, California</p>
-      <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+      <p class="text-gold text-sm font-sans font-bold uppercase tracking-widest mb-4">Portola, CA</p>
+      <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl font-bold uppercase leading-none tracking-wide mb-6">
         Your Base Camp<br />in the Lost Sierra
       </h1>
-      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl mx-auto">
-        Off-grid glamping on 60 acres in Plumas National Forest. Hot showers, mountain views, and trails out your door.
+      <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed max-w-xl mx-auto font-sans">
+        Glamping for bikers, hikers, and families on 65 acres in Plumas National Forest.
       </p>
       <a
         href={BOOK_URL}
         target="_blank"
         rel="noopener"
-        class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-colors"
+        class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-lg transition-colors uppercase tracking-wide font-heading"
       >
         Check Availability
       </a>
@@ -212,9 +266,9 @@ const instagramPhotos = [
   <section class="bg-charcoal text-white py-5">
     <div class="max-w-8xl mx-auto px-6">
       <ul class="flex flex-wrap items-center justify-center gap-x-0 gap-y-2 text-sm font-sans font-bold uppercase tracking-wider">
-        <li class="px-6 border-r border-white/20 text-center">60 Acres</li>
+        <li class="px-6 border-r border-white/20 text-center">65 Acres</li>
         <li class="px-6 border-r border-white/20 text-center">5,300 ft Elevation</li>
-        <li class="px-6 border-r border-white/20 text-center">Hot Showers</li>
+        <li class="px-6 border-r border-white/20 text-center">Biking & Hiking</li>
         <li class="px-6 border-r border-white/20 text-center">Starlink WiFi</li>
         <li class="px-6 text-center text-gold">360° Views</li>
       </ul>
@@ -225,32 +279,29 @@ const instagramPhotos = [
   <section id="lodging" class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-heading text-4xl md:text-5xl font-bold text-charcoal mb-4">Where You'll Stay</h2>
-        <p class="text-charcoal/70 text-lg max-w-xl mx-auto">
-          Four unique accommodations, each with private space and access to shared amenities.
-        </p>
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Where You'll Stay</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {lodging.map((unit) => (
-          <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
+          <div class="bg-white overflow-hidden shadow-md hover:shadow-xl transition-shadow group">
             <div class="relative h-52 overflow-hidden">
               <img
                 src={unit.img}
-                alt={unit.name}
+                alt={unit.alt}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div class="p-5 flex flex-col gap-3">
               <div>
-                <h3 class="font-heading text-xl font-bold text-charcoal">{unit.name}</h3>
+                <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal">{unit.name}</h3>
                 <p class="text-cobalt text-sm font-bold mt-0.5">Sleeps {unit.sleeps}</p>
               </div>
-              <p class="text-charcoal/70 text-sm leading-relaxed flex-1">{unit.desc}</p>
+              <p class="text-charcoal/70 text-sm leading-relaxed flex-1 font-sans">{unit.desc}</p>
               <a
                 href={BOOK_URL}
                 target="_blank"
                 rel="noopener"
-                class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold py-2.5 rounded-full text-sm transition-colors mt-1"
+                class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold py-2.5 rounded text-sm transition-colors mt-1 uppercase tracking-wide font-heading"
               >
                 Book This Unit
               </a>
@@ -258,6 +309,78 @@ const instagramPhotos = [
           </div>
         ))}
       </div>
+
+      <!-- Bathhouse callout -->
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 overflow-hidden shadow-md h-48">
+        <div class="hidden md:block overflow-hidden">
+          <img
+            src="/images/lodging/bathhouse-exterior-showers.jpg"
+            alt="Shared bathhouse with private shower stalls at Beckwourth Peak High Camp"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="bg-charcoal text-white px-8 py-7 flex flex-col justify-center">
+          <p class="text-gold text-xs font-bold uppercase tracking-widest mb-2 font-sans">Shared by All Guests</p>
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-3">The Bathhouse</h3>
+          <p class="font-sans text-white/75 text-sm leading-relaxed">
+            Private shower rooms, changing rooms, fresh towels, and plenty of hot water.
+          </p>
+        </div>
+        <div class="hidden md:block overflow-hidden">
+          <img
+            src="/images/lodging/bathhouse-interior-private-stalls.jpg"
+            alt="Bathhouse interior at Beckwourth Peak High Camp"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="py-16 bg-charcoal text-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide mb-3">Shared Amenities</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-white/10">
+        {amenities.map((a) => (
+          <div class="bg-charcoal px-6 py-8 text-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-9 h-9 text-cobalt mx-auto mb-4"
+            >
+              <Fragment set:html={a.svg} />
+            </svg>
+            <p class="font-heading text-base font-semibold uppercase tracking-wider text-white">{a.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EDITORIAL PANELS -->
+  <section class="bg-charcoal">
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      {editorialPanels.map((panel) => (
+        <div class="relative h-96 overflow-hidden group">
+          <img
+            src={panel.img}
+            alt={panel.alt}
+            class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+            <p class="text-gold text-xs font-bold uppercase tracking-widest mb-2 font-sans">{panel.label}</p>
+            <p class="font-heading text-2xl font-bold uppercase tracking-wide leading-tight">{panel.headline}</p>
+          </div>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -265,56 +388,29 @@ const instagramPhotos = [
   <section id="activities" class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-heading text-4xl md:text-5xl font-bold text-charcoal mb-4">Things To Do</h2>
-        <p class="text-charcoal/70 text-lg max-w-xl mx-auto">
-          From dawn rides to late-night fires, there's no shortage of ways to fill your days.
-        </p>
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Explore High Camp</h2>
       </div>
       <div class="flex flex-wrap justify-center gap-5">
         {activities.map((activity) => (
           <div
-            class={`relative rounded-2xl overflow-hidden w-full sm:w-[calc(50%-10px)] lg:w-[calc(25%-15px)] min-w-[220px] max-w-[300px] h-64 group cursor-default flex-shrink-0 ${activity.bg}`}
+            class={`relative overflow-hidden w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-w-[280px] max-w-[480px] h-80 group cursor-default flex-shrink-0 ${activity.bg}`}
           >
             {activity.img && (
               <img
                 src={activity.img}
-                alt={activity.name}
+                alt={activity.alt}
                 class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
             )}
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             {activity.icon && (
-              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl opacity-60 group-hover:opacity-80 transition-opacity">
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-5xl opacity-50 group-hover:opacity-70 transition-opacity">
                 {activity.icon}
               </div>
             )}
             <div class="absolute bottom-0 left-0 right-0 p-5 text-white">
-              <h3 class="font-heading text-xl font-bold mb-1">{activity.name}</h3>
-              <p class="text-white/80 text-xs leading-relaxed">{activity.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="py-20 bg-charcoal text-white">
-    <div class="max-w-8xl mx-auto px-6">
-      <div class="text-center mb-12">
-        <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">What Guests Are Saying</h2>
-        <div class="flex justify-center gap-1 text-gold text-xl">
-          {'★★★★★'}
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {testimonials.map((t) => (
-          <div class="bg-white/10 rounded-2xl p-7 flex flex-col gap-4">
-            <div class="text-gold text-lg">★★★★★</div>
-            <p class="text-white/90 leading-relaxed italic flex-1">"{t.text}"</p>
-            <div>
-              <p class="font-bold text-white">{t.name}</p>
-              <p class="text-white/50 text-sm">{t.unit}</p>
+              <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-1">{activity.name}</h3>
+              <p class="text-white/80 text-xs leading-relaxed font-sans">{activity.desc}</p>
             </div>
           </div>
         ))}
@@ -323,64 +419,104 @@ const instagramPhotos = [
   </section>
 
   <!-- NEARBY ATTRACTIONS -->
-  <section id="nearby" class="py-20 bg-cream">
+  <section id="nearby" class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-heading text-4xl md:text-5xl font-bold text-charcoal mb-4">Explore the Lost Sierra</h2>
-        <p class="text-charcoal/70 text-lg max-w-xl mx-auto">
-          High Camp puts you in the middle of one of California's most underrated regions.
-        </p>
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Explore the Lost Sierra</h2>
       </div>
-      <!-- Photos coming soon — placeholder cards for now -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {attractions.map((place) => (
-          <div class={`relative rounded-2xl overflow-hidden h-56 bg-gradient-to-br ${place.color} group`}>
-            <div class="absolute inset-0 bg-black/30"></div>
+          <div class={`relative overflow-hidden h-56 bg-gradient-to-br ${place.color} group`}>
+            {place.img && (
+              <img
+                src={place.img}
+                alt={place.alt}
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-              <p class="text-white/60 text-xs font-bold uppercase tracking-wider mb-1">{place.distance} away</p>
-              <h3 class="font-heading text-2xl font-bold mb-1.5">{place.name}</h3>
-              <p class="text-white/80 text-sm leading-relaxed">{place.desc}</p>
+              <p class="text-white/60 text-xs font-bold uppercase tracking-wider mb-1 font-sans">{place.distance} away</p>
+              <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-1">{place.name}</h3>
+              <p class="text-white/80 text-sm leading-relaxed font-sans">{place.desc}</p>
             </div>
           </div>
         ))}
       </div>
-      <p class="text-center text-charcoal/40 text-sm mt-6 italic">Photos coming soon</p>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="bg-charcoal">
+    <video
+      src="/videos/high-camp-aerial-view.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full max-h-[70vh] object-cover"
+    ></video>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">What Guests Are Saying</h2>
+        <div class="flex justify-center gap-1 text-gold text-xl">★★★★★</div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="bg-white border border-charcoal/10 p-7 flex flex-col gap-4">
+            <div class="text-gold text-lg">★★★★★</div>
+            <p class="text-charcoal/80 leading-relaxed italic flex-1 font-sans">"{t.text}"</p>
+            <div class="border-t border-charcoal/10 pt-4">
+              <p class="font-heading text-lg font-bold uppercase tracking-wide text-charcoal">{t.name}</p>
+              <p class="text-charcoal/50 text-sm font-sans">{t.unit}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- PARTNER LOGOS -->
-  <section class="py-12 bg-white border-t border-charcoal/10">
+  <section class="py-12 bg-cream border-t border-charcoal/10">
     <div class="max-w-8xl mx-auto px-6">
-      <p class="text-center text-charcoal/50 text-xs font-bold uppercase tracking-widest mb-7">We Proudly Support</p>
-      <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+      <p class="text-center text-charcoal/60 text-xs font-bold uppercase tracking-widest mb-7 font-sans">We Proudly Support</p>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12">
         {partners.map((p) => (
-          <span class="text-charcoal/40 text-sm font-bold uppercase tracking-wide text-center">{p}</span>
+          <img
+            src={p.img}
+            alt={p.name}
+            class="h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+          />
         ))}
       </div>
     </div>
   </section>
 
   <!-- INSTAGRAM -->
-  <section class="py-20 bg-cream">
+  <section class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-10">
-        <h2 class="font-heading text-4xl font-bold text-charcoal mb-2">Follow Along</h2>
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-2">Follow Along</h2>
         <a
           href="https://www.instagram.com/beckwourthpeakhighcamp/"
           target="_blank"
           rel="noopener"
-          class="text-cobalt font-bold hover:underline text-lg"
+          class="text-cobalt font-bold hover:underline text-lg font-sans"
         >
           @beckwourthpeakhighcamp
         </a>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
         {instagramPhotos.map((post) => (
           <a
-            href="https://www.instagram.com/beckwourthpeakhighcamp/"
+            href={post.url}
             target="_blank"
             rel="noopener"
-            class="block aspect-square overflow-hidden rounded-xl group"
+            class="block aspect-square overflow-hidden group"
           >
             <img
               src={post.img}
@@ -395,7 +531,7 @@ const instagramPhotos = [
           href="https://www.instagram.com/beckwourthpeakhighcamp/"
           target="_blank"
           rel="noopener"
-          class="inline-block border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold px-7 py-3 rounded-full text-sm transition-colors"
+          class="inline-block border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold px-7 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading"
         >
           View Our Instagram
         </a>
@@ -403,64 +539,6 @@ const instagramPhotos = [
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-dark-nav text-white py-14">
-    <div class="max-w-8xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between gap-10 mb-10">
-        <div class="max-w-xs">
-          <img
-            src="https://beckwourthpeakhighcamp.com/wp-content/uploads/2023/02/Color-logo-no-background-stretched-png-250x81.jpg"
-            alt="Beckwourth Peak High Camp"
-            class="h-10 w-auto mb-4"
-          />
-          <p class="text-white/60 text-sm leading-relaxed">
-            Off-grid glamping on 60 acres in California's Lost Sierra. Seasonal operation, May through October.
-          </p>
-        </div>
-        <div class="grid grid-cols-2 gap-10 text-sm">
-          <div>
-            <p class="font-bold uppercase tracking-wider text-white/40 text-xs mb-4">Stay</p>
-            <ul class="space-y-2 text-white/70">
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">North Cabin</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">South Cabin</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">The Yurt</a></li>
-              <li><a href={BOOK_URL} target="_blank" rel="noopener" class="hover:text-white transition-colors">Campsite</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-bold uppercase tracking-wider text-white/40 text-xs mb-4">Visit</p>
-            <ul class="space-y-2 text-white/70">
-              <li><a href="https://beckwourthpeakhighcamp.com/getting-here/" class="hover:text-white transition-colors">Getting Here</a></li>
-              <li><a href="https://beckwourthpeakhighcamp.com/policies/" class="hover:text-white transition-colors">Policies</a></li>
-              <li>
-                <a href="https://www.instagram.com/beckwourthpeakhighcamp/" target="_blank" rel="noopener" class="hover:text-white transition-colors">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href="mailto:highcampbeckwourth@gmail.com" class="hover:text-white transition-colors">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="max-w-xs">
-          <p class="font-bold uppercase tracking-wider text-white/40 text-xs mb-4">Ready to Book?</p>
-          <p class="text-white/60 text-sm mb-4">Check availability across all four units and reserve your dates.</p>
-          <a
-            href={BOOK_URL}
-            target="_blank"
-            rel="noopener"
-            class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-full text-sm transition-colors"
-          >
-            Check Availability
-          </a>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/30">
-        <p>&copy; {new Date().getFullYear()} Beckwourth Peak High Camp. All rights reserved.</p>
-        <p>Near Portola, CA &bull; Plumas National Forest &bull; Lost Sierra</p>
-      </div>
-    </div>
-  </footer>
+  <Footer />
 
 </Layout>
