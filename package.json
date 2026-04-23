@@ -2,6 +2,9 @@
   "name": "beckwourth-peak-high-camp-claude-annie",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=18.17.1"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
