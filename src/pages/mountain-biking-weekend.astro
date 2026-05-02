@@ -24,7 +24,7 @@ const reasons = [
   },
   {
     title: 'Shuttle Access',
-    desc: 'Yuba Expeditions and Adventure Monkeys run shuttles to Mt. Hough and Mills Peak. All the descent, none of the climb.',
+    desc: 'Yuba Expeditions runs shuttles to Mt. Hough and Mills Peak. All the descent, none of the climb.',
   },
   {
     title: 'Fire Pit & Stargazing',
@@ -95,12 +95,6 @@ const shuttles = [
     desc: 'Shuttle service for Mt. Hough and Mills Peak, based in Quincy.',
     url: 'https://www.yubaexpeditions.com/shuttles',
     label: 'yubaexpeditions.com/shuttles',
-  },
-  {
-    name: 'Adventure Monkeys',
-    desc: 'Shuttle service for Mills Peak and Mt. Hough, based in Quincy.',
-    url: 'https://www.adventure-monkeys.com/shuttles.html#/',
-    label: 'adventure-monkeys.com',
   },
 ];
 
@@ -251,9 +245,9 @@ const lodging = [
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-10">
         <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-3">Shuttle Service</h2>
-        <p class="text-charcoal/60 font-sans text-base max-w-xl mx-auto">Both Mt. Hough and Mills Peak require a shuttle to the top. Two options based out of Quincy.</p>
+        <p class="text-charcoal/60 font-sans text-base max-w-xl mx-auto">Both Mt. Hough and Mills Peak require a shuttle to the top. Yuba Expeditions is based out of Quincy.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <div class="grid grid-cols-1 gap-6 max-w-sm mx-auto">
         {shuttles.map((s) => (
           <div class="bg-white p-7 shadow-md">
             <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-2">{s.name}</h3>
