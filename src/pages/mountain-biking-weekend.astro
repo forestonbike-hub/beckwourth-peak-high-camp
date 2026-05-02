@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+
+const reasons = [
+  {
+    title: 'Ride from the Doorstep',
+    desc: 'The Beckwourth Peak Trail leaves directly from High Camp. No car needed, no shuttling — just clip in and go.',
+  },
+  {
+    title: 'Three World-Class Trail Systems',
+    desc: 'Beckwourth Peak at the property, Mills Peak 23 minutes away, and the full Mt. Hough system within an hour.',
+  },
+  {
+    title: 'Hot Showers After Every Ride',
+    desc: 'The shared bathhouse has private shower stalls and plenty of hot water. Come back wrecked; leave feeling human.',
+  },
+  {
+    title: 'Comfortable Beds',
+    desc: 'Two cabins, a yurt, and a campsite. Real beds, real comfort. You earn it on the trail, you deserve it off it.',
+  },
+  {
+    title: 'Shuttle Access',
+    desc: 'Yuba Expeditions and Adventure Monkeys run shuttles to Mt. Hough and Mills Peak. All the descent, none of the climb.',
+  },
+  {
+    title: 'Fire Pit & Stargazing',
+    desc: 'End every night around the fire pit at 5,300 feet, under one of the darkest skies in California.',
+  },
+];
+
+const trails = [
+  {
+    name: 'Beckwourth Peak Trail',
+    tag: 'At High Camp',
+    distance: '10–16+ mi',
+    elevation: '1,500–2,300 ft gain',
+    notes: 'Rideable directly from the cabin or yurt',
+    desc: 'A flowy cross-country trail that winds around the mountain with sweeping views of the Lost Sierra. Singletrack leaves directly from the property — no car, no shuttle, no hassle.',
+    img: '/images/routes/beckwourth-peak-trail-arch-feature.jpg',
+    alt: 'Mountain biker on the Beckwourth Peak Trail arch feature, Lost Sierra',
+    mapLabel: 'View on Ride with GPS',
+    mapUrl: 'https://ridewithgps.com/routes/52460523',
+  },
+  {
+    name: 'Mills Peak Trail',
+    tag: '23 min from High Camp',
+    distance: '7.3 mi',
+    elevation: '2,600 ft descent',
+    notes: 'Intermediate. Shuttle recommended.',
+    desc: 'A fast, high-mountain singletrack that rips down between close trees and large embedded rocks. A shuttle to the top is strongly recommended.',
+    img: '/images/routes/trail-views-beckwourth-peak.jpg',
+    alt: 'Trail views near Beckwourth Peak in the Lost Sierra',
+    mapLabel: 'View on Trailforks',
+    mapUrl: 'https://www.trailforks.com/trails/mills-peak-trail/',
+  },
+  {
+    name: 'Mount Hough Trail System',
+    tag: '54 min from High Camp',
+    distance: '50+ miles of trail',
+    elevation: 'Up to 4,000 ft descent',
+    notes: 'All levels. Kids 11+ welcome. Shuttle required.',
+    desc: '50+ miles of SBTS-built singletrack with 3,800 vertical feet of fast, flowy descent. Multiple trail options for intermediate riders and children 11+. Shuttle to the top is required.',
+    img: '/images/routes/mountain-bikers-mt-hough-summit.jpg',
+    alt: 'Group of mountain bikers at the Mt. Hough Trail summit sign',
+    mapLabel: 'View on Trailforks',
+    mapUrl: 'https://www.trailforks.com/region/mt-hough-18055/',
+  },
+];
+
+const itinerary = [
+  {
+    day: 'Friday',
+    title: 'Arrive & Ride',
+    desc: 'Check in at 3pm, get settled, and take an evening spin on the Beckwourth Peak Trail. End the night around the fire pit.',
+  },
+  {
+    day: 'Saturday',
+    title: 'Mt. Hough Day',
+    desc: 'Shuttle up to Mt. Hough for a full day of singletrack. End with dinner at The Brewing Lair in Quincy.',
+  },
+  {
+    day: 'Sunday',
+    title: 'Mills Peak & Head Out',
+    desc: 'Hit Mills Peak on the way out, or do a final lap on Beckwourth Peak before checking out at 11am.',
+  },
+];
+
+const shuttles = [
+  {
+    name: 'Yuba Expeditions',
+    desc: 'Shuttle service for Mt. Hough and Mills Peak, based in Quincy.',
+    url: 'https://www.yubaexpeditions.com/shuttles',
+    label: 'yubaexpeditions.com/shuttles',
+  },
+  {
+    name: 'Adventure Monkeys',
+    desc: 'Shuttle service for Mills Peak and Mt. Hough, based in Quincy.',
+    url: 'https://www.adventure-monkeys.com/shuttles.html#/',
+    label: 'adventure-monkeys.com',
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Christa',
+    text: 'An amazing spot for a bikepacking trip. Forest the host was awesome and made routes to optimize our trip. We stayed in the yurt and it was clean, spacious, well stocked and super comfy. Truly a bikepacking glamping experience.',
+    unit: 'Yurt Guest',
+  },
+  {
+    name: 'Matt',
+    text: "This off-grid tiny-home was exactly what we were looking for, comfortable with access to amazing trails. At night, the sky took center stage. There's little light pollution up here, so the Milky Way was on full display.",
+    unit: 'Cabin Guest',
+  },
+  {
+    name: 'Ollie',
+    text: "You owe it to yourself to experience this place! Site and facilities are immaculate, with everything you'd need. Views from the top of the ridge and from the cabins are magic. Best camp experience we've had in CA.",
+    unit: 'Cabin Guest',
+  },
+];
+
+const lodging = [
+  { name: 'North Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/north-cabin' },
+  { name: 'South Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/south-cabin' },
+  { name: 'The Yurt', sleeps: 5, beds: '4 beds + loft', link: '/lodging/yurt' },
+  { name: 'Campsite', sleeps: 5, beds: 'Bring your tent', link: '/lodging/campsite' },
+];
+---
+
+<Layout
+  title="Mountain Biking Weekend in NorCal | Beckwourth Peak High Camp"
+  description="Plan your NorCal mountain biking weekend at High Camp in the Lost Sierra. Ride Beckwourth Peak, Mills Peak, and Mt. Hough from a comfortable off-grid glamping basecamp near Portola, CA."
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/nearby/mt-hough-singletrack-trails.jpg')"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-12 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-3">Lost Sierra, Portola CA</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white leading-none mb-4">Mt. Hough &amp; Mills Peak<br />MTB Weekend</h1>
+      <p class="text-white/80 font-sans text-lg max-w-xl mb-8">The ultimate Lost Sierra basecamp for mountain bikers.</p>
+      <a
+        href={BOOK_URL}
+        target="_blank"
+        rel="noopener"
+        class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-lg transition-colors uppercase tracking-wide font-heading"
+      >
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY MOUNTAIN BIKERS LOVE HIGH CAMP -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Why Mountain Bikers Love High Camp</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reasons.map((r) => (
+          <div class="bg-white p-7 shadow-md">
+            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-3">{r.title}</h3>
+            <p class="text-charcoal/70 font-sans text-sm leading-relaxed">{r.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAILS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">The Trails</h2>
+        <p class="text-charcoal/60 font-sans text-lg max-w-2xl mx-auto">Three distinct trail systems ranging from your doorstep to a full shuttle day.</p>
+      </div>
+      <div class="space-y-8">
+        {trails.map((trail) => (
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-md overflow-hidden">
+            <div class="relative h-64 lg:h-auto overflow-hidden">
+              <img
+                src={trail.img}
+                alt={trail.alt}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="bg-cream p-8 flex flex-col justify-center">
+              <p class="text-cobalt font-heading text-xs font-bold uppercase tracking-widest mb-2">{trail.tag}</p>
+              <h3 class="font-heading text-3xl font-bold uppercase tracking-wide text-charcoal mb-3">{trail.name}</h3>
+              <p class="text-charcoal/70 font-sans text-base leading-relaxed mb-5">{trail.desc}</p>
+              <div class="flex flex-wrap gap-4 mb-5">
+                <div>
+                  <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Distance</p>
+                  <p class="font-sans text-sm font-bold text-charcoal">{trail.distance}</p>
+                </div>
+                <div>
+                  <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Elevation</p>
+                  <p class="font-sans text-sm font-bold text-charcoal">{trail.elevation}</p>
+                </div>
+                <div>
+                  <p class="font-heading text-xs font-bold uppercase tracking-widest text-charcoal/40 mb-1">Notes</p>
+                  <p class="font-sans text-sm font-bold text-charcoal">{trail.notes}</p>
+                </div>
+              </div>
+              <a
+                href={trail.mapUrl}
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                {trail.mapLabel}
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-10">
+        <a
+          href="/routes/mountain-biking"
+          class="inline-block border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold px-8 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+        >
+          Full Trail Details &amp; Videos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKEND ITINERARY -->
+  <section class="py-20 bg-charcoal text-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide mb-4">Ultimate MTB Weekend</h2>
+        <p class="text-white/60 font-sans text-lg max-w-xl mx-auto">A sample itinerary for a three-day mountain bike getaway at High Camp.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {itinerary.map((day) => (
+          <div class="border border-white/10 p-8">
+            <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">{day.day}</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-4">{day.title}</h3>
+            <p class="text-white/70 font-sans text-sm leading-relaxed">{day.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SHUTTLE SERVICE -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-3">Shuttle Service</h2>
+        <p class="text-charcoal/60 font-sans text-base max-w-xl mx-auto">Both Mt. Hough and Mills Peak require a shuttle to the top. Two options based out of Quincy.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        {shuttles.map((s) => (
+          <div class="bg-white p-7 shadow-md">
+            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-2">{s.name}</h3>
+            <p class="text-charcoal/70 font-sans text-sm leading-relaxed mb-4">{s.desc}</p>
+            <a
+              href={s.url}
+              target="_blank"
+              rel="noopener"
+              class="text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+            >
+              {s.label}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Reviews from Mountain Bikers</h2>
+        <div class="flex justify-center gap-1 text-gold text-xl">★★★★★</div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {testimonials.map((t) => (
+          <div class="bg-cream border border-charcoal/10 p-7 flex flex-col gap-4">
+            <div class="text-gold text-lg">★★★★★</div>
+            <p class="text-charcoal/80 leading-relaxed italic flex-1 font-sans">"{t.text}"</p>
+            <div class="border-t border-charcoal/10 pt-4">
+              <p class="font-heading text-lg font-bold uppercase tracking-wide text-charcoal">{t.name}</p>
+              <p class="text-charcoal/50 text-sm font-sans">{t.unit}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- LODGING -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Lodging Options</h2>
+        <p class="text-charcoal/60 font-sans text-lg max-w-xl mx-auto">Two cabins, a yurt, and a campsite. Book one unit or all four for your group.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+        {lodging.map((unit) => (
+          <div class="bg-white p-6 shadow-md flex flex-col gap-3">
+            <div>
+              <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal">{unit.name}</h3>
+              <p class="text-cobalt text-sm font-bold mt-1">Sleeps {unit.sleeps} &bull; {unit.beds}</p>
+            </div>
+            <a
+              href={unit.link}
+              class="block text-center border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold py-2 rounded text-sm transition-colors mt-auto uppercase tracking-wide font-heading"
+            >
+              View Details
+            </a>
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a
+          href="/lodging/entire-property"
+          class="inline-block border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white font-bold px-8 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+        >
+          Book the Entire Property
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-charcoal text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Ready for Your Ultimate MTB Weekend?</h2>
+      <p class="text-white/70 font-sans text-lg mb-8">Check availability and book your stay at High Camp.</p>
+      <a
+        href={BOOK_URL}
+        target="_blank"
+        rel="noopener"
+        class="inline-block bg-cobalt hover:bg-blue-600 text-white font-bold px-10 py-4 rounded text-lg transition-colors uppercase tracking-wide font-heading"
+      >
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
