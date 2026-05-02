@@ -169,12 +169,29 @@ const lodging = [
       <div class="text-center mb-12">
         <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">The Trails</h2>
       </div>
-      <div class="mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-12">
         <img
           src="/images/routes/mtb-trails-map-high-camp.jpg"
           alt="Map showing Beckwourth Peak Trail, Mills Peak, and Mt. Hough in relation to High Camp, Lost Sierra"
-          class="w-full max-w-3xl mx-auto block shadow-md"
+          class="w-full shadow-md"
         />
+        <div class="space-y-8">
+          <div>
+            <p class="text-cobalt font-heading text-xs font-bold uppercase tracking-widest mb-1">At High Camp</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1">Beckwourth Peak Trail</h3>
+            <p class="font-sans text-sm text-charcoal/60">10–16+ mi &bull; 1,500–2,300 ft gain &bull; Singletrack from the property</p>
+          </div>
+          <div>
+            <p class="text-cobalt font-heading text-xs font-bold uppercase tracking-widest mb-1">23 min from High Camp</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1">Mills Peak Trail</h3>
+            <p class="font-sans text-sm text-charcoal/60">7.3 mi &bull; 2,600 ft descent &bull; Shuttle recommended</p>
+          </div>
+          <div>
+            <p class="text-cobalt font-heading text-xs font-bold uppercase tracking-widest mb-1">54 min from High Camp</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1">Mount Hough Trail System</h3>
+            <p class="font-sans text-sm text-charcoal/60">50+ miles &bull; Up to 4,000 ft descent &bull; All levels &bull; Shuttle required</p>
+          </div>
+        </div>
       </div>
       <div class="space-y-8">
         {trails.map((trail) => (
