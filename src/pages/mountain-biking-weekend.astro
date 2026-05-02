@@ -150,17 +150,19 @@ const lodging = [
     </div>
   </section>
 
-  <!-- WHY MOUNTAIN BIKERS LOVE HIGH CAMP -->
-  <section class="py-20 bg-cream">
+  <!-- WEEKEND ITINERARY -->
+  <section class="py-20 bg-charcoal text-white">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Why Mountain Bikers Love High Camp</h2>
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide mb-4">Ultimate MTB Weekend</h2>
+        <p class="text-white/60 font-sans text-lg max-w-xl mx-auto">A sample itinerary for a three-day mountain bike getaway at High Camp.</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {reasons.map((r) => (
-          <div class="bg-white p-7 shadow-md">
-            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-3">{r.title}</h3>
-            <p class="text-charcoal/70 font-sans text-sm leading-relaxed">{r.desc}</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {itinerary.map((day) => (
+          <div class="border border-white/10 p-8">
+            <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">{day.day}</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-4">{day.title}</h3>
+            <p class="text-white/70 font-sans text-sm leading-relaxed">{day.desc}</p>
           </div>
         ))}
       </div>
@@ -228,19 +230,17 @@ const lodging = [
     </div>
   </section>
 
-  <!-- WEEKEND ITINERARY -->
-  <section class="py-20 bg-charcoal text-white">
+  <!-- WHY MOUNTAIN BIKERS LOVE HIGH CAMP -->
+  <section class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-12">
-        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide mb-4">Ultimate MTB Weekend</h2>
-        <p class="text-white/60 font-sans text-lg max-w-xl mx-auto">A sample itinerary for a three-day mountain bike getaway at High Camp.</p>
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Why Mountain Bikers Love High Camp</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {itinerary.map((day) => (
-          <div class="border border-white/10 p-8">
-            <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">{day.day}</p>
-            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-4">{day.title}</h3>
-            <p class="text-white/70 font-sans text-sm leading-relaxed">{day.desc}</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reasons.map((r) => (
+          <div class="bg-white p-7 shadow-md">
+            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-3">{r.title}</h3>
+            <p class="text-charcoal/70 font-sans text-sm leading-relaxed">{r.desc}</p>
           </div>
         ))}
       </div>
