@@ -35,6 +35,7 @@ const trails = [
     videoId: 'JosCvYcS5HQ',
     mapLabel: 'View on Trailforks',
     mapUrl: 'https://www.trailforks.com/trails/mills-peak-trail/',
+    nameUrl: 'https://www.rgj.com/story/life/outdoors/2017/08/29/lost-sierra-mountain-biking-ride-mills-peak-epic-views-and-tasty-brews/611302001/?gnt-cfr=1&gca-cat=p&gca-uir=true&gca-epti=z116544e006900v116544d--65--b--65--&gca-ft=121&gca-ds=sophi',
   },
   {
     name: 'Mount Hough Trail System',
@@ -113,7 +114,13 @@ const trails = [
                 <span class="text-charcoal/30">|</span>
                 <span class="font-sans text-xs text-charcoal/50 font-bold uppercase tracking-wider">{trail.difficulty}</span>
               </div>
-              <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              {trail.nameUrl ? (
+                <a href={trail.nameUrl} target="_blank" rel="noopener" class="hover:text-cobalt transition-colors">
+                  <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4 hover:text-cobalt transition-colors">{trail.name}</h2>
+                </a>
+              ) : (
+                <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              )}
               <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{trail.desc}</p>
 
               <!-- Trail map link -->
