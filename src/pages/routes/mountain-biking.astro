@@ -36,6 +36,8 @@ const trails = [
     mapLabel: 'View on Trailforks',
     mapUrl: 'https://www.trailforks.com/trails/mills-peak-trail/',
     nameUrl: 'https://www.rgj.com/story/life/outdoors/2017/08/29/lost-sierra-mountain-biking-ride-mills-peak-epic-views-and-tasty-brews/611302001/?gnt-cfr=1&gca-cat=p&gca-uir=true&gca-epti=z116544e006900v116544d--65--b--65--&gca-ft=121&gca-ds=sophi',
+    trailheadLabel: 'Trailhead on Google Maps',
+    trailheadUrl: 'https://www.google.com/maps/search/39.753674,+-120.598834?entry=tts',
   },
   {
     name: 'Mount Hough Trail System',
@@ -124,18 +126,33 @@ const trails = [
               )}
               <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{trail.desc}</p>
 
-              <!-- Trail map link -->
-              <a
-                href={trail.mapUrl}
-                target="_blank"
-                rel="noopener"
-                class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors mb-8"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                {trail.mapLabel}
-              </a>
+              <!-- Trail map link(s) -->
+              <div class="flex flex-wrap gap-6 mb-8">
+                <a
+                  href={trail.mapUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  {trail.mapLabel}
+                </a>
+                {trail.trailheadUrl && (
+                  <a
+                    href={trail.trailheadUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    {trail.trailheadLabel}
+                  </a>
+                )}
+              </div>
 
               <!-- Stats -->
               <div class="flex flex-wrap gap-6 mb-8">
