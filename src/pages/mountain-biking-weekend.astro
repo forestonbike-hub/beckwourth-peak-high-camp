@@ -25,7 +25,7 @@ const trails = [
     name: 'Beckwourth Peak Trail',
     tag: 'At High Camp',
     distance: '10–16+ mi',
-    elevation: '1,500–2,300 ft gain',
+    elevation: '1,500 ft gain',
     notes: 'Rideable directly from the cabin or yurt',
     desc: 'A flowy cross-country trail that winds around the mountain with sweeping views of the Lost Sierra. Singletrack leaves directly from the property — no car, no shuttle, no hassle.',
     img: '/images/routes/beckwourth-peak-trail-mtb-arch.jpg',
@@ -100,10 +100,10 @@ const testimonials = [
 ];
 
 const lodging = [
-  { name: 'North Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/north-cabin' },
-  { name: 'South Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/south-cabin' },
-  { name: 'The Yurt', sleeps: 5, beds: '4 beds + loft', link: '/lodging/yurt' },
-  { name: 'Campsite', sleeps: 5, beds: 'Bring your tent', link: '/lodging/campsite' },
+  { name: 'North Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/north-cabin', img: '/images/lodging/north-cabin-exterior-plumas-forest.jpg', alt: 'North Cabin exterior at Beckwourth Peak High Camp' },
+  { name: 'South Cabin', sleeps: 4, beds: '2 queen bunks', link: '/lodging/south-cabin', img: '/images/lodging/south-cabin-exterior-sunrise.jpg', alt: 'South Cabin exterior at Beckwourth Peak High Camp' },
+  { name: 'The Yurt', sleeps: 5, beds: '4 beds + loft', link: '/lodging/yurt', img: '/images/lodging/yurt-private-deck-mountains.jpg', alt: 'The Yurt at Beckwourth Peak High Camp with mountain views' },
+  { name: 'Campsite', sleeps: 5, beds: 'Bring your tent', link: '/lodging/campsite', img: '/images/lodging/campsite-tent-platform-lost-sierra.jpg', alt: 'Campsite at Beckwourth Peak High Camp, Lost Sierra' },
 ];
 ---
 
@@ -319,17 +319,22 @@ const lodging = [
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
         {lodging.map((unit) => (
-          <div class="bg-white p-6 shadow-md flex flex-col gap-3">
-            <div>
-              <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal">{unit.name}</h3>
-              <p class="text-cobalt text-sm font-bold mt-1">Sleeps {unit.sleeps} &bull; {unit.beds}</p>
+          <div class="bg-white shadow-md flex flex-col">
+            <div class="overflow-hidden h-48">
+              <img src={unit.img} alt={unit.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
             </div>
-            <a
-              href={unit.link}
-              class="block text-center border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold py-2 rounded text-sm transition-colors mt-auto uppercase tracking-wide font-heading"
-            >
-              View Details
-            </a>
+            <div class="p-6 flex flex-col gap-3 flex-1">
+              <div>
+                <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal">{unit.name}</h3>
+                <p class="text-cobalt text-sm font-bold mt-1">Sleeps {unit.sleeps} &bull; {unit.beds}</p>
+              </div>
+              <a
+                href={unit.link}
+                class="block text-center border-2 border-cobalt text-cobalt hover:bg-cobalt hover:text-white font-bold py-2 rounded text-sm transition-colors mt-auto uppercase tracking-wide font-heading"
+              >
+                View Details
+              </a>
+            </div>
           </div>
         ))}
       </div>
