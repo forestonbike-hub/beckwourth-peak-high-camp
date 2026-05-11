@@ -8,12 +8,50 @@ import '@fontsource/lato/700.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title,
   description = "Off-grid cabins & glamping on 65 acres in California's Lost Sierra. Open May through October.",
+  ogImage = '/images/hero/beckwourth-peak-high-camp-panorama.jpg',
 } = Astro.props;
+
+const siteUrl = 'https://beckwourthpeakhighcamp.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Beckwourth Peak High Camp",
+  "url": siteUrl,
+  "description": "Off-grid glamping on 65 acres in California's Lost Sierra near Portola, CA. Cabins, yurt, and campsite with hot showers, Starlink WiFi, and direct trail access.",
+  "image": ogImageUrl,
+  "telephone": "",
+  "email": "contact@beckwourthpeakhighcamp.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Portola",
+    "addressRegion": "CA",
+    "postalCode": "96122",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.7959375,
+    "longitude": -120.4509375
+  },
+  "priceRange": "$$",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Starlink WiFi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Hot Showers", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Campfire", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Mountain Biking Trails", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Disc Golf", "value": true }
+  ],
+  "openingseason": "May through October"
+};
 ---
 
 <!DOCTYPE html>
@@ -23,11 +61,29 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <title>{title}</title>
-    <link
-      rel="icon"
-      type="image/png"
-      href="/images/logos/favicon.png"
-    />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/png" href="/images/logos/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Beckwourth Peak High Camp" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
