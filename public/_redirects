@@ -1,0 +1,50 @@
+# 301 Redirects — Old WordPress URLs to new Astro site
+# Format: old-path  new-path  status-code
+
+# Lodging — old paths
+/entire-property/               /lodging/entire-property    301
+/entire-property                /lodging/entire-property    301
+/lodging/                       /                           301
+/lodging                        /                           301
+/gravel-biking-group-glamping-events/  /lodging/entire-property  301
+/gravel-biking-group-glamping-events   /lodging/entire-property  301
+
+# Trails → Routes
+/trails/                        /things-to-do               301
+/trails                         /things-to-do               301
+/trails/mountain-biking/        /routes/mountain-biking     301
+/trails/mountain-biking         /routes/mountain-biking     301
+/trails/gravel-biking/          /routes/gravel-biking       301
+/trails/gravel-biking           /routes/gravel-biking       301
+/trails/hiking/                 /routes/hiking              301
+/trails/hiking                  /routes/hiking              301
+/trails/bikepacking-routes/     /routes/bikepacking         301
+/trails/bikepacking-routes      /routes/bikepacking         301
+/trails/cabdr-north-alternate/  /routes/cabdr               301
+/trails/cabdr-north-alternate   /routes/cabdr               301
+
+# Mountain biking landing page rename
+/mountain-biking/               /mountain-biking-weekend    301
+/mountain-biking                /mountain-biking-weekend    301
+
+# OHV and family pages merged into things-to-do
+/beckwourth-peak-high-camp-ohv-glamping-in-the-lost-sierra/  /things-to-do  301
+/beckwourth-peak-high-camp-ohv-glamping-in-the-lost-sierra   /things-to-do  301
+/things-to-do-families/         /things-to-do               301
+/things-to-do-families          /things-to-do               301
+/sierra-valley-art-ag-trail/    /things-to-do               301
+/sierra-valley-art-ag-trail     /things-to-do               301
+
+# Past and current events — no events section yet, send to things-to-do
+/gravel-social-june-2026/       /things-to-do               301
+/gravel-social-june-2026        /things-to-do               301
+/gravel-social-june-2025/       /things-to-do               301
+/gravel-social-june-2025        /things-to-do               301
+/lost-found-gravel-glamping/    /things-to-do               301
+/lost-found-gravel-glamping     /things-to-do               301
+/mills-peak-bike-race-everstoke-enduro/  /things-to-do      301
+/mills-peak-bike-race-everstoke-enduro   /things-to-do      301
+/bikepack-social-aug-2024/      /routes/bikepacking         301
+/bikepack-social-aug-2024       /routes/bikepacking         301
+
+# Unknown paths fall through to the 404 page — do not add a catch-all redirect here
