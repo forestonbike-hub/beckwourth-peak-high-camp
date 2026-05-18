@@ -214,40 +214,47 @@ const faqs = [
         <h2 class="font-heading text-5xl font-bold uppercase tracking-wide mb-4">Upgrade Your Stay</h2>
         <p class="font-sans text-white/70 text-lg max-w-2xl mx-auto">Tent camping for two nights is included with your registration. Upgrade to a cabin or yurt to sleep in a real bed — everyone in the unit still needs to register for the Gravel Social separately.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        {[
-          {
-            title: 'Tent Camping',
-            price: 'Included',
-            desc: 'Bring your own tent and sleeping bag. Access to the shared bathhouse, fire pit, and all common areas.',
-            cta: null,
-          },
-          {
-            title: 'Cabin',
-            price: '$610.60 / 2 nights',
-            sub: '2 queen beds, up to 4 people',
-            desc: 'North Cabin or South Cabin. Air conditioning, full kitchen, private deck, and bedding included.',
-            cta: 'Text 530-322-0322 to book',
-          },
-          {
-            title: 'The Yurt',
-            price: '$677.80 / 2 nights',
-            sub: '1 queen, 2 full, 1 pullout twin — up to 5 people',
-            desc: 'Private deck, air conditioning, kitchen basics, and bedding included. Fits 6 if someone takes the floor.',
-            cta: 'Text 530-322-0322 to book',
-          },
-        ].map(unit => (
-          <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
-            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">{unit.title}</h3>
-            <p class="text-gold font-heading font-bold text-lg mb-1">{unit.price}</p>
-            {unit.sub && <p class="text-white/50 font-sans text-xs mb-4">{unit.sub}</p>}
-            <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">{unit.desc}</p>
-            {unit.cta
-              ? <p class="text-cobalt font-sans text-sm font-bold">{unit.cta}</p>
-              : <p class="text-white/30 font-sans text-sm italic">Included with registration</p>
-            }
-          </div>
-        ))}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+
+        <!-- Tent Camping -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
+          <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">Tent Camping</h3>
+          <p class="text-gold font-heading font-bold text-lg mb-1">Included</p>
+          <p class="text-white/50 font-sans text-xs mb-4">Bring your own tent & sleeping bag</p>
+          <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Access to the shared bathhouse, fire pit, and all common areas.</p>
+          <p class="text-white/30 font-sans text-sm italic">Included with registration</p>
+        </div>
+
+        <!-- North Cabin — Sold Out -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col relative overflow-hidden opacity-60">
+          <div class="absolute top-4 right-4 bg-red-500 text-white font-heading font-bold text-xs uppercase tracking-widest px-3 py-1">Sold Out</div>
+          <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">North Cabin</h3>
+          <p class="text-gold font-heading font-bold text-lg mb-1">$610.60 / 2 nights</p>
+          <p class="text-white/50 font-sans text-xs mb-4">2 queen beds, up to 4 people</p>
+          <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Air conditioning, full kitchen, private deck, and bedding included.</p>
+          <a href="/lodging/north-cabin" class="text-center text-white/40 font-heading font-bold uppercase tracking-widest text-xs border border-white/20 py-3 hover:text-white hover:border-white/40 transition-colors">View Unit</a>
+        </div>
+
+        <!-- South Cabin — Sold Out -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col relative overflow-hidden opacity-60">
+          <div class="absolute top-4 right-4 bg-red-500 text-white font-heading font-bold text-xs uppercase tracking-widest px-3 py-1">Sold Out</div>
+          <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">South Cabin</h3>
+          <p class="text-gold font-heading font-bold text-lg mb-1">$610.60 / 2 nights</p>
+          <p class="text-white/50 font-sans text-xs mb-4">2 queen beds, up to 4 people</p>
+          <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Air conditioning, full kitchen, private deck, and bedding included.</p>
+          <a href="/lodging/south-cabin" class="text-center text-white/40 font-heading font-bold uppercase tracking-widest text-xs border border-white/20 py-3 hover:text-white hover:border-white/40 transition-colors">View Unit</a>
+        </div>
+
+        <!-- Yurt — Available -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
+          <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">The Yurt</h3>
+          <p class="text-gold font-heading font-bold text-lg mb-1">$677.80 / 2 nights</p>
+          <p class="text-white/50 font-sans text-xs mb-4">1 queen, 2 full, pullout twin — up to 5</p>
+          <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-3">Private deck, air conditioning, kitchen basics, and bedding included.</p>
+          <a href="/lodging/yurt" class="text-cobalt hover:text-blue-400 font-sans text-xs font-bold mb-4 transition-colors">View unit details →</a>
+          <p class="text-white/60 font-sans text-sm font-bold">Text 530-322-0322 to book</p>
+        </div>
+
       </div>
       <p class="text-center text-white/40 font-sans text-xs">Cabins and yurt are first come, first served. A portion of the fridge space in rental units will be used to store catered food.</p>
     </div>
