@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+---
+
+<Layout
+  title="Sierra Valley Art & Ag Trail | Stay at High Camp | Sept 20, 2026"
+  description="Attending the Sierra Valley Art & Ag Trail festival? High Camp is just 14 minutes from Sierra Valley Farms. Off-grid cabins, yurt, and campsite near Portola, CA."
+  ogImage="/images/hero/beckwourth-peak-high-camp-panorama.jpg"
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/hero/beckwourth-peak-high-camp-panorama.jpg')"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-12 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">September 20, 2026</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white leading-none mb-3">Sierra Valley<br>Art & Ag Trail</h1>
+      <p class="text-white/80 font-sans text-xl mb-8">14 Minutes from Sierra Valley Farms &bull; Lost Sierra, CA</p>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <!-- PROXIMITY + MAP -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-3">Location</p>
+          <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-6">14 Minutes from Sierra Valley Farms</h2>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            Attending the Sierra Valley Art & Ag Trail? High Camp is just 7.4 miles — about 14 minutes — from Sierra Valley Farms, making us the closest comfortable lodging to the festival.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            Stay on 65 acres in the Plumas National Forest with mountain views, hot showers, a communal fire pit, and a shaded deck. Spend the day exploring the festival and come back to camp to relax under some of the darkest skies in California.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-8">
+            We're accessed via a 1-mile dirt road off Highway 70 near Portola. High-clearance vehicles recommended. Check-in is at 3pm, check-out at 11am.
+          </p>
+          <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors">
+            Check Availability
+          </a>
+        </div>
+        <div>
+          <div class="shadow-lg overflow-hidden mb-4">
+            <img
+              src="/images/events/high-camp-to-sierra-valley-farms-distance.jpg"
+              alt="Map showing High Camp is 14 minutes and 7.4 miles from Sierra Valley Farms"
+              class="w-full"
+            />
+            <div class="bg-charcoal text-white text-center py-4">
+              <p class="font-heading text-2xl font-bold uppercase tracking-wide">14 Min &bull; 7.4 Miles</p>
+              <p class="font-sans text-white/60 text-sm">from Sierra Valley Farms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FESTIVAL MAP -->
+  <section class="py-20 bg-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">The Festival Route</h2>
+        <p class="font-sans text-charcoal/60 text-lg max-w-xl mx-auto">The Art & Ag Trail winds through Sierra Valley, connecting farms, ranches, and art studios. High Camp is just off the western edge of the loop.</p>
+      </div>
+      <div class="max-w-2xl mx-auto shadow-md overflow-hidden">
+        <img
+          src="/images/events/sierra-valley-art-ag-trail-festival-route-map.png"
+          alt="Sierra Valley Art and Agriculture Trail festival route map showing participating farms and studios"
+          class="w-full"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- LODGING -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-4">Where You'll Stay</h2>
+        <p class="font-sans text-charcoal/60 text-lg max-w-xl mx-auto">Two cabins, a yurt, and a campsite — all with access to the shared bathhouse, fire pit, and deck.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {[
+          { title: 'North Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, kitchen, A/C, private deck' },
+          { title: 'South Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, kitchen, A/C, private deck' },
+          { title: 'The Yurt', guests: 'Up to 5 guests', detail: '1 queen + 2 full + pullout twin, A/C, private deck' },
+          { title: 'Campsite', guests: 'Up to 5 guests', detail: 'Bring your tent. Picnic table, bathhouse access, fire pit.' },
+        ].map(unit => (
+          <div class="bg-white border border-charcoal/10 p-6 flex flex-col">
+            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-1">{unit.title}</h3>
+            <p class="text-cobalt font-sans text-sm font-bold mb-3">{unit.guests}</p>
+            <p class="font-sans text-sm text-charcoal/70 leading-relaxed flex-1 mb-6">{unit.detail}</p>
+            <a href={BOOK_URL} target="_blank" rel="noopener" class="block text-center bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest py-3 text-sm transition-colors">
+              Check Availability
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-cobalt text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Make a Weekend of It</h2>
+      <p class="font-sans text-white/80 text-lg mb-8">Stay the night before or after the festival and explore the trails, views, and starry skies right from your doorstep.</p>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-white text-cobalt hover:bg-cream font-heading font-bold uppercase tracking-widest px-10 py-4 transition-colors text-lg">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+---
+
+<Layout
+  title="Stay at High Camp for Lost & Found Gravel Festival | June 13, 2026"
+  description="High Camp is a 4-minute ride from the Lost & Found Gravel Festival start in Portola. Off-grid cabins, yurt, campsite, and campervan parking available. Book now."
+  ogImage="/images/events/lost-found-gravel-festival-portola-start.jpg"
+>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/images/events/lost-found-gravel-festival-portola-start.jpg')"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-12 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Lost & Found Gravel Festival 2026</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white leading-none mb-3">Stay 4 Minutes<br>from the Start</h1>
+      <p class="text-white/80 font-sans text-xl mb-8">June 13, 2026 &bull; Portola, CA &bull; Beckwourth Peak High Camp</p>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <!-- PROXIMITY -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-3">Location</p>
+          <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-6">Right at the Start Line</h2>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            High Camp sits just 1.1 miles from downtown Portola — a 4-minute ride from the Lost & Found start area. Sleep in a real bed, wake up to hot coffee, roll out fresh.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            We're on 65 acres at the edge of the Plumas National Forest, with 360° mountain views, a shared bathhouse with private shower rooms, and a communal fire pit — the ideal place to wind down after a big day in the saddle.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-8">
+            We're accessed via a 1-mile dirt road. Low-clearance vehicles are not recommended. High-clearance or AWD vehicles, trucks, and bikes all do fine.
+          </p>
+          <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors">
+            Check Availability
+          </a>
+        </div>
+        <div class="shadow-lg overflow-hidden">
+          <img
+            src="/images/events/high-camp-to-portola-lost-found-distance.png"
+            alt="Map showing High Camp is a 4-minute, 1.1-mile ride from Portola and the Lost and Found Gravel Festival start"
+            class="w-full"
+          />
+          <div class="bg-charcoal text-white text-center py-4">
+            <p class="font-heading text-2xl font-bold uppercase tracking-wide">4 Min &bull; 1.1 Miles</p>
+            <p class="font-sans text-white/60 text-sm">from the Lost & Found start area in Portola</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LODGING OPTIONS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-5xl md:text-6xl font-bold uppercase tracking-wide text-charcoal mb-4">Lodging Options</h2>
+        <p class="font-sans text-charcoal/60 text-lg max-w-xl mx-auto">All units include access to the shared bathhouse, communal deck, and fire pit.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+        {[
+          {
+            title: 'North Cabin',
+            guests: 'Up to 4 guests',
+            features: ['2 queen bunk beds', 'Air conditioning', 'Full kitchen', 'Private deck', 'Bedding & towels included'],
+          },
+          {
+            title: 'South Cabin',
+            guests: 'Up to 4 guests',
+            features: ['2 queen bunk beds', 'Air conditioning', 'Full kitchen', 'Private deck', 'Bedding & towels included'],
+          },
+          {
+            title: 'The Yurt',
+            guests: 'Up to 5 guests',
+            features: ['1 queen + 2 full + pullout twin', 'Air conditioning', 'Kitchen basics', 'Private deck', 'Bedding & towels included'],
+          },
+          {
+            title: 'Campsite',
+            guests: 'Up to 5 guests',
+            features: ['Bring your own tent', 'Picnic table', 'Bathhouse access', 'Fire pit access', 'No linens — must pack out trash'],
+          },
+        ].map(unit => (
+          <div class="bg-cream border border-charcoal/10 p-6 flex flex-col">
+            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-1">{unit.title}</h3>
+            <p class="text-cobalt font-sans text-sm font-bold mb-4">{unit.guests}</p>
+            <ul class="space-y-2 flex-1 mb-6">
+              {unit.features.map(f => (
+                <li class="font-sans text-sm text-charcoal/70 flex items-start gap-2">
+                  <span class="text-cobalt mt-0.5">✓</span>{f}
+                </li>
+              ))}
+            </ul>
+            <a href={BOOK_URL} target="_blank" rel="noopener" class="block text-center bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest py-3 text-sm transition-colors">
+              Check Availability
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Campervan -->
+      <div class="bg-charcoal text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-2">Campervan Parking</h3>
+          <p class="font-sans text-white/70 leading-relaxed max-w-xl">We have 6 campervan parking spots with access to the shared bathhouse, deck, and fire pit. Perfect if you're rolling in your rig.</p>
+        </div>
+        <a href={BOOK_URL} target="_blank" rel="noopener" class="flex-shrink-0 inline-block border-2 border-white text-white hover:bg-white hover:text-charcoal font-heading font-bold uppercase tracking-widest px-8 py-3 transition-colors">
+          Check Availability
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">What's at Camp</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        {[
+          'Private shower rooms',
+          'Hot water — no waiting',
+          'Communal fire pit',
+          'Shaded deck with views',
+          'Starlink WiFi',
+          '20-basket disc golf',
+          'Plumas National Forest access',
+          '360° mountain views',
+        ].map(item => (
+          <div class="bg-white border border-charcoal/10 px-4 py-5">
+            <p class="font-sans text-sm text-charcoal/75">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-cobalt text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Book Before It Fills Up</h2>
+      <p class="font-sans text-white/80 text-lg mb-8">High Camp books out fast during Lost & Found weekend. Check availability now to lock in your spot 4 minutes from the start.</p>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-white text-cobalt hover:bg-cream font-heading font-bold uppercase tracking-widest px-10 py-4 transition-colors text-lg">
+        Check Availability
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
