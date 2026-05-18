@@ -10,8 +10,8 @@
 /gravel-biking-group-glamping-events   /lodging/entire-property  301
 
 # Trails → Routes
-/trails/                        /things-to-do               301
-/trails                         /things-to-do               301
+/trails/                        /                           301
+/trails                         /                           301
 /trails/mountain-biking/        /routes/mountain-biking     301
 /trails/mountain-biking         /routes/mountain-biking     301
 /trails/gravel-biking/          /routes/gravel-biking       301
@@ -32,19 +32,17 @@
 /beckwourth-peak-high-camp-ohv-glamping-in-the-lost-sierra   /things-to-do  301
 /things-to-do-families/         /things-to-do               301
 /things-to-do-families          /things-to-do               301
-/sierra-valley-art-ag-trail/    /things-to-do               301
-/sierra-valley-art-ag-trail     /things-to-do               301
 
-# Past and current events — no events section yet, send to things-to-do
-/gravel-social-june-2026/       /things-to-do               301
-/gravel-social-june-2026        /things-to-do               301
-/gravel-social-june-2025/       /things-to-do               301
-/gravel-social-june-2025        /things-to-do               301
-/lost-found-gravel-glamping/    /things-to-do               301
-/lost-found-gravel-glamping     /things-to-do               301
-/mills-peak-bike-race-everstoke-enduro/  /things-to-do      301
-/mills-peak-bike-race-everstoke-enduro   /things-to-do      301
+# Events and past events
+/gravel-social-june-2025/       /gravel-social-june-2026    301
+/gravel-social-june-2025        /gravel-social-june-2026    301
+/lost-found-gravel-glamping/    /routes/gravel-biking       301
+/lost-found-gravel-glamping     /routes/gravel-biking       301
+/mills-peak-bike-race-everstoke-enduro/  /routes/mountain-biking  301
+/mills-peak-bike-race-everstoke-enduro   /routes/mountain-biking  301
 /bikepack-social-aug-2024/      /routes/bikepacking         301
 /bikepack-social-aug-2024       /routes/bikepacking         301
+/sierra-valley-art-ag-trail/    /sierra-valley-art-ag-trail-festival  301
+/sierra-valley-art-ag-trail     /sierra-valley-art-ag-trail-festival  301
 
 # Unknown paths fall through to the 404 page — do not add a catch-all redirect here
