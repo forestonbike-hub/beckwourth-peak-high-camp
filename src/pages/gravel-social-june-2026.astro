@@ -21,7 +21,7 @@ const days = [
     label: 'Saturday, June 6',
     title: 'Sierra Buttes Loop',
     miles: '50 or 57 miles',
-    desc: 'Start with coffee and a grab-and-go breakfast, then ride a scenic loop up to the Sierra Buttes. Top out at Gold Lake (great for a swim) or push on to Mills Peak Lookout for some of the best views in the Lost Sierra. Grab lunch in Graeagle or the Brewing Lair in Blairsden. Back at camp: happy hour, a catered dinner from Sierra Smokeshow, disc golf, and campfire stories.',
+    desc: 'Start with coffee and a grab-and-go breakfast, then ride a scenic loop up to the Sierra Buttes. Top out at Gold Lake (great for a swim) or push on to Mills Peak Lookout for some of the best views in the Lost Sierra. Grab lunch in Graeagle or the Brewing Lair in Blairsden. Back at camp: happy hour, a catered dinner from Sierra Smokeshow, disc golf, trivia, and a campfire.',
     food: 'Dinner: Sierra Smokeshow — BBQ, smoked portobello, potato salad, cornbread. Happy hour sponsored by Alibi Ale Works.',
   },
   {
@@ -115,6 +115,26 @@ const faqs = [
     </div>
   </section>
 
+  <!-- VIDEO -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-8">
+        <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">See It for Yourself</p>
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">What the Ride Is Like</h2>
+      </div>
+      <div class="relative overflow-hidden shadow-lg" style="padding-top: 56.25%;">
+        <iframe
+          class="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/u3X-c4E_JOw"
+          title="High Camp Gravel Social — Lost Sierra gravel riding"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT IS IT -->
   <section class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
@@ -126,7 +146,7 @@ const faqs = [
             It's three days of beautiful gravel routes — from Truckee up to Beckwourth Peak, through the Sierra Buttes, and back. You stay at High Camp, an off-grid glamping property on 65 acres with hot showers, modern bathrooms, and views in every direction.
           </p>
           <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
-            The rides are unsupported, but the camp experience is anything but. Expect catered dinners, grab-and-go breakfasts, Alibi Ale Works happy hours, campfires, and a disc golf course to keep you busy between rides.
+            The rides are unsupported, but the evenings are pure restoration. Expect catered dinners, grab-and-go breakfasts, Alibi Ale Works happy hours, campfires, and a disc golf course to keep you busy between rides.
           </p>
           <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-8">
             Routes are 60% gravel / 40% pavement with some non-technical singletrack. Designed for both seasoned and newer riders who enjoy beautiful scenery and good company over a podium finish.
@@ -286,6 +306,43 @@ const faqs = [
 
       </div>
       <p class="text-center text-white/40 font-sans text-xs">Cabins and yurt are first come, first served. A portion of the fridge space in rental units will be used to store catered food.</p>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">Photos from Previous Events</p>
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">The 2024 & 2025 Gravel Socials</h2>
+      </div>
+      <div class="columns-2 md:columns-3 lg:columns-4 gap-3">
+        {[
+          { src: '/images/events/high-camp-gravel-social-sunset-mountain-view.jpg', alt: 'Sunset view of High Camp deck with string lights and mountain backdrop during the Gravel Social' },
+          { src: '/images/events/gravel-social-riders-pine-forest-road.jpg', alt: 'Group of gravel riders on a pine forest road in the Lost Sierra' },
+          { src: '/images/events/high-camp-gravel-social-breakfast-deck.jpg', alt: 'Gravel Social riders eating breakfast under the covered deck at High Camp' },
+          { src: '/images/events/gravel-social-two-riders-sierra-meadow.jpg', alt: 'Two gravel cyclists riding through the Sierra Valley meadow on a clear day' },
+          { src: '/images/events/high-camp-gravel-social-catered-dinner-buffet.jpg', alt: 'Riders serving themselves from the catered dinner buffet at High Camp' },
+          { src: '/images/events/gold-lake-sierra-buttes-gravel-route.jpg', alt: 'Gold Lake with Sierra Buttes reflected on the water — a highlight on the Day 2 route' },
+          { src: '/images/events/gravel-social-riders-tall-pines-lost-sierra.jpg', alt: 'Gravel riders descending through tall pine trees in the Lost Sierra' },
+          { src: '/images/events/gravel-social-lunch-stop-bikes-restaurant.jpg', alt: 'Gravel bikes parked outside a restaurant lunch stop during the Gravel Social' },
+          { src: '/images/events/mills-peak-lookout-tower-rocky-ridge.jpg', alt: 'Mills Peak fire lookout tower perched on a rocky ridge above the Lost Sierra' },
+          { src: '/images/events/gravel-social-riders-open-valley-road.jpg', alt: 'Gravel cyclists riding an open road through a wide valley with blue skies' },
+          { src: '/images/events/high-camp-cabin-adirondack-gravel-bike-dusk.jpg', alt: 'Gravel bike parked beside Adirondack chairs on a cabin deck at dusk with mountain views' },
+          { src: '/images/events/high-camp-gravel-social-shuttle-bags-deck.jpg', alt: 'Shuttle bags laid out at High Camp with the shaded deck and mountains in the background' },
+          { src: '/images/events/high-camp-cabin-interior-bunk-beds-kitchen.jpg', alt: 'Interior of the High Camp cabin showing bunk beds, full kitchen, and forest views through large windows' },
+          { src: '/images/events/high-camp-yurt-exterior-deck-mountains.jpg', alt: 'The High Camp yurt with its private deck and mountain views' },
+          { src: '/images/events/high-camp-yurt-interior-queen-bed-loft.jpg', alt: 'Interior of the High Camp yurt with queen bed and ladder to the loft' },
+          { src: '/images/events/high-camp-yurt-loft-beds-interior.jpg', alt: 'Yurt loft with two full beds at High Camp' },
+        ].map(img => (
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full mb-3 break-inside-avoid"
+            loading="lazy"
+          />
+        ))}
+      </div>
     </div>
   </section>
 
