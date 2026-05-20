@@ -9,7 +9,7 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
 <Layout
   title="Sierra Valley Art & Ag Trail | Stay at High Camp | Sept 20, 2026"
   description="Attending the Sierra Valley Art & Ag Trail festival? High Camp is just 14 minutes from Sierra Valley Farms. Off-grid cabins, yurt, and campsite near Portola, CA."
-  ogImage="/images/hero/beckwourth-peak-high-camp-panorama.jpg"
+  ogImage="/images/events/high-camp-cabins-dusk-evening-blue-sky.jpg"
 >
   <Nav />
 
@@ -17,7 +17,7 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
   <section class="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/images/hero/beckwourth-peak-high-camp-panorama.jpg')"
+      style="background-image: url('/images/events/high-camp-cabins-dusk-evening-blue-sky.jpg')"
     ></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
     <div class="relative z-10 max-w-8xl mx-auto px-6 pb-12 w-full">
@@ -30,6 +30,53 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
     </div>
   </section>
 
+  <!-- ABOUT THE FESTIVAL -->
+  <section class="py-20 bg-white">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-3">About the Festival</p>
+          <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-6">What Is the Art & Ag Trail?</h2>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            The Sierra Valley Art & Agriculture Trail is a beloved annual self-guided tour through one of California's most stunning high-altitude meadows. On September 20, 2026, the trail connects farms, ranches, art studios, and small producers across Sierra Valley — think alpacas, local honey, handmade quilts, ceramics, and fresh produce, all set against open grassland and jagged peaks.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
+            It's a relaxed, community-driven event that draws visitors from across Northern California for a day of discovery. Sierra Valley Farms is one of the main hubs. The whole loop takes a few hours at a comfortable pace, with plenty of stops to browse, taste, and meet the makers behind each spot.
+          </p>
+          <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-6">
+            If you've never been to Sierra Valley, this is a great introduction — and High Camp makes an ideal home base. Close enough to reach any stop on the trail, with the kind of setting that makes you want to stay the whole weekend.
+          </p>
+          <a href="https://www.sierravalleyfarms.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cobalt hover:text-blue-700 font-sans font-bold transition-colors">
+            Learn more at Sierra Valley Farms →
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="overflow-hidden col-span-2 h-56">
+            <img
+              src="/images/events/sierra-valley-art-ag-trail-festival-route-map.png"
+              alt="Sierra Valley Art and Agriculture Trail festival route map showing participating farms and studios"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+          <div class="overflow-hidden h-48">
+            <img
+              src="/images/events/high-camp-trail-pine-forest-beckwourth-peak.jpg"
+              alt="Dirt trail through pine forest near High Camp with snow-capped Beckwourth Peak in the distance"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="overflow-hidden h-48">
+            <img
+              src="/images/events/high-camp-cabin-window-mountain-sunrise.jpg"
+              alt="Mountain views at sunrise framed through the large windows of a High Camp cabin"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROXIMITY + MAP -->
   <section class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
@@ -38,13 +85,13 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
           <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-3">Location</p>
           <h2 class="font-heading text-5xl font-bold uppercase tracking-wide text-charcoal mb-6">14 Minutes from Sierra Valley Farms</h2>
           <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
-            Attending the Sierra Valley Art & Ag Trail? High Camp is just 7.4 miles — about 14 minutes — from Sierra Valley Farms, making us the closest comfortable lodging to the festival.
+            High Camp sits just 7.4 miles — about 14 minutes — from Sierra Valley Farms, making us the closest comfortable lodging to the festival. Spend the day exploring the trail and come back to camp to unwind under some of the darkest skies in California.
           </p>
           <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-4">
-            Stay on 65 acres in the Plumas National Forest with mountain views, hot showers, a communal fire pit, and a shaded deck. Spend the day exploring the festival and come back to camp to relax under some of the darkest skies in California.
+            We're on 65 acres at the edge of the Plumas National Forest, with 360° mountain views, a shared bathhouse with hot showers, and a communal fire pit. September is one of the best months at High Camp — warm days, cool nights, and no crowds.
           </p>
           <p class="font-sans text-lg text-charcoal/80 leading-relaxed mb-8">
-            We're accessed via a 1-mile dirt road off Highway 70 near Portola. High-clearance vehicles recommended. Check-in is at 3pm, check-out at 11am.
+            We're accessed via a 1-mile dirt road off Highway 70 near Portola. High-clearance vehicles are recommended. Check-in is at 3pm, check-out at 11am.
           </p>
           <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors">
             Check Availability
@@ -67,19 +114,42 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
     </div>
   </section>
 
-  <!-- FESTIVAL MAP -->
+  <!-- PHOTO GALLERY -->
   <section class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
       <div class="text-center mb-10">
-        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">The Festival Route</h2>
-        <p class="font-sans text-charcoal/60 text-lg max-w-xl mx-auto">The Art & Ag Trail winds through Sierra Valley, connecting farms, ranches, and art studios. High Camp is just off the western edge of the loop.</p>
+        <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">The Property</p>
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">What Awaits at High Camp</h2>
       </div>
-      <div class="max-w-2xl mx-auto shadow-md overflow-hidden">
-        <img
-          src="/images/events/sierra-valley-art-ag-trail-festival-route-map.png"
-          alt="Sierra Valley Art and Agriculture Trail festival route map showing participating farms and studios"
-          class="w-full"
-        />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="overflow-hidden h-64 lg:col-span-2">
+          <img
+            src="/images/events/high-camp-cabins-dusk-evening-blue-sky.jpg"
+            alt="High Camp cabins glowing against a dramatic dusk sky surrounded by pines"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="overflow-hidden h-64">
+          <img
+            src="/images/events/high-camp-aerial-beckwourth-peak-property.jpg"
+            alt="Aerial view of High Camp nestled on Beckwourth Peak in the Lost Sierra"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="overflow-hidden h-64">
+          <img
+            src="/images/events/high-camp-cabin-window-mountain-sunrise.jpg"
+            alt="Mountain views at sunrise through the large windows of a High Camp cabin"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="overflow-hidden h-64 lg:col-span-2">
+          <img
+            src="/images/events/high-camp-trail-pine-forest-beckwourth-peak.jpg"
+            alt="Trail winding through pine forest near High Camp with Beckwourth Peak beyond"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -93,15 +163,16 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {[
-          { title: 'North Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, kitchen, A/C, private deck' },
-          { title: 'South Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, kitchen, A/C, private deck' },
-          { title: 'The Yurt', guests: 'Up to 5 guests', detail: '1 queen + 2 full + pullout twin, A/C, private deck' },
-          { title: 'Campsite', guests: 'Up to 5 guests', detail: 'Bring your tent. Picnic table, bathhouse access, fire pit.' },
+          { title: 'North Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, full kitchen, A/C, private deck, bedding included', href: '/lodging/north-cabin' },
+          { title: 'South Cabin', guests: 'Up to 4 guests', detail: '2 queen bunk beds, full kitchen, A/C, private deck, bedding included', href: '/lodging/south-cabin' },
+          { title: 'The Yurt', guests: 'Up to 5 guests', detail: '1 queen + 2 full + pullout twin, A/C, kitchen basics, private deck, bedding included', href: '/lodging/yurt' },
+          { title: 'Campsite', guests: 'Up to 5 guests', detail: 'Bring your own tent. Picnic table, bathhouse access, fire pit. No linens.', href: '/lodging/campsite' },
         ].map(unit => (
           <div class="bg-white border border-charcoal/10 p-6 flex flex-col">
             <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-1">{unit.title}</h3>
             <p class="text-cobalt font-sans text-sm font-bold mb-3">{unit.guests}</p>
-            <p class="font-sans text-sm text-charcoal/70 leading-relaxed flex-1 mb-6">{unit.detail}</p>
+            <p class="font-sans text-sm text-charcoal/70 leading-relaxed flex-1 mb-4">{unit.detail}</p>
+            <a href={unit.href} class="block text-center text-cobalt hover:text-blue-700 font-sans text-xs font-bold mb-3 transition-colors">View unit details →</a>
             <a href={BOOK_URL} target="_blank" rel="noopener" class="block text-center bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest py-3 text-sm transition-colors">
               Check Availability
             </a>
@@ -115,7 +186,7 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
   <section class="py-20 bg-cobalt text-white text-center">
     <div class="max-w-3xl mx-auto px-6">
       <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Make a Weekend of It</h2>
-      <p class="font-sans text-white/80 text-lg mb-8">Stay the night before or after the festival and explore the trails, views, and starry skies right from your doorstep.</p>
+      <p class="font-sans text-white/80 text-lg mb-8">Stay the night before or after the festival and explore the trails, views, and starry skies right from your doorstep. September is one of the best months at High Camp.</p>
       <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-white text-cobalt hover:bg-cream font-heading font-bold uppercase tracking-widest px-10 py-4 transition-colors text-lg">
         Check Availability
       </a>
