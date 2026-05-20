@@ -30,6 +30,27 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
     </div>
   </section>
 
+  <!-- WHAT IS HIGH CAMP -->
+  <section class="py-14 bg-charcoal text-white border-b border-white/10">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2">
+          <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-3">Your Base Camp</p>
+          <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-white mb-4">Off-Grid Glamping, 4 Minutes from the Start</h2>
+          <p class="font-sans text-white/80 text-lg leading-relaxed">
+            High Camp is an off-grid, 65-acre property on Beckwourth Peak in the Lost Sierra. We have two cabins, a yurt, a campsite, and campervan parking — all with hot showers, a communal fire pit, and 360° mountain views. Sleep in a real bed, wake up to coffee, and roll to the start line in 4 minutes.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 md:items-end">
+          <a href={BOOK_URL} target="_blank" rel="noopener" class="inline-block bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest px-8 py-4 transition-colors text-center w-full md:w-auto">
+            Check Availability
+          </a>
+          <p class="font-sans text-white/40 text-sm text-center md:text-right">June 13, 2026 &bull; Portola, CA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROXIMITY -->
   <section class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
@@ -65,6 +86,33 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
     </div>
   </section>
 
+  <!-- PHOTO GALLERY -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">The Property</p>
+        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">See What You're Coming Home To</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <div class="overflow-hidden h-56 md:col-span-2">
+          <img src="/images/events/high-camp-sunset-mountain-panorama.jpg" alt="Fiery sunset over the High Camp property with mountain views across the Lost Sierra" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden h-56">
+          <img src="/images/events/lost-found-festival-start-portola-cyclists.jpg" alt="Crowd of cyclists gathered at the Lost and Found Gravel Festival start line in Portola" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden h-56">
+          <img src="/images/events/high-camp-cabin-interior-kitchen-porthole.jpg" alt="High Camp cabin interior showing full kitchen, bunk bed, and porthole window" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden h-56">
+          <img src="/images/events/high-camp-bathhouse-private-stall-shower.jpg" alt="Clean private bathhouse stall at High Camp with glass shower, toilet, and vanity" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="overflow-hidden h-56">
+          <img src="/images/events/high-camp-campervan-parking-sunset.jpg" alt="Campervan parked at High Camp at sunset with mountain views" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LODGING OPTIONS -->
   <section class="py-20 bg-white">
     <div class="max-w-8xl mx-auto px-6">
@@ -77,50 +125,70 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
           {
             title: 'North Cabin',
             guests: 'Up to 4 guests',
+            img: '/images/lodging/north-cabin-exterior-plumas-forest.jpg',
+            imgAlt: 'North Cabin exterior at dusk with Adirondack chairs and gravel bike on the private deck',
             features: ['2 queen bunk beds', 'Air conditioning', 'Full kitchen', 'Private deck', 'Bedding & towels included'],
           },
           {
             title: 'South Cabin',
             guests: 'Up to 4 guests',
+            img: '/images/lodging/south-cabin-exterior-sunrise.jpg',
+            imgAlt: 'South Cabin deck and sliding glass door with mountain views at sunrise',
             features: ['2 queen bunk beds', 'Air conditioning', 'Full kitchen', 'Private deck', 'Bedding & towels included'],
           },
           {
             title: 'The Yurt',
             guests: 'Up to 5 guests',
+            img: '/images/lodging/yurt-exterior-pines.jpg',
+            imgAlt: 'The High Camp yurt — bright blue dome with private deck and mountain views',
             features: ['1 queen + 2 full + pullout twin', 'Air conditioning', 'Kitchen basics', 'Private deck', 'Bedding & towels included'],
           },
           {
             title: 'Campsite',
             guests: 'Up to 5 guests',
+            img: '/images/lodging/campsite-tent-platform-lost-sierra.jpg',
+            imgAlt: 'High Camp campsite with picnic table under pine trees in the Lost Sierra',
             features: ['Bring your own tent', 'Picnic table', 'Bathhouse access', 'Fire pit access', 'No linens — must pack out trash'],
           },
         ].map(unit => (
-          <div class="bg-cream border border-charcoal/10 p-6 flex flex-col">
-            <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-1">{unit.title}</h3>
-            <p class="text-cobalt font-sans text-sm font-bold mb-4">{unit.guests}</p>
-            <ul class="space-y-2 flex-1 mb-6">
-              {unit.features.map(f => (
-                <li class="font-sans text-sm text-charcoal/70 flex items-start gap-2">
-                  <span class="text-cobalt mt-0.5">✓</span>{f}
-                </li>
-              ))}
-            </ul>
-            <a href={BOOK_URL} target="_blank" rel="noopener" class="block text-center bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest py-3 text-sm transition-colors">
-              Check Availability
-            </a>
+          <div class="bg-cream border border-charcoal/10 flex flex-col overflow-hidden">
+            <div class="h-44 overflow-hidden">
+              <img src={unit.img} alt={unit.imgAlt} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-charcoal mb-1">{unit.title}</h3>
+              <p class="text-cobalt font-sans text-sm font-bold mb-4">{unit.guests}</p>
+              <ul class="space-y-2 flex-1 mb-6">
+                {unit.features.map(f => (
+                  <li class="font-sans text-sm text-charcoal/70 flex items-start gap-2">
+                    <span class="text-cobalt mt-0.5">✓</span>{f}
+                  </li>
+                ))}
+              </ul>
+              <a href={BOOK_URL} target="_blank" rel="noopener" class="block text-center bg-cobalt hover:bg-blue-600 text-white font-heading font-bold uppercase tracking-widest py-3 text-sm transition-colors">
+                Check Availability
+              </a>
+            </div>
           </div>
         ))}
       </div>
 
       <!-- Campervan -->
-      <div class="bg-charcoal text-white p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-2">Campervan Parking</h3>
-          <p class="font-sans text-white/70 leading-relaxed max-w-xl">We have 6 campervan parking spots with access to the shared bathhouse, deck, and fire pit. Perfect if you're rolling in your rig.</p>
+      <div class="bg-charcoal text-white overflow-hidden">
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-64 flex-shrink-0 h-48 md:h-auto overflow-hidden">
+            <img src="/images/events/high-camp-campervan-parking-sunset.jpg" alt="Campervan parked at High Camp at sunset with mountain views" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-6 flex-1">
+            <div>
+              <h3 class="font-heading text-2xl font-bold uppercase tracking-wide mb-2">Campervan Parking</h3>
+              <p class="font-sans text-white/70 leading-relaxed max-w-xl">We have 6 campervan parking spots with access to the shared bathhouse, deck, and fire pit. Perfect if you're rolling in your rig.</p>
+            </div>
+            <a href={BOOK_URL} target="_blank" rel="noopener" class="flex-shrink-0 inline-block border-2 border-white text-white hover:bg-white hover:text-charcoal font-heading font-bold uppercase tracking-widest px-8 py-3 transition-colors">
+              Check Availability
+            </a>
+          </div>
         </div>
-        <a href={BOOK_URL} target="_blank" rel="noopener" class="flex-shrink-0 inline-block border-2 border-white text-white hover:bg-white hover:text-charcoal font-heading font-bold uppercase tracking-widest px-8 py-3 transition-colors">
-          Check Availability
-        </a>
       </div>
     </div>
   </section>
