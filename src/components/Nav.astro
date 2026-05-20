@@ -2,84 +2,111 @@
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 ---
 
-<header class="sticky top-0 z-50 bg-dark-nav shadow-lg">
-  <div class="max-w-8xl mx-auto px-6 flex items-center justify-between h-16">
+<header class="sticky top-0 z-50 shadow-lg">
 
-    <a href="/" class="flex-shrink-0">
-      <img
-        src="/images/logos/beckwourth-peak-high-camp-logo.png"
-        alt="Beckwourth Peak High Camp"
-        class="h-9 w-auto"
-      />
+  <!-- Announcement bar -->
+  <div class="bg-cobalt text-white text-center py-2.5 px-4">
+    <a href="/gravel-social-june-2026" class="font-sans text-sm font-bold hover:underline">
+      🚵 High Camp Gravel Social · June 5–7, 2026 · Spots still available — Register now →
     </a>
+  </div>
 
-    <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-8 font-sans text-white/80">
+  <!-- Main nav -->
+  <div class="bg-dark-nav">
+    <div class="max-w-8xl mx-auto px-6 flex items-center justify-between h-16">
 
-      <!-- Lodging dropdown -->
-      <div class="relative group">
-        <a href="/#lodging" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
-          Lodging <span class="text-xs opacity-60">▾</span>
-        </a>
-        <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
-          <a href="/lodging/north-cabin" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">North Cabin</a>
-          <a href="/lodging/south-cabin" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">South Cabin</a>
-          <a href="/lodging/yurt" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">The Yurt</a>
-          <a href="/lodging/campsite" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campsite</a>
-        </div>
-      </div>
-
-      <!-- Routes & Trails dropdown -->
-      <div class="relative group">
-        <a href="/#activities" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
-          Routes & Trails <span class="text-xs opacity-60">▾</span>
-        </a>
-        <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
-          <a href="/routes/mountain-biking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Mountain Biking</a>
-          <a href="/routes/gravel-biking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Gravel Biking</a>
-          <a href="/routes/hiking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Hiking</a>
-          <a href="/routes/bikepacking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Bikepacking</a>
-          <a href="/routes/cabdr" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">CABDR Alternate</a>
-        </div>
-      </div>
-
-      <a href="/things-to-do" class="text-base hover:text-white transition-colors">Things to Do</a>
-      <a href="/getting-here" class="text-base hover:text-white transition-colors">Getting Here</a>
-      <a href="/faq" class="text-base hover:text-white transition-colors">FAQ</a>
-    </nav>
-
-    <!-- Right side: hamburger (mobile) + Book Now -->
-    <div class="flex items-center gap-3">
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden text-white p-2 focus:outline-none"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-      >
-        <!-- Hamburger icon -->
-        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <!-- Close icon -->
-        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <a
-        href={BOOK_URL}
-        target="_blank"
-        rel="noopener"
-        class="bg-cobalt hover:bg-blue-600 text-white text-sm font-bold px-5 py-2 rounded transition-colors"
-      >
-        Book Now
+      <a href="/" class="flex-shrink-0">
+        <img
+          src="/images/logos/beckwourth-peak-high-camp-logo.png"
+          alt="Beckwourth Peak High Camp"
+          class="h-9 w-auto"
+        />
       </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-8 font-sans text-white/80">
+
+        <!-- Lodging dropdown -->
+        <div class="relative group">
+          <a href="/#lodging" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
+            Lodging <span class="text-xs opacity-60">▾</span>
+          </a>
+          <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
+            <a href="/lodging/north-cabin" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">North Cabin</a>
+            <a href="/lodging/south-cabin" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">South Cabin</a>
+            <a href="/lodging/yurt" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">The Yurt</a>
+            <a href="/lodging/campsite" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Campsite</a>
+          </div>
+        </div>
+
+        <!-- Routes & Trails dropdown -->
+        <div class="relative group">
+          <a href="/#activities" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5">
+            Routes & Trails <span class="text-xs opacity-60">▾</span>
+          </a>
+          <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-cobalt min-w-[180px] shadow-xl">
+            <a href="/routes/mountain-biking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Mountain Biking</a>
+            <a href="/routes/gravel-biking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Gravel Biking</a>
+            <a href="/routes/hiking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Hiking</a>
+            <a href="/routes/bikepacking" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">Bikepacking</a>
+            <a href="/routes/cabdr" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">CABDR Alternate</a>
+          </div>
+        </div>
+
+        <!-- Events dropdown -->
+        <div class="relative group">
+          <a href="#" class="flex items-center gap-1 text-base hover:text-white transition-colors py-5 text-gold">
+            Events <span class="text-xs opacity-60">▾</span>
+          </a>
+          <div class="absolute top-full left-0 hidden group-hover:block bg-[#111] border-t-2 border-gold min-w-[220px] shadow-xl">
+            <a href="/gravel-social-june-2026" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+              Gravel Social <span class="text-white/30 text-xs ml-1">Jun 5–7</span>
+            </a>
+            <a href="/lost-found-gravel-glamping" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+              Lost & Found Glamping <span class="text-white/30 text-xs ml-1">Jun 13</span>
+            </a>
+            <a href="/sierra-valley-art-ag-trail-festival" class="block px-5 py-2.5 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors">
+              Art & Ag Trail <span class="text-white/30 text-xs ml-1">Sep 20</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="/things-to-do" class="text-base hover:text-white transition-colors">Things to Do</a>
+        <a href="/getting-here" class="text-base hover:text-white transition-colors">Getting Here</a>
+        <a href="/faq" class="text-base hover:text-white transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right side: hamburger (mobile) + Book Now -->
+      <div class="flex items-center gap-3">
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden text-white p-2 focus:outline-none"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <a
+          href={BOOK_URL}
+          target="_blank"
+          rel="noopener"
+          class="bg-cobalt hover:bg-blue-600 text-white text-sm font-bold px-5 py-2 rounded transition-colors"
+        >
+          Book Now
+        </a>
+      </div>
     </div>
   </div>
 
-  <!-- Mobile menu panel -->
+  <!-- Mobile menu panel — top accounts for bar (40px) + nav (64px) = 104px -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden fixed inset-x-0 top-16 bottom-0 bg-dark-nav z-40 overflow-y-auto"
+    class="hidden md:hidden fixed inset-x-0 top-[104px] bottom-0 bg-dark-nav z-40 overflow-y-auto"
   >
     <nav class="px-6 py-8 flex flex-col">
 
@@ -96,6 +123,17 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
       <a href="/routes/hiking" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">Hiking</a>
       <a href="/routes/bikepacking" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">Bikepacking</a>
       <a href="/routes/cabdr" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">CABDR Alternate</a>
+
+      <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3 mt-8 font-sans">Events</p>
+      <a href="/gravel-social-june-2026" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">
+        Gravel Social <span class="text-white/40 text-sm ml-1">· Jun 5–7</span>
+      </a>
+      <a href="/lost-found-gravel-glamping" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">
+        Lost & Found Glamping <span class="text-white/40 text-sm ml-1">· Jun 13</span>
+      </a>
+      <a href="/sierra-valley-art-ag-trail-festival" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">
+        Art & Ag Trail <span class="text-white/40 text-sm ml-1">· Sep 20</span>
+      </a>
 
       <p class="text-gold text-xs font-bold uppercase tracking-widest mb-3 mt-8 font-sans">Explore</p>
       <a href="/things-to-do" class="text-white/80 hover:text-white font-sans py-3 border-b border-white/10 transition-colors">Things to Do</a>
@@ -130,7 +168,6 @@ const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-
     document.body.style.overflow = isOpen ? '' : 'hidden';
   });
 
-  // Close menu when a link is tapped
   menu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden');
