@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+// Auto-refreshed every 6h from the Behold Instagram feed by scripts/refresh-instagram.mjs
+import instagramPhotos from '../data/instagram.json';
 
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 
@@ -220,15 +222,6 @@ const editorialPanels = [
     alt: 'Off-grid retreat in Plumas National Forest near Portola, California',
     img: '/images/lodging/beckwourth-peak-high-camp-sunset-mountain-views.jpg',
   },
-];
-
-const instagramPhotos = [
-  { img: '/images/instagram/glamping-off-grid-lost-sierra.jpg', alt: 'Off-grid glamping at Beckwourth Peak High Camp, Lost Sierra California', url: 'https://www.instagram.com/p/DW4oqLEgasv/' },
-  { img: '/images/instagram/gravel-cycling-base-camp.jpg', alt: 'Gravel cycling base camp at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DOguXT5gdlo/' },
-  { img: '/images/instagram/mountain-biking-trails-portola.jpg', alt: 'Mountain biking trails near Beckwourth Peak High Camp, Lost Sierra', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DKnfNMnM7Xq/' },
-  { img: '/images/instagram/cabin-glamping-plumas-forest.jpg', alt: 'Cabin glamping at Beckwourth Peak High Camp, Plumas National Forest', url: 'https://www.instagram.com/p/DKKS4Oxx4RJ/' },
-  { img: '/images/instagram/outdoor-retreat-lost-sierra.jpg', alt: 'Beckwourth Peak High Camp outdoor retreat, Lost Sierra California', url: 'https://www.instagram.com/p/DEN1aYJvvAw/' },
-  { img: '/images/instagram/gravel-biking-portola.jpg', alt: 'Gravel biking and glamping at Beckwourth Peak High Camp, Portola CA', url: 'https://www.instagram.com/beckwourthpeakhighcamp/p/DQz6V7gEfEl/' },
 ];
 ---
 

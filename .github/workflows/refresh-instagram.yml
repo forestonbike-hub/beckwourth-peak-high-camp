@@ -1,0 +1,53 @@
+name: Refresh Instagram feed
+
+# Pulls the latest posts from the Behold Instagram feed every 6 hours and, if
+# anything changed, commits the new src/data/instagram.json to the Annie-New
+# branch — which triggers a Cloudflare Pages rebuild of the live site.
+#
+# NOTE: GitHub only runs scheduled workflows from the repository's DEFAULT
+# branch (currently `main`), so this file must exist on `main` for the cron to
+# fire. The job itself checks out and pushes the deployed `Annie-New` branch.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # every 6 hours (UTC)
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-instagram
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Annie-New (deployed branch)
+        uses: actions/checkout@v4
+        with:
+          ref: Annie-New
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch latest Instagram posts
+        env:
+          BEHOLD_FEED_URL: https://feeds.behold.so/oBjGMLUwbc2zgjBKBzTJ
+        run: node scripts/refresh-instagram.mjs
+
+      - name: Commit and push if the feed changed
+        run: |
+          if [[ -n "$(git status --porcelain src/data/instagram.json)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/instagram.json
+            git commit -m "Auto-update Instagram feed from Behold"
+            git push origin HEAD:Annie-New
+            echo "Instagram feed updated."
+          else
+            echo "No changes to the Instagram feed."
+          fi
