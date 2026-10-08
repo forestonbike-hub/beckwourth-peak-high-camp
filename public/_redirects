@@ -43,4 +43,10 @@
 /sierra-valley-art-ag-trail/    /sierra-valley-art-ag-trail-festival  301
 /sierra-valley-art-ag-trail     /sierra-valley-art-ag-trail-festival  301
 
+# Old WordPress pages still showing in Google results (found via Search Console, October 2026)
+/glamping-lost-sierra/          /                           301
+/glamping-lost-sierra           /                           301
+/lost-sierra-bikepacking-trip/  /routes/bikepacking         301
+/lost-sierra-bikepacking-trip   /routes/bikepacking         301
+
 # Unknown paths fall through to the 404 page — do not add a catch-all redirect here

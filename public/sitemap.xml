@@ -50,12 +50,39 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://beckwourthpeakhighcamp.com/routes/bikepacking</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://beckwourthpeakhighcamp.com/routes/cabdr</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Landing pages -->
   <url>
     <loc>https://beckwourthpeakhighcamp.com/mountain-biking-weekend</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Events -->
+  <url>
+    <loc>https://beckwourthpeakhighcamp.com/lost-found-gravel-glamping</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://beckwourthpeakhighcamp.com/sierra-valley-art-ag-trail-festival</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beckwourthpeakhighcamp.com/gravel-social-june-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Info pages -->
