@@ -21,7 +21,8 @@ const trails = [
     surface: 'Singletrack',
     desc: 'A non-technical cross-country loop around Beckwourth Peak with sweeping views of the Sierra Valley and the Lost Sierra. The full loop starts at Portola City Park, and from High Camp you can ride straight to the trail, no car needed.',
     videoId: 'G1ChlpLBVDc',
-    nameUrl: '/beckwourth-peak-trail/',
+    guideLabel: 'Beckwourth Peak Trail Guide: Map, Parking & Route',
+    guideUrl: '/beckwourth-peak-trail/',
     mapLabel: 'View on Ride with GPS',
     mapUrl: 'https://ridewithgps.com/routes/57490969',
     trailheadLabel: 'Route from High Camp (12.1 mi)',
@@ -116,13 +117,6 @@ const trails = [
         <!-- Left: trail sections -->
         <div class="lg:col-span-2 space-y-20">
 
-          <!-- Trail guide callout -->
-          <a href="/beckwourth-peak-trail/" class="block bg-white border-l-4 border-cobalt shadow-sm p-6 hover:shadow-md transition-shadow">
-            <p class="font-heading text-xs font-bold uppercase tracking-widest text-cobalt mb-1">Trail Guide</p>
-            <p class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1">Beckwourth Peak Trail: Map, Parking &amp; Route</p>
-            <p class="font-sans text-sm text-charcoal/70">The full 14.9-mile loop from Portola City Park, with the route map, route notes, and when to go.</p>
-          </a>
-
           {trails.map((trail) => (
             <div>
               <!-- Header -->
@@ -141,6 +135,12 @@ const trails = [
                 </a>
               ) : (
                 <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">{trail.name}</h2>
+              )}
+              {trail.guideUrl && (
+                <a href={trail.guideUrl} class="inline-flex items-center gap-2 -mt-2 mb-5 font-heading text-lg font-bold uppercase tracking-wide text-cobalt hover:text-blue-600 transition-colors">
+                  {trail.guideLabel}
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
               )}
               <p class="font-sans text-base text-charcoal/70 leading-relaxed mb-6">{trail.desc}</p>
 
