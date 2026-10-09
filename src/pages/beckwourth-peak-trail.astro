@@ -1,0 +1,419 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
+const ROUTE_URL = 'https://ridewithgps.com/routes/57490969';
+const HIGH_CAMP_ROUTE_URL = 'https://ridewithgps.com/routes/57491775';
+const SUMMIT_ROUTE_URL = 'https://ridewithgps.com/routes/52460636';
+const PARK_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Portola+City+Park,+Portola,+CA';
+
+// Route stats from the Ride with GPS route (57490969), starting and ending at Portola City Park
+const stats = [
+  { label: 'Distance', value: '14.9 mi' },
+  { label: 'Elevation Gain', value: '1,843 ft' },
+  { label: 'Surface', value: '91% dirt' },
+  { label: 'Difficulty', value: 'Mostly green, some blue' },
+  { label: 'Ride Time', value: 'About 2.5 hrs (est.)' },
+  { label: 'Best Months', value: 'Mar–Jun, Sept–Oct' },
+];
+
+const photos = [
+  { src: '/images/routes/beckwourth-peak-trail-arch-feature.jpg', alt: 'Mountain bikers riding through the rock tunnel on the Beckwourth Peak Trail with the Sierra Valley behind' },
+  { src: '/images/activities/beckwourth-peak-hiking-trail.jpg', alt: 'Singletrack through sagebrush and pines on the Beckwourth Peak Trail near Portola, California' },
+  { src: '/images/routes/hiking-beckwourth-peak-overlook.jpg', alt: 'Hikers on a trail near Beckwourth Peak with snow-capped Lost Sierra peaks on the horizon' },
+];
+
+const highlights = [
+  'Big views of the Sierra Valley and the peaks and ridges of the Lost Sierra',
+  'A well-designed mountain bike trail, built by the Sierra Buttes Trail Stewardship',
+  'Very light trail traffic',
+  'A steady, reasonably graded climb with a fun descent back to town as the payoff',
+  'A rock tunnel you ride straight through, about 7 miles in',
+];
+
+const faqs = [
+  {
+    q: 'How long is the Beckwourth Peak Trail?',
+    a: 'Our Ride with GPS route from Portola City Park is 14.9 miles with 1,843 feet of climbing, including about 1.4 miles of pavement. The City of Portola describes the trail itself as a 13-mile lollipop loop.',
+  },
+  {
+    q: 'Where do I park for the Beckwourth Peak Trail?',
+    a: 'Park in front of Portola City Park (Third Avenue and South Gulling Avenue). There is plenty of parking, plus a bathroom and drinking fountain nearby.',
+  },
+  {
+    q: 'Is the Beckwourth Peak Trail good for beginners?',
+    a: 'Yes, if you have a decent level of fitness. It is a non-technical cross-country trail, mostly green with some blue sections, but there is plenty of climbing. Near the end of the loop there is a short rock garden that novice riders will want to walk.',
+  },
+  {
+    q: 'Which direction should I ride the loop?',
+    a: 'Counter-clockwise is best. The trail is two-way, so check your speed and watch for riders climbing on your way back down to town.',
+  },
+  {
+    q: 'When is the best time to ride or hike it?',
+    a: 'March through June and September through October. July and August work too: start in the morning, bring extra water, and finish the climbing before temperatures reach the upper 80s.',
+  },
+  {
+    q: 'Is it Beckwourth Peak or Beckworth Peak?',
+    a: 'Beckwourth, after James Beckwourth, the explorer who scouted a wagon route across the Sierra. You will often see it spelled "Beckworth" too.',
+  },
+  {
+    q: 'Where can I stay near the Beckwourth Peak Trail?',
+    a: 'Beckwourth Peak High Camp is an off-grid glamping property right next to the trail, open May through October. Guests can ride straight from their cabin or yurt to the trail.',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'TouristAttraction',
+      name: 'Beckwourth Peak Trail',
+      alternateName: 'Beckworth Peak Trail',
+      description: 'A non-technical cross-country singletrack loop around Beckwourth Peak, starting at Portola City Park in Portola, CA, with views of the Sierra Valley and the Lost Sierra.',
+      url: 'https://beckwourthpeakhighcamp.com/beckwourth-peak-trail/',
+      image: 'https://beckwourthpeakhighcamp.com/images/routes/beckwourth-peak-trail-arch-feature.jpg',
+      isAccessibleForFree: true,
+      address: { '@type': 'PostalAddress', addressLocality: 'Portola', addressRegion: 'CA', postalCode: '96122', addressCountry: 'US' },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<Layout
+  title="Beckwourth Peak Trail Map & Guide | Portola, CA | High Camp"
+  description="Beckwourth Peak Trail in Portola, CA: a 14.9-mile singletrack loop with 1,843 ft of climbing and Sierra Valley views. Route map, parking, and riding tips."
+  ogImage="/images/activities/beckwourth-peak-hiking-trail.jpg"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Nav />
+
+  <!-- HERO -->
+  <section class="relative h-[55vh] min-h-[380px] flex items-end overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url('/images/activities/beckwourth-peak-hiking-trail.jpg')`}
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+    <div class="relative z-10 max-w-8xl mx-auto px-6 pb-10 w-full">
+      <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">Portola, CA &bull; Lost Sierra</p>
+      <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white">Beckwourth Peak Trail</h1>
+      <p class="text-white/80 font-sans text-lg mt-2">A singletrack loop around Beckwourth Peak, right next door to High Camp</p>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="bg-charcoal">
+    <div class="max-w-8xl mx-auto px-6 py-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      {stats.map((stat) => (
+        <div>
+          <p class="font-heading text-xs font-bold uppercase tracking-widest text-gold mb-1">{stat.label}</p>
+          <p class="font-sans text-base font-bold text-white">{stat.value}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-8xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+        <!-- Left: guide -->
+        <div class="lg:col-span-2 space-y-16 min-w-0">
+
+          <!-- Overview -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Trail Overview</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                The Beckwourth Peak Trail is a non-technical, cross-country singletrack trail with stunning views
+                of the Sierra Valley and the many peaks and ridges of the Lost Sierra. The trail is mostly green with
+                some blue sections. There is plenty of climbing, but it's enjoyable for anyone with a decent level
+                of fitness.
+              </p>
+              <p>
+                It starts in town at Portola City Park, climbs to the shoulder of Beckwourth Peak, loops the peak,
+                and then rewards you with a fun descent back to town. Ride it on a mountain bike or hike it; either
+                way, you'll share the trail with very little traffic.
+              </p>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-2">Beckwourth Peak Trail Map</h2>
+            <p class="font-sans text-base text-charcoal/60 mb-6">
+              14.9 miles from Portola City Park, with 1,843 feet of climbing. Tap the map to explore, or send the
+              route to your GPS.
+            </p>
+            <div class="bg-white shadow-md rounded overflow-hidden">
+              <iframe
+                src="https://ridewithgps.com/embeds?type=route&id=57490969&sampleGraph=true"
+                title="Beckwourth Peak Trail route map and elevation profile on Ride with GPS"
+                loading="lazy"
+                style="width: 1px; min-width: 100%; height: 700px; border: none;"
+                scrolling="no"
+              ></iframe>
+            </div>
+            <div class="flex flex-wrap gap-6 mt-5">
+              <a href={ROUTE_URL} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Open the route on Ride with GPS
+              </a>
+              <a href={HIGH_CAMP_ROUTE_URL} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Staying at High Camp? Ride it from your cabin (12.1 mi)
+              </a>
+            </div>
+          </div>
+
+          <!-- The Route -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">The Route</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                Start by riding into the city park and hopping on the trail just above the pump track. The
+                singletrack takes you around the ball fields and into the woods, then crosses a dirt road. The
+                long climb up the mountain starts on the other side of that road.
+              </p>
+              <p>
+                The climb runs about 7 miles. There are some short, punchy pitches, but overall the trail is well
+                designed, with switchbacks that keep the grade reasonable. Around mile 7 you'll reach the trail's
+                signature feature: a rock tunnel you ride straight through.
+              </p>
+              <p>
+                The loop around the peak is best ridden counter-clockwise. On the north side of the mountain, as
+                you get close to finishing the loop (around mile 10), there's a short rock garden. It's rideable,
+                but novice riders will walk it. Fortunately, it's very short.
+              </p>
+              <p>
+                From there, enjoy the downhill back to town. It's a two-way trail, so check your speed and watch
+                for riders climbing on your way down.
+              </p>
+            </div>
+            <figure class="mt-8">
+              <div class="overflow-hidden rounded shadow-md">
+                <img
+                  src="/images/routes/beckwourth-peak-trail-arch-feature.jpg"
+                  alt="Mountain bikers riding through the rock tunnel on the Beckwourth Peak Trail with the Sierra Valley behind"
+                  width="747"
+                  height="482"
+                  class="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">The rock tunnel, about 7 miles in.</figcaption>
+            </figure>
+          </div>
+
+          <!-- Highlights -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Why Ride It</h2>
+            <ul class="space-y-3">
+              {highlights.map((item) => (
+                <li class="flex gap-3 font-sans text-base text-charcoal/70 leading-relaxed">
+                  <span class="text-gold font-bold flex-shrink-0">&#9650;</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Parking -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Trailhead &amp; Parking</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                The trailhead is at <a href={PARK_MAP_URL} target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Portola City Park</a>
+                (Third Avenue and South Gulling Avenue). There's plenty of parking right in front of the park,
+                with a bathroom and drinking fountain nearby.
+              </p>
+              <p>
+                The best place for a post-ride beer is just around the corner at
+                <a href="https://www.boxcarportola.com/" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Box Car Taphouse</a>.
+              </p>
+            </div>
+          </div>
+
+          <!-- When to go -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">When to Go</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                The best months to ride are March through June, and then September and October. July and August
+                are good too, but bring extra water, start in the morning, and get the climbing done before the
+                temperatures rise into the upper 80s.
+              </p>
+            </div>
+          </div>
+
+          <!-- Hiking -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Hiking Beckwourth Peak</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                Hikers can take on the Beckwourth Peak Trail too. It's a two-way trail shared with mountain bikers,
+                so keep an ear out for riders, especially on the descents.
+              </p>
+              <p>
+                Want the summit? Our
+                <a href={SUMMIT_ROUTE_URL} target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Beckwourth Peak summit hike</a>
+                leaves from High Camp. It follows the Beckwourth Peak Trail before joining a dirt service road to
+                the top. Plan on 4 to 5 hours round trip, and bring plenty of water, because there's none on the
+                route. See all our <a href="/routes/hiking/" class="text-cobalt hover:text-blue-600 font-bold">hiking trails near Portola</a>.
+              </p>
+            </div>
+          </div>
+
+          <!-- History -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Who Was Beckwourth?</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
+              <p>
+                The mountain is named after
+                <a href="https://en.wikipedia.org/wiki/James_Beckwourth" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">James Beckwourth</a>,
+                an African American explorer, born into slavery, who scouted and created a wagon route across the
+                Sierra. Long before that, the
+                <a href="https://en.wikipedia.org/wiki/Maidu" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Mountain Maidu</a>
+                lived in this area for over 3,000 years.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stay -->
+          <div class="bg-white shadow-md p-8 md:p-10">
+            <p class="font-heading text-sm font-bold uppercase tracking-widest text-gold mb-2">Stay Next to the Trail</p>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4">Ride From Your Cabin</h2>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed mb-8">
+              <p>
+                Beckwourth Peak High Camp is an off-grid glamping property right next to the Beckwourth Peak Trail.
+                Ride straight from your cabin or yurt to the trail, then come back to a hot shower and big, dark night
+                skies.
+              </p>
+              <p>
+                Choose from the <a href="/lodging/north-cabin/" class="text-cobalt hover:text-blue-600 font-bold">North Cabin</a>,
+                <a href="/lodging/south-cabin/" class="text-cobalt hover:text-blue-600 font-bold">South Cabin</a>,
+                <a href="/lodging/yurt/" class="text-cobalt hover:text-blue-600 font-bold">The Yurt</a>, or the
+                <a href="/lodging/campsite/" class="text-cobalt hover:text-blue-600 font-bold">Campsite</a>, or
+                <a href="/lodging/entire-property/" class="text-cobalt hover:text-blue-600 font-bold">book the whole property</a>
+                for your crew. Open May through October.
+              </p>
+            </div>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="inline-block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-8 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading"
+            >
+              Book Your Stay
+            </a>
+          </div>
+
+          <!-- FAQ -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Beckwourth Peak Trail FAQ</h2>
+            <div class="space-y-3">
+              {faqs.map((item) => (
+                <details class="border border-charcoal/15 rounded group bg-white">
+                  <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none font-heading text-sm font-bold uppercase tracking-wide text-charcoal hover:text-cobalt transition-colors select-none gap-4">
+                    <span>{item.q}</span>
+                    <span class="text-cobalt text-lg leading-none flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+                  </summary>
+                  <div class="px-6 pb-5 pt-1 font-sans text-sm text-charcoal/70 leading-relaxed">{item.a}</div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <!-- Resources -->
+          <div>
+            <h2 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-4">More Resources</h2>
+            <ul class="space-y-2 font-sans text-base">
+              <li><a href="https://sierratrails.org/" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Sierra Buttes Trail Stewardship</a> <span class="text-charcoal/50">(the trail builders)</span></li>
+              <li><a href="https://www.fs.usda.gov/r05/plumas/newsroom/releases" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Plumas National Forest updates</a></li>
+              <li><a href="/routes/mountain-biking/" class="text-cobalt hover:text-blue-600 font-bold">More mountain biking near Portola</a></li>
+              <li><a href="/things-to-do/" class="text-cobalt hover:text-blue-600 font-bold">Things to do in Portola, CA</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Right: sidebar -->
+        <div>
+          <div class="bg-white shadow-md p-8 sticky top-24 space-y-8">
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">At a Glance</p>
+              <dl class="space-y-3 font-sans text-sm">
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Start</dt><dd class="font-bold text-charcoal text-right">Portola City Park</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Format</dt><dd class="font-bold text-charcoal text-right">Lollipop loop, counter-clockwise</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Distance</dt><dd class="font-bold text-charcoal text-right">14.9 mi</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Climbing</dt><dd class="font-bold text-charcoal text-right">1,843 ft</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Main climb</dt><dd class="font-bold text-charcoal text-right">7 mi at about 4%</dd></div>
+                <div class="flex justify-between gap-4"><dt class="text-charcoal/60">Traffic</dt><dd class="font-bold text-charcoal text-right">Light, two-way</dd></div>
+              </dl>
+            </div>
+            <div class="space-y-3">
+              <a
+                href={ROUTE_URL}
+                target="_blank"
+                rel="noopener"
+                class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+              >
+                Route on Ride with GPS
+              </a>
+              <a
+                href={HIGH_CAMP_ROUTE_URL}
+                target="_blank"
+                rel="noopener"
+                class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+              >
+                Route From High Camp
+              </a>
+            </div>
+            <div>
+              <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-3">Questions?</p>
+              <p class="font-sans text-sm text-charcoal/70 leading-relaxed mb-2">
+                Ask us about trail conditions before you go.
+              </p>
+              <a href="mailto:contact@beckwourthpeakhighcamp.com" class="text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors">
+                contact@beckwourthpeakhighcamp.com
+              </a>
+            </div>
+            <a
+              href={BOOK_URL}
+              target="_blank"
+              rel="noopener"
+              class="block text-center bg-cobalt hover:bg-blue-600 text-white font-bold px-6 py-4 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
+            >
+              Book Your Stay
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <section class="bg-charcoal py-2 px-2">
+    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
+      {photos.map((photo) => (
+        <div class="overflow-hidden h-52">
+          <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

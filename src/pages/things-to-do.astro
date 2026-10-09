@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 
 const water = [
+  { name: 'Beckwourth Peak Trail', distance: 'Next door', desc: 'A 14.9-mile singletrack loop around Beckwourth Peak from Portola City Park, with big Sierra Valley views and a rock tunnel you ride through. Ride or hike it straight from High Camp.', url: '/beckwourth-peak-trail/' },
   { name: 'Lake Davis', distance: '18 min', desc: 'Camping, picnicking, fishing, boating, swimming, mountain biking, and wildlife viewing.', url: 'https://www.fs.usda.gov/recarea/plumas/recarea/?recid=71113' },
   { name: 'Lakes Basin Recreation Area', distance: '34 min', desc: 'More than 20 lakes, 30+ miles of trails, waterfalls, and historic facilities.', url: 'https://plumascounty.org/get-outside/places-to-visit/lakes-basin-recreation-area/' },
   { name: 'Frazier Point Falls', distance: '36 min', desc: 'An accessible waterfall trail typically flowing May through June, suitable for families and limited-ability hikers.', url: 'https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/fseprd706813.pdf' },
@@ -113,7 +114,7 @@ const more = [
             <div class="bg-white border border-charcoal/10 p-6 rounded shadow-sm">
               <div class="flex items-start justify-between gap-4 mb-2">
                 {item.url ? (
-                  <a href={item.url} target="_blank" rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
+                  <a href={item.url} target={item.url.startsWith('/') ? undefined : '_blank'} rel="noopener" class="font-heading text-base font-bold uppercase tracking-wide text-cobalt hover:text-blue-700 transition-colors">{item.name}</a>
                 ) : (
                   <p class="font-heading text-base font-bold uppercase tracking-wide text-charcoal">{item.name}</p>
                 )}
