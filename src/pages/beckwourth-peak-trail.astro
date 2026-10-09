@@ -6,7 +6,6 @@ import Footer from '../components/Footer.astro';
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 const ROUTE_URL = 'https://ridewithgps.com/routes/57490969';
 const HIGH_CAMP_ROUTE_URL = 'https://ridewithgps.com/routes/57491775';
-const SUMMIT_ROUTE_URL = 'https://ridewithgps.com/routes/52460636';
 const PARK_MAP_URL = 'https://www.google.com/maps/search/?api=1&query=Portola+City+Park,+Portola,+CA';
 
 // Route stats from the Ride with GPS route (57490969), starting and ending at Portola City Park
@@ -145,13 +144,12 @@ const schema = {
               <div class="overflow-hidden rounded shadow-md">
                 <img src="/images/routes/beckwourth-peak-trail-singletrack-ridge-view.jpg" alt="Narrow singletrack across a rocky, pine-dotted slope on the Beckwourth Peak Trail with forested ridges and a distant peak beyond" width="1200" height="900" class="w-full h-auto" loading="lazy" />
               </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Big views open up as the trail climbs.</figcaption>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Big views as the trail loops the mountain.</figcaption>
             </figure>
           </div>
 
           <!-- Video -->
           <div>
-            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Ride Along</h2>
             <div class="overflow-hidden rounded shadow-md bg-charcoal">
               <video
                 id="trail-video"
@@ -168,7 +166,6 @@ const schema = {
                 aria-label="A mountain biker riding past on the Beckwourth Peak Trail through sagebrush and pines"
               ></video>
             </div>
-            <p class="font-sans text-sm text-charcoal/50 mt-3">A quick ride-by on the Beckwourth Peak Trail.</p>
           </div>
 
           <!-- Map -->
@@ -220,7 +217,7 @@ const schema = {
               <div class="overflow-hidden rounded shadow-md">
                 <img src="/images/routes/beckwourth-peak-trail-switchback-climb.jpg" alt="Mountain biker climbing a switchback through tall cedars and pines on the Beckwourth Peak Trail" width="1200" height="900" class="w-full h-auto" loading="lazy" />
               </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Switchbacks keep the climb reasonable.</figcaption>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Switchbacks keep the climbing reasonable.</figcaption>
             </figure>
             </div>
             <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
@@ -265,7 +262,7 @@ const schema = {
               <div class="overflow-hidden rounded shadow-md">
                 <img src="/images/routes/beckwourth-peak-trail-dab-buy-sign.jpg" alt="Hand-painted sign on a pine tree along the Beckwourth Peak Trail that reads: You, arrow, dab, arrow, buy" width="1200" height="900" class="w-full h-auto" loading="lazy" />
               </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Spotted on the trail: dab, and you buy.</figcaption>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Challenge your friends to clean the rock garden.</figcaption>
             </figure>
             </div>
           </div>
@@ -298,33 +295,9 @@ const schema = {
             </div>
             <figure class="mt-8">
               <div class="overflow-hidden rounded shadow-md">
-                <img src="/images/routes/beckwourth-peak-trail-fall-ridge-view.jpg" alt="Dirt singletrack along an open ridge on the Beckwourth Peak Trail with fall color and forested mountains beyond" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+                <img src="/images/routes/beckwourth-peak-trail-fall-ridge-view.jpg" alt="View from the Beckwourth Peak Trail looking down at Beckwourth Peak High Camp, with fall color and forested mountains beyond" width="1200" height="900" class="w-full h-auto" loading="lazy" />
               </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Fall color along the trail.</figcaption>
-            </figure>
-          </div>
-
-          <!-- Hiking -->
-          <div>
-            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Hiking Beckwourth Peak</h2>
-            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
-              <p>
-                Hikers can take on the Beckwourth Peak Trail too. It's a two-way trail shared with mountain bikers,
-                so keep an ear out for riders, especially on the descents.
-              </p>
-              <p>
-                Want the summit? Our
-                <a href={SUMMIT_ROUTE_URL} target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 font-bold">Beckwourth Peak summit hike</a>
-                leaves from High Camp. It follows the Beckwourth Peak Trail before joining a dirt service road to
-                the top. Plan on 4 to 5 hours round trip, and bring plenty of water, because there's none on the
-                route. See all our <a href="/routes/hiking/" class="text-cobalt hover:text-blue-600 font-bold">hiking trails near Portola</a>.
-              </p>
-            </div>
-            <figure class="mt-8">
-              <div class="overflow-hidden rounded shadow-md">
-                <img src="/images/routes/hiking-beckwourth-peak-overlook.jpg" alt="Hikers on a trail near Beckwourth Peak with snow-capped Lost Sierra peaks on the horizon" width="1200" height="900" class="w-full h-auto" loading="lazy" />
-              </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Hiking near Beckwourth Peak.</figcaption>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Looking down at High Camp from the Beckwourth Peak Trail. Can you see the blue yurt?</figcaption>
             </figure>
           </div>
 
