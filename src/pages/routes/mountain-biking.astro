@@ -15,14 +15,17 @@ const trails = [
   {
     name: 'Beckwourth Peak Trail',
     tag: 'At High Camp',
-    difficulty: 'Intermediate',
-    distance: '14–16+ mi',
-    elevation: '1,540–2,300 ft',
+    difficulty: 'Mostly Green, Some Blue',
+    distance: '14.9 mi',
+    elevation: '1,843 ft gain',
     surface: 'Singletrack',
-    desc: 'An intermediate cross-country trail that rides around the mountain with sweeping views of the Lost Sierra. Singletrack leaves directly from High Camp; no car needed.',
+    desc: 'A non-technical cross-country loop around Beckwourth Peak with sweeping views of the Sierra Valley and the Lost Sierra. The full loop starts at Portola City Park, and from High Camp you can ride straight to the trail, no car needed.',
     videoId: 'G1ChlpLBVDc',
+    nameUrl: '/beckwourth-peak-trail/',
     mapLabel: 'View on Ride with GPS',
-    mapUrl: 'https://ridewithgps.com/routes/52460523',
+    mapUrl: 'https://ridewithgps.com/routes/57490969',
+    trailheadLabel: 'Route from High Camp (12.1 mi)',
+    trailheadUrl: 'https://ridewithgps.com/routes/57491775',
   },
   {
     name: 'Mills Peak Trail',
@@ -133,7 +136,7 @@ const trails = [
                 <span class="font-sans text-xs text-charcoal/50 font-bold uppercase tracking-wider">{trail.difficulty}</span>
               </div>
               {trail.nameUrl ? (
-                <a href={trail.nameUrl} target="_blank" rel="noopener" class="hover:text-cobalt transition-colors">
+                <a href={trail.nameUrl} target={trail.nameUrl.startsWith('/') ? undefined : '_blank'} rel="noopener" class="hover:text-cobalt transition-colors">
                   <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-4 hover:text-cobalt transition-colors">{trail.name}</h2>
                 </a>
               ) : (
@@ -211,7 +214,7 @@ const trails = [
               <p class="font-heading text-sm font-bold uppercase tracking-widest text-charcoal/40 mb-4">Trail Maps</p>
               <div class="space-y-3">
                 <a
-                  href="https://ridewithgps.com/routes/52460523"
+                  href="https://ridewithgps.com/routes/57490969"
                   target="_blank"
                   rel="noopener"
                   class="block text-center bg-charcoal hover:bg-black text-white font-bold px-5 py-3 rounded text-sm transition-colors uppercase tracking-wide font-heading w-full"
