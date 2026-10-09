@@ -36,6 +36,11 @@
 
   <!-- Routes -->
   <url>
+    <loc>https://beckwourthpeakhighcamp.com/beckwourth-peak-trail/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://beckwourthpeakhighcamp.com/routes/mountain-biking/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
