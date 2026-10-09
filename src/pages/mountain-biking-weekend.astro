@@ -16,7 +16,7 @@ const reasons = [
   },
   {
     title: 'Great for Groups',
-    desc: "Guy's, girl's, or multi-family weekend — book all three units.",
+    desc: "Guys', girls', or multi-family weekend: book all three units.",
   },
 ];
 
@@ -24,14 +24,14 @@ const trails = [
   {
     name: 'Beckwourth Peak Trail',
     tag: 'At High Camp',
-    distance: '10–16+ mi',
-    elevation: '1,500 ft gain',
-    notes: 'Rideable directly from the cabin or yurt',
-    desc: 'A flowy cross-country trail that winds around the mountain with sweeping views of the Lost Sierra. Singletrack leaves directly from the property — no car, no shuttle, no hassle.',
+    distance: '14.9 mi loop',
+    elevation: '1,843 ft gain',
+    notes: 'Rideable from your cabin or yurt (12.1 mi route)',
+    desc: 'A flowy cross-country loop around Beckwourth Peak with sweeping views of the Sierra Valley and the Lost Sierra. Singletrack leaves directly from the property: no car, no shuttle, no hassle.',
     img: '/images/routes/beckwourth-peak-trail-mtb-arch.jpg',
     alt: 'Mountain biker riding the arch feature on the Beckwourth Peak Trail, Lost Sierra',
-    mapLabel: 'View on Ride with GPS',
-    mapUrl: 'https://ridewithgps.com/routes/52460523',
+    mapLabel: 'Beckwourth Peak Trail guide and map',
+    mapUrl: '/beckwourth-peak-trail/',
   },
   {
     name: 'Mount Hough Trail System',
@@ -65,7 +65,7 @@ const itinerary = [
   {
     day: 'Friday',
     title: 'Arrive & Ride',
-    desc: 'Check in at 3pm, get settled, and take an evening spin on the Beckwourth Peak Trail. Grill or head into town for dinner at the Taproom and end the night around the fire pit.',
+    desc: 'Check in at 3pm, get settled, and take an evening spin on the Beckwourth Peak Trail. Grill or head into town for dinner at the Box Car Taphouse and end the night around the fire pit.',
   },
   {
     day: 'Saturday',
@@ -163,8 +163,8 @@ const lodging = [
         <div class="space-y-8">
           <div>
             <p class="text-cobalt font-heading text-xs font-bold uppercase tracking-widest mb-1">At High Camp</p>
-            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1">Beckwourth Peak Trail</h3>
-            <p class="font-sans text-sm text-charcoal/60">10–16+ mi &bull; 1,500 ft gain &bull; Non-technical, singletrack from the property</p>
+            <h3 class="font-heading text-2xl font-bold uppercase tracking-wide text-charcoal mb-1"><a href="/beckwourth-peak-trail/" class="hover:text-cobalt transition-colors">Beckwourth Peak Trail</a></h3>
+            <p class="font-sans text-sm text-charcoal/60">14.9 mi &bull; 1,843 ft gain &bull; Non-technical, singletrack from the property</p>
           </div>
           <div>
             <a href="https://www.google.com/maps/dir/QGWX%2B9J+Beckwourth+Peak+High+Camp,+518+23N03,+Portola,+CA+96122,+USA/Yuba+Expeditions+Adventure+Center,+550+Crescent+St,+Quincy,+CA+95971/@39.8562468,-121.0323666,148874m/data=!3m2!1e3!4b1!4m14!4m13!1m5!1m1!1s0x809c139aa981c273:0x4c1aaa7c0d9ea4f6!2m2!1d-120.4509375!2d39.7959375!1m5!1m1!1s0x809cf9aaea710d47:0xa5d168c4d6b3f500!2m2!1d-120.9536622!2d39.9438868!3e0!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="text-cobalt hover:text-blue-600 transition-colors font-heading text-xs font-bold uppercase tracking-widest mb-1 block">54 min from High Camp</a>
@@ -212,7 +212,7 @@ const lodging = [
               </div>
               <a
                 href={trail.mapUrl}
-                target="_blank"
+                target={trail.mapUrl.startsWith('/') ? undefined : '_blank'}
                 rel="noopener"
                 class="inline-flex items-center gap-2 text-cobalt hover:text-blue-600 font-sans text-sm font-bold transition-colors"
               >
