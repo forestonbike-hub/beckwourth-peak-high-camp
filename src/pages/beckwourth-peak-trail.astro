@@ -19,12 +19,6 @@ const stats = [
   { label: 'Best Months', value: 'Mar–Jun, Sept–Oct' },
 ];
 
-const photos = [
-  { src: '/images/routes/beckwourth-peak-trail-arch-feature.jpg', alt: 'Mountain bikers riding through the rock tunnel on the Beckwourth Peak Trail with the Sierra Valley behind' },
-  { src: '/images/activities/beckwourth-peak-hiking-trail.jpg', alt: 'Singletrack through sagebrush and pines on the Beckwourth Peak Trail near Portola, California' },
-  { src: '/images/routes/hiking-beckwourth-peak-overlook.jpg', alt: 'Hikers on a trail near Beckwourth Peak with snow-capped Lost Sierra peaks on the horizon' },
-];
-
 const highlights = [
   'Big views of the Sierra Valley and the peaks and ridges of the Lost Sierra',
   'A well-designed mountain bike trail, built by the Sierra Buttes Trail Stewardship',
@@ -73,7 +67,7 @@ const schema = {
       alternateName: 'Beckworth Peak Trail',
       description: 'A non-technical cross-country singletrack loop around Beckwourth Peak, starting at Portola City Park in Portola, CA, with views of the Sierra Valley and the Lost Sierra.',
       url: 'https://beckwourthpeakhighcamp.com/beckwourth-peak-trail/',
-      image: 'https://beckwourthpeakhighcamp.com/images/routes/beckwourth-peak-trail-arch-feature.jpg',
+      image: 'https://beckwourthpeakhighcamp.com/images/routes/beckwourth-peak-trail-rock-tunnel-rider.jpg',
       isAccessibleForFree: true,
       address: { '@type': 'PostalAddress', addressLocality: 'Portola', addressRegion: 'CA', postalCode: '96122', addressCountry: 'US' },
     },
@@ -92,7 +86,7 @@ const schema = {
 <Layout
   title="Beckwourth Peak Trail Map & Guide | Portola, CA | High Camp"
   description="Beckwourth Peak Trail in Portola, CA: a 14.9-mile singletrack loop with 1,843 ft of climbing and Sierra Valley views. Route map, parking, and riding tips."
-  ogImage="/images/activities/beckwourth-peak-hiking-trail.jpg"
+  ogImage="/images/routes/beckwourth-peak-trail-rock-tunnel-rider.jpg"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   <Nav />
@@ -147,6 +141,34 @@ const schema = {
                 way, you'll share the trail with very little traffic.
               </p>
             </div>
+            <figure class="mt-8">
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-singletrack-ridge-view.jpg" alt="Narrow singletrack across a rocky, pine-dotted slope on the Beckwourth Peak Trail with forested ridges and a distant peak beyond" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Big views open up as the trail climbs.</figcaption>
+            </figure>
+          </div>
+
+          <!-- Video -->
+          <div>
+            <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Ride Along</h2>
+            <div class="overflow-hidden rounded shadow-md bg-charcoal">
+              <video
+                id="trail-video"
+                class="w-full h-auto block"
+                src="/videos/beckwourth-peak-trail-ride.mp4"
+                poster="/images/routes/beckwourth-peak-trail-ride-poster.jpg"
+                width="1280"
+                height="720"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="A mountain biker riding past on the Beckwourth Peak Trail through sagebrush and pines"
+              ></video>
+            </div>
+            <p class="font-sans text-sm text-charcoal/50 mt-3">A quick ride-by on the Beckwourth Peak Trail.</p>
           </div>
 
           <!-- Map -->
@@ -186,11 +208,35 @@ const schema = {
                 singletrack takes you around the ball fields and into the woods, then crosses a dirt road. The
                 long climb up the mountain starts on the other side of that road.
               </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+              <figure>
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-forest-singletrack-rider.jpg" alt="Mountain biker riding singletrack through a sunlit pine forest on the Beckwourth Peak Trail" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Shady singletrack through the pines.</figcaption>
+            </figure>
+              <figure>
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-switchback-climb.jpg" alt="Mountain biker climbing a switchback through tall cedars and pines on the Beckwourth Peak Trail" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Switchbacks keep the climb reasonable.</figcaption>
+            </figure>
+            </div>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
               <p>
                 The climb runs about 7 miles. There are some short, punchy pitches, but overall the trail is well
                 designed, with switchbacks that keep the grade reasonable. Around mile 7 you'll reach the trail's
                 signature feature: a rock tunnel you ride straight through.
               </p>
+            </div>
+            <figure class="my-8">
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-rock-tunnel-rider.jpg" alt="Mountain biker riding toward the rock tunnel on the Beckwourth Peak Trail, with the Sierra Valley in the distance" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">The rock tunnel, about 7 miles in.</figcaption>
+            </figure>
+            <div class="space-y-4 font-sans text-base text-charcoal/70 leading-relaxed">
               <p>
                 The loop around the peak is best ridden counter-clockwise. On the north side of the mountain, as
                 you get close to finishing the loop (around mile 10), there's a short rock garden. It's rideable,
@@ -201,24 +247,12 @@ const schema = {
                 for riders climbing on your way down.
               </p>
             </div>
-            <figure class="mt-8">
-              <div class="overflow-hidden rounded shadow-md">
-                <img
-                  src="/images/routes/beckwourth-peak-trail-arch-feature.jpg"
-                  alt="Mountain bikers riding through the rock tunnel on the Beckwourth Peak Trail with the Sierra Valley behind"
-                  width="747"
-                  height="482"
-                  class="w-full h-auto"
-                  loading="lazy"
-                />
-              </div>
-              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">The rock tunnel, about 7 miles in.</figcaption>
-            </figure>
           </div>
 
           <!-- Highlights -->
           <div>
             <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal mb-6">Why Ride It</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <ul class="space-y-3">
               {highlights.map((item) => (
                 <li class="flex gap-3 font-sans text-base text-charcoal/70 leading-relaxed">
@@ -227,6 +261,13 @@ const schema = {
                 </li>
               ))}
             </ul>
+            <figure>
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-dab-buy-sign.jpg" alt="Hand-painted sign on a pine tree along the Beckwourth Peak Trail that reads: You, arrow, dab, arrow, buy" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Spotted on the trail: dab, and you buy.</figcaption>
+            </figure>
+            </div>
           </div>
 
           <!-- Parking -->
@@ -255,6 +296,12 @@ const schema = {
                 temperatures rise into the upper 80s.
               </p>
             </div>
+            <figure class="mt-8">
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/beckwourth-peak-trail-fall-ridge-view.jpg" alt="Dirt singletrack along an open ridge on the Beckwourth Peak Trail with fall color and forested mountains beyond" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Fall color along the trail.</figcaption>
+            </figure>
           </div>
 
           <!-- Hiking -->
@@ -273,6 +320,12 @@ const schema = {
                 route. See all our <a href="/routes/hiking/" class="text-cobalt hover:text-blue-600 font-bold">hiking trails near Portola</a>.
               </p>
             </div>
+            <figure class="mt-8">
+              <div class="overflow-hidden rounded shadow-md">
+                <img src="/images/routes/hiking-beckwourth-peak-overlook.jpg" alt="Hikers on a trail near Beckwourth Peak with snow-capped Lost Sierra peaks on the horizon" width="1200" height="900" class="w-full h-auto" loading="lazy" />
+              </div>
+              <figcaption class="font-sans text-sm text-charcoal/50 mt-3">Hiking near Beckwourth Peak.</figcaption>
+            </figure>
           </div>
 
           <!-- History -->
@@ -404,16 +457,13 @@ const schema = {
     </div>
   </section>
 
-  <!-- PHOTO STRIP -->
-  <section class="bg-charcoal py-2 px-2">
-    <div class="grid grid-cols-3 gap-2 max-w-8xl mx-auto">
-      {photos.map((photo) => (
-        <div class="overflow-hidden h-52">
-          <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover" loading="lazy" />
-        </div>
-      ))}
-    </div>
-  </section>
-
   <Footer />
+  <script>
+    const trailVideo = document.getElementById('trail-video') as HTMLVideoElement | null;
+    if (trailVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      trailVideo.pause();
+      trailVideo.removeAttribute('autoplay');
+      trailVideo.controls = true;
+    }
+  </script>
 </Layout>
