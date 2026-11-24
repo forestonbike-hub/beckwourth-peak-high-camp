@@ -3,14 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
-const REGISTER_URL = 'https://forms.gle/zTQ2vHGermH4LdiW8';
 const RWGS_URL = 'https://ridewithgps.com/events/435768-gravel-social-june-2026';
 const BOOK_URL = 'https://resnexus.com/resnexus/reservations/book/6C664BF8-3F89-4D87-9E83-DA82447501EB/';
 
 const days = [
   {
     day: 'Day 1',
-    label: 'Friday, June 5',
+    label: 'Friday, June 11',
     title: 'Truckee to High Camp',
     miles: '44, 66, or 77 miles',
     desc: 'Drop your bag at the Lift Co-Working parking lot and choose your distance. All routes converge at High Camp, where you\'ll pitch your tent (or check into your cabin or yurt), enjoy an Alibi Ale Works happy hour, a catered dinner from Cuccia\'s in Graeagle, trivia, and a campfire with your fellow riders.',
@@ -18,7 +17,7 @@ const days = [
   },
   {
     day: 'Day 2',
-    label: 'Saturday, June 6',
+    label: 'Saturday, June 12',
     title: 'Sierra Buttes Loop',
     miles: '50 or 57 miles',
     desc: 'Start with coffee and a grab-and-go breakfast, then ride a scenic loop up to the Sierra Buttes. Top out at Gold Lake (great for a swim) or push on to Mills Peak Lookout for some of the best views in the Lost Sierra. Grab lunch in Graeagle or the Brewing Lair in Blairsden. Back at camp: happy hour, a catered dinner from Sierra Smokeshow, disc golf, trivia, and a campfire.',
@@ -26,7 +25,7 @@ const days = [
   },
   {
     day: 'Day 3',
-    label: 'Sunday, June 7',
+    label: 'Sunday, June 13',
     title: 'High Camp to Truckee',
     miles: '46 or 62 miles',
     desc: 'Pack your bag, grab coffee and breakfast, and choose your return route — different roads than Day 1. Optional lunch stop in Sierraville. After returning to your car, swing by Alibi Ale Works in Truckee to pick up your bag.',
@@ -63,8 +62,8 @@ const faqs = [
 ---
 
 <Layout
-  title="High Camp Gravel Social | June 5–7, 2026 | Lost Sierra"
-  description="Three days of gravel riding in the Lost Sierra, based at Beckwourth Peak High Camp. Bag shuttle, catered meals, Alibi beer, hot showers, and campfires. June 5–7, 2026."
+  title="High Camp Gravel Social | June 11–13, 2027 | Lost Sierra"
+  description="Three days of gravel riding in the Lost Sierra, based at Beckwourth Peak High Camp. Bag shuttle, catered meals, Alibi beer, hot showers, and campfires. June 11–13, 2027."
   ogImage="/images/events/gravel-social-riders-lost-sierra-forest-road.jpg"
 >
   <Nav />
@@ -79,7 +78,8 @@ const faqs = [
     <div class="relative z-10 max-w-8xl mx-auto px-6 pb-12 w-full">
       <p class="text-gold font-heading text-sm font-bold uppercase tracking-widest mb-2">High Camp Hosted Event</p>
       <h1 class="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wide text-white leading-none mb-3">High Camp<br>Gravel Social</h1>
-      <p class="text-white/80 font-sans text-xl">June 5–7, 2026 &bull; Truckee to Portola &bull; Lost Sierra, CA</p>
+      <p class="text-white/80 font-sans text-xl">June 11–13, 2027 &bull; Truckee to Portola &bull; Lost Sierra, CA</p>
+      <p class="mt-4 inline-block bg-gold text-charcoal font-heading font-bold uppercase tracking-widest text-sm px-4 py-2">Registration opens in December</p>
     </div>
   </section>
 
@@ -391,10 +391,10 @@ const faqs = [
   <!-- REGISTER CTA -->
   <section class="py-20 bg-cobalt text-white text-center">
     <div class="max-w-3xl mx-auto px-6">
-      <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Ready to Ride?</h2>
-      <p class="font-sans text-white/80 text-lg mb-8">$335 + $10 transaction fee per rider. Includes 2-night tent permit, bag shuttle, all meals and happy hours listed above, bathhouse access, and campfires.</p>
-      <a href={REGISTER_URL} target="_blank" rel="noopener" class="inline-block bg-white text-cobalt hover:bg-cream font-heading font-bold uppercase tracking-widest px-10 py-4 transition-colors text-lg">
-        Register Now
+      <h2 class="font-heading text-4xl md:text-5xl font-bold uppercase tracking-wide mb-4">Registration Opens in December</h2>
+      <p class="font-sans text-white/80 text-lg mb-8">Registration for the June 11–13, 2027 Gravel Social opens in December. Check back here or follow along on Instagram @beckwourthpeakhighcamp for the announcement. Questions in the meantime? Text us at 530-322-0322.</p>
+      <a href="https://www.instagram.com/beckwourthpeakhighcamp/" target="_blank" rel="noopener" class="inline-block bg-white text-cobalt hover:bg-cream font-heading font-bold uppercase tracking-widest px-10 py-4 transition-colors text-lg">
+        Follow on Instagram
       </a>
     </div>
   </section>
