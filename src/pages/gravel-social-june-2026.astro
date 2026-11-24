@@ -51,10 +51,6 @@ const faqs = [
     a: 'Text us at 530-322-0322 and let us know which unit you\'d like. We\'ll confirm availability and get you set up. First come, first served. Everyone staying in a cabin or yurt still needs to register and pay for a Gravel Social spot separately.',
   },
   {
-    q: 'What\'s the cancellation policy?',
-    a: 'Cancel by April 30 and receive a refund minus a 10% fee. After April 30, no refunds — but you can transfer your spot to another rider, who must register and sign the waiver. This applies to cabin and yurt rentals too.',
-  },
-  {
     q: 'What happens after I register?',
     a: 'After signing the waiver and paying, you\'ll receive all event details by email. You can also join a private Facebook group to connect with other participants and coordinate carpools from Truckee.',
   },
@@ -242,34 +238,28 @@ const faqs = [
           <p class="text-white/30 font-sans text-sm italic">Included with registration</p>
         </div>
 
-        <!-- North Cabin — Sold Out -->
-        <div class="bg-white/5 border border-white/10 p-7 flex flex-col relative overflow-hidden opacity-60">
-          <div class="absolute top-4 right-4 bg-red-500 text-white font-heading font-bold text-xs uppercase tracking-widest px-3 py-1">Sold Out</div>
+        <!-- North Cabin -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
           <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">North Cabin</h3>
           <p class="text-gold font-heading font-bold text-lg mb-1">$610.60 / 2 nights</p>
           <p class="text-white/50 font-sans text-xs mb-4">2 queen beds, up to 4 people</p>
           <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Air conditioning, full kitchen, private deck, and bedding included.</p>
-          <a href="/lodging/north-cabin" class="text-center text-white/40 font-heading font-bold uppercase tracking-widest text-xs border border-white/20 py-3 hover:text-white hover:border-white/40 transition-colors">View Unit</a>
         </div>
 
-        <!-- South Cabin — Sold Out -->
-        <div class="bg-white/5 border border-white/10 p-7 flex flex-col relative overflow-hidden opacity-60">
-          <div class="absolute top-4 right-4 bg-red-500 text-white font-heading font-bold text-xs uppercase tracking-widest px-3 py-1">Sold Out</div>
+        <!-- South Cabin -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
           <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">South Cabin</h3>
           <p class="text-gold font-heading font-bold text-lg mb-1">$610.60 / 2 nights</p>
           <p class="text-white/50 font-sans text-xs mb-4">2 queen beds, up to 4 people</p>
           <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Air conditioning, full kitchen, private deck, and bedding included.</p>
-          <a href="/lodging/south-cabin" class="text-center text-white/40 font-heading font-bold uppercase tracking-widest text-xs border border-white/20 py-3 hover:text-white hover:border-white/40 transition-colors">View Unit</a>
         </div>
 
-        <!-- Yurt — Sold Out -->
-        <div class="bg-white/5 border border-white/10 p-7 flex flex-col relative overflow-hidden opacity-60">
-          <div class="absolute top-4 right-4 bg-red-500 text-white font-heading font-bold text-xs uppercase tracking-widest px-3 py-1">Sold Out</div>
+        <!-- Yurt -->
+        <div class="bg-white/5 border border-white/10 p-7 flex flex-col">
           <h3 class="font-heading text-xl font-bold uppercase tracking-wide text-white mb-1">The Yurt</h3>
           <p class="text-gold font-heading font-bold text-lg mb-1">$677.80 / 2 nights</p>
           <p class="text-white/50 font-sans text-xs mb-4">1 queen, 2 full, pullout twin — up to 5</p>
           <p class="font-sans text-white/70 text-sm leading-relaxed flex-1 mb-6">Private deck, air conditioning, kitchen basics, and bedding included.</p>
-          <a href="/lodging/yurt" class="text-center text-white/40 font-heading font-bold uppercase tracking-widest text-xs border border-white/20 py-3 hover:text-white hover:border-white/40 transition-colors">View Unit</a>
         </div>
 
       </div>
@@ -280,10 +270,6 @@ const faqs = [
   <!-- PHOTO GALLERY -->
   <section class="py-20 bg-cream">
     <div class="max-w-8xl mx-auto px-6">
-      <div class="text-center mb-10">
-        <p class="text-cobalt font-heading text-sm font-bold uppercase tracking-widest mb-2">Photos from Previous Events</p>
-        <h2 class="font-heading text-4xl font-bold uppercase tracking-wide text-charcoal">The 2024 & 2025 Gravel Socials</h2>
-      </div>
       <div class="columns-2 md:columns-3 lg:columns-4 gap-3">
         {[
           { src: '/images/events/high-camp-gravel-social-sunset-mountain-view.jpg', alt: 'Sunset view of High Camp deck with string lights and mountain backdrop during the Gravel Social' },
